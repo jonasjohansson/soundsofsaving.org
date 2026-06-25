@@ -4,6 +4,8 @@ current: news
 permalink: /news/
 title: News has moved
 description: "The News section is now Stories. Redirecting you there."
+canonicalOverride: /stories/
+robots: "noindex, follow"
 eleventyExcludeFromCollections: true
 ---
 {#
@@ -12,7 +14,6 @@ eleventyExcludeFromCollections: true
   the old posts moved to: Archive, Get Help).
 #}
 <meta http-equiv="refresh" content="0; url=/stories/">
-<link rel="canonical" href="{{ site.origin }}/stories/">
 <script>location.replace("/stories/");</script>
 
 <div class="container" style="padding-block: var(--space-2xl);">

@@ -186,7 +186,7 @@ ogType: website
     <p class="sessions-section__label">Featured</p>
     <ul class="sessions-grid sessions-grid--lead">
       {% for s in featured %}
-      <li class="session-card{% if s.featured %} session-card--featured{% endif %}">
+      <li class="session-card session-card--featured">
         <a class="session-card__link" href="{{ s.url }}">
           <figure class="media media--full">
             {% if s.thumbnail %}{% respImg s.thumbnail, { alt: s.artist + " on Songs That Found Me at the Right Time", sizes: "(max-width: 640px) 92vw, (max-width: 1100px) 45vw, 300px", width: s.dims.width if s.dims else null, height: s.dims.height if s.dims else null } %}{% endif %}
@@ -208,7 +208,7 @@ ogType: website
     {% if featured.length %}<p class="sessions-section__label">The series</p>{% endif %}
     <ul class="sessions-grid">
       {% for s in episodes %}
-      <li class="session-card{% if s.featured %} session-card--featured{% endif %}">
+      <li class="session-card">
         <a class="session-card__link" href="{{ s.url }}">
           <figure class="media media--full">
             {% if s.thumbnail %}{% respImg s.thumbnail, { alt: s.artist + " on Songs That Found Me at the Right Time", sizes: "(max-width: 640px) 92vw, (max-width: 1100px) 45vw, 300px", width: s.dims.width if s.dims else null, height: s.dims.height if s.dims else null } %}{% endif %}
@@ -230,7 +230,7 @@ ogType: website
     <p class="sessions-section__label">Songs that found us</p>
     <ul class="sessions-grid">
       {% for s in favorites %}
-      <li class="session-card{% if s.featured %} session-card--featured{% endif %}">
+      <li class="session-card">
         <a class="session-card__link" href="{{ s.url }}">
           <figure class="media media--full">
             {% if s.thumbnail %}{% respImg s.thumbnail, { alt: s.artist + " on Songs That Found Me at the Right Time", sizes: "(max-width: 640px) 92vw, (max-width: 1100px) 45vw, 300px", width: s.dims.width if s.dims else null, height: s.dims.height if s.dims else null } %}{% endif %}

@@ -3,6 +3,8 @@ layout: base.njk
 permalink: /community/
 title: Community has moved
 description: "The Community page is now part of About Us. Redirecting you there."
+canonicalOverride: /about-us/
+robots: "noindex, follow"
 eleventyExcludeFromCollections: true
 ---
 {#
@@ -14,8 +16,7 @@ eleventyExcludeFromCollections: true
   was removed), so the URL resolves to exactly one page.
 #}
 <meta http-equiv="refresh" content="0; url=/about-us/">
-<link rel="canonical" href="{{ site.origin }}/about-us/">
-<meta name="robots" content="noindex, follow">
+<script>location.replace("/about-us/");</script>
 <style>
   .moved { padding-block: var(--space-2xl); max-width: var(--maxw-prose); }
   .moved h1 { font-family: var(--font-display); font-size: var(--fs-title); line-height: var(--lh-tight); margin: 0 0 var(--space-md); }

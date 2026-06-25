@@ -19,20 +19,23 @@ This mirrors the architecture of the sibling `lumenproject.se` repo.
 
 Content was sourced by crawling the live site (see `docs/scrape-report.md`):
 
-- **News** — all 70 blog posts, with rehosted images. `content/news/*.md`
-- **Songs That Found Me at the Right Time** — the 6-episode YouTube series.
-  `content/songs/*.md`
-- **Get Help** — a faceted resource directory of 504 resources across 16 topics
-  and 33 cities, parsed from the site's collection pages.
-  `content/resources.json`
-- **Programs / About Us / Community** — structured page copy. `content/pages/*.json`
+- **Sessions — "Songs That Found Me at the Right Time"** — the flagship video
+  series, 37 episodes. `content/sessions/*.md` (the old 6-item `/songs/` list now
+  redirects here)
+- **Stories / Archive / Learn** — the 70 former blog posts, retyped into Stories
+  (interviews + features), an Archive (perishable round-ups), and Get Help
+  explainers. `content/news/*.md`
+- **Get Help** — a faceted resource directory of 491 resources across 17
+  categories and 33 locations. `content/resources.json`
+- **Programs / Educators / About Us** — structured page copy. `content/pages/*.json`
+  (`/community/` and `/news/` are now redirect stubs)
 - **Settings** — site text, nav, donate URL, the 988 crisis line, socials, SEO.
   `content/settings.json`
 
 ## Editing content (Pages CMS)
 
 Go to **[app.pagescms.org](https://app.pagescms.org)**, sign in with GitHub
-(one-time GitHub App install on this repo grants write access), and edit Songs,
+(one-time GitHub App install on this repo grants write access), and edit Sessions,
 News, the page copy, and Settings as forms. Save -> commit -> rebuild (~1-2 min).
 Config lives in [`.pages.yml`](./.pages.yml). See [`docs/EDITING.md`](./docs/EDITING.md).
 
@@ -67,23 +70,27 @@ GitHub Pages provisions the TLS certificate automatically once DNS resolves.
 .pages.yml              Pages CMS config (collections, fields, media)
 .eleventy.js            build config (passthrough, date + img filters)
 content/
-  songs/*.md            the YouTube series episodes
-  news/*.md             70 blog posts
-  pages/*.json          Programs / About / Community / Get Help / Songs intro
-  resources.json        parsed Get Help directory (504 resources)
+  sessions/*.md         the 37 video-series episodes
+  news/*.md             the 70 former blog posts (Stories / Archive / Learn)
+  songs/*.md            legacy 6-item list, kept only to power /songs/ redirects
+  pages/*.json          Programs / Educators / About / Get Help / Community
+  resources.json        parsed Get Help directory (491 resources)
   settings.json         sitewide text, nav, links, SEO
+lib/content.js          shared build-time helpers for the _data loaders
 src/
   _data/*.js            read content/ -> templates
   _includes/base.njk    shared header/footer layout
-  index.njk programs.njk about.njk community.njk gethelp.njk
-  songs.njk song.njk news.njk newspost.njk
+  index.njk programs.njk educators.njk about.njk gethelp.njk
+  sessions.njk session.njk sessions-artists.njk
+  news.njk newspost.njk archive.njk
+  community-redirect.njk news-index-redirect.njk songs.njk song.njk   redirect stubs
   404.njk sitemap.njk robots.njk admin.njk
   CNAME
-  assets/css/           tokens.css + site.css
-  assets/img/           site brand, song thumbnails, news images
+  assets/css/           fonts.css + tokens.css + site.css
+  assets/img/           site brand, session thumbnails, news images
 scripts/
-  parse-news.js parse-songs.js parse-resources.js   re-runnable scrapers
-  validate-content.js                               content checks (npm run validate)
+  parse-news.js parse-sessions.js parse-resources.js   re-runnable scrapers
+  validate-content.js                                  content checks (npm run validate)
 docs/
   scrape-report.md      recon: what was crawled and how it parses
   plans/                design + implementation plan

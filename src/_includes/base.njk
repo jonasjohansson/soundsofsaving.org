@@ -9,7 +9,7 @@
   {% else %}<title>{{ settings.site_title }}</title>{% endif %}
 
   <meta name="description" content="{{ description or settings.meta_description }}" />
-  <link rel="canonical" href="{{ canonicalOverride or (site.origin + page.url) }}" />
+  <link rel="canonical" href="{{ site.origin }}{{ canonicalOverride or page.url }}" />
   {% if robots %}<meta name="robots" content="{{ robots }}" />{% endif %}
 
   {# Open Graph / Twitter — absImg makes image URLs fully qualified for scrapers #}

@@ -4,6 +4,8 @@ permalink: /songs/
 title: Songs That Found Me at the Right Time
 description: "This series now lives at /sessions/."
 ogType: website
+canonicalOverride: /sessions/
+robots: "noindex, follow"
 sitemap: false
 ---
 {# ------------------------------------------------------------------ #
@@ -15,7 +17,7 @@ sitemap: false
  #  place so this redirect and the per-episode redirects below resolve.
  # ------------------------------------------------------------------ #}
 <meta http-equiv="refresh" content="0; url=/sessions/" />
-<link rel="canonical" href="{{ site.origin }}/sessions/" />
+<script>location.replace("/sessions/");</script>
 <style>
   .moved { padding-block: var(--space-xl); max-width: var(--maxw-prose); }
   .moved .eyebrow { display: block; margin-bottom: var(--space-2xs); }

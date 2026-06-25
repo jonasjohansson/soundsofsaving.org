@@ -9,6 +9,8 @@ eleventyComputed:
   title: "{{ song.title }}"
   description: "This episode now lives under /sessions/."
   sitemap: false
+  robots: "noindex, follow"
+  canonicalOverride: "{% set t = '/sessions/' %}{% for s in sessions %}{% if s.youtube_id and s.youtube_id == song.youtube_id %}{% set t = s.url %}{% endif %}{% endfor %}{{ t }}"
 ---
 {# ------------------------------------------------------------------ #
  #  Per-episode redirect: each old /songs/<slug>/ now points at its new
@@ -17,10 +19,9 @@ eleventyComputed:
  #  /sessions/ index if no match is found. Canonical + meta-refresh keep
  #  link equity and bookmarks working.
  # ------------------------------------------------------------------ #}
-{% set target = "/sessions/" %}
-{% for s in sessions %}{% if s.youtube_id and s.youtube_id == song.youtube_id %}{% set target = s.url %}{% endif %}{% endfor %}
+{% set target = canonicalOverride %}
 <meta http-equiv="refresh" content="0; url={{ target }}" />
-<link rel="canonical" href="{{ site.origin }}{{ target }}" />
+<script>location.replace({{ target | dump | safe }});</script>
 <style>
   .moved { padding-block: var(--space-xl); max-width: var(--maxw-prose); }
   .moved .eyebrow { display: block; margin-bottom: var(--space-2xs); }
