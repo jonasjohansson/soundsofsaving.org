@@ -1,6 +1,5 @@
 ---
 layout: base.njk
-current: songs
 pagination:
   data: songs
   size: 1
@@ -8,125 +7,29 @@ pagination:
 permalink: "{{ song.url }}"
 eleventyComputed:
   title: "{{ song.title }}"
-  description: "{{ song.excerpt }}"
-  ogType: "video.other"
-  ogImage: "{{ song.thumbnail }}"
-  ogImageW: "{{ song.dims.width if song.dims else '' }}"
-  ogImageH: "{{ song.dims.height if song.dims else '' }}"
-  ogImageAlt: "{{ song.title }}"
+  description: "This episode now lives under /sessions/."
+  sitemap: false
 ---
+{# ------------------------------------------------------------------ #
+ #  Per-episode redirect: each old /songs/<slug>/ now points at its new
+ #  /sessions/<slug>/ home. We match by YouTube id (slugs differ slightly
+ #  between the old 6-item list and the new hub), falling back to the
+ #  /sessions/ index if no match is found. Canonical + meta-refresh keep
+ #  link equity and bookmarks working.
+ # ------------------------------------------------------------------ #}
+{% set target = "/sessions/" %}
+{% for s in sessions %}{% if s.youtube_id and s.youtube_id == song.youtube_id %}{% set target = s.url %}{% endif %}{% endfor %}
+<meta http-equiv="refresh" content="0; url={{ target }}" />
+<link rel="canonical" href="{{ site.origin }}{{ target }}" />
 <style>
-  .song-detail { padding-block: var(--space-lg) var(--space-xl); }
-  .song-back {
-    display: inline-block;
-    font-size: var(--fs-small);
-    color: var(--text-muted);
-    text-decoration: none;
-    margin-bottom: var(--space-md);
-  }
-  .song-back:hover { color: var(--accent); }
-  .song-detail__head { max-width: var(--maxw-prose); margin-bottom: var(--space-md); }
-  .song-eyebrow {
-    font-family: var(--font-mono);
-    text-transform: uppercase;
-    letter-spacing: var(--tracking-wide);
-    font-size: var(--fs-tiny);
-    font-weight: var(--fw-regular);
-    color: var(--accent);
-    margin: 0 0 var(--space-2xs);
-  }
-  .song-detail__head h1 { font-size: var(--fs-title); line-height: var(--lh-tight); margin: 0; }
-  .song-detail__head .song-song {
-    font-size: var(--fs-h3);
-    color: var(--text-muted);
-    margin: var(--space-2xs) 0 0;
-    font-weight: var(--fw-regular);
-  }
-
-  .song-embed {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    margin: var(--space-md) 0 var(--space-lg);
-    background: var(--surface-dark);
-    border-radius: var(--radius);
-    overflow: hidden;
-  }
-  .song-embed iframe {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
-    display: block;
-  }
-
-  .song-body { max-width: var(--maxw-prose); }
-  .song-pull {
-    font-size: var(--fs-lead);
-    line-height: 1.5;
-    font-style: italic;
-    color: var(--text);
-    border-left: 3px solid var(--accent);
-    padding-left: var(--space-md);
-    margin: 0 0 var(--space-lg);
-  }
-  .song-story { font-size: var(--fs-base); line-height: var(--lh-base); color: var(--text); }
-  .song-story p { margin: 0 0 var(--space-sm); }
-  .song-watch {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-2xs);
-    margin-top: var(--space-md);
-    font-weight: var(--fw-medium);
-    color: var(--accent);
-    text-decoration: none;
-  }
-  .song-watch:hover { text-decoration: underline; }
+  .moved { padding-block: var(--space-xl); max-width: var(--maxw-prose); }
+  .moved .eyebrow { display: block; margin-bottom: var(--space-2xs); }
+  .moved h1 { font-family: var(--font-display); font-size: var(--fs-h2); letter-spacing: var(--tracking-tight); margin: 0 0 var(--space-sm); }
+  .moved p { font-family: var(--font-body); color: var(--text); }
+  .moved a { font-weight: var(--fw-semibold); }
 </style>
-
-<article class="container song-detail">
-  <a class="song-back" href="/songs/">&larr; Songs That Found Me at the Right Time</a>
-
-  <header class="song-detail__head">
-    <p class="song-eyebrow">Songs That Found Me at the Right Time</p>
-    <h1>{{ song.artist }}</h1>
-    {% if song.song_title %}<p class="song-song">{{ song.song_title }}</p>{% endif %}
-  </header>
-
-  {% if song.youtube_id %}
-  <div class="song-embed">
-    <iframe
-      src="{{ song.embed_url }}"
-      title="{{ song.title }}"
-      loading="lazy"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      referrerpolicy="strict-origin-when-cross-origin"
-      allowfullscreen></iframe>
-  </div>
-  {% endif %}
-
-  <div class="song-body">
-    {% if song.pull_quote %}<blockquote class="song-pull">{{ song.pull_quote }}</blockquote>{% endif %}
-    {% if song.storyHtml %}<div class="song-story prose">{{ song.storyHtml | safe }}</div>{% endif %}
-    {% if song.youtube_url %}
-    <a class="song-watch" href="{{ song.youtube_url }}" target="_blank" rel="noopener">
-      Watch on YouTube &rarr;
-    </a>
-    {% endif %}
-  </div>
-</article>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "VideoObject",
-  "name": {{ song.title | dump | safe }},
-  "description": {{ song.excerpt | dump | safe }},
-  {% if song.thumbnail %}"thumbnailUrl": [{{ (song.thumbnail | absImg) | dump | safe }}],{% endif %}
-  {% if song.date %}"uploadDate": {{ song.date | dump | safe }},{% endif %}
-  "embedUrl": {{ song.embed_url | dump | safe }},
-  "contentUrl": {{ song.youtube_url | dump | safe }},
-  "publisher": { "@type": "Organization", "name": "Sounds of Saving", "url": {{ site.origin | dump | safe }} }
-}
-</script>
+<div class="container moved">
+  <span class="eyebrow">Moved</span>
+  <h1>{{ song.artist }} has a new home</h1>
+  <p>This episode now lives at <a href="{{ target }}">{{ target }}</a>. Redirecting you there now.</p>
+</div>

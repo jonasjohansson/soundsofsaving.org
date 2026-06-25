@@ -18,7 +18,7 @@ const root = path.join(__dirname, "..");
 const errors = [];
 const fail = (where, msg) => errors.push(`${where}: ${msg}`);
 
-const counts = { songs: 0, news: 0, pages: 0, json: 0 };
+const counts = { songs: 0, sessions: 0, news: 0, pages: 0, json: 0 };
 
 // --- config + structured content files parse ----------------------------
 try {
@@ -81,6 +81,28 @@ if (fs.existsSync(songDir)) {
   }
 }
 
+// --- sessions (the flagship "Songs That Found Me at the Right Time" hub) -
+const sessionDir = path.join(root, "content/sessions");
+if (fs.existsSync(sessionDir)) {
+  for (const f of fs.readdirSync(sessionDir).filter((f) => f.endsWith(".md"))) {
+    counts.sessions = (counts.sessions || 0) + 1;
+    let data;
+    try {
+      data = matter(fs.readFileSync(path.join(sessionDir, f), "utf8")).data;
+    } catch (e) {
+      fail(f, "unparseable frontmatter — " + e.message);
+      continue;
+    }
+    if (!data.artist || !String(data.artist).trim()) fail(f, "missing artist");
+    const hasYt =
+      (data.youtube_id && String(data.youtube_id).trim()) ||
+      (data.youtube_url && String(data.youtube_url).trim());
+    if (!hasYt) fail(f, "missing youtube_id or youtube_url");
+    if (data.thumbnail && String(data.thumbnail).startsWith("/assets/") && !assetExists(data.thumbnail))
+      fail(f, `thumbnail not found on disk: ${data.thumbnail}`);
+  }
+}
+
 // --- news ---------------------------------------------------------------
 const newsDir = path.join(root, "content/news");
 if (fs.existsSync(newsDir)) {
@@ -109,6 +131,6 @@ if (errors.length) {
   process.exit(1);
 }
 console.log(
-  `Content valid: ${counts.songs} songs, ${counts.news} news posts, ` +
-    `${counts.pages} page files, ${counts.json} JSON files.`
+  `Content valid: ${counts.songs} songs, ${counts.sessions} sessions, ` +
+    `${counts.news} news posts, ${counts.pages} page files, ${counts.json} JSON files.`
 );

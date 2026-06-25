@@ -1,153 +1,30 @@
 ---
 layout: base.njk
-current: songs
 permalink: /songs/
 title: Songs That Found Me at the Right Time
-description: "Artists share the songs that found them at the right time, and the stories behind why those songs carried them through."
+description: "This series now lives at /sessions/."
 ogType: website
+sitemap: false
 ---
-{#
-  Editorial intro is mirrored from content/pages/songs.json (the CMS-editable
-  source of record). Kept inline here too so the page is never empty if the
-  JSON is unavailable at build. Keep the two in sync when editing copy.
-#}
-{% set songsIntro = "Music has been clinically proven to have a positive impact on mental health. The right song can affect our psychobiological stress system and create feelings of motivation, happiness and relaxation. In this series, artists share the songs that found them at the right time, and the stories behind why they matter." %}
-
+{# ------------------------------------------------------------------ #
+ #  /songs/ has MOVED to /sessions/ as part of the redesign (the series
+ #  was elevated from a thin 6-item list to the full ~37-episode hub).
+ #  We keep this URL alive as a client-side 301-equivalent: a canonical
+ #  pointing at the new hub, a meta-refresh, and a visible fallback link.
+ #  The old /songs/ data (src/_data/songs.js + content/songs/) is left in
+ #  place so this redirect and the per-episode redirects below resolve.
+ # ------------------------------------------------------------------ #}
+<meta http-equiv="refresh" content="0; url=/sessions/" />
+<link rel="canonical" href="{{ site.origin }}/sessions/" />
 <style>
-  .songs-page { padding-block: var(--space-xl); }
-  .songs-head { max-width: var(--maxw-prose); margin-bottom: var(--space-lg); }
-  .songs-head h1 { font-size: var(--fs-title); line-height: var(--lh-tight); margin: 0 0 var(--space-sm); }
-  .songs-intro { font-size: var(--fs-lead); line-height: var(--lh-base); color: var(--text-muted); margin: 0; }
-
-  .songs-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: var(--space-md);
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-  .song-card { display: flex; }
-  .song-card__link {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    text-decoration: none;
-    color: inherit;
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    overflow: hidden;
-    transition: box-shadow var(--transition), transform var(--transition);
-  }
-  .song-card__link:hover,
-  .song-card__link:focus-visible {
-    box-shadow: var(--shadow-sm);
-    transform: translateY(-2px);
-  }
-  .song-card__media {
-    position: relative;
-    aspect-ratio: 16 / 9;
-    background: var(--bg-alt);
-    overflow: hidden;
-  }
-  .song-card__media img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-  .song-card__play {
-    position: absolute;
-    inset: 0;
-    display: grid;
-    place-items: center;
-    color: var(--white);
-  }
-  .song-card__play svg {
-    width: 48px;
-    height: 48px;
-    filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.5));
-    opacity: 0.92;
-  }
-  .song-card__body { padding: var(--space-sm) var(--space-md) var(--space-md); }
-  .song-card__artist {
-    font-weight: var(--fw-semibold);
-    font-size: var(--fs-base);
-    line-height: 1.3;
-    margin: 0;
-  }
-  .song-card__title {
-    color: var(--text-muted);
-    font-size: var(--fs-small);
-    margin: var(--space-3xs) 0 0;
-  }
-  .song-card--featured .song-card__link { border-color: var(--accent); }
-  .songs-label {
-    text-transform: uppercase;
-    letter-spacing: var(--tracking-wide);
-    font-size: var(--fs-tiny);
-    font-weight: var(--fw-semibold);
-    color: var(--accent);
-    margin: 0 0 var(--space-sm);
-  }
-  .songs-section + .songs-section { margin-top: var(--space-xl); }
+  .moved { padding-block: var(--space-xl); max-width: var(--maxw-prose); }
+  .moved .eyebrow { display: block; margin-bottom: var(--space-2xs); }
+  .moved h1 { font-family: var(--font-display); font-size: var(--fs-h2); letter-spacing: var(--tracking-tight); margin: 0 0 var(--space-sm); }
+  .moved p { font-family: var(--font-body); color: var(--text); }
+  .moved a { font-weight: var(--fw-semibold); }
 </style>
-
-<div class="container songs-page">
-  <header class="songs-head">
-    <p class="songs-label">Series</p>
-    <h1>Songs That Found Me at the Right Time</h1>
-    <p class="songs-intro">{{ songsIntro }}</p>
-  </header>
-
-  {% set featured = songs | selectattr("featured") | list %}
-  {% set rest = songs | rejectattr("featured") | list %}
-
-  {% if featured.length %}
-  <section class="songs-section" aria-label="Featured">
-    <ul class="songs-grid">
-      {% for s in featured %}
-        <li class="song-card song-card--featured">
-          <a class="song-card__link" href="{{ s.url }}">
-            <span class="song-card__media">
-              {% if s.thumbnail %}<img src="{{ s.thumbnail | img }}" alt="{{ s.title }}"{% if s.dims %} width="{{ s.dims.width }}" height="{{ s.dims.height }}"{% endif %} loading="lazy" decoding="async" />{% endif %}
-              <span class="song-card__play" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-              </span>
-            </span>
-            <span class="song-card__body">
-              <p class="song-card__artist">{{ s.artist }}</p>
-              {% if s.song_title %}<p class="song-card__title">{{ s.song_title }}</p>{% endif %}
-            </span>
-          </a>
-        </li>
-      {% endfor %}
-    </ul>
-  </section>
-  {% endif %}
-
-  {% if rest.length %}
-  <section class="songs-section" aria-label="More songs">
-    {% if featured.length %}<p class="songs-label">More from the series</p>{% endif %}
-    <ul class="songs-grid">
-      {% for s in rest %}
-        <li class="song-card">
-          <a class="song-card__link" href="{{ s.url }}">
-            <span class="song-card__media">
-              {% if s.thumbnail %}<img src="{{ s.thumbnail | img }}" alt="{{ s.title }}"{% if s.dims %} width="{{ s.dims.width }}" height="{{ s.dims.height }}"{% endif %} loading="lazy" decoding="async" />{% endif %}
-              <span class="song-card__play" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-              </span>
-            </span>
-            <span class="song-card__body">
-              <p class="song-card__artist">{{ s.artist }}</p>
-              {% if s.song_title %}<p class="song-card__title">{{ s.song_title }}</p>{% endif %}
-            </span>
-          </a>
-        </li>
-      {% endfor %}
-    </ul>
-  </section>
-  {% endif %}
+<div class="container moved">
+  <span class="eyebrow">Moved</span>
+  <h1>Songs That Found Me at the Right Time has a new home</h1>
+  <p>This series now lives at <a href="/sessions/">/sessions/</a>. Redirecting you there now.</p>
 </div>
