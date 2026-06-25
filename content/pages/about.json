@@ -22,6 +22,12 @@
     "heading": "Our Approach",
     "body": "SoS is focused on meeting this moment through the responsible development of a cutting edge curriculum, live community building music experiences and content focused on mental wellness and emotional regulation through the use of music. Our programs are young adult centered, culturally competent and highly engaging, with many opportunities for self-led discovery and peer bonding."
   },
+  "research": {
+    "eyebrow": "Research and evidence",
+    "heading": "A Sound Approach",
+    "body": "Our belief in music as a mental-health tool is grounded in research. A Sound Approach, our white paper co-authored with the We Are All Music Foundation, brings together work from neuroscientists, music therapists, psychologists, and cultural organizers on how music supports wellbeing, especially among youth and people underserved by traditional care. It is the canonical home for the evidence behind our programs.",
+    "cta": { "label": "Read A Sound Approach", "href": "/learn/a-sound-approach/" }
+  },
   "founding_story": {
     "heading": "Founding Story",
     "body": "SoS was founded in response to the loss of our co-founder Nick Greto’s beloved Uncle Mike, who died by suicide. The passing of his uncle inspired him to take a more in depth look into the ways that we talk about mental health and how we seek and receive help. For millions of people like Nick, who come from households where the idea of mental healthcare was not acknowledged, music served as the portal to accessing, processing, and regulating emotions. Experiencing music and lyrics is a universal way of connecting to ourselves and others. This truth became the basis of SoS.\n\nSoS began in 2018 as a nonprofit studio that focused on the creation of impactful content featuring artists and musicians telling their stories of perseverance and coping through mental health crises. In 2019, Charlie Gross joined Nick as a co-founder at SoS, bringing with him the unique perspective of having worked professionally within the music world and as a licensed and practicing psychotherapist. Together, they have been working to grow the organization into one that harnesses the power of music and storytelling as a bridge to overall mental health and wellness."
@@ -58,7 +64,7 @@
   },
   "advisory_board": {
     "heading": "Advisory Board",
-    "intro": "Our advisory board members:",
+    "intro": "Musicians, producers, clinicians, photographers, and label heads who shape and vouch for the work. This roster is also our proof: the artists and experts who stand behind Sounds of Saving.",
     "members": [
       { "name": "Alec Bemis", "bio": "Alec is the cofounder of Brassland, along with Aaron and Bryce Dessner of The National. He is also a writer, critic, journalist, and speaker." },
       { "name": "Alex Rosamilia", "bio": "musician, founding member Gaslight Anthem, Dead Swords" },

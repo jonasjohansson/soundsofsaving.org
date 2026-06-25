@@ -46,6 +46,78 @@ ogType: website
   .person__email { font-size: var(--fs-small); margin: 0 0 var(--space-xs); }
   .person p { line-height: var(--lh-base); font-size: var(--fs-small); margin: 0; }
   .person p + p { margin-top: var(--space-xs); }
+
+  /* Research / Evidence block — the white paper's canonical home. */
+  .research {
+    background: var(--dusk);
+    color: var(--on-dark);
+    border-radius: var(--radius);
+    padding: var(--space-xl) var(--space-lg);
+    margin-top: var(--space-2xl);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+  }
+  .research__copy { max-width: var(--maxw-prose); }
+  .research__eyebrow {
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    font-size: var(--fs-tiny);
+    color: var(--coral);
+    margin: 0 0 var(--space-2xs);
+  }
+  .research h2 { color: var(--on-dark); font-size: var(--fs-h2); margin: 0 0 var(--space-xs); }
+  .research p { color: var(--paper-2); line-height: var(--lh-base); margin: 0; }
+  .research .btn--stroke { border-color: var(--paper); color: var(--paper); }
+  .research .btn--stroke:hover { background: var(--paper); color: var(--dusk); }
+
+  /* Advisory roster — designed credibility wall. Denser grid, mono name index,
+     bios revealed on demand via <details> so ~35 names read as one proof block. */
+  .roster {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: var(--space-sm);
+    margin-top: var(--space-lg);
+    list-style: none;
+    padding: 0;
+  }
+  .roster__item {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--paper-2);
+  }
+  .roster__item summary {
+    cursor: pointer;
+    list-style: none;
+    padding: var(--space-sm) var(--space-md);
+    font-family: var(--font-display);
+    font-weight: var(--fw-semibold);
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2xs);
+  }
+  .roster__item summary::-webkit-details-marker { display: none; }
+  .roster__item summary::after {
+    content: "+";
+    font-family: var(--font-mono);
+    color: var(--accent);
+    font-size: var(--fs-base);
+  }
+  .roster__item[open] summary::after { content: "–"; }
+  .roster__item summary:hover { color: var(--accent); }
+  .roster__bio {
+    padding: 0 var(--space-md) var(--space-md);
+    font-size: var(--fs-small);
+    line-height: var(--lh-base);
+    color: var(--text-muted);
+    margin: 0;
+    max-width: none;
+  }
 </style>
 
 <div class="container about-page">
@@ -80,6 +152,19 @@ ogType: website
     <h2>{{ a.approach.heading }}</h2>
     <p>{{ a.approach.body }}</p>
   </section>
+  {% endif %}
+
+  {% if a.research %}
+  <aside class="research" aria-label="{{ a.research.heading }}">
+    <div class="research__copy">
+      {% if a.research.eyebrow %}<p class="research__eyebrow">{{ a.research.eyebrow }}</p>{% endif %}
+      <h2>{{ a.research.heading }}</h2>
+      <p>{{ a.research.body }}</p>
+    </div>
+    {% if a.research.cta %}
+    <a class="btn btn--stroke" href="{{ a.research.cta.href }}">{{ a.research.cta.label }}</a>
+    {% endif %}
+  </aside>
   {% endif %}
 
   {% if a.founding_story %}
@@ -123,11 +208,13 @@ ogType: website
   <section class="about-section" aria-label="{{ a.advisory_board.heading }}">
     <h2>{{ a.advisory_board.heading }}</h2>
     {% if a.advisory_board.intro %}<p>{{ a.advisory_board.intro }}</p>{% endif %}
-    <ul class="people-grid">
+    <ul class="roster">
       {% for m in a.advisory_board.members %}
-      <li class="person">
-        <h3>{{ m.name }}</h3>
-        <p>{{ m.bio }}</p>
+      <li>
+        <details class="roster__item">
+          <summary>{{ m.name }}</summary>
+          <p class="roster__bio">{{ m.bio }}</p>
+        </details>
       </li>
       {% endfor %}
     </ul>
