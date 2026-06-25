@@ -90,6 +90,7 @@ ogType: website
   .track__spec { margin: 0 0 var(--space-md); padding-left: var(--space-md); }
   .track__spec li { font-size: var(--fs-small); line-height: var(--lh-base); margin-bottom: var(--space-2xs); }
   .track__cta { margin-top: auto; }
+  .track__cta .btn { width: 100%; }
 
   /* proof band */
   .proof-band {
@@ -255,7 +256,6 @@ ogType: website
   {% if e.intake %}
   <section class="intake" id="intake" aria-label="{{ e.intake.heading }}">
     <div class="intake__head">
-      {% if e.intake.eyebrow %}<p class="edu-eyebrow">{{ e.intake.eyebrow }}</p>{% endif %}
       <h2>{{ e.intake.heading }}</h2>
       {% if e.intake.body %}<p>{{ e.intake.body }}</p>{% endif %}
     </div>

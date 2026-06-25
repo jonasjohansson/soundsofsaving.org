@@ -77,19 +77,18 @@ ogType: website
   /* Advisory roster — a consistent name index (no toggles). */
   .roster {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: var(--space-2xs) var(--space-lg);
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--space-md) var(--space-lg);
     margin-top: var(--space-lg);
     list-style: none;
     padding: 0;
   }
   .roster__item {
-    font-family: var(--font-display);
-    font-weight: var(--fw-medium);
-    color: var(--ink);
-    padding: var(--space-2xs) 0;
+    padding: var(--space-sm) 0;
     border-bottom: 1px solid var(--line);
   }
+  .roster__name { display: block; font-family: var(--font-display); font-weight: var(--fw-semibold); color: var(--ink); }
+  .roster__role { display: block; margin-top: var(--space-3xs); font-size: var(--fs-small); line-height: var(--lh-base); color: var(--text-muted); max-width: none; }
 
   /* Partners and supporters — linked where known, desaturated, larger. */
   .about-partners { margin-top: var(--space-2xl); padding-top: var(--space-xl); border-top: 1px solid var(--line); }
@@ -101,7 +100,7 @@ ogType: website
 </style>
 
 <div class="container about-page">
-  <h1>About Us</h1>
+  <h1>About us</h1>
   {% if a.intro %}<p class="about-intro">{{ a.intro }}</p>{% endif %}
 
   {% if a.why_now %}
@@ -182,7 +181,10 @@ ogType: website
     {% if a.advisory_board.intro %}<p>{{ a.advisory_board.intro }}</p>{% endif %}
     <ul class="roster">
       {% for m in a.advisory_board.members %}
-      <li class="roster__item">{{ m.name }}</li>
+      <li class="roster__item">
+        <span class="roster__name">{{ m.name }}</span>
+        {% if m.bio %}<span class="roster__role">{{ m.bio | truncate(96) }}</span>{% endif %}
+      </li>
       {% endfor %}
     </ul>
   </section>

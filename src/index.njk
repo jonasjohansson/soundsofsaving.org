@@ -80,7 +80,6 @@ eleventyComputed:
     line-height: var(--lh-base);
     color: var(--paper);
   }
-  .home-hero__sub .sos-name { text-transform: uppercase; letter-spacing: 0.04em; }
   .home-hero__ctas { display: flex; flex-wrap: wrap; gap: var(--space-sm); margin-top: var(--space-lg); }
   .home-hero__ghost { border-color: var(--paper); color: var(--paper); }
   .home-hero__ghost:hover { background: var(--paper); color: var(--ink); }
@@ -248,7 +247,7 @@ eleventyComputed:
   <div class="home-hero__inner">
     <div class="container">
       <h1 class="home-hero__title">Find hope in music.</h1>
-      <p class="home-hero__sub"><span class="sos-name">Sounds of Saving</span> is a music and mental health nonprofit.<br>For everyone, with young people at heart.</p>
+      <p class="home-hero__sub">Sounds of Saving is a music and mental health nonprofit.<br>For everyone, with young people at heart.</p>
       <div class="home-hero__ctas">
         <a class="btn btn--primary" href="/sessions/">Watch a Session</a>
         <a class="btn btn--stroke home-hero__ghost" href="/about-us/">About Sounds of Saving</a>
@@ -321,7 +320,7 @@ eleventyComputed:
       </a>
       <div>
         <p class="featured__artist">{{ featured.artist }}</p>
-        {% if featured.song_title %}<p class="featured__song">{{ featured.song_title }}{% if featured.covers %} ({{ featured.covers }}){% endif %}</p>{% endif %}
+        {% if featured.song_title %}<p class="featured__song">{{ featured.song_title }} by {{ featured.covers or featured.artist }}</p>{% endif %}
         <p class="featured__links">
           <a class="home-more" href="/sessions/">See all {{ sessions.length }} sessions &rarr;</a>
           <a class="home-more" href="/sessions/artists/">Browse every artist &rarr;</a>
@@ -361,6 +360,7 @@ eleventyComputed:
       {% endif %}
       {% endfor %}
     </ul>
+    <a class="home-more" href="/stories/">Read all stories &rarr;</a>
   </div>
 </section>
 {% endif %}
@@ -370,7 +370,7 @@ eleventyComputed:
 {%- set pool = [] -%}
 {%- for s in sessions -%}
   {%- if s.thumbnail -%}
-    {%- set _ = pool.push({ "artist": s.artist, "song": s.song_title, "base": (s.thumbnail | replace(".jpg", "")), "url": s.url, "kind": s.kind }) -%}
+    {%- set _ = pool.push({ "artist": s.artist, "song": s.song_title, "covers": s.covers, "base": (s.thumbnail | replace(".jpg", "")), "url": s.url, "kind": s.kind }) -%}
   {%- endif -%}
 {%- endfor -%}
 {{ pool | dump | safe }}
@@ -407,6 +407,9 @@ eleventyComputed:
     }
     if (fLink && f.url) { fLink.setAttribute("href", f.url); }
     if (fArtist) { fArtist.textContent = f.artist; }
-    if (fSong) { fSong.textContent = f.song || ""; fSong.style.display = f.song ? "" : "none"; }
+    if (fSong) {
+      if (f.song) { fSong.textContent = f.song + " by " + (f.covers || f.artist); fSong.style.display = ""; }
+      else { fSong.style.display = "none"; }
+    }
   })();
 </script>
