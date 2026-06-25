@@ -260,18 +260,10 @@ ogType: website
       {% if e.intake.body %}<p>{{ e.intake.body }}</p>{% endif %}
     </div>
 
-    {#
-      STUB FORM — not yet wired to a backend.
-      TODO before launch:
-        1. Add `data-netlify="true"` and `name="educator-intake"` to <form>,
-           plus a hidden <input type="hidden" name="form-name" value="educator-intake">
-           (Netlify Forms requirement), and change action="#" to a thank-you path.
-        2. Route notifications to a SHARED programs@ alias (e.g. programs@soundsofsaving.org)
-           via Netlify form notifications / Airtable — never a personal inbox.
-        3. Optionally add a honeypot field for spam.
-      Until then the form does nothing on submit (action="#").
-    #}
-    <form class="intake-form" action="#" method="post" aria-describedby="intake-stub-note">
+    {# Submits via the visitor's email client (mailto). Swap for a hosted form
+       endpoint (Formspree / a serverless handler) routed to a shared programs@
+       alias if a backend is added later. #}
+    <form class="intake-form" id="intake-form">
       <div class="field">
         <label for="f-name">Name</label>
         <input type="text" id="f-name" name="name" autocomplete="name">
@@ -305,6 +297,28 @@ ogType: website
         <button type="submit" class="btn btn--primary">Request a pilot conversation</button>
       </div>
     </form>
+    <script>
+      (function () {
+        var f = document.getElementById("intake-form");
+        if (!f) return;
+        var val = function (id) { var el = document.getElementById(id); return el ? el.value.trim() : ""; };
+        f.addEventListener("submit", function (e) {
+          e.preventDefault();
+          var subject = "Educator inquiry" + (val("f-track") ? " (" + val("f-track") + ")" : "");
+          var body = [
+            "Name: " + val("f-name"),
+            "Role: " + val("f-role"),
+            "School or institution: " + val("f-school"),
+            "Email: " + val("f-email"),
+            "Track: " + val("f-track"),
+            "",
+            val("f-message")
+          ].join("\n");
+          window.location.href = "mailto:programs@soundsofsaving.org?subject=" +
+            encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+        });
+      })();
+    </script>
   </section>
   {% endif %}
 </div>
