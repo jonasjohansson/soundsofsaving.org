@@ -92,6 +92,11 @@ ogType: website
     padding: var(--space-sm) 0;
     border-bottom: 1px solid var(--line);
   }
+  .roster__item:last-child { border-bottom: 0; }
+  @media (max-width: 640px) {
+    .roster { gap: 0; margin-top: var(--space-md); }
+    .roster__item { padding: var(--space-2xs) 0; }
+  }
   .roster__name { display: block; font-family: var(--font-display); font-weight: var(--fw-semibold); color: var(--ink); }
   .roster__role { display: block; margin-top: var(--space-3xs); font-size: var(--fs-small); line-height: var(--lh-base); color: var(--text-muted); max-width: none; }
 

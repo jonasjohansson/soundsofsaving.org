@@ -459,25 +459,32 @@ main { min-height: 50vh; }
   .nav-toggle { display: none; }
 
   .site-header__brand { display: none; }
-  /* Horizontal wrapping menu (no logo, no hamburger). */
+  .site-header__inner { gap: var(--space-sm); padding-block: var(--space-3xs); min-height: 0; }
+  /* Single horizontal row (no logo, no hamburger); scrolls if it overflows. */
   .site-nav {
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: var(--space-2xs) var(--space-md);
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: var(--space-2xs);
+    overflow-x: auto;
+    scrollbar-width: none;
     background: none;
     border: 0;
     padding: 0;
   }
+  .site-nav::-webkit-scrollbar { display: none; }
   .site-nav__links,
   .site-nav__cta {
-    flex-wrap: wrap;
-    gap: var(--space-2xs) var(--space-md);
+    flex-wrap: nowrap;
+    gap: var(--space-2xs);
   }
+  .site-nav a, .site-nav .btn { white-space: nowrap; font-size: var(--fs-tiny); letter-spacing: 0; }
+  .site-nav__cta .btn--stroke { padding: var(--space-3xs) var(--space-2xs); }
   .site-nav__ig { display: none; }            /* skip Instagram on mobile */
 
   /* Home: header overlays the top of the hero (no tan bar), white text,
      absolute so it scrolls away with the hero instead of staying fixed. */
   .site-header--overlay { position: absolute; background: transparent; }
 
-  .footer-meta { flex-direction: column; align-items: flex-start; }
+  /* Footer stacks with the social links above the copyright line. */
+  .site-footer__inner { flex-direction: column-reverse; align-items: flex-start; gap: var(--space-sm); }
 }
