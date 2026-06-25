@@ -94,7 +94,11 @@ module.exports = function () {
       category,
       cluster,
       section,
-      url: `/${section}/${slug}/`,
+      // the a-sound-approach white paper links straight to the hosted PDF
+      // instead of generating an on-site page.
+      url: category === "whitepaper"
+        ? "https://drive.google.com/file/d/1fMIfsbp3okh9TT1phHb9hnZpu9_zCzTz/view"
+        : `/${section}/${slug}/`,
       oldUrl: `/news/${slug}/`,        // legacy URL, kept for 301 redirects
       date,
       year: date ? date.slice(0, 4) : "",
@@ -139,6 +143,8 @@ module.exports = function () {
   // a-sound-approach white paper (that surfaces on About).
   posts.learnForGetHelp = learn.filter((p) => p.category !== "whitepaper");
   posts.archive = archive;
+  // Posts that generate their own on-site page (the white paper links out to a PDF).
+  posts.pages = posts.filter((p) => p.category !== "whitepaper");
   posts.storyClusters = storyClusters;
   posts.learnByCategory = {
     learn: byCat("learn"),

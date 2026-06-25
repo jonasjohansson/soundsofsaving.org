@@ -15,7 +15,7 @@ eleventyExcludeFromCollections: true
   {%- for s in sessions %}
   <url><loc>{{ site.origin }}{{ s.url }}</loc></url>
   {%- endfor %}
-  {%- for p in news %}
+  {%- for p in news.pages %}
   <url><loc>{{ site.origin }}{{ p.url }}</loc></url>
   {%- endfor %}
 </urlset>

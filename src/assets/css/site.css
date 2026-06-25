@@ -86,7 +86,7 @@ p { max-width: var(--maxw-prose); }
 }
 
 a {
-  color: var(--link);
+  color: var(--accent);
   text-decoration: none;
   transition: color var(--transition);
 }
