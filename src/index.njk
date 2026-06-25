@@ -111,6 +111,7 @@ eleventyComputed:
     line-height: var(--lh-tight);
     margin: 0 0 var(--space-lg);
     max-width: 24ch;
+    text-wrap: balance;
   }
   .doors {
     display: grid;
@@ -162,6 +163,8 @@ eleventyComputed:
   .featured__play svg { width: 64px; height: 64px; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.55)); opacity: 0.95; }
   .featured__artist { font-family: var(--font-display); font-size: var(--fs-h2); line-height: var(--lh-tight); margin: var(--space-2xs) 0 0; }
   .featured__song { font-size: var(--fs-lead); color: var(--text-muted); margin: var(--space-3xs) 0 0; }
+  .featured__links { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-2xs); margin-top: var(--space-md); }
+  .featured__links .home-more { margin-top: 0; }
 
   /* — 4. Artist marquee —————————————————————————————————————————— */
   .marquee {
@@ -197,6 +200,7 @@ eleventyComputed:
   .gethelp-band .btn--stroke { border-color: var(--paper); color: var(--paper); }
   .gethelp-band .btn--stroke:hover { background: var(--paper); color: var(--calm); }
   .gethelp-band .eyebrow { color: var(--paper); opacity: 0.85; }
+  .gethelp-band__line { margin-top: var(--space-2xs); }
 
   /* — 6. Stories ————————————————————————————————————————————————— */
   .stories {
@@ -221,8 +225,10 @@ eleventyComputed:
   }
   .story:hover,
   .story:focus-visible { border-color: var(--accent); }
-  .story__media { aspect-ratio: 16 / 10; background: var(--bg-alt); overflow: hidden; }
-  .story__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  /* Desaturate + brand-tint duotone so mixed press images read as one set. */
+  .story__media { position: relative; aspect-ratio: 16 / 10; background: var(--ink); overflow: hidden; }
+  .story__media img { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(1) contrast(0.96) brightness(1.18); }
+  .story__media::after { content: ""; position: absolute; inset: 0; background: var(--accent); mix-blend-mode: color; opacity: 0.68; pointer-events: none; }
   .story__body { padding: var(--space-sm) var(--space-md) var(--space-md); }
   .story__date {
     font-family: var(--font-mono);
@@ -298,7 +304,7 @@ eleventyComputed:
   <div class="container">
     <header class="home-head">
       <p class="eyebrow">Featured Session</p>
-      <h2 class="home-head__title">Songs that found them at the right time</h2>
+      <h2 class="home-head__title">Songs that found them<br>at the right time</h2>
     </header>
     <div class="featured">
       <a class="featured__media" href="{{ featured.url }}" aria-label="Watch {{ featured.artist }}{% if featured.song_title %}, {{ featured.song_title }}{% endif %}">
@@ -329,8 +335,8 @@ eleventyComputed:
   <div class="container">
     <p class="eyebrow">Get Help</p>
     <h2 class="gethelp-band__title">500+ vetted mental-health resources across the US</h2>
-    <p class="gethelp-band__crisis">
-      {{ settings.crisis_line.intro }}
+    <p class="gethelp-band__crisis">{{ settings.crisis_line.intro }}</p>
+    <p class="gethelp-band__crisis gethelp-band__line">
       <strong>{{ settings.crisis_line.name }}:</strong>
       <a href="tel:{{ settings.crisis_line.phone }}">Call or text {{ settings.crisis_line.phone }}</a>
       or chat at <a href="{{ settings.crisis_line.url }}" target="_blank" rel="noopener">988lifeline.org</a>.
