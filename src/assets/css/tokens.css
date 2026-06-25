@@ -23,11 +23,19 @@
   --ink-muted:    #46413a;   /* secondary text (AA on bone) */
   --ink-faint:    #6a655c;   /* tertiary / fine print (AA on bone) */
 
-  --accent:       #1e3ae6;   /* electric blue — links / eyebrows / primary */
-  --accent-deep:  #1429a8;   /* hover / pressed */
+  --accent:       #1e3ae6;   /* electric blue — default (home + Get Help) */
+  --accent-deep:  color-mix(in srgb, var(--accent), #000 24%);  /* auto hover/pressed shade */
   --coral:        #e23b1e;   /* vermilion red — highlights / accent CTAs */
   --calm:         #1f6e63;   /* deep teal — reserved for Get Help / crisis */
   --calm-deep:    #16544b;   /* calm hover */
+
+  /* Per-section accents (all AA on bone). Applied via [data-section] in site.css;
+     --accent-deep above auto-derives the hover shade from whichever is active. */
+  --accent-sessions:  #1e3ae6;   /* blue   — the films */
+  --accent-programs:  #1d6e3a;   /* green  — programs */
+  --accent-educators: #a8480c;   /* orange — educators */
+  --accent-stories:   #6d3bbf;   /* violet — stories */
+  --accent-about:     #a8323a;   /* crimson — about */
 
   /* near-black dark surface for hero overlay + quote bands */
   --dusk:         #14110d;
