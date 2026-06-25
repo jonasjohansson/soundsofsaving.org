@@ -1,0 +1,27 @@
+---
+layout: base.njk
+current: news
+permalink: /news/
+title: News has moved
+description: "The News section is now Stories. Redirecting you there."
+eleventyExcludeFromCollections: true
+---
+{#
+  /news/ retired -> /stories/. Static host, so meta-refresh + canonical is the
+  301-equivalent, with a visible fallback notice (and links to the other homes
+  the old posts moved to: Archive, Get Help).
+#}
+<meta http-equiv="refresh" content="0; url=/stories/">
+<link rel="canonical" href="{{ site.origin }}/stories/">
+<script>location.replace("/stories/");</script>
+
+<div class="container" style="padding-block: var(--space-2xl);">
+  <p class="eyebrow">Moved</p>
+  <h1 style="font-size: var(--fs-title);">News is now Stories</h1>
+  <p style="color: var(--text-muted); max-width: var(--maxw-prose); margin-top: var(--space-sm); line-height: var(--lh-base);">
+    Our writing now lives under <a href="/stories/">Stories</a>. Live reviews and
+    round-ups moved to the <a href="/archive/">Archive</a>; mental-health
+    explainers and resource sheets are in <a href="/resources/#understanding-mental-health">Get Help</a>.
+  </p>
+  <p style="margin-top: var(--space-md);"><a href="/stories/">Continue to Stories &rarr;</a></p>
+</div>

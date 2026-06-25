@@ -1,0 +1,29 @@
+---
+pagination:
+  data: news
+  size: 1
+  alias: post
+permalink: "{{ post.oldUrl }}"
+eleventyExcludeFromCollections: true
+---
+{#
+  301-style redirect from the retired /news/<slug>/ URL to the post's new
+  typed home (/stories/, /archive/, or /learn/). GitHub Pages is a static
+  host with no server-side 301, so we use a meta-refresh + a canonical link
+  (the SEO-equivalent on a static site) and a visible fallback link. One page
+  is generated per moved post, so EVERY legacy URL resolves.
+#}<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="refresh" content="0; url={{ post.url }}">
+  <link rel="canonical" href="{{ site.origin }}{{ post.url }}">
+  <meta name="robots" content="noindex, follow">
+  <title>Moved: {{ post.title }}</title>
+  <script>location.replace({{ post.url | dump | safe }});</script>
+</head>
+<body>
+  <p>This page has moved. If you are not redirected automatically,
+     <a href="{{ post.url }}">continue to "{{ post.title }}"</a>.</p>
+</body>
+</html>

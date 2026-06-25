@@ -1,12 +1,12 @@
 ---
 layout: base.njk
-current: news
 pagination:
   data: news
   size: 1
   alias: post
 permalink: "{{ post.url }}"
 eleventyComputed:
+  current: "{{ 'news' if post.section == 'stories' else post.section }}"
   title: "{{ post.title }}"
   description: "{{ post.summary or post.excerpt }}"
   ogType: "article"
@@ -15,6 +15,9 @@ eleventyComputed:
   ogImageH: "{{ post.dims.height if post.image else '' }}"
   ogImageAlt: "{{ post.title }}"
 ---
+{# Back-link + index label derived from the post's section. #}
+{% set backUrl = "/stories/" if post.section == "stories" else ("/archive/" if post.section == "archive" else "/resources/#understanding-mental-health") %}
+{% set backLabel = "All stories" if post.section == "stories" else ("Archive" if post.section == "archive" else "Get Help") %}
 <style>
   .post { padding-block: var(--space-lg) var(--space-2xl); }
   .post__head { max-width: var(--maxw-prose); margin-bottom: var(--space-lg); }
@@ -80,7 +83,7 @@ eleventyComputed:
 </style>
 
 <article class="container post">
-  <a class="post__back" href="/news/">&larr; All news</a>
+  <a class="post__back" href="{{ backUrl }}">&larr; {{ backLabel }}</a>
 
   <header class="post__head">
     <p class="post__date"><time datetime="{{ post.date }}">{{ post.date | postDate }}</time></p>
@@ -100,8 +103,8 @@ eleventyComputed:
     {{ post.body | safe }}
   </div>
 
-  <nav class="post__nav" aria-label="More news">
-    <a href="/news/">&larr; All news</a>
+  <nav class="post__nav" aria-label="More stories">
+    <a href="{{ backUrl }}">&larr; {{ backLabel }}</a>
   </nav>
 </article>
 

@@ -1,129 +1,160 @@
 ---
 layout: base.njk
 current: news
-title: News
-pagination:
-  data: news
-  size: 11
-  alias: posts
-permalink: "{% if pagination.pageNumber == 0 %}/news/{% else %}/news/page/{{ pagination.pageNumber + 1 }}/{% endif %}"
-eleventyComputed:
-  description: "{{ settings.meta_description }}"
+permalink: /stories/
+title: Stories
+description: "Interviews, features, and reviews on music, mental health, and the artists who make both."
+ogType: website
 ---
+{#
+  STORIES INDEX (was the flat /news/ dump). Typed and grouped by cluster:
+  Interviews / Features / Reviews. Data comes from news.storyClusters
+  (src/_data/news.js), which only includes `category: story` posts. The
+  learn explainers and resource sheets live in Get Help; perishables live in
+  /archive/. Tabs are progressive-enhancement: with JS off, every cluster is
+  visible as a stacked section; with JS on they become filter tabs.
+#}
 <style>
-  .news-page { padding-block: var(--space-xl); }
-  .news-page__head { margin-bottom: var(--space-lg); }
-  .news-page__title { font-size: var(--fs-title); }
-  .news-page__sub { color: var(--text-muted); margin-top: var(--space-2xs); }
+  .stories { padding-block: var(--space-xl) var(--space-2xl); }
+  .stories__head { max-width: var(--maxw-prose); margin-bottom: var(--space-lg); }
+  .stories__title { font-size: var(--fs-title); }
+  .stories__sub { color: var(--text-muted); margin-top: var(--space-2xs); line-height: var(--lh-base); }
 
-  .news-list { display: grid; gap: var(--space-lg); }
-  .news-card {
-    display: grid;
-    grid-template-columns: minmax(0, 220px) 1fr;
-    gap: var(--space-md);
-    align-items: start;
-    padding-bottom: var(--space-lg);
+  /* ---- Cluster tabs (filter UI) ---- */
+  .stories__tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2xs);
+    margin-bottom: var(--space-lg);
     border-bottom: 1px solid var(--border);
+    padding-bottom: var(--space-sm);
   }
-  .news-card:last-child { border-bottom: 0; }
-  .news-card__media {
+  .stories__tab {
+    font-family: var(--font-mono);
+    font-size: var(--fs-tiny);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--text-muted);
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-pill);
+    padding: var(--space-3xs) var(--space-sm);
+    cursor: pointer;
+  }
+  .stories__tab[aria-pressed="true"] { background: var(--accent); color: var(--on-dark, #fff); border-color: var(--accent); }
+  .stories__tab:hover { border-color: var(--accent); color: var(--accent); }
+  .stories__tab[aria-pressed="true"]:hover { color: var(--on-dark, #fff); }
+
+  .stories__group { margin-bottom: var(--space-2xl); scroll-margin-top: var(--header-h); }
+  .stories__group:last-child { margin-bottom: 0; }
+  .stories__group-head {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-md);
+  }
+  .stories__group-title { font-size: var(--fs-h2); }
+  .stories__group-count {
+    font-family: var(--font-mono);
+    font-size: var(--fs-tiny);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--text-faint);
+  }
+
+  .story-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: var(--space-lg);
+  }
+  .story-card { display: flex; flex-direction: column; gap: var(--space-2xs); min-width: 0; }
+  .story-card__media {
     display: block;
     aspect-ratio: 16 / 10;
     overflow: hidden;
     border-radius: var(--radius);
     background: var(--bg-alt);
   }
-  .news-card__media img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform var(--transition);
-  }
-  .news-card__media:hover img { transform: scale(1.03); }
-  .news-card__body { min-width: 0; }
-  .news-card__date {
+  .story-card__media img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition); }
+  .story-card__media:hover img { transform: scale(1.03); }
+  .story-card__date {
+    font-family: var(--font-mono);
     color: var(--text-faint);
-    font-size: var(--fs-small);
+    font-size: var(--fs-tiny);
     letter-spacing: var(--tracking-wide);
     text-transform: uppercase;
   }
-  .news-card__title { font-size: var(--fs-h3); margin-top: var(--space-3xs); }
-  .news-card__title a { color: var(--black); }
-  .news-card__title a:hover { color: var(--accent); }
-  .news-card__author { color: var(--text-muted); font-size: var(--fs-small); margin-top: var(--space-3xs); }
-  .news-card__excerpt {
-    color: var(--text-muted);
-    margin-top: var(--space-2xs);
-    max-width: var(--maxw-prose);
-  }
-  .news-card__more {
-    display: inline-block;
-    margin-top: var(--space-2xs);
-    color: var(--accent);
-    font-weight: var(--fw-semibold);
-    font-size: var(--fs-small);
-  }
+  .story-card__title { font-size: var(--fs-h3); line-height: var(--lh-tight); margin-top: var(--space-3xs); }
+  .story-card__title a { color: var(--ink); }
+  .story-card__title a:hover { color: var(--accent); }
+  .story-card__author { color: var(--text-muted); font-size: var(--fs-small); }
+  .story-card__excerpt { color: var(--text-muted); font-size: var(--fs-small); line-height: var(--lh-base); }
 
-  .news-pager {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--space-md);
-    margin-top: var(--space-xl);
-    padding-top: var(--space-md);
-    border-top: 1px solid var(--border);
-  }
-  .news-pager__count { color: var(--text-faint); font-size: var(--fs-small); }
-  .news-pager__links { display: flex; gap: var(--space-sm); }
-  .news-pager__links a, .news-pager__links span {
-    font-size: var(--fs-small);
-    font-weight: var(--fw-semibold);
-  }
-  .news-pager__links span { color: var(--text-faint); }
-
-  @media (max-width: 640px) {
-    .news-card { grid-template-columns: 1fr; }
-    .news-card__media { max-width: 320px; }
-  }
+  .stories__group[hidden] { display: none; }
 </style>
 
-<div class="container news-page">
-  <header class="news-page__head">
-    <h1 class="news-page__title">News</h1>
-    <p class="news-page__sub">Stories on music, mental health, and the artists telling them.</p>
+<div class="container stories">
+  <header class="stories__head">
+    <p class="eyebrow">Stories</p>
+    <h1 class="stories__title">{{ title }}</h1>
+    <p class="stories__sub">Interviews with the artists, features on music as a tool, and the live moments worth keeping. Looking for crisis lines or explainers? <a href="/resources/">Get Help</a>.</p>
   </header>
 
-  <div class="news-list">
-    {% for post in posts %}
-    <article class="news-card">
-      {% if post.image %}
-      <a class="news-card__media" href="{{ post.url }}" aria-hidden="true" tabindex="-1">
-        <img src="{{ post.image | img }}" alt=""
-             {% if post.dims %}width="{{ post.dims.width }}" height="{{ post.dims.height }}"{% endif %}
-             loading="lazy" decoding="async" />
-      </a>
-      {% else %}
-      <span class="news-card__media" aria-hidden="true"></span>
-      {% endif %}
-
-      <div class="news-card__body">
-        <p class="news-card__date"><time datetime="{{ post.date }}">{{ post.date | postDate }}</time></p>
-        <h2 class="news-card__title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
-        {% if post.author %}<p class="news-card__author">By {{ post.author }}</p>{% endif %}
-        {% if post.excerpt %}<p class="news-card__excerpt">{{ post.excerpt }}</p>{% endif %}
-        <a class="news-card__more" href="{{ post.url }}">Learn More &rarr;</a>
-      </div>
-    </article>
+  {% if news.storyClusters.length > 1 %}
+  <div class="stories__tabs" role="group" aria-label="Filter stories by type" id="stories-tabs">
+    <button type="button" class="stories__tab" data-cluster="all" aria-pressed="true">All</button>
+    {% for c in news.storyClusters %}
+    <button type="button" class="stories__tab" data-cluster="{{ c.slug }}" aria-pressed="false">{{ c.label }} ({{ c.posts | length }})</button>
     {% endfor %}
   </div>
-
-  {% if pagination.pages.length > 1 %}
-  <nav class="news-pager" aria-label="News pages">
-    <p class="news-pager__count">Page {{ pagination.pageNumber + 1 }} of {{ pagination.pages.length }}</p>
-    <div class="news-pager__links">
-      {% if pagination.href.previous %}<a href="{{ pagination.href.previous }}" rel="prev">&larr; Newer</a>{% else %}<span>&larr; Newer</span>{% endif %}
-      {% if pagination.href.next %}<a href="{{ pagination.href.next }}" rel="next">Older &rarr;</a>{% else %}<span>Older &rarr;</span>{% endif %}
-    </div>
-  </nav>
   {% endif %}
+
+  {% for c in news.storyClusters %}
+  <section class="stories__group" id="cluster-{{ c.slug }}" data-cluster="{{ c.slug }}" aria-labelledby="cluster-{{ c.slug }}-h">
+    <div class="stories__group-head">
+      <h2 class="stories__group-title" id="cluster-{{ c.slug }}-h">{{ c.label }}</h2>
+      <span class="stories__group-count">{{ c.posts | length }}</span>
+    </div>
+    <div class="story-grid">
+      {% for post in c.posts %}
+      <article class="story-card">
+        {% if post.image %}
+        <a class="story-card__media" href="{{ post.url }}" aria-hidden="true" tabindex="-1">
+          <img src="{{ post.image | img }}" alt=""
+               {% if post.dims %}width="{{ post.dims.width }}" height="{{ post.dims.height }}"{% endif %}
+               loading="lazy" decoding="async" />
+        </a>
+        {% endif %}
+        <p class="story-card__date"><time datetime="{{ post.date }}">{{ post.date | postDate }}</time></p>
+        <h3 class="story-card__title"><a href="{{ post.url }}">{{ post.title }}</a></h3>
+        {% if post.author %}<p class="story-card__author">By {{ post.author }}</p>{% endif %}
+        {% if post.excerpt %}<p class="story-card__excerpt">{{ post.excerpt }}</p>{% endif %}
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+  {% endfor %}
 </div>
+
+<script>
+  /* Cluster tabs: filter the grouped sections. Progressive enhancement —
+     with JS off, all sections render stacked. */
+  (function () {
+    var tabs = document.getElementById("stories-tabs");
+    if (!tabs) return;
+    var buttons = Array.prototype.slice.call(tabs.querySelectorAll(".stories__tab"));
+    var groups = Array.prototype.slice.call(document.querySelectorAll(".stories__group"));
+    function select(cluster) {
+      buttons.forEach(function (b) {
+        b.setAttribute("aria-pressed", String(b.getAttribute("data-cluster") === cluster));
+      });
+      groups.forEach(function (g) {
+        g.hidden = cluster !== "all" && g.getAttribute("data-cluster") !== cluster;
+      });
+    }
+    tabs.addEventListener("click", function (e) {
+      var btn = e.target.closest(".stories__tab");
+      if (btn) select(btn.getAttribute("data-cluster"));
+    });
+  })();
+</script>

@@ -1,0 +1,68 @@
+---
+layout: base.njk
+current: archive
+permalink: /archive/
+title: Archive
+description: "Past concert reviews, round-ups, and dated dispatches. Kept for the record, out of the main nav."
+ogType: website
+robots: "noindex, follow"
+---
+{#
+  ARCHIVE — the perishables (gig reviews, seasonal round-ups, dated org notes)
+  that don't belong in the curated Stories index but whose URLs we preserve.
+  Out of the primary nav by design; reachable via footer / old links. Plain
+  reverse-chron list, no imagery emphasis — this is a record, not a showcase.
+  Data: news.archive (category: archive) from src/_data/news.js.
+#}
+<style>
+  .archive { padding-block: var(--space-xl) var(--space-2xl); }
+  .archive__head { max-width: var(--maxw-prose); margin-bottom: var(--space-lg); }
+  .archive__title { font-size: var(--fs-title); }
+  .archive__sub { color: var(--text-muted); margin-top: var(--space-2xs); line-height: var(--lh-base); }
+
+  .archive-list { display: grid; gap: 0; max-width: var(--maxw-prose); }
+  .archive-row {
+    display: grid;
+    grid-template-columns: 9rem 1fr;
+    gap: var(--space-md);
+    align-items: baseline;
+    padding-block: var(--space-sm);
+    border-bottom: 1px solid var(--border);
+  }
+  .archive-row:first-child { border-top: 1px solid var(--border); }
+  .archive-row__date {
+    font-family: var(--font-mono);
+    font-size: var(--fs-tiny);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--text-faint);
+  }
+  .archive-row__title { font-family: var(--font-body); font-size: var(--fs-base); line-height: var(--lh-tight); margin: 0; }
+  .archive-row__title a { color: var(--ink); }
+  .archive-row__title a:hover { color: var(--accent); }
+  .archive-row__author { color: var(--text-faint); font-size: var(--fs-small); }
+
+  @media (max-width: 560px) {
+    .archive-row { grid-template-columns: 1fr; gap: var(--space-3xs); }
+  }
+</style>
+
+<div class="container archive">
+  <header class="archive__head">
+    <p class="eyebrow">Archive</p>
+    <h1 class="archive__title">{{ title }}</h1>
+    <p class="archive__sub">Concert reviews, round-ups, and dated dispatches, kept for the record. For current writing see <a href="/stories/">Stories</a>.</p>
+  </header>
+
+  <div class="archive-list">
+    {% for post in news.archive %}
+    <article class="archive-row">
+      <p class="archive-row__date"><time datetime="{{ post.date }}">{{ post.date | postDate }}</time></p>
+      <div>
+        <h2 class="archive-row__title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+        {% if post.author %}<p class="archive-row__author">By {{ post.author }}</p>{% endif %}
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</div>

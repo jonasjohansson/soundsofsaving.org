@@ -64,6 +64,19 @@ module.exports = function () {
     ? fs.readdirSync(CONTENT).filter((f) => f.endsWith(".md"))
     : [];
 
+  // Category -> URL section. The redesign retires the flat /news/ dump; each
+  // post's new home is derived from its `category` frontmatter (set by
+  // scripts/tag-posts.js), so files never move. learn + resource-sheet +
+  // whitepaper all live under /learn/ (the Get Help "learn" layer / About);
+  // stories under /stories/, perishables under /archive/.
+  const SECTION = {
+    story: "stories",
+    archive: "archive",
+    learn: "learn",
+    "resource-sheet": "learn",
+    whitepaper: "learn",
+  };
+
   let posts = files.map((f) => {
     const g = matter(fs.readFileSync(path.join(CONTENT, f), "utf8"));
     const d = g.data || {};
@@ -72,10 +85,17 @@ module.exports = function () {
     const image = d.image || "";
     const bodyMd = (g.content || "").trim();
     const summary = (d.summary ? String(d.summary) : "").replace(/\s+/g, " ").trim();
+    const category = (d.category ? String(d.category).trim() : "story");
+    const cluster = d.cluster ? String(d.cluster).trim() : null;
+    const section = SECTION[category] || "stories";
     return {
       title: (d.title || "").trim(),
       slug,
-      url: `/news/${slug}/`,
+      category,
+      cluster,
+      section,
+      url: `/${section}/${slug}/`,
+      oldUrl: `/news/${slug}/`,        // legacy URL, kept for 301 redirects
       date,
       year: date ? date.slice(0, 4) : "",
       author: d.author ? String(d.author).trim() : null,
@@ -93,6 +113,38 @@ module.exports = function () {
   if (!posts.length) {
     throw new Error("No news posts found in content/news — aborting build to avoid an empty /news.");
   }
+
+  // ---- Typed subsets for the new templates (back-compatible: `posts` is
+  // still the full newest-first array, so anything iterating `news` works). ----
+  const byCat = (c) => posts.filter((p) => p.category === c);
+  const stories = byCat("story");
+  const learn = posts.filter((p) => p.section === "learn"); // learn + resource-sheet + whitepaper
+  const archive = byCat("archive");
+
+  // Stories grouped by cluster, in a curated display order.
+  const STORY_CLUSTERS = [
+    { slug: "interviews", label: "Interviews" },
+    { slug: "features", label: "Features" },
+    { slug: "reviews", label: "Reviews" },
+  ];
+  const storyClusters = STORY_CLUSTERS
+    .map((c) => ({ ...c, posts: stories.filter((p) => (p.cluster || "features") === c.slug) }))
+    .filter((c) => c.posts.length);
+
+  // attach subsets as enumerable props on the array so templates can read
+  // either `news` (the array) or `news.stories` / `news.learn` / etc.
+  posts.stories = stories;
+  posts.learn = learn;
+  // learn cards for Get Help: explainers + resource sheets, but NOT the
+  // a-sound-approach white paper (that surfaces on About).
+  posts.learnForGetHelp = learn.filter((p) => p.category !== "whitepaper");
+  posts.archive = archive;
+  posts.storyClusters = storyClusters;
+  posts.learnByCategory = {
+    learn: byCat("learn"),
+    "resource-sheet": byCat("resource-sheet"),
+    whitepaper: byCat("whitepaper"),
+  };
 
   return posts;
 };
