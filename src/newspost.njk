@@ -93,14 +93,12 @@ eleventyComputed:
 
   {% if post.image %}
   <figure class="post__hero">
-    <img src="{{ post.image | img }}" alt="{{ post.title }}"
-         {% if post.dims %}width="{{ post.dims.width }}" height="{{ post.dims.height }}"{% endif %}
-         fetchpriority="high" decoding="async" />
+    {% respImg post.image, { alt: post.title, sizes: "(max-width: 720px) 92vw, 700px", eager: true, width: post.dims.width if post.dims else null, height: post.dims.height if post.dims else null } %}
   </figure>
   {% endif %}
 
   <div class="post__body prose">
-    {{ post.body | safe }}
+    {{ post.body | respBody | safe }}
   </div>
 
   <nav class="post__nav" aria-label="More stories">

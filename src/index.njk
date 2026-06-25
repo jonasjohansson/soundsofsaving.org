@@ -354,7 +354,7 @@ eleventyComputed:
         <a class="story" href="{{ post.url }}">
           {% if post.image %}
           <span class="story__media">
-            <img class="media media--full" src="{{ post.image | img }}" alt=""{% if post.dims %} width="{{ post.dims.width }}" height="{{ post.dims.height }}"{% endif %} loading="lazy" decoding="async" />
+            {% respImg post.image, { alt: "", className: "media media--full", sizes: "(max-width: 640px) 92vw, (max-width: 1100px) 45vw, 300px", width: post.dims.width if post.dims else null, height: post.dims.height if post.dims else null } %}
           </span>
           {% else %}
           <span class="story__media" aria-hidden="true"></span>

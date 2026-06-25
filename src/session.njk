@@ -186,7 +186,7 @@ eleventyComputed:
 
     <aside class="session-card-aside" aria-label="Song card">
       <figure class="media media--full">
-        {% if session.thumbnail %}<img src="{{ session.thumbnail | img }}" alt="{{ session.artist }}"{% if session.dims %} width="{{ session.dims.width }}" height="{{ session.dims.height }}"{% endif %} loading="lazy" decoding="async" />{% endif %}
+        {% if session.thumbnail %}{% respImg session.thumbnail, { alt: session.artist, sizes: "(max-width: 760px) 92vw, 280px", width: session.dims.width if session.dims else null, height: session.dims.height if session.dims else null } %}{% endif %}
       </figure>
       <ul class="session-card-aside__list">
         <li class="session-card-aside__row"><span class="session-card-aside__k">Artist</span><span class="session-card-aside__v">{{ session.artist }}</span></li>

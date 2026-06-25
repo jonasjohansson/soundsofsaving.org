@@ -119,9 +119,7 @@ ogType: website
       <article class="story-card">
         {% if post.image %}
         <a class="story-card__media" href="{{ post.url }}" aria-hidden="true" tabindex="-1">
-          <img src="{{ post.image | img }}" alt=""
-               {% if post.dims %}width="{{ post.dims.width }}" height="{{ post.dims.height }}"{% endif %}
-               loading="lazy" decoding="async" />
+          {% respImg post.image, { alt: "", sizes: "(max-width: 640px) 92vw, (max-width: 1100px) 45vw, 300px", width: post.dims.width if post.dims else null, height: post.dims.height if post.dims else null } %}
         </a>
         {% endif %}
         <p class="story-card__date"><time datetime="{{ post.date }}">{{ post.date | postDate }}</time></p>
