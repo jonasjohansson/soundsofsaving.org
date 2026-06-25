@@ -4,7 +4,10 @@
   "crisis": {
     "heading": "Need help right now?",
     "intro": "If you or someone you know is in crisis or thinking about suicide, reach a trained counselor any time. These lines are free, confidential, and open around the clock.",
-    "not_us": "Not in the US? Find a helpline in your country at findahelpline.com."
+    "not_us_before": "Not in the US? Find a helpline in your country at ",
+    "not_us_link_text": "findahelpline.com",
+    "not_us_link_url": "https://findahelpline.com",
+    "not_us_after": "."
   },
   "directory": {
     "heading": "Find a resource",

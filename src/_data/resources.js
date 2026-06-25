@@ -93,5 +93,46 @@ module.exports = function () {
     .filter((l) => l.count > 0)
     .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
 
-  return { all, categories, locations, languages, byCategory, byLocation, byLanguage };
+  // ---- Compact client dataset -------------------------------------------
+  // The /resources/ finder used to ship all 491 cards as static HTML (~930 KB).
+  // Instead we embed this compact JSON blob (short keys, precomputed filter +
+  // search strings) and render cards client-side. One record per resource:
+  //   n  name            d  description      u  url           p  phone
+  //   c  topics  (space-joined category slugs, as the topic filter expects)
+  //   l  locations (space-joined slugs, with "national" merged in)
+  //   g  languages (space-joined slugified language labels)
+  //   s  search text (lowercased "name description") for the free-text box
+  // Keys are short on purpose: this string is the byte budget for the page.
+  const catLabels = {};
+  for (const c of categories) catLabels[c.slug] = c.label;
+
+  const compact = all.map((r) => {
+    const locs = (r.locations || []).slice();
+    if (r.national && !locs.includes("national")) locs.push("national");
+    return {
+      n: r.name || "",
+      d: r.description || "",
+      u: r.url || "",
+      p: r.phone || "",
+      c: (r.categories || []).join(" "),
+      l: locs.join(" "),
+      g: (r.languages || []).map((lang) => slugify(lang)).join(" "),
+      s: ((r.name || "") + " " + (r.description || "")).toLowerCase(),
+    };
+  });
+
+  return {
+    all,
+    categories,
+    locations,
+    languages,
+    byCategory,
+    byLocation,
+    byLanguage,
+    catLabels,
+    // Pre-stringified so the template embeds it verbatim with no per-build
+    // Nunjucks escaping cost; consumed by the client finder script.
+    compactJSON: JSON.stringify(compact),
+    catLabelsJSON: JSON.stringify(catLabels),
+  };
 };

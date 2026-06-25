@@ -25,6 +25,8 @@ ogType: website
   Loader: src/_data/resources.js. Landing copy: content/pages/get-help.json.
 #}
 {% set g = pages["get-help"] %}
+{# Server-render only the first batch; the rest render client-side from JSON. #}
+{% set initialCount = 36 %}
 
 <style>
   /* ---- Get Help uses --calm (sage-teal) as its primary accent ---- */
@@ -221,6 +223,36 @@ ogType: website
   .finder__empty[hidden] { display: none; }
   .finder__empty h3 { font-family: var(--font-display); font-size: var(--fs-h3); color: var(--text); margin: 0 0 var(--space-2xs); }
 
+  /* ---- Show more (progressive reveal when no filter is active) ---- */
+  .finder__more { display: flex; justify-content: center; margin-top: var(--space-lg); }
+  .finder__more[hidden] { display: none; }
+  .finder__more button {
+    font: inherit;
+    font-family: var(--font-mono);
+    font-size: var(--fs-tiny);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--calm-deep);
+    background: none;
+    border: 1px solid var(--calm);
+    border-radius: var(--radius-pill);
+    padding: var(--space-2xs) var(--space-lg);
+    cursor: pointer;
+  }
+  .finder__more button:hover { background: var(--calm); color: var(--on-dark); }
+  .finder__more button:focus-visible { outline: 2px solid var(--calm); outline-offset: 2px; }
+
+  /* No-JS notice: hidden when JS runs (it removes [hidden]-less .finder__noscript via <noscript>). */
+  .finder__noscript {
+    border-left: 3px solid var(--coral);
+    padding: var(--space-2xs) 0 var(--space-2xs) var(--space-md);
+    margin-bottom: var(--space-md);
+    color: var(--text-muted);
+    font-size: var(--fs-small);
+    line-height: var(--lh-base);
+    max-width: var(--maxw-prose);
+  }
+
   /* ---- Learn layer ---- */
   .gethelp-learn {
     margin-top: var(--space-2xl);
@@ -283,7 +315,7 @@ ogType: website
         Crisis support for LGBTQ young people. Call <a href="tel:18664887386">1-866-488-7386</a> or text <strong>START</strong> to <a href="sms:678678?&amp;body=START">678678</a>.
       </li>
     </ul>
-    <p class="crisis-band__note">{{ g.crisis.not_us }}</p>
+    <p class="crisis-band__note">{{ g.crisis.not_us_before }}<a href="{{ g.crisis.not_us_link_url }}" target="_blank" rel="noopener">{{ g.crisis.not_us_link_text }}</a>{{ g.crisis.not_us_after }}</p>
   </section>
 
   {# ============================================================ #}
@@ -331,17 +363,25 @@ ogType: website
       </div>
     </div>
 
+    {# No-JS notice. The crisis band above is always usable; the finder needs
+       JS to filter, so spell that out and still server-render a first batch. #}
+    <noscript>
+      <p class="finder__noscript">
+        The search and filters need JavaScript. The crisis lines above are always
+        open, and the first {{ initialCount }} of {{ resources.all | length }}
+        resources are listed below. Each links out to the organization providing care.
+      </p>
+    </noscript>
+
     {# Per-topic editorial intro, swapped in by JS when a single topic is chosen. #}
     <p class="finder__intro" id="finder-intro" hidden></p>
 
+    {# Only the FIRST batch is server-rendered (initialCount). The rest live in
+       the compact JSON blob below and are rendered client-side. This is the
+       weight saving: full HTML for 491 cards was ~930 KB. #}
     <ul class="resource-list" id="finder-results">
-      {% for r in resources.all %}
-      <li class="resource-card"
-          data-name="{{ r.name | lower }}"
-          data-text="{{ (r.name ~ ' ' ~ (r.description or '')) | lower }}"
-          data-topics="{{ r.categories | join(' ') }}"
-          data-locations="{{ r.locations | join(' ') }}{% if r.national and 'national' not in r.locations %} national{% endif %}"
-          data-languages="{% for lang in r.languages %}{{ lang | lower | replace(' ', '-') }} {% endfor %}">
+      {% for r in resources.all.slice(0, initialCount) %}
+      <li class="resource-card">
         <p class="resource-card__name">
           {% if r.url %}<a href="{{ r.url }}" target="_blank" rel="noopener">{{ r.name }}</a>{% else %}{{ r.name }}{% endif %}
         </p>
@@ -362,10 +402,18 @@ ogType: website
       {% endfor %}
     </ul>
 
+    <div class="finder__more" id="finder-more" hidden>
+      <button type="button" id="finder-more-btn">Show more resources</button>
+    </div>
+
     <div class="finder__empty" id="finder-empty" hidden>
       <h3>No resources match those filters.</h3>
       <p>Try removing a filter or searching a broader term. If you need help now, the crisis lines at the top of this page are always open.</p>
     </div>
+
+    {# Full compact dataset for the client finder (short keys, see resources.js). #}
+    <script type="application/json" id="finder-data">{{ resources.compactJSON | safe }}</script>
+    <script type="application/json" id="finder-cat-labels">{{ resources.catLabelsJSON | safe }}</script>
   </section>
 
   {# ============================================================ #}
@@ -427,12 +475,24 @@ ogType: website
 </script>
 
 <script>
-  /* Resource finder — vanilla, no framework. Filters the server-rendered
-     cards by toggling the [hidden] attribute. Performance: search/filter
-     reads cheap data-* attributes already on each <li>; matching is O(n)
-     over ~491 nodes and runs inside requestAnimationFrame, debounced for
-     keystrokes, so even full-list passes stay well under a frame. */
+  /* Resource finder — vanilla, no framework.
+
+     The page server-renders only the first BATCH cards; the full 491-record
+     dataset is embedded as the compact JSON blob in #finder-data (short keys,
+     see src/_data/resources.js). On load we parse it once and take over
+     rendering: search + Topic/Location/Language filters run over the full
+     dataset and rebuild the visible cards from JSON.
+
+       - No filter active  -> progressive reveal: show `shownLimit` cards and a
+                              "Show more" button that adds another BATCH.
+       - Any filter active -> render every match (no Show more), with live
+                              counts and a clear empty state.
+
+     Matching is plain substring over precomputed lowercased strings, so even a
+     full-list pass over 491 records is well under a frame; keystrokes are
+     debounced via requestAnimationFrame. */
   (function () {
+    var BATCH = {{ initialCount }};
     var q = document.getElementById("finder-q");
     var topic = document.getElementById("finder-topic");
     var loc = document.getElementById("finder-location");
@@ -442,64 +502,128 @@ ogType: website
     var empty = document.getElementById("finder-empty");
     var intro = document.getElementById("finder-intro");
     var list = document.getElementById("finder-results");
+    var more = document.getElementById("finder-more");
+    var moreBtn = document.getElementById("finder-more-btn");
     if (!list) return;
 
-    var cards = Array.prototype.slice.call(list.querySelectorAll(".resource-card"));
-    var total = cards.length;
+    var data = [];
+    var catLabels = {};
     var intros = {};
-    try {
-      intros = JSON.parse(document.getElementById("finder-topic-intros").textContent);
-    } catch (e) { intros = {}; }
+    try { data = JSON.parse(document.getElementById("finder-data").textContent); } catch (e) { data = []; }
+    try { catLabels = JSON.parse(document.getElementById("finder-cat-labels").textContent); } catch (e) { catLabels = {}; }
+    try { intros = JSON.parse(document.getElementById("finder-topic-intros").textContent); } catch (e) { intros = {}; }
+
+    var total = data.length;
+    var shownLimit = BATCH; // how many of an UNFILTERED list are currently shown
+
+    function tel(p) { return p.replace(/[^0-9+]/g, ""); }
+    function esc(s) {
+      return String(s).replace(/[&<>"]/g, function (ch) {
+        return ch === "&" ? "&amp;" : ch === "<" ? "&lt;" : ch === ">" ? "&gt;" : "&quot;";
+      });
+    }
+
+    // Build one card's HTML from a compact record.
+    function cardHTML(r) {
+      var html = '<li class="resource-card">';
+      var isNational = (" " + r.l + " ").indexOf(" national ") !== -1;
+      html += '<p class="resource-card__name">';
+      html += r.u
+        ? '<a href="' + esc(r.u) + '" target="_blank" rel="noopener">' + esc(r.n) + "</a>"
+        : esc(r.n);
+      html += "</p>";
+      if (isNational) html += '<span class="resource-card__badge">National</span>';
+      if (r.d) html += "<p>" + esc(r.d) + "</p>";
+      var cats = r.c ? r.c.split(" ").filter(Boolean) : [];
+      if (cats.length) {
+        html += '<div class="resource-card__tags" aria-label="Topics">';
+        for (var i = 0; i < cats.length; i++) {
+          html += '<span class="tag">' + esc(catLabels[cats[i]] || cats[i]) + "</span>";
+        }
+        html += "</div>";
+      }
+      if (r.p || r.u) {
+        html += '<div class="resource-card__meta">';
+        if (r.p) html += '<span class="resource-card__phone">Call <a href="tel:' + esc(tel(r.p)) + '">' + esc(r.p) + "</a></span>";
+        if (r.u) html += '<span class="resource-card__site"><a href="' + esc(r.u) + '" target="_blank" rel="noopener">Visit site</a></span>';
+        html += "</div>";
+      }
+      html += "</li>";
+      return html;
+    }
+
+    function matches(r, term, t, l, lg) {
+      if (term && r.s.indexOf(term) === -1) return false;
+      if (t && (" " + r.c + " ").indexOf(" " + t + " ") === -1) return false;
+      if (l && (" " + r.l + " ").indexOf(" " + l + " ") === -1) return false;
+      if (lg && (" " + r.g + " ").indexOf(" " + lg + " ") === -1) return false;
+      return true;
+    }
+
+    function render(rows, limit) {
+      var n = Math.min(limit, rows.length);
+      var html = "";
+      for (var i = 0; i < n; i++) html += cardHTML(rows[i]);
+      list.innerHTML = html;
+    }
 
     function apply() {
       var term = q.value.trim().toLowerCase();
       var t = topic.value;
       var l = loc.value;
       var lg = lang.value;
-      var count = 0;
+      var active = !!(term || t || l || lg);
 
-      for (var i = 0; i < cards.length; i++) {
-        var c = cards[i];
-        var ok = true;
-        if (term && c.getAttribute("data-text").indexOf(term) === -1) ok = false;
-        if (ok && t && (" " + c.getAttribute("data-topics") + " ").indexOf(" " + t + " ") === -1) ok = false;
-        if (ok && l && (" " + c.getAttribute("data-locations") + " ").indexOf(" " + l + " ") === -1) ok = false;
-        if (ok && lg && (" " + c.getAttribute("data-languages") + " ").indexOf(" " + lg + " ") === -1) ok = false;
-        if (c.hidden === ok) c.hidden = !ok; // touch DOM only on change
-        if (ok) count++;
+      var rows = active ? data.filter(function (r) { return matches(r, term, t, l, lg); }) : data;
+      var count = rows.length;
+
+      if (active) {
+        // Filtered: show every match, no progressive reveal.
+        render(rows, count);
+        shown.textContent = count;
+        more.hidden = true;
+      } else {
+        // Unfiltered: progressive reveal up to shownLimit.
+        if (shownLimit > total) shownLimit = total;
+        render(rows, shownLimit);
+        shown.textContent = total;
+        more.hidden = shownLimit >= total;
       }
 
-      shown.textContent = count;
       empty.hidden = count !== 0;
       list.hidden = count === 0;
 
       // Editorial intro: show only when exactly one topic is selected.
       if (t && intros[t]) {
         var label = topic.options[topic.selectedIndex].text.replace(/\s*\(\d+\)\s*$/, "");
-        intro.innerHTML = "<strong>" + label + ".</strong> " + intros[t];
+        intro.innerHTML = "<strong>" + esc(label) + ".</strong> " + esc(intros[t]);
         intro.hidden = false;
       } else {
         intro.hidden = true;
       }
 
-      var active = term || t || l || lg;
       reset.hidden = !active;
     }
 
     var raf = null;
     function schedule() {
       if (raf) return;
-      raf = requestAnimationFrame(function () { raf = null; apply(); });
+      raf = requestAnimationFrame(function () { raf = null; shownLimit = BATCH; apply(); });
     }
 
     q.addEventListener("input", schedule);
-    topic.addEventListener("change", apply);
-    loc.addEventListener("change", apply);
-    lang.addEventListener("change", apply);
+    topic.addEventListener("change", function () { shownLimit = BATCH; apply(); });
+    loc.addEventListener("change", function () { shownLimit = BATCH; apply(); });
+    lang.addEventListener("change", function () { shownLimit = BATCH; apply(); });
     reset.addEventListener("click", function () {
       q.value = ""; topic.value = ""; loc.value = ""; lang.value = "";
+      shownLimit = BATCH;
       apply();
       q.focus();
+    });
+    moreBtn.addEventListener("click", function () {
+      shownLimit += BATCH;
+      apply();
     });
 
     // Allow deep-linking: /resources/?topic=lgbtq, ?location=national, ?q=grief
@@ -508,6 +632,8 @@ ogType: website
     if (params.get("topic")) topic.value = params.get("topic");
     if (params.get("location")) loc.value = params.get("location");
     if (params.get("language")) lang.value = params.get("language");
+
+    // Take over rendering from the server-rendered first batch.
     apply();
   })();
 </script>
