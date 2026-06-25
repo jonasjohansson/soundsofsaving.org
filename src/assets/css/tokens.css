@@ -1,0 +1,76 @@
+/* ==================================================================== *
+ *  SOUNDS OF SAVING — design tokens
+ *
+ *  Single source of truth for the brand. Components consume these vars
+ *  only; never hardcode a color, size, or spacing value below this file.
+ *  Palette mirrors the original Webflow custom properties (recon report).
+ * ==================================================================== */
+
+:root {
+  /* — Brand palette (from the original Webflow tokens) ——————————— */
+  --white: #fff;
+  --white-smoke: #f0f0f0;
+  --gray: #dfdfdf;
+  --dark-grey-2: #9e9e9e;
+  --medium-grey-1: #292929;
+  --dark-slate-grey: #444;
+  --dark-grey: #111;
+  --black: #000;
+  --header-blue: #006fe5;
+  --links-color: #91a7db;
+
+  /* — Semantic roles ————————————————————————————————————————— */
+  --bg: var(--white);
+  --bg-alt: var(--white-smoke);
+  --text: var(--dark-grey);
+  --text-muted: var(--dark-slate-grey);
+  --text-faint: var(--dark-grey-2);
+  --border: var(--gray);
+  --accent: var(--header-blue);
+  --link: var(--links-color);
+  --surface-dark: var(--medium-grey-1);
+
+  /* — Typography ————————————————————————————————————————————— */
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+
+  --fs-mega:  clamp(2.4rem, 6vw, 4.5rem);   /* hero line */
+  --fs-title: clamp(1.9rem, 4vw, 3rem);     /* page titles / h1 */
+  --fs-h2:    clamp(1.4rem, 2.4vw, 2rem);
+  --fs-h3:    clamp(1.15rem, 1.6vw, 1.4rem);
+  --fs-lead:  clamp(1.1rem, 1rem + 0.5vw, 1.35rem);
+  --fs-base:  1.0625rem;
+  --fs-small: 0.85rem;
+  --fs-tiny:  0.75rem;
+
+  --lh-tight: 1.15;
+  --lh-base:  1.6;
+
+  --fw-regular:  400;
+  --fw-medium:   500;
+  --fw-semibold: 600;
+
+  --tracking: 0.01em;
+  --tracking-wide: 0.06em;
+
+  /* — Spacing scale ————————————————————————————————————————— */
+  --space-3xs: 0.25rem;
+  --space-2xs: 0.5rem;
+  --space-xs:  0.75rem;
+  --space-sm:  1rem;
+  --space-md:  1.5rem;
+  --space-lg:  2.5rem;
+  --space-xl:  4rem;
+  --space-2xl: 6rem;
+
+  /* — Layout ————————————————————————————————————————————————— */
+  --maxw: 1140px;
+  --maxw-prose: 720px;
+  --gutter: clamp(1rem, 4vw, 2.5rem);
+
+  /* — UI ————————————————————————————————————————————————————— */
+  --radius: 6px;
+  --radius-pill: 999px;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --header-h: 72px;
+  --transition: 150ms ease;
+}

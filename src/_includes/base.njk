@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  {# Title: home is just the brand; inner pages get "<Title> | Sounds of Saving" #}
+  {% if title %}<title>{{ title }} | {{ settings.site_title }}</title>
+  {% else %}<title>{{ settings.site_title }}</title>{% endif %}
+
+  <meta name="description" content="{{ description or settings.meta_description }}" />
+  <link rel="canonical" href="{{ site.origin }}{{ page.url }}" />
+
+  {# Open Graph / Twitter — absImg makes image URLs fully qualified for scrapers #}
+  {% set ogSrc = ogImage or site.ogImage.src %}
+  {% set ogAlt = ogImageAlt or (site.ogImage.alt if not ogImage) or (title or settings.site_title) %}
+  <meta property="og:type" content="{{ ogType or 'website' }}" />
+  <meta property="og:site_name" content="{{ settings.site_title }}" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:title" content="{{ title or settings.site_title }}" />
+  <meta property="og:description" content="{{ description or settings.meta_description }}" />
+  <meta property="og:url" content="{{ site.origin }}{{ page.url }}" />
+  <meta property="og:image" content="{{ ogSrc | absImg }}" />
+  <meta property="og:image:alt" content="{{ ogAlt }}" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{{ title or settings.site_title }}" />
+  <meta name="twitter:description" content="{{ description or settings.meta_description }}" />
+  <meta name="twitter:image" content="{{ ogSrc | absImg }}" />
+  <meta name="twitter:image:alt" content="{{ ogAlt }}" />
+
+  <meta name="theme-color" content="#006fe5" />
+  <link rel="icon" href="/assets/img/site/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="/assets/img/site/favicon.png" />
+
+  {# Inter — the original bundled it; Google Fonts link is the accepted replacement #}
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/assets/css/site.css" />
+</head>
+<body>
+
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="site-header__brand" href="/" aria-label="{{ settings.site_title }} — home">
+        <img class="site-header__logo" src="/assets/img/site/logo.png" width="801" height="801"
+             alt="{{ settings.site_title }}" />
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        Menu
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        {% for item in settings.nav %}
+        <a href="{{ item.url }}"{% if current and (current == (item.url | replace('/', ''))) %} aria-current="page"{% endif %}>{{ item.label }}</a>
+        {% endfor %}
+        <a class="btn btn--primary" href="{{ settings.donate_url }}" target="_blank" rel="noopener">{{ settings.donate_label or 'Donate Now' }}</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    {{ content | safe }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+
+      <div class="crisis">
+        <p class="crisis__intro">{{ settings.crisis_line.intro }}</p>
+        <p class="crisis__name">{{ settings.crisis_line.name }}</p>
+        <p class="crisis__line">
+          <a href="tel:{{ settings.crisis_line.phone }}">Call or text {{ settings.crisis_line.phone }}</a>
+          or chat at
+          <a href="{{ settings.crisis_line.url }}" target="_blank" rel="noopener">988lifeline.org</a>
+        </p>
+      </div>
+
+      <div class="footer-meta">
+        <div class="footer-brand">
+          <img src="/assets/img/site/logo.png" width="801" height="801" alt="{{ settings.site_title }}" />
+          <a class="btn btn--ghost" href="{{ settings.get_help_url }}">Get Help</a>
+        </div>
+
+        <nav class="socials" aria-label="Social media">
+          {% if settings.socials.youtube %}<a href="{{ settings.socials.youtube }}" target="_blank" rel="noopener">YouTube</a>{% endif %}
+          {% if settings.socials.facebook %}<a href="{{ settings.socials.facebook }}" target="_blank" rel="noopener">Facebook</a>{% endif %}
+          {% if settings.socials.spotify %}<a href="{{ settings.socials.spotify }}" target="_blank" rel="noopener">Spotify</a>{% endif %}
+          {% if settings.socials.twitter %}<a href="{{ settings.socials.twitter }}" target="_blank" rel="noopener">Twitter</a>{% endif %}
+          {% if settings.socials.instagram %}<a href="{{ settings.socials.instagram }}" target="_blank" rel="noopener">Instagram</a>{% endif %}
+        </nav>
+      </div>
+
+      <p class="footer-fine">
+        &copy; 2019 {{ settings.copyright }}
+        <a href="{{ settings.privacy_url }}">Privacy Policy</a>
+      </p>
+
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var btn = document.querySelector(".nav-toggle");
+      var nav = document.getElementById("site-nav");
+      if (!btn || !nav) return;
+      btn.addEventListener("click", function () {
+        var open = nav.classList.toggle("is-open");
+        btn.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+    })();
+  </script>
+
+</body>
+</html>
