@@ -294,7 +294,6 @@ ogType: website
   .learn-card__title a { color: var(--ink); }
   .learn-card__title a:hover { color: var(--accent-deep); }
   .learn-card p { font-size: var(--fs-small); color: var(--text-muted); line-height: var(--lh-base); margin: 0; }
-  .learn-card__more { font-size: var(--fs-small); color: var(--accent-deep); font-weight: var(--fw-medium); margin-top: auto; padding-top: var(--space-2xs); }
 </style>
 
 <div class="container gethelp">
@@ -447,7 +446,6 @@ ogType: website
         <span class="learn-card__kind">{% if post.category == "resource-sheet" %}Resource sheet{% else %}Explainer{% endif %}</span>
         <h3 class="learn-card__title"><a href="{{ post.url }}">{{ post.title }}</a></h3>
         {% if post.excerpt %}<p>{{ post.excerpt }}</p>{% endif %}
-        <span class="learn-card__more">Read &rarr;</span>
       </li>
       {% endfor %}
     </ul>

@@ -67,7 +67,9 @@ ogType: website
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: var(--space-lg);
   }
-  .story-card { display: flex; flex-direction: column; gap: var(--space-2xs); min-width: 0; }
+  .story-card { position: relative; display: flex; flex-direction: column; gap: var(--space-2xs); min-width: 0; }
+  /* Stretch the title link across the whole card so it's all clickable. */
+  .story-card__title a::after { content: ""; position: absolute; inset: 0; }
   .story-card__media {
     display: block;
     aspect-ratio: 16 / 10;
