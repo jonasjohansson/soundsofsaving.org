@@ -1,0 +1,358 @@
+# Pages CMS config — https://pagescms.org
+# Install the Pages CMS GitHub App on this repo, then edit at app.pagescms.org.
+
+# Each image folder the CMS should let you browse / upload to. `name` is how
+# image fields below reference a folder (options.media).
+media:
+  - name: songs
+    label: Song thumbnails
+    input: src/assets/img/songs
+    output: /assets/img/songs
+    categories: [image]
+  - name: news
+    label: News images
+    input: src/assets/img/news
+    output: /assets/img/news
+    categories: [image]
+  - name: site
+    label: Site images (logo, hero, og)
+    input: src/assets/img/site
+    output: /assets/img/site
+    categories: [image]
+
+content:
+  - name: songs
+    label: Songs
+    type: collection
+    path: content/songs
+    filename: '{fields.artist} - {fields.song_title}.md'
+    view:
+      fields: [artist, song_title, date, featured]
+      primary: artist
+      sort: [date]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - { name: artist, label: Artist, type: string, required: true, description: "Performer / interviewee — e.g. “Neil Young”" }
+      - { name: song_title, label: Song title, type: string, description: "The song that found them — e.g. “Out on the Weekend”" }
+      - { name: date, label: Date, type: date, options: { format: yyyy-MM-dd }, description: "Episode / publish date. Drives ordering of the series (newest first)." }
+      - { name: youtube_url, label: YouTube URL, type: string, pattern: '^$|^https?://', description: "Full link to the episode video — e.g. https://youtu.be/08ts6hekHlc" }
+      - { name: youtube_id, label: YouTube ID, type: string, description: "The 11-character video id (the part after youtu.be/ or v=). Used for the embed and the default thumbnail." }
+      - { name: thumbnail, label: Thumbnail, type: image, options: { media: songs }, description: "Defaults to the YouTube thumbnail for the id above; set this only to override it." }
+      - { name: featured, label: Featured, type: boolean, description: "Featured episodes are pinned to the top of the Songs index and shown on the home page." }
+      - { name: pull_quote, label: Pull quote, type: text, description: "A short line from the artist, highlighted on the episode page." }
+      - { name: story, label: Story, type: rich-text, description: "The story behind the song. Written in the file body (Markdown). Optional." }
+
+  - name: news
+    label: News
+    type: collection
+    path: content/news
+    filename: '{fields.title}.md'
+    view:
+      fields: [title, date, author]
+      primary: title
+      sort: [date]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: date, label: Date, type: date, required: true, options: { format: yyyy-MM-dd } }
+      - { name: author, label: Author, type: string }
+      - { name: image, label: Hero image, type: image, options: { media: news }, description: "Shown at the top of the post and in link previews." }
+      - { name: summary, label: Summary, type: text, description: "One- or two-line teaser shown on the News index and used as the link-preview text." }
+      - { name: body, label: Body, type: rich-text, description: "The post itself (Markdown)." }
+
+  - name: page_programs
+    label: "Page: Programs"
+    type: file
+    path: content/pages/programs.json
+    fields:
+      - { name: title, label: Title, type: string }
+      - { name: meta_description, label: "SEO description", type: text }
+      - { name: heading, label: Heading, type: string }
+      - name: pillars
+        label: Pillars
+        type: object
+        list:
+          sortable: true
+          collapsible:
+            collapsed: true
+            summary: '{heading}'
+        fields:
+          - { name: number, label: Number, type: string }
+          - { name: heading, label: Heading, type: string }
+          - { name: body, label: Body, type: text }
+          - name: items
+            label: Items
+            type: object
+            list:
+              sortable: true
+              collapsible:
+                collapsed: true
+                summary: '{heading}'
+            fields:
+              - { name: heading, label: Heading, type: string }
+              - { name: body, label: Body, type: text }
+
+  - name: page_about
+    label: "Page: About Us"
+    type: file
+    path: content/pages/about.json
+    fields:
+      - { name: title, label: Title, type: string }
+      - { name: meta_description, label: "SEO description", type: text }
+      - { name: intro, label: Intro, type: text }
+      - name: why_now
+        label: Why Now
+        type: object
+        fields:
+          - { name: heading, label: Heading, type: string }
+          - { name: body, label: Body, type: text }
+          - { name: stats, label: Stats, type: string, list: true }
+          - { name: sources, label: Sources, type: string, list: true }
+          - { name: pullquote, label: Pull quote, type: text }
+          - { name: pullquote_attribution, label: Pull quote attribution, type: string }
+      - name: approach
+        label: Our Approach
+        type: object
+        fields:
+          - { name: heading, label: Heading, type: string }
+          - { name: body, label: Body, type: text }
+      - name: founding_story
+        label: Founding Story
+        type: object
+        fields:
+          - { name: heading, label: Heading, type: string }
+          - { name: body, label: Body, type: text }
+      - name: team
+        label: Team
+        type: object
+        fields:
+          - { name: heading, label: Heading, type: string }
+          - name: members
+            label: Members
+            type: object
+            list:
+              sortable: true
+              collapsible:
+                collapsed: true
+                summary: '{name}'
+            fields:
+              - { name: name, label: Name, type: string }
+              - { name: role, label: Role, type: string }
+              - { name: email, label: Email, type: string, pattern: '^$|^[^@\s]+@[^@\s]+\.[^@\s]+$' }
+              - { name: bio, label: Bio, type: text }
+      - name: board_of_directors
+        label: Board of Directors
+        type: object
+        fields:
+          - { name: heading, label: Heading, type: string }
+          - name: members
+            label: Members
+            type: object
+            list:
+              sortable: true
+              collapsible:
+                collapsed: true
+                summary: '{name}'
+            fields:
+              - { name: name, label: Name, type: string }
+              - { name: bio, label: Bio, type: text }
+      - name: advisory_board
+        label: Advisory Board
+        type: object
+        fields:
+          - { name: heading, label: Heading, type: string }
+          - { name: intro, label: Intro, type: text }
+          - name: members
+            label: Members
+            type: object
+            list:
+              sortable: true
+              collapsible:
+                collapsed: true
+                summary: '{name}'
+            fields:
+              - { name: name, label: Name, type: string }
+              - { name: bio, label: Bio, type: text }
+
+  - name: page_community
+    label: "Page: Community"
+    type: file
+    path: content/pages/community.json
+    fields:
+      - { name: title, label: Title, type: string }
+      - { name: meta_description, label: "SEO description", type: text }
+      - name: partners
+        label: Partners
+        type: object
+        fields:
+          - { name: heading, label: Heading, type: string }
+          - { name: note, label: Note, type: text }
+          - name: logos
+            label: Logos
+            type: object
+            list:
+              sortable: true
+              collapsible:
+                collapsed: true
+                summary: '{alt}'
+            fields:
+              - { name: alt, label: Alt text, type: string }
+              - { name: src, label: Image source, type: string }
+      - name: submit_form
+        label: Submit form
+        type: object
+        description: "The song-submission form. Editing field rows changes the form on the Community page."
+        fields:
+          - { name: heading, label: Heading, type: string }
+          - { name: intro, label: Intro, type: text }
+          - { name: action, label: Form action URL, type: string }
+          - { name: submit_label, label: Submit button label, type: string }
+          - name: fields
+            label: Fields
+            type: object
+            list:
+              sortable: true
+              collapsible:
+                collapsed: true
+                summary: '{label}'
+            fields:
+              - { name: name, label: Name (attribute), type: string }
+              - { name: label, label: Label, type: string }
+              - { name: type, label: Input type, type: string }
+              - { name: required, label: Required, type: boolean }
+
+  - name: page_get_help
+    label: "Page: Get Help"
+    type: file
+    path: content/pages/get-help.json
+    fields:
+      - { name: title, label: Title, type: string }
+      - { name: meta_description, label: "SEO description", type: text }
+      - name: crisis
+        label: Crisis card
+        type: object
+        fields:
+          - { name: heading, label: Heading, type: string }
+          - { name: intro, label: Intro, type: text }
+          - { name: phone, label: Phone, type: string }
+          - { name: phone_label, label: Phone label, type: string }
+          - { name: text_keyword, label: Text keyword, type: string }
+          - { name: text_number, label: Text number, type: string }
+      - name: directory
+        label: Directory
+        type: object
+        fields:
+          - { name: heading, label: Heading, type: string }
+          - { name: intro, label: Intro, type: text }
+
+  - name: page_songs
+    label: "Page: Songs intro"
+    type: file
+    path: content/pages/songs.json
+    fields:
+      - { name: title, label: Title, type: string }
+      - { name: intro, label: Intro, type: text }
+      - { name: meta_description, label: "SEO description", type: text }
+
+  - name: resources
+    label: Resources directory
+    type: file
+    path: content/resources.json
+    description: "The Get Help resource directory. NOTE: this file is normally regenerated by scripts/parse-resources.js — manual edits here may be overwritten on the next parse. Categories and locations are the filter facets."
+    fields:
+      - name: categories
+        label: Categories (facets)
+        type: object
+        list:
+          sortable: true
+          collapsible:
+            collapsed: true
+            summary: '{label}'
+        fields:
+          - { name: slug, label: Slug, type: string }
+          - { name: label, label: Label, type: string }
+      - name: locations
+        label: Locations (facets)
+        type: object
+        list:
+          sortable: true
+          collapsible:
+            collapsed: true
+            summary: '{label}'
+        fields:
+          - { name: slug, label: Slug, type: string }
+          - { name: label, label: Label, type: string }
+      - name: resources
+        label: Resources
+        type: object
+        list:
+          sortable: true
+          collapsible:
+            collapsed: true
+            summary: '{name}'
+        fields:
+          - { name: name, label: Name, type: string }
+          - { name: description, label: Description, type: text }
+          - { name: url, label: URL, type: string }
+          - { name: phone, label: Phone, type: string }
+          - { name: categories, label: Categories, type: string, list: true }
+          - { name: locations, label: Locations, type: string, list: true }
+
+  - name: settings
+    label: Site settings
+    type: file
+    path: content/settings.json
+    fields:
+      - { name: site_title, label: Site title, type: string }
+      - { name: tagline, label: Tagline, type: text }
+      - { name: meta_description, label: "SEO: default description", type: text, description: "Fallback search / link-preview text (~150 chars)." }
+      - { name: hero_heading, label: Hero heading, type: string }
+      - { name: hero_subheading, label: Hero subheading, type: text }
+      - { name: donate_url, label: Donate URL, type: string, pattern: '^$|^https?://' }
+      - { name: donate_label, label: Donate button label, type: string }
+      - { name: get_help_url, label: Get Help URL, type: string }
+      - { name: copyright, label: Copyright, type: string }
+      - { name: privacy_url, label: Privacy URL, type: string }
+      - name: nav
+        label: Navigation
+        type: object
+        list:
+          sortable: true
+          collapsible:
+            collapsed: true
+            summary: '{label}'
+        fields:
+          - { name: label, label: Label, type: string }
+          - { name: url, label: URL, type: string }
+      - name: crisis_line
+        label: Crisis line
+        type: object
+        fields:
+          - { name: name, label: Name, type: string }
+          - { name: intro, label: Intro, type: text }
+          - { name: phone, label: Phone, type: string }
+          - { name: url, label: URL, type: string }
+          - { name: action, label: Action label, type: string }
+      - name: socials
+        label: Social links
+        type: object
+        fields:
+          - { name: youtube, label: YouTube URL, type: string, pattern: '^$|^https?://' }
+          - { name: facebook, label: Facebook URL, type: string, pattern: '^$|^https?://' }
+          - { name: spotify, label: Spotify URL, type: string, pattern: '^$|^https?://' }
+          - { name: twitter, label: Twitter URL, type: string, pattern: '^$|^https?://' }
+          - { name: instagram, label: Instagram URL, type: string, pattern: '^$|^https?://' }
+      - name: seo
+        label: "SEO: per-page descriptions"
+        type: object
+        fields:
+          - { name: home, label: Home, type: text }
+          - { name: programs, label: Programs, type: text }
+          - { name: about, label: About, type: text }
+          - { name: community, label: Community, type: text }
+          - { name: news, label: News, type: text }
+          - { name: resources, label: Resources, type: text }

@@ -1,0 +1,16 @@
+---
+layout: base.njk
+current: 404
+title: Not found
+permalink: /404.html
+eleventyExcludeFromCollections: true
+---
+<style>
+  .notfound { padding-block: var(--space-xl); max-width: var(--maxw-prose); }
+  .notfound h1 { font-size: var(--fs-title); line-height: var(--lh-tight); margin: 0 0 var(--space-sm); }
+  .notfound p { font-size: var(--fs-lead); line-height: var(--lh-base); color: var(--text-muted); margin: 0; }
+</style>
+<section class="container notfound">
+  <h1>Page not found</h1>
+  <p>That page is not here. Head back <a href="/">home</a>, or if you need support right now, <a href="/resources/">get help</a>.</p>
+</section>
