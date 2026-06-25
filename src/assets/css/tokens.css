@@ -130,3 +130,12 @@
   --salvage-light:  var(--accent);   /* duotone light stop (dusk violet) */
   --grain-opacity:  0.16;
 }
+
+/* Tighten the large vertical rhythm on mobile so sections aren't so spread out. */
+@media (max-width: 640px) {
+  :root {
+    --space-lg:  1.75rem;   /* 2.5rem */
+    --space-xl:  2.5rem;    /* 4rem */
+    --space-2xl: 3.5rem;    /* 6rem */
+  }
+}

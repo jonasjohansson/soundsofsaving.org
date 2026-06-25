@@ -458,34 +458,22 @@ main { min-height: 50vh; }
      Donate); the logo is pinned to the top-right. */
   .nav-toggle { display: none; }
 
-  .site-header__inner {
-    position: relative;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--space-sm);
-  }
   .site-header__brand { display: none; }
+  /* Horizontal wrapping menu (no logo, no hamburger). */
   .site-nav {
-    display: flex;
-    flex: none;
-    width: 100%;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--space-xs);
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: var(--space-2xs) var(--space-md);
     background: none;
     border: 0;
     padding: 0;
   }
   .site-nav__links,
   .site-nav__cta {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--space-xs);
-    width: 100%;
+    flex-wrap: wrap;
+    gap: var(--space-2xs) var(--space-md);
   }
   .site-nav__ig { display: none; }            /* skip Instagram on mobile */
-  .site-nav a { padding-block: var(--space-3xs); }
-  .site-nav__cta .btn--stroke { align-self: flex-start; margin-top: var(--space-2xs); }
 
   /* Home: header overlays the top of the hero (no tan bar), white text,
      absolute so it scrolls away with the hero instead of staying fixed. */
