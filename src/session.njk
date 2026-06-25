@@ -117,31 +117,6 @@ eleventyComputed:
   }
   .session-watch:hover { text-decoration: underline; }
 
-  /* — Liner-note "song card": thumbnail + typeset tracklist in mono — */
-  .session-card-aside {
-    background: var(--paper-3);
-    border-radius: var(--radius);
-    overflow: hidden;
-  }
-  .session-card-aside .media { border-radius: 0; }
-  .session-card-aside .media img { aspect-ratio: 16 / 9; object-fit: cover; }
-  .session-card-aside__list {
-    list-style: none;
-    margin: 0;
-    padding: var(--space-md);
-    display: grid;
-    gap: var(--space-2xs);
-  }
-  .session-card-aside__row { display: grid; grid-template-columns: 6.5rem 1fr; gap: var(--space-sm); align-items: baseline; }
-  .session-card-aside__k {
-    font-family: var(--font-mono);
-    font-size: var(--fs-tiny);
-    letter-spacing: var(--tracking-wide);
-    text-transform: uppercase;
-    color: var(--ink-faint);
-  }
-  .session-card-aside__v { font-family: var(--font-body); font-size: var(--fs-small); color: var(--text); }
-
   /* — prev / next — */
   .session-nav {
     display: flex;

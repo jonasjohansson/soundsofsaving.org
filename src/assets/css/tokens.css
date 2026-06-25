@@ -27,8 +27,6 @@
   --accent-deep:  color-mix(in srgb, var(--accent), #000 24%);  /* auto hover/pressed shade */
   --accent-bright: color-mix(in srgb, var(--accent), #fff 26%); /* lightened accent for dark surfaces */
   --coral:        #e23b1e;   /* vermilion red — highlights / accent CTAs */
-  --calm:         #1f6e63;   /* deep teal — reserved for Get Help / crisis */
-  --calm-deep:    #16544b;   /* calm hover */
 
   /* Per-section accents (all AA on bone). Applied via [data-section] in site.css;
      --accent-deep above auto-derives the hover shade from whichever is active. */
@@ -48,18 +46,9 @@
   --line:         #cfc8b8;
   --line-strong:  #b3a992;
 
-  /* — Legacy semantic names, RE-POINTED to the new palette ——————————— *
-   *  Existing templates reference these; keep them working.             */
+  /* — Legacy aliases still referenced by templates ———————————————————— */
   --white:          var(--paper);     /* "white" surfaces are now warm paper */
   --white-smoke:    var(--paper-2);
-  --gray:           var(--line);
-  --dark-grey-2:    var(--ink-faint);
-  --medium-grey-1:  var(--dusk);      /* was the dark surface grey */
-  --dark-slate-grey:var(--ink-muted);
-  --dark-grey:      var(--ink);
-  --black:          var(--ink);
-  --header-blue:    var(--accent);    /* old periwinkle/blue -> dusk violet */
-  --links-color:    var(--accent);
 
   /* — Semantic roles ————————————————————————————————————————————— */
   --bg:           var(--paper);
@@ -68,7 +57,6 @@
   --text-muted:   var(--ink-muted);
   --text-faint:   var(--ink-faint);
   --border:       var(--line);
-  --link:         var(--accent);
   --surface-dark: var(--dusk);        /* hero overlay + quote band */
   --on-dark:      var(--paper);       /* text on dark surfaces */
 
@@ -94,7 +82,6 @@
   --fw-regular:  400;
   --fw-medium:   500;
   --fw-semibold: 600;
-  --fw-bold:     700;
 
   --tracking:        0.005em;   /* body, near-neutral for the serif */
   --tracking-tight: -0.015em;   /* display lines */
@@ -120,15 +107,8 @@
    *  sharper, edgier feel. */
   --radius: 2px;
   --radius-pill: 2px;
-  --shadow-sm: 0 1px 3px rgba(33, 29, 46, 0.1);
   --header-h: 72px;
-  --roster-card-min-h: 3.4em;
   --transition: 150ms ease;
-
-  /* — Imagery treatment ("salvage" duotone) ————————————————————————— */
-  --salvage-shadow: var(--ink);      /* duotone dark stop */
-  --salvage-light:  var(--accent);   /* duotone light stop (dusk violet) */
-  --grain-opacity:  0.16;
 }
 
 /* Tighten the large vertical rhythm on mobile so sections aren't so spread out. */

@@ -108,7 +108,7 @@ a:hover { color: var(--accent-deep); }
 [data-section="programs"]  { --accent: var(--accent-programs); }
 [data-section="educators"] { --accent: var(--accent-educators); }
 [data-section="stories"]   { --accent: var(--accent-stories); }
-[data-section="about"]     { --accent: var(--accent-about); }
+[data-section="about-us"]  { --accent: var(--accent-about); }
 [data-section="resources"] { --accent: var(--accent-resources); }
 
 strong { font-weight: var(--fw-semibold); }
@@ -166,16 +166,6 @@ main { min-height: 50vh; }
   filter: brightness(0);
 }
 
-.nav-toggle {
-  display: none;
-  border: 0;
-  background: transparent;
-  color: var(--text);
-  font: inherit;
-  cursor: pointer;
-  padding: var(--space-2xs);
-}
-
 .site-nav {
   display: flex;
   flex: 1;
@@ -213,20 +203,9 @@ main { min-height: 50vh; }
 /* Home: keep the logo visible, rendered white over the dark hero. */
 .site-header--overlay .site-header__logo { filter: brightness(0) invert(1); }
 .site-header--overlay .site-nav a,
-.site-header--overlay .site-nav__donate,
-.site-header--overlay .nav-toggle { color: var(--white); }
+.site-header--overlay .site-nav__donate { color: var(--white); }
 .site-header--overlay .btn--stroke { border-color: var(--white); color: var(--white); }
 .site-header--overlay .btn--stroke:hover { background: var(--white); color: var(--text); }
-.site-header--overlay.is-solid {
-  background: var(--white);
-  border-bottom-color: var(--border);
-}
-.site-header--overlay.is-solid .site-header__logo { filter: brightness(0); }
-.site-header--overlay.is-solid .site-nav a,
-.site-header--overlay.is-solid .site-nav__donate,
-.site-header--overlay.is-solid .nav-toggle { color: var(--text); }
-.site-header--overlay.is-solid .btn--stroke { border-color: var(--accent); color: var(--accent); }
-.site-header--overlay.is-solid .btn--stroke:hover { background: var(--accent); color: var(--white); }
 
 /* — Buttons ————————————————————————————————————————————————— */
 .btn {
@@ -285,41 +264,6 @@ main { min-height: 50vh; }
   align-items: center;
   gap: var(--space-md) var(--space-lg);
 }
-.crisis {
-  display: grid;
-  gap: var(--space-2xs);
-  justify-items: center;
-  text-align: center;
-  padding: var(--space-md);
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-}
-.crisis__name {
-  font-weight: var(--fw-semibold);
-  color: var(--black);
-  font-size: var(--fs-base);
-}
-.crisis__line { color: var(--text-muted); }
-.crisis__line a { color: var(--accent); font-weight: var(--fw-semibold); }
-
-.footer-meta {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-md);
-}
-.footer-brand {
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-}
-.footer-brand img { height: 40px; width: auto; filter: brightness(0); }
-
-/* Header Instagram icon — inherits nav link color (white on the home overlay). */
-.site-nav__ig { display: inline-flex; align-items: center; color: var(--text); }
-
 .socials {
   display: flex;
   flex-wrap: wrap;
@@ -338,30 +282,7 @@ main { min-height: 50vh; }
 .footer-fine a { color: var(--text-faint); text-decoration: underline; }
 .footer-fine a:hover { color: var(--accent-deep); }
 
-/* — Imagery treatment system ("Liner Notes") ————————————————————————— *
- *
- *  Full color is the DEFAULT. Real faces carry the humanity, so good images
- *  stay untouched. The salvage treatment is OPT-IN, for genuinely low-res
- *  assets only — never apply a global tint to all images.
- *
- *  HOW TO USE
- *  ----------
- *  Good image (default — full color, just a frame/aspect helper):
- *    <figure class="media media--full">
- *      <img src="..." alt="...">
- *      <figcaption class="caption">Artist — Song, 2019</figcaption>
- *    </figure>
- *
- *  Low-quality image to rescue (dusk-violet duotone + film grain at rest,
- *  BLOOMS to full color on hover/focus; caption framed like a liner note):
- *    <figure class="media media--salvage">
- *      <img src="grainy-old-photo.jpg" alt="...">
- *      <figcaption class="caption">Salvaged still, c. 2010</figcaption>
- *    </figure>
- *
- *  --salvage-shadow / --salvage-light / --grain-opacity are tokens; the grain
- *  is an inline data-URI SVG (fractal noise), so no extra asset request.
- * ------------------------------------------------------------------------ */
+/* — Imagery: full color is the default; .media is a frame/aspect helper. —— */
 .media {
   display: block;
   margin: 0;
@@ -376,71 +297,7 @@ main { min-height: 50vh; }
   height: auto;
 }
 
-/* Full color — the default for good assets. No tint, ever. */
 .media--full img { filter: none; }
-
-/* Salvage — duotone + grain at rest, full color on hover/focus.
-   The duotone is a soft multiply of the dusk-violet over the desaturated
-   image; the grain overlay sits above via ::after. */
-.media--salvage img {
-  filter: grayscale(1) contrast(1.05) brightness(1.02);
-  transition: filter 320ms ease;
-}
-.media--salvage::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  mix-blend-mode: multiply;
-  background: linear-gradient(
-    160deg,
-    var(--salvage-light) 0%,
-    var(--salvage-shadow) 100%
-  );
-  opacity: 0.55;
-  transition: opacity 320ms ease;
-}
-/* Film grain — inline SVG fractal noise, low opacity, repeats cheaply. */
-.media--salvage::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
-  opacity: var(--grain-opacity);
-  mix-blend-mode: overlay;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-size: 160px 160px;
-}
-/* Bloom to full color on hover / keyboard focus within the figure. */
-.media--salvage:hover img,
-.media--salvage:focus-within img {
-  filter: none;
-}
-.media--salvage:hover::before,
-.media--salvage:focus-within::before { opacity: 0; }
-.media--salvage:hover::after,
-.media--salvage:focus-within::after { opacity: 0; }
-
-@media (prefers-reduced-motion: reduce) {
-  .media--salvage img,
-  .media--salvage::before,
-  .media--salvage::after { transition: none; }
-}
-
-/* Liner-note caption frame — Space Mono, small, muted. */
-.caption {
-  display: block;
-  font-family: var(--font-mono);
-  font-size: var(--fs-tiny);
-  letter-spacing: var(--tracking-wide);
-  color: var(--ink-muted);
-  padding: var(--space-2xs) 0 0;
-}
-.media .caption {
-  padding: var(--space-2xs) var(--space-xs) var(--space-xs);
-}
 
 /* — Utilities ————————————————————————————————————————————————— */
 .visually-hidden {
@@ -454,10 +311,7 @@ main { min-height: 50vh; }
 
 /* — Responsive ————————————————————————————————————————————————— */
 @media (max-width: 860px) {
-  /* Mobile: no hamburger. The nav stacks in a left column (Get Help below
-     Donate); the logo is pinned to the top-right. */
-  .nav-toggle { display: none; }
-
+  /* Mobile: single horizontal nav row, no logo unless it fits (set via JS). */
   .site-header__brand { flex-shrink: 0; }
   .site-header__logo { height: 30px; }
   .site-header__inner { gap: var(--space-sm); padding-block: var(--space-sm); min-height: 0; }
@@ -480,7 +334,6 @@ main { min-height: 50vh; }
   }
   .site-nav a, .site-nav .btn { white-space: nowrap; font-size: var(--fs-tiny); letter-spacing: 0; }
   .site-nav__cta .btn--stroke { padding: var(--space-3xs) var(--space-2xs); }
-  .site-nav__ig { display: none; }            /* skip Instagram on mobile */
 
   /* Home: header overlays the top of the hero (no tan bar), white text,
      absolute so it scrolls away with the hero instead of staying fixed. */

@@ -9,7 +9,8 @@
   {% else %}<title>{{ settings.site_title }}</title>{% endif %}
 
   <meta name="description" content="{{ description or settings.meta_description }}" />
-  <link rel="canonical" href="{{ site.origin }}{{ page.url }}" />
+  <link rel="canonical" href="{{ canonicalOverride or (site.origin + page.url) }}" />
+  {% if robots %}<meta name="robots" content="{{ robots }}" />{% endif %}
 
   {# Open Graph / Twitter — absImg makes image URLs fully qualified for scrapers #}
   {% set ogSrc = ogImage or site.ogImage.src %}
@@ -22,13 +23,14 @@
   <meta property="og:url" content="{{ site.origin }}{{ page.url }}" />
   <meta property="og:image" content="{{ ogSrc | absImg }}" />
   <meta property="og:image:alt" content="{{ ogAlt }}" />
+  {% if ogImageW %}<meta property="og:image:width" content="{{ ogImageW }}" /><meta property="og:image:height" content="{{ ogImageH }}" />{% endif %}
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="{{ title or settings.site_title }}" />
   <meta name="twitter:description" content="{{ description or settings.meta_description }}" />
   <meta name="twitter:image" content="{{ ogSrc | absImg }}" />
   <meta name="twitter:image:alt" content="{{ ogAlt }}" />
 
-  <meta name="theme-color" content="#5b4b8a" />
+  <meta name="theme-color" content="#1e3ae6" />
   <link rel="icon" href="/assets/img/site/favicon.png" type="image/png" />
   <link rel="apple-touch-icon" href="/assets/img/site/favicon.png" />
 
@@ -49,10 +51,6 @@
         <img class="site-header__logo" src="/assets/img/site/logo.png" width="801" height="801"
              alt="{{ settings.site_title }}" />
       </a>
-
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-        Menu
-      </button>
 
       <nav class="site-nav" id="site-nav" aria-label="Primary">
         <div class="site-nav__links">
@@ -92,16 +90,6 @@
   </footer>
 
   <script>
-    (function () {
-      var btn = document.querySelector(".nav-toggle");
-      var nav = document.getElementById("site-nav");
-      if (!btn || !nav) return;
-      btn.addEventListener("click", function () {
-        var open = nav.classList.toggle("is-open");
-        btn.setAttribute("aria-expanded", open ? "true" : "false");
-      });
-    })();
-
     // Show the logo only when the nav still fits beside it; otherwise hide it.
     (function () {
       var header = document.getElementById("site-header");

@@ -2,11 +2,11 @@
  *  SOUNDS OF SAVING — "Liner Notes" — self-hosted fonts
  *
  *  Three SIL OFL families, self-hosted as woff2 (no Google Fonts CDN):
- *    - Bricolage Grotesque  -> display / headings        (--font-display)
+ *    - Hanken Grotesk       -> display / headings        (--font-display)
  *    - Newsreader           -> body / long-form          (--font-body)
  *    - Space Mono           -> labels / eyebrows / mono   (--font-mono)
  *
- *  Bricolage Grotesque and Newsreader ship here as variable fonts: a single
+ *  Hanken Grotesk and Newsreader ship here as variable fonts: a single
  *  latin woff2 covers the full weight range, declared via `font-weight`
  *  ranges below. Space Mono is static (400 + 700 as separate files).
  *  Each family keeps a system-font fallback stack (see tokens.css).
