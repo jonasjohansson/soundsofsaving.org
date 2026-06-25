@@ -1,0 +1,27 @@
+---
+layout: base.njk
+permalink: /community/
+title: Community has moved
+description: "The Community page is now part of About Us. Redirecting you there."
+eleventyExcludeFromCollections: true
+---
+{#
+  /community/ retired -> /about-us/ as part of the redesign. The partner wall
+  and org context now live on About. GitHub Pages is a static host (no
+  server-side 301), so this is the SEO-equivalent: a meta-refresh + canonical
+  pointing at the new home, noindex so the stub itself isn't indexed, and a
+  visible fallback link. This page owns /community/ now (the old community.njk
+  was removed), so the URL resolves to exactly one page.
+#}
+<meta http-equiv="refresh" content="0; url=/about-us/">
+<link rel="canonical" href="{{ site.origin }}/about-us/">
+<meta name="robots" content="noindex, follow">
+<style>
+  .moved { padding-block: var(--space-2xl); max-width: var(--maxw-prose); }
+  .moved h1 { font-family: var(--font-display); font-size: var(--fs-title); line-height: var(--lh-tight); margin: 0 0 var(--space-md); }
+  .moved p { font-size: var(--fs-lead); line-height: var(--lh-base); color: var(--text-muted); margin: 0; }
+</style>
+<div class="container moved">
+  <h1>Community has moved</h1>
+  <p>This page is now part of <a href="/about-us/">About Us</a>. If you are not redirected automatically, follow that link.</p>
+</div>

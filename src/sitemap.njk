@@ -6,12 +6,13 @@ eleventyExcludeFromCollections: true
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>{{ site.origin }}/</loc></url>
   <url><loc>{{ site.origin }}/programs/</loc></url>
+  <url><loc>{{ site.origin }}/educators/</loc></url>
   <url><loc>{{ site.origin }}/about-us/</loc></url>
-  <url><loc>{{ site.origin }}/community/</loc></url>
   <url><loc>{{ site.origin }}/resources/</loc></url>
-  <url><loc>{{ site.origin }}/news/</loc></url>
-  <url><loc>{{ site.origin }}/songs/</loc></url>
-  {%- for s in songs %}
+  <url><loc>{{ site.origin }}/stories/</loc></url>
+  <url><loc>{{ site.origin }}/sessions/</loc></url>
+  <url><loc>{{ site.origin }}/sessions/artists/</loc></url>
+  {%- for s in sessions %}
   <url><loc>{{ site.origin }}{{ s.url }}</loc></url>
   {%- endfor %}
   {%- for p in news %}

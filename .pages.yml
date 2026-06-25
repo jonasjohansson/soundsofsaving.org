@@ -4,10 +4,10 @@
 # Each image folder the CMS should let you browse / upload to. `name` is how
 # image fields below reference a folder (options.media).
 media:
-  - name: songs
-    label: Song thumbnails
-    input: src/assets/img/songs
-    output: /assets/img/songs
+  - name: sessions
+    label: Session thumbnails
+    input: src/assets/img/sessions
+    output: /assets/img/sessions
     categories: [image]
   - name: news
     label: News images
@@ -21,10 +21,10 @@ media:
     categories: [image]
 
 content:
-  - name: songs
-    label: Songs
+  - name: sessions
+    label: Sessions
     type: collection
-    path: content/songs
+    path: content/sessions
     filename: '{fields.artist} - {fields.song_title}.md'
     view:
       fields: [artist, song_title, date, featured]
@@ -39,8 +39,9 @@ content:
       - { name: date, label: Date, type: date, options: { format: yyyy-MM-dd }, description: "Episode / publish date. Drives ordering of the series (newest first)." }
       - { name: youtube_url, label: YouTube URL, type: string, pattern: '^$|^https?://', description: "Full link to the episode video — e.g. https://youtu.be/08ts6hekHlc" }
       - { name: youtube_id, label: YouTube ID, type: string, description: "The 11-character video id (the part after youtu.be/ or v=). Used for the embed and the default thumbnail." }
-      - { name: thumbnail, label: Thumbnail, type: image, options: { media: songs }, description: "Defaults to the YouTube thumbnail for the id above; set this only to override it." }
-      - { name: featured, label: Featured, type: boolean, description: "Featured episodes are pinned to the top of the Songs index and shown on the home page." }
+      - { name: thumbnail, label: Thumbnail, type: image, options: { media: sessions }, description: "Defaults to the YouTube thumbnail for the id above; set this only to override it." }
+      - { name: featured, label: Featured, type: boolean, description: "Featured episodes are pinned to the top of the Sessions hub and shown on the home page." }
+      - { name: kind, label: Kind, type: select, options: { values: ['', short, favorite], multiple: false }, description: "Optional episode flavour: a short clip or a fan favourite." }
       - { name: pull_quote, label: Pull quote, type: text, description: "A short line from the artist, highlighted on the episode page." }
       - { name: story, label: Story, type: rich-text, description: "The story behind the song. Written in the file body (Markdown). Optional." }
 
@@ -50,7 +51,7 @@ content:
     path: content/news
     filename: '{fields.title}.md'
     view:
-      fields: [title, date, author]
+      fields: [title, date, category, author]
       primary: title
       sort: [date]
       default:
@@ -60,8 +61,10 @@ content:
       - { name: title, label: Title, type: string, required: true }
       - { name: date, label: Date, type: date, required: true, options: { format: yyyy-MM-dd } }
       - { name: author, label: Author, type: string }
+      - { name: category, label: Category, type: select, options: { values: [story, learn, resource-sheet, whitepaper, archive] }, description: "Where the post lives: stories (/stories/), learn / resource-sheet / whitepaper (/learn/), or archive (/archive/)." }
+      - { name: cluster, label: Cluster, type: select, options: { values: [interviews, features, reviews] }, description: "For stories only: which Stories cluster this belongs to." }
       - { name: image, label: Hero image, type: image, options: { media: news }, description: "Shown at the top of the post and in link previews." }
-      - { name: summary, label: Summary, type: text, description: "One- or two-line teaser shown on the News index and used as the link-preview text." }
+      - { name: summary, label: Summary, type: text, description: "One- or two-line teaser shown on the index and used as the link-preview text." }
       - { name: body, label: Body, type: rich-text, description: "The post itself (Markdown)." }
 
   - name: page_programs
