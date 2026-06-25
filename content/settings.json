@@ -7,11 +7,11 @@
   "donate_url": "https://secure.givelively.org/donate/sounds-of-saving",
   "get_help_url": "/resources/",
   "nav": [
-    { "label": "Home", "url": "/" },
+    { "label": "Sessions", "url": "/sessions/" },
     { "label": "Programs", "url": "/programs/" },
-    { "label": "About Us", "url": "/about-us/" },
-    { "label": "Community", "url": "/community/" },
-    { "label": "News", "url": "/news/" }
+    { "label": "Educators", "url": "/educators/" },
+    { "label": "Stories", "url": "/stories/" },
+    { "label": "About", "url": "/about-us/" }
   ],
   "donate_label": "Donate Now",
   "crisis_line": {
