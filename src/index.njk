@@ -110,6 +110,13 @@ eleventyComputed:
     font-weight: var(--fw-regular);
   }
   .home-more:hover { text-decoration: underline; }
+  .home-features { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-xl); }
+  .home-feature--programs { --accent: var(--accent-programs); }
+  .home-feature--educators { --accent: var(--accent-educators); }
+  .home-feature__title { font-family: var(--font-display); font-size: var(--fs-h2); line-height: var(--lh-tight); margin: var(--space-2xs) 0 var(--space-sm); max-width: 18ch; }
+  .home-feature__copy { color: var(--text-muted); line-height: var(--lh-base); margin: 0; max-width: 44ch; }
+  .home-feature .home-more { margin-top: var(--space-md); }
+  @media (max-width: 760px) { .home-features { grid-template-columns: 1fr; gap: var(--space-lg); } }
 
   /* — 2. Support line + four doors ———————————————————————————————— */
   .doors-line {
@@ -337,39 +344,25 @@ eleventyComputed:
 </section>
 {% endif %}
 
-{# STORIES ————————————————————————————————————————————————————— #}
-{% if storyList.length %}
+{# PROGRAMS + EDUCATORS ————————————————————————————————————————— #}
 <section class="section section--alt">
   <div class="container">
-    <header class="home-head">
-      <p class="eyebrow">Stories</p>
-      <h2 class="home-head__title">Voices on music and mental health</h2>
-    </header>
-    <ul class="stories">
-      {% for post in storyList %}
-      {% if loop.index <= 6 %}
-      <li>
-        <a class="story" href="{{ post.url }}">
-          {% if post.image %}
-          <span class="story__media">
-            {% respImg post.image, { alt: "", className: "media media--full", sizes: "(max-width: 640px) 92vw, (max-width: 1100px) 45vw, 300px", width: post.dims.width if post.dims else null, height: post.dims.height if post.dims else null } %}
-          </span>
-          {% else %}
-          <span class="story__media" aria-hidden="true"></span>
-          {% endif %}
-          <span class="story__body">
-            <p class="story__date"><time datetime="{{ post.date }}">{{ post.date | postDate }}</time></p>
-            <h3 class="story__title">{{ post.title }}</h3>
-          </span>
-        </a>
+    <ul class="home-features">
+      <li class="home-feature home-feature--programs">
+        <p class="eyebrow">Programs</p>
+        <h2 class="home-feature__title">Music, where young people already are</h2>
+        <p class="home-feature__copy">From the film series to live events and campus radio, our programs meet people where music already lives, and turn honest artist storytelling into a real path to care.</p>
+        <a class="home-more" href="/programs/">Explore the programs &rarr;</a>
       </li>
-      {% endif %}
-      {% endfor %}
+      <li class="home-feature home-feature--educators">
+        <p class="eyebrow">For educators</p>
+        <h2 class="home-feature__title">A classroom built on music</h2>
+        <p class="home-feature__copy">Students will tell an artist something they won't tell an adult in an office. Our music-based, SEL-rooted curriculum turns that into a classroom, with a clear handoff to support.</p>
+        <a class="home-more" href="/educators/">Bring it to your school &rarr;</a>
+      </li>
     </ul>
-    <a class="home-more" href="/stories/">Read all stories &rarr;</a>
   </div>
 </section>
-{% endif %}
 
 {# Randomize the hero + featured session on each page load (client-side). #}
 <script id="session-pool" type="application/json">
