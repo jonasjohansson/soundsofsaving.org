@@ -270,6 +270,7 @@ ogType: website
     padding: 0;
   }
   .learn-card {
+    position: relative;
     border: 1px solid var(--border);
     border-radius: var(--radius);
     padding: var(--space-md);
@@ -277,7 +278,11 @@ ogType: website
     display: flex;
     flex-direction: column;
     gap: var(--space-2xs);
+    transition: border-color var(--transition);
   }
+  .learn-card:hover { border-color: var(--accent); }
+  /* Stretch the title link across the whole card so it's all clickable. */
+  .learn-card__title a::after { content: ""; position: absolute; inset: 0; }
   .learn-card__kind {
     font-family: var(--font-mono);
     font-size: var(--fs-tiny);
