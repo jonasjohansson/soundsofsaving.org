@@ -102,6 +102,27 @@ p { max-width: var(--maxw-prose); }
   text-transform: uppercase;
 }
 
+/* Card shell — shared chrome; per-card padding / flex / gap stay local. */
+.resource-card, .learn-card, .pcard, .howto__step, .track {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--paper-2);
+}
+
+/* Dark editorial band — research band (About) + proof band (Educators). */
+.research, .proof-band {
+  background: var(--dusk);
+  color: var(--on-dark);
+  border-radius: var(--radius);
+  padding: var(--space-xl) var(--space-lg);
+}
+
+/* Pull-quote left rule; per-quote margin / type stay local. */
+.pullquote, .edu-pullquote, .session-pull {
+  border-left: 3px solid var(--accent);
+  padding-left: var(--space-md);
+}
+
 a {
   color: var(--accent);
   text-decoration: none;

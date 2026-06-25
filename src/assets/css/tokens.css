@@ -109,6 +109,7 @@
   --radius-pill: 2px;
   --header-h: 72px;
   --transition: 150ms ease;
+  --shadow-play: 0 1px 6px rgba(33, 29, 46, 0.55);   /* play-button icon drop-shadow */
 }
 
 /* Tighten the large vertical rhythm on mobile so sections aren't so spread out. */
