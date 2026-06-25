@@ -464,7 +464,7 @@ main { min-height: 50vh; }
     align-items: flex-start;
     gap: var(--space-sm);
   }
-  .site-header__brand { position: absolute; top: 0; right: 0; }
+  .site-header__brand { display: none; }
   .site-nav {
     display: flex;
     flex: none;
