@@ -71,6 +71,11 @@ ogType: website
   }
   .research h2 { color: var(--on-dark); font-size: var(--fs-h2); margin: 0 0 var(--space-xs); }
   .research p { color: var(--paper-2); line-height: var(--lh-base); margin: 0; }
+  /* Accent links on the dark band use the brighter shade for legibility. */
+  .research p a { color: var(--accent-bright); text-decoration: underline; }
+  .research p a:hover { color: var(--paper); }
+  .about-follow { margin-top: var(--space-md); color: var(--text-muted); max-width: var(--maxw-prose); }
+  .about-follow a { text-decoration: underline; }
   .research .btn--stroke { border-color: var(--paper); color: var(--paper); }
   .research .btn--stroke:hover { background: var(--paper); color: var(--dusk); }
 
@@ -102,6 +107,7 @@ ogType: website
 <div class="container about-page">
   <h1>About us</h1>
   {% if a.intro %}<p class="about-intro">{{ a.intro }}</p>{% endif %}
+  <p class="about-follow">Follow along on <a href="{{ settings.socials.instagram }}" target="_blank" rel="noopener">Instagram</a> and <a href="{{ settings.socials.facebook }}" target="_blank" rel="noopener">Facebook</a>, where we share new work and post regularly.</p>
 
   {% if a.why_now %}
   <section class="about-section" aria-label="{{ a.why_now.heading }}">

@@ -62,6 +62,12 @@ eleventyComputed:
     width: 100%;
     padding-block: var(--space-2xl);
   }
+  /* Mobile: the header (logo + stacked nav) overlays the top of the hero, so
+     make the hero full-height and keep its content at the bottom, clear of it. */
+  @media (max-width: 860px) {
+    .home-hero { min-height: 100svh; }
+    .home-hero__inner { padding-bottom: var(--space-lg); }
+  }
   .home-hero__eyebrow { color: var(--paper); margin: 0 0 var(--space-sm); }
   .home-hero__title {
     font-family: var(--font-display);

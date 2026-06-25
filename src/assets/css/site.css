@@ -455,45 +455,40 @@ main { min-height: 50vh; }
 
 /* — Responsive ————————————————————————————————————————————————— */
 @media (max-width: 860px) {
-  .nav-toggle { display: inline-flex; }
+  /* Mobile: no hamburger. The logo stacks above an always-visible nav, with
+     no separate panel background; items follow the desktop order. */
+  .nav-toggle { display: none; }
 
-  .site-nav {
-    display: none;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 100%;
-    flex: none;
+  .site-header__inner {
     flex-direction: column;
-    align-items: stretch;
-    gap: var(--space-2xs);
-    background: var(--white);
-    border-bottom: 1px solid var(--border);
-    padding: var(--space-sm) var(--gutter);
+    align-items: flex-start;
+    gap: var(--space-sm);
+  }
+  .site-nav {
+    display: flex;
+    flex: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-xs);
+    background: none;
+    border: 0;
+    padding: 0;
   }
   .site-nav__links,
   .site-nav__cta {
     flex-direction: column;
-    align-items: stretch;
-    gap: var(--space-2xs);
+    align-items: flex-start;
+    gap: var(--space-xs);
+    width: 100%;
   }
-  /* On mobile, surface Get Help first (it's the top destination for a
-     mental-health org): the CTA group leads, Get Help above Donate. */
-  .site-nav__cta { order: -1; flex-direction: column-reverse; }
-  .site-header { position: relative; }
-  /* The mobile dropdown is always a solid white panel, even in overlay mode. */
-  .site-header--overlay { position: relative; background: var(--white); }
-  .site-header--overlay .site-header__brand { display: inline-flex; }
-  .site-header--overlay .site-nav a,
-  .site-header--overlay .site-nav__donate,
-  .site-header--overlay .nav-toggle { color: var(--text); }
-  .site-header--overlay .btn--stroke { border-color: var(--accent); color: var(--accent); }
-  .site-nav.is-open { display: flex; }
-  .site-nav a { padding-block: var(--space-2xs); }
-  .site-nav__cta .btn--stroke {
-    margin-top: var(--space-2xs);
-    align-self: flex-start;
-  }
+  .site-nav__ig { display: none; }            /* skip Instagram on mobile */
+  .site-nav a { padding-block: var(--space-3xs); }
+  .site-nav__cta .btn--stroke { align-self: flex-start; margin-top: var(--space-2xs); }
+
+  /* Home: header overlays the top of the hero (no tan bar), white text,
+     absolute so it scrolls away with the hero instead of staying fixed. */
+  .site-header--overlay { position: absolute; background: transparent; }
 
   .footer-meta { flex-direction: column; align-items: flex-start; }
 }
