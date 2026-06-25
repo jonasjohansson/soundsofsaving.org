@@ -242,3 +242,30 @@ Markers a parser can key on in the mirrored HTML:
    optional, date as required.
 3. **Two Webflow site ids** in play for assets; image rehosting in a later phase
    must pull from both CDN roots.
+
+## Songs parse
+
+- Source: /private/tmp/claude-501/-Users-jonas-Documents-GitHub-org-jonasjohansson-skynet/93629cee-452e-4961-8446-e07dd1fcb140/scratchpad/full.jsonl
+- Playlist: https://www.youtube.com/playlist?list=PLrBVhh4EJvMOjNUKZO4C07XwSj0EAD0XH
+- Episodes processed: 6
+- Content files (written or present): 6
+
+  - a-love-supreme-pt-1-acknowledgement.md  (fth9UUa1Mfw)  A Love Supreme, Pt. 1- Acknowledgement
+  - nina-simone-who-knows-where-the-time-goes.md  (OXeh742_jak)  Nina Simone — Who knows where the time goes
+  - prince-something-in-the-water-does-not-compute.md  (LwoSyRd5ngY)  Prince — Something in the Water (Does Not Compute)
+  - the-pixies-monkey-gone-to-heaven.md  (XycBLF6kWuY)  The Pixies — Monkey Gone To Heaven
+  - christforte-out-on-the-weekend.md  (08ts6hekHlc)  ChristForte — Out on the Weekend
+  - jackie-mendoza-book-of-dreams.md  (nwU5UTqCbMU)  Jackie Mendoza — Book of Dreams
+
+- No failures.
+
+## News parse
+
+Parsed **70 / 70** mirrored news posts into `content/news/*.md` via `scripts/parse-news.js` (cheerio DOM walk). Body = the two `.w-richtext` blocks per post converted to clean Markdown (short lead block folded in as an emphasised intro), hero image from the post-specific `og:image`, inline figures rehosted from the Webflow CDN into `src/assets/img/news/`.
+
+No posts failed extraction (every mirrored post had a title + date).
+
+Note: `donor-thanks-email` is a fundraising thank-you letter rather than an editorial article, but it carries a valid title, date and body, so it was parsed rather than dropped. Remove the file if a non-article should be excluded.
+
+All hero and inline images downloaded successfully.
+
