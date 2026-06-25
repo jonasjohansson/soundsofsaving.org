@@ -86,43 +86,5 @@
         "src": "/assets/img/site/partners/64ca78010213b863b088ebf2_logo.gif"
       }
     ]
-  },
-  "submit_form": {
-    "heading": "Share a song that found you at the right time",
-    "intro": "Music carries us through. Tell us about a song that found you at the right time, and the story of why it matters to you. Your story may be featured as part of the community series.",
-    "action": "",
-    "fields": [
-      {
-        "name": "name",
-        "label": "Your name",
-        "type": "text",
-        "required": true
-      },
-      {
-        "name": "email",
-        "label": "Email",
-        "type": "email",
-        "required": true
-      },
-      {
-        "name": "song",
-        "label": "Song title",
-        "type": "text",
-        "required": true
-      },
-      {
-        "name": "artist",
-        "label": "Artist",
-        "type": "text",
-        "required": false
-      },
-      {
-        "name": "story",
-        "label": "What's the story behind this song for you?",
-        "type": "textarea",
-        "required": true
-      }
-    ],
-    "submit_label": "Share your song"
   }
 }

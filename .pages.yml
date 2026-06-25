@@ -36,6 +36,7 @@ content:
     fields:
       - { name: artist, label: Artist, type: string, required: true, description: "Performer / interviewee — e.g. “Neil Young”" }
       - { name: song_title, label: Song title, type: string, description: "The song that found them — e.g. “Out on the Weekend”" }
+      - { name: covers, label: "Covers (original artist)", type: string, description: "If they're covering someone else's song, the original artist — e.g. “Nick Drake”. Renders as “X covers Y”." }
       - { name: date, label: Date, type: date, options: { format: yyyy-MM-dd }, description: "Episode / publish date. Drives ordering of the series (newest first)." }
       - { name: youtube_url, label: YouTube URL, type: string, pattern: '^$|^https?://', description: "Full link to the episode video — e.g. https://youtu.be/08ts6hekHlc" }
       - { name: youtube_id, label: YouTube ID, type: string, description: "The 11-character video id (the part after youtu.be/ or v=). Used for the embed and the default thumbnail." }
@@ -75,29 +76,71 @@ content:
       - { name: title, label: Title, type: string }
       - { name: meta_description, label: "SEO description", type: text }
       - { name: heading, label: Heading, type: string }
-      - name: pillars
-        label: Pillars
+      - { name: lead, label: Lead paragraph, type: text }
+      - name: how_it_works
+        label: How it works
         type: object
-        list:
-          sortable: true
-          collapsible:
-            collapsed: true
-            summary: '{heading}'
         fields:
-          - { name: number, label: Number, type: string }
-          - { name: heading, label: Heading, type: string }
-          - { name: body, label: Body, type: text }
-          - name: items
-            label: Items
+          - { name: eyebrow, label: Eyebrow, type: string }
+          - name: steps
+            label: Steps
             type: object
             list:
               sortable: true
               collapsible:
                 collapsed: true
-                summary: '{heading}'
+                summary: '{label}'
             fields:
-              - { name: heading, label: Heading, type: string }
+              - { name: label, label: Label, type: string }
               - { name: body, label: Body, type: text }
+      - name: groups
+        label: Program groups
+        type: object
+        list:
+          sortable: true
+          collapsible:
+            collapsed: true
+            summary: '{label}'
+        fields:
+          - { name: id, label: ID, type: string }
+          - { name: label, label: Label, type: string }
+          - { name: heading, label: Heading, type: string }
+          - { name: intro, label: Intro, type: text }
+          - name: cards
+            label: Cards
+            type: object
+            list:
+              sortable: true
+              collapsible:
+                collapsed: true
+                summary: '{title}'
+            fields:
+              - { name: featured, label: Featured, type: boolean }
+              - { name: eyebrow, label: Eyebrow, type: string }
+              - { name: title, label: Title, type: string }
+              - { name: what, label: What it is, type: text }
+              - { name: who, label: "Who it's for", type: text }
+              - { name: happens, label: What happens, type: text }
+              - { name: proof, label: Proof, type: text }
+              - name: cta
+                label: CTA
+                type: object
+                fields:
+                  - { name: label, label: Label, type: string }
+                  - { name: href, label: Link, type: string }
+      - name: educators_pointer
+        label: Educators pointer
+        type: object
+        fields:
+          - { name: eyebrow, label: Eyebrow, type: string }
+          - { name: title, label: Title, type: string }
+          - { name: body, label: Body, type: text }
+          - name: cta
+            label: CTA
+            type: object
+            fields:
+              - { name: label, label: Label, type: string }
+              - { name: href, label: Link, type: string }
 
   - name: page_educators
     label: "Page: Educators"
@@ -108,6 +151,69 @@ content:
       - { name: meta_description, label: "SEO description", type: text }
       - { name: heading, label: Heading, type: string }
       - { name: lead, label: Lead paragraph, type: text }
+      - { name: pullquote, label: Pull quote, type: text }
+      - { name: pullquote_attribution, label: Pull quote attribution, type: string }
+      - { name: why_music, label: Why music, type: text }
+      - name: tracks
+        label: Tracks
+        type: object
+        list:
+          sortable: true
+          collapsible:
+            collapsed: true
+            summary: '{title}'
+        fields:
+          - { name: eyebrow, label: Eyebrow, type: string }
+          - { name: title, label: Title, type: string }
+          - { name: summary, label: Summary, type: text }
+          - { name: audience, label: Audience, type: text }
+          - { name: spec_heading, label: Spec heading, type: string }
+          - { name: spec, label: Spec items, type: string, list: true }
+          - name: cta
+            label: CTA
+            type: object
+            fields:
+              - { name: label, label: Label, type: string }
+              - { name: href, label: Link, type: string }
+      - name: proof
+        label: Proof band
+        type: object
+        fields:
+          - { name: eyebrow, label: Eyebrow, type: string }
+          - { name: heading, label: Heading, type: string }
+          - name: stats
+            label: Stats
+            type: object
+            list:
+              sortable: true
+              collapsible:
+                collapsed: true
+                summary: '{stat}'
+            fields:
+              - { name: stat, label: Stat, type: string }
+              - { name: body, label: Body, type: text }
+              - { name: source, label: Source, type: string }
+          - { name: credibility, label: Credibility points, type: string, list: true }
+      - name: lead_magnet
+        label: Lead magnet
+        type: object
+        fields:
+          - { name: eyebrow, label: Eyebrow, type: string }
+          - { name: title, label: Title, type: string }
+          - { name: body, label: Body, type: text }
+          - name: cta
+            label: CTA
+            type: object
+            fields:
+              - { name: label, label: Label, type: string }
+              - { name: href, label: Link, type: string }
+      - name: intake
+        label: Intake form
+        type: object
+        fields:
+          - { name: eyebrow, label: Eyebrow, type: string }
+          - { name: heading, label: Heading, type: string }
+          - { name: body, label: Body, type: text }
 
   - name: page_about
     label: "Page: About Us"
@@ -127,12 +233,20 @@ content:
           - { name: sources, label: Sources, type: string, list: true }
           - { name: pullquote, label: Pull quote, type: text }
           - { name: pullquote_attribution, label: Pull quote attribution, type: string }
-      - name: approach
-        label: Our Approach
+      - name: research
+        label: "A Sound Approach (research band)"
         type: object
         fields:
+          - { name: eyebrow, label: Eyebrow, type: string }
           - { name: heading, label: Heading, type: string }
           - { name: body, label: Body, type: text }
+          - name: cta
+            label: CTA
+            type: object
+            fields:
+              - { name: label, label: Label, type: string }
+              - { name: href, label: Link, type: string }
+              - { name: external, label: Opens in new tab, type: boolean }
       - name: founding_story
         label: Founding Story
         type: object
@@ -215,28 +329,6 @@ content:
             fields:
               - { name: alt, label: Alt text, type: string }
               - { name: src, label: Image source, type: string }
-      - name: submit_form
-        label: Submit form
-        type: object
-        description: "The song-submission form. Editing field rows changes the form on the Community page."
-        fields:
-          - { name: heading, label: Heading, type: string }
-          - { name: intro, label: Intro, type: text }
-          - { name: action, label: Form action URL, type: string }
-          - { name: submit_label, label: Submit button label, type: string }
-          - name: fields
-            label: Fields
-            type: object
-            list:
-              sortable: true
-              collapsible:
-                collapsed: true
-                summary: '{label}'
-            fields:
-              - { name: name, label: Name (attribute), type: string }
-              - { name: label, label: Label, type: string }
-              - { name: type, label: Input type, type: string }
-              - { name: required, label: Required, type: boolean }
 
   - name: page_get_help
     label: "Page: Get Help"
@@ -261,15 +353,6 @@ content:
         fields:
           - { name: heading, label: Heading, type: string }
           - { name: intro, label: Intro, type: text }
-
-  - name: page_songs
-    label: "Page: Songs intro"
-    type: file
-    path: content/pages/songs.json
-    fields:
-      - { name: title, label: Title, type: string }
-      - { name: intro, label: Intro, type: text }
-      - { name: meta_description, label: "SEO description", type: text }
 
   - name: resources
     label: Resources directory
@@ -366,6 +449,4 @@ content:
           - { name: home, label: Home, type: text }
           - { name: programs, label: Programs, type: text }
           - { name: about, label: About, type: text }
-          - { name: community, label: Community, type: text }
-          - { name: news, label: News, type: text }
           - { name: resources, label: Resources, type: text }

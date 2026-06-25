@@ -7,11 +7,26 @@
   "donate_url": "https://secure.givelively.org/donate/sounds-of-saving",
   "get_help_url": "/resources/",
   "nav": [
-    { "label": "Sessions", "url": "/sessions/" },
-    { "label": "Programs", "url": "/programs/" },
-    { "label": "Educators", "url": "/educators/" },
-    { "label": "Stories", "url": "/stories/" },
-    { "label": "About", "url": "/about-us/" }
+    {
+      "label": "Sessions",
+      "url": "/sessions/"
+    },
+    {
+      "label": "Programs",
+      "url": "/programs/"
+    },
+    {
+      "label": "Educators",
+      "url": "/educators/"
+    },
+    {
+      "label": "Stories",
+      "url": "/stories/"
+    },
+    {
+      "label": "About",
+      "url": "/about-us/"
+    }
   ],
   "donate_label": "Donate Now",
   "crisis_line": {
@@ -34,8 +49,6 @@
     "home": "A 501c3 nonprofit fueling hope through music. We work with artists to tell the stories of how music and mental health care can save and improve lives.",
     "programs": "Sounds of Saving programs connect music, youth culture, and mental wellness through artist partnerships, school programs, and community events.",
     "about": "Our approach: telling the stories of how music and mental health care can save and improve lives, in partnership with artists and young people.",
-    "community": "Join the Sounds of Saving community. Personal stories, youth voices, and a conversation about music and mental wellness.",
-    "news": "News, interviews, reviews, and resources from Sounds of Saving on music, youth culture, and mental health.",
     "resources": "Get help now. Mental health resources, crisis support, and local services curated by Sounds of Saving."
   }
 }

@@ -18,15 +18,15 @@
     "pullquote": "The school mental health workforce needs to be built out. Instead of relying only on clinicians with advanced degrees, the system needs a more expansive approach that uses the skills and training of a wide range of people. There needs to be something in the middle.",
     "pullquote_attribution": "Sharon Hoover, a professor of child and adolescent psychiatry and co-director of the National Center for School Mental Health at the University of Maryland’s School of Medicine"
   },
-  "approach": {
-    "heading": "Our Approach",
-    "body": "We meet this moment with three things: a curriculum that teaches young people to use music for their mental health, live experiences that bring people together around it, and films and stories that make hard feelings easier to name. Everything is built to be engaging, inclusive, and led as much as possible by the people it is for."
-  },
   "research": {
     "eyebrow": "Research and evidence",
     "heading": "A Sound Approach",
     "body": "Our belief in music as a mental-health tool is grounded in research. A Sound Approach, our white paper co-authored with the <a href=\"https://weareallmusic.org\" target=\"_blank\" rel=\"noopener\">We Are All Music Foundation</a>, brings together work from neuroscientists, music therapists, psychologists, and cultural organizers on how music supports wellbeing, especially among youth and people underserved by traditional care. It is the canonical home for the evidence behind our programs.",
-    "cta": { "label": "Read A Sound Approach", "href": "https://drive.google.com/file/d/1fMIfsbp3okh9TT1phHb9hnZpu9_zCzTz/view?usp=sharing", "external": true }
+    "cta": {
+      "label": "Read A Sound Approach",
+      "href": "https://drive.google.com/file/d/1fMIfsbp3okh9TT1phHb9hnZpu9_zCzTz/view?usp=sharing",
+      "external": true
+    }
   },
   "founding_story": {
     "heading": "Founding Story",
@@ -52,55 +52,184 @@
   "board_of_directors": {
     "heading": "Board of Directors",
     "members": [
-      { "name": "Owen Grover", "bio": "Owen is the CEO of TrueFire Studios with a 20+ year career in media, technology and content. He is also a founding member of the iHeartRadio team." },
-      { "name": "Mariana D'Andrea", "bio": "Mariana is an Associate General Counsel in International Business and Legal Affairs at Roku and serves as a guest lecturer at the NYU Stern School of Business. In her 20+ years as an attorney, she has previously worked as Vice President Associate General Counsel for both Tubi and Paramount International." },
-      { "name": "John Draper", "bio": "John is an international expert in crisis intervention and suicide prevention with over 30 years of experience. He has led significant initiatives in crisis services, including the establishment of New York City's LifeNet hotline and the National Suicide Prevention Lifeline. Currently serving as President of Research and Development at Behavioral Health Link, Inc., he continues to advance crisis care through research, data, and technology." },
-      { "name": "Dr. Eric Dammann", "bio": "Eric is a psychologist/psychoanalyst and executive coach with a private practice in Manhattan, along with being a clinical supervisor at Columbia University and editor of several professional journals. He is also proud to work at the William Alanson White Institute where he serves as Co-Director of the Artists program." },
-      { "name": "Corey Ferengul", "bio": "Corey serves on the boards of many Chicago based organizations, including Hyde Park Angels, Big Happy, and Packback. Previously, he has served as the CEO of the HR tech firm Yello." },
-      { "name": "Adrienne C. Moore", "bio": "Adrienne is an acclaimed actress known for her roles in \"Pretty Hard Cases\" and \"Orange is the New Black,\" receiving SAG and NAACP Image Award nominations. She's also a prominent voice artist for brands and a dedicated advocate for rescue animals, volunteering with organizations like the ASPCA and Comfort Zone Camp." },
-      { "name": "Arianna Orpello", "bio": "Arianna is the Global Chief Brand Officer at Goldman Sachs and a marketing dynamo. She previously worked as a Senior Vice President in Marketing Strategy for TD Bank and is a member of several NYC based boards." },
-      { "name": "Bradley Tusk", "bio": "Bradley is a venture capitalist, political strategist, philanthropist, and writer. He founded Tusk Venture Partners, Tusk Strategies, and Ivory Gaming Acquisition Corp, and advocates for mobile voting and anti-hunger campaigns through Tusk Philanthropies. Additionally, he writes, hosts a podcast, and owns P&T Knitwear in Manhattan." }
+      {
+        "name": "Owen Grover",
+        "bio": "Owen is the CEO of TrueFire Studios with a 20+ year career in media, technology and content. He is also a founding member of the iHeartRadio team."
+      },
+      {
+        "name": "Mariana D'Andrea",
+        "bio": "Mariana is an Associate General Counsel in International Business and Legal Affairs at Roku and serves as a guest lecturer at the NYU Stern School of Business. In her 20+ years as an attorney, she has previously worked as Vice President Associate General Counsel for both Tubi and Paramount International."
+      },
+      {
+        "name": "John Draper",
+        "bio": "John is an international expert in crisis intervention and suicide prevention with over 30 years of experience. He has led significant initiatives in crisis services, including the establishment of New York City's LifeNet hotline and the National Suicide Prevention Lifeline. Currently serving as President of Research and Development at Behavioral Health Link, Inc., he continues to advance crisis care through research, data, and technology."
+      },
+      {
+        "name": "Dr. Eric Dammann",
+        "bio": "Eric is a psychologist/psychoanalyst and executive coach with a private practice in Manhattan, along with being a clinical supervisor at Columbia University and editor of several professional journals. He is also proud to work at the William Alanson White Institute where he serves as Co-Director of the Artists program."
+      },
+      {
+        "name": "Corey Ferengul",
+        "bio": "Corey serves on the boards of many Chicago based organizations, including Hyde Park Angels, Big Happy, and Packback. Previously, he has served as the CEO of the HR tech firm Yello."
+      },
+      {
+        "name": "Adrienne C. Moore",
+        "bio": "Adrienne is an acclaimed actress known for her roles in \"Pretty Hard Cases\" and \"Orange is the New Black,\" receiving SAG and NAACP Image Award nominations. She's also a prominent voice artist for brands and a dedicated advocate for rescue animals, volunteering with organizations like the ASPCA and Comfort Zone Camp."
+      },
+      {
+        "name": "Arianna Orpello",
+        "bio": "Arianna is the Global Chief Brand Officer at Goldman Sachs and a marketing dynamo. She previously worked as a Senior Vice President in Marketing Strategy for TD Bank and is a member of several NYC based boards."
+      },
+      {
+        "name": "Bradley Tusk",
+        "bio": "Bradley is a venture capitalist, political strategist, philanthropist, and writer. He founded Tusk Venture Partners, Tusk Strategies, and Ivory Gaming Acquisition Corp, and advocates for mobile voting and anti-hunger campaigns through Tusk Philanthropies. Additionally, he writes, hosts a podcast, and owns P&T Knitwear in Manhattan."
+      }
     ]
   },
   "advisory_board": {
     "heading": "Advisory Board",
     "intro": "Musicians, producers, clinicians, photographers, and label heads who shape and vouch for the work. This roster is also our proof: the artists and experts who stand behind Sounds of Saving.",
     "members": [
-      { "name": "Alec Bemis", "bio": "Alec is the cofounder of Brassland, along with Aaron and Bryce Dessner of The National. He is also a writer, critic, journalist, and speaker." },
-      { "name": "Alex Rosamilia", "bio": "musician, founding member Gaslight Anthem, Dead Swords" },
-      { "name": "Brittney King Brock", "bio": "Brittney is a music executive, entrepreneur, wellness enthusiast, and the founder of King Creative Group, an artist services and management company whose clients include Quality Control Music, Lil Baby, City Girls, & Jamaica Craft. She is the President of Operations at 10k Projects record label whose artists include Trippie Redd, Iann Dior & Surfaces, as well as a wellness advocate. Her personal brand Women Like Me is a dedicated platform to educate burned out, busy, overworked women in creative industries on how to slow down and make time to nurture their mind, body, and spirit." },
-      { "name": "Bryndon Cook", "bio": "Bryndon Cook is a multidisciplinary artist, actor and music director. Composing and recording music as Starchild & The New Romantic, Cook released his sophomore LP, “Forever,” in 2020. Previous creative work includes collaborations with the Newark Boys Chorus, Solange Knowles, Maggie Rogers, Telfar, the Guggenheim Museum, Sydney Opera House, Hollywood Bowl and more. Television and film credits include season three of “The Marvelous Mrs. Maisel” (Amazon, 2020) and Lin Manuel Miranda’s “Tick, Tick… Boom!” (Netflix, 2021) and others. Cook has previously worked as an educator for Shakespeare Theater Company in Washington DC and smaller programs in the Maryland area." },
-      { "name": "Caithlin De Marrais", "bio": "Caithlin De Marrais is a songwriter, musician, and public school music teacher based in Connecticut. She is a founding member of the rock band Rainer Maria, has gone to #1 on college radio, been awarded Top Ten Album of the Year by SPIN magazine, and twice appeared on the cover of the Arts section of the New York Times. In addition to her three decades of collaborative work with artists working in a variety of media, Caithlin has released four albums under her own name to great acclaim. She holds undergraduate degrees from the University of Wisconsin–Madison and the University of Bridgeport, and an MMEdu from U–Bridgeport. She specializes in working with musicians who have disabilities or are neurodivergent. Caithlin develops district-wide curricula and teaches music to students from Pre-K through High School in Bridgeport, Connecticut. She is the proud mother of two fabulous children." },
-      { "name": "Dana Wachs", "bio": "Live sound engineer for Cat Power, Deerhunter, St. Vincent and others, musical director for Rachel Comey, and singer songwriter for Vorhees." },
-      { "name": "Dave Bellevue", "bio": "Dave is a musician in the group The Oxymorrons and a mental health advocate. Dave has worked with the Jed Foundation and was featured in Time Magazine’s The Future of Mental Health" },
-      { "name": "Dr. Anna Palumbo", "bio": "Dr. Anna Palumbo is the Research Manager at the Nordoff-Robbins Center for Music Therapy, New York University. Her research evaluates responsive music-making between therapist and client, such as through improvisation, to improve clinical outcomes in neurorehabilitation and child development. This work demonstrates how music works synergistically to engage multiple aspects of well-being, including mental health, motivation, physical activity, and social connection. Her research has been supported by the National Institutes of Health, the American Music Therapy Association, and the NeuroArts BluePrint Initiative. Dr. Palumbo completed her PhD in Rehabilitation Sciences at New York University. Prior to her doctorate, Anna received an MA in Music Therapy at New York University and conducted clinical work in the areas of neurorehabilitation, acute psychiatric care, and child development." },
-      { "name": "Emily Lazar", "bio": "Grammy winning, American mastering engineer, Emily is the founder, president, and chief mastering engineer of The Lodge, an audio mastering facility that has operated in New York City's Greenwich Village since 1997." },
-      { "name": "Erica Sewell", "bio": "Erica Sewell is founder of CreativeTypes; a talent advising consultancy. She’s led creative recruiting at Netflix, CBS and Williams Sonoma, and worked as a designer at Armani Exchange, Ralph Lauren, and Calvin Klein. Sewell helped launch the studio of artist Mickalene Thomas, collaborated with artists Leslie Hewitt and Oscar-nominated cinematographer Bradford Young, as well as Simone Leigh & Rashida Bumbray for “Funk, God, Jazz & Medicine”. She Executive Produced critically-acclaimed documentary “In Our Mother’s Garden’s” by Shantrelle P. Lewis & Ava Duvernay’s Array, and is working on a documentary about fashion legend, Patrick Kelly. Sewell’s held posts in the administrations of The Art Institute, Parsons School of Design, and Fashion Institute of Technology, and holds an MA from The New School for Social Research, a BFA from Virginia Commonwealth University, and her work has been featured in Elle South Africa, Vogue Magazine, The New York Times, and ArtForum" },
-      { "name": "Eric Dammann", "bio": "Dr. Eric Dammann is a clinical psychologist/psychoanalyst and executive coach with a private practice in Manhattan. He specializes in executive coaching, financial counseling, and psychotherapy. Aside from his private practice, he is clinical supervisor at Columbia University and the William Alanson White Institute, where he is also Co-Director of the Artists Program. He is an associate editor of the professional journals Contemporary Psychoanalysis and The Journal of Financial Therapy. He graduated Magna Cum Laude and was Phi Beta Kappa at Bucknell University, and received his doctorate from Michigan State University. He completed psychoanalytic training at the William Alanson White Institute, and executive coach training at The College of Executive Coaching. When not working, he can be found hanging with his family, dog, and drum set." },
-      { "name": "Francis Rodriguez", "bio": "Francis Rodriguez is a New York City based hair stylist and groomer. With 10 years of experience in editorial styling, Rodriguez specializes in creating both sleek and effortlessly undone looks for textures of all types, and wig cutting, coloring, and styling. Inspired by his Chicano culture and ‘70s-’80s era punk, Rodriguez has created looks for the likes of Julia Fox, Maye Musk, Awkwafina, Ciara, Bowen Yang, and more. His editorial work appears in the pages of L’Officiel, Paper, Numero, and Ladygunn, among others, and his commercial clients include UGG, Grailed, Makeup Forever, and Mario Badescu." },
-      { "name": "Gary Gunn", "bio": "Gary is a composer, music producer, and audiovisual artist noted for his genre-defying musical aesthetic and forward-thinking application of sound across contemporary art, film, augmented/virtual realities, and botanical environments." },
-      { "name": "Graham Macindoe", "bio": "Graham is a documentary and portrait photographer whose work focuses on a range of social justice issues, including drug policy and criminal justice reform, as well as music and running, a lifelong passion he continues today. An associate professor of photography at Parsons School of Design in New York City, Graham has worked as a photographer for more than 20 years and has published and exhibited his work widely, including solo exhibitions at the National Arts Club in New York City in 2021, the Contemporary Arts Center in Cincinnati in 2018, and the Scottish National Portrait Gallery in 2017." },
-      { "name": "Haley Elizabeth Anderson", "bio": "Haley Elizabeth Anderson is a writer, filmmaker, and visual artist born in Houston, Texas. Named one of Filmmaker Magazine’s “25 New Faces of Independent Film,” Haley’s films have played Tribeca, Sundance, Rotterdam and won awards at SXSW and AFI. Her feature film Tendaberry premiered at the 2024 Sundance Film Festival. She is currently working on her second feature with support from SFFILM, Gotham, Tribeca, Sundance, Ucross Foundation, and Film Independent." },
-      { "name": "Jamie Feldman", "bio": "Jamie is a non-profit, tech start-up, and L&D expert." },
-      { "name": "Joanna P. Elliot", "bio": "Nonprofit management consultant including for Jennifer Lopez’s \"Lopez Family Foundation\" and Linkin Park’s \"Music For Relief\"" },
-      { "name": "John Beeler", "bio": "John Beeler has worked in the music industry for two decades, from running a college radio station to directing the independently owned record label of Oscar-nominated artist Sufjan Stevens. John also serves as an artist manager, community marketer, mental health advocate, and is a passionate co-conspirator in the creation and celebration of sustainable art and music" },
-      { "name": "Julia Cumming", "bio": "Julia is the frontwoman and bass player of Sunflower Bean and a political activist. In 2017 she founded Anger Can Be Power, a project that \"endeavors to invoke the DIY spirit to inspire people to integrate political involvement in their lives.\" She is also active in the Model Alliance." },
-      { "name": "Julian Berman", "bio": "Julian is a technologist and open source software developer based in New York City with a deep love of music in all its forms. He currently serves as VP of Solutioning at Quantum Rise after previously serving as VP of Engineering at Deloitte Digital and doing an open source software fellowship at Postman. He also is an associate professor at Columbia University. Julian previously served on the Governing Board of Sounds of Saving and now sits on the Advisory Board." },
-      { "name": "Ken Weinstein", "bio": "Ken is the co-founder and co-president of Big Hassle Media." },
-      { "name": "Lisa Gottheil", "bio": "Co-founder and partner at Grandstand Media. Has worked in the music business for 30 years. She is on the board of Josh’s Fund, a non-profit that works to provide educational support for nurses working on bone marrow and stem cell transplant units. She is also the co-founder of The Sled, a NYC non-profit that assists underprivileged NYC Public School students and their families, most of whom live in shelters or other temporary housing." },
-      { "name": "Mark Elzey", "bio": "Mark Elzey is a fashion, portrait, and commercial photographer working across New York, Los Angeles, and Europe. Originally from Bogalusa, Louisiana, Mark’s life has always been filled with art. From watching his grandmother paint, to early placement in magnet charter schools as a gifted creative, Mark’s world is rooted in self expression and originality. Now residing in Brooklyn, Mark finds the city provides him with an endless source of inspiration." },
-      { "name": "Martin Mycoo", "bio": "A rare Los Angeles native, Inglewood born and raised, Martin Mycoo is a Music Supervisor for TV and Film whose work spans unscripted and scripted projects, from tentpole IP to independent features. His comprehensive knowledge of music and wide-ranging taste across genres has afforded him the opportunity to work across nearly every type of television and film format, from live action to animation. At Format, Martin was part of the inaugural team that helped launch the MCU for Marvel Studios’ streaming division. He spearheaded the first live action and animated series set in the World of Wakanda, serving as Music Supervisor on Ironheart and Eyes of Wakanda. He was also part of the in-house music supervision and studio executive team supporting multiple MCU projects across Phases 4 through 6, including Moon Knight, Loki, and Daredevil: Born Again. In addition, Martin contributed to projects such as Westworld and Young Rock, and served on in-house music supervision teams for Lionsgate Films (John Wick: Chapter 4) and Spin Master Entertainment (the PAW Patrol film franchise). More recently, his work includes Shadow Force, Season Two of Netflix’s The Vince Staples Show, PBS’ The Inquisitor, and No Drama, a series of film shorts from Monkeypaw Productions and Universal Pictures. Martin previously served on the Governing Board of Sounds of Saving and now sits on the Advisory Board." },
-      { "name": "Meshell Ndegeocello", "bio": "musician" },
-      { "name": "Michele Fleischli", "bio": "Michele has been an artist manager for two decades, guiding the careers of Bad Religion, Sonic Youth, Beck, Tenacious D, Ryan Adams, Rage Against the Machine and Charlotte Gainsbourg, as well as providing support for Foo Fighters, Beastie Boys, Queens of the Stone Age, Jimmy Eat World and Band of Horses. Michele has produced wide-ranging and large-scale projects from Tenacious D’s Festival Supreme to Beck’s collaboration with Lincoln Motor for the car company’s “Hello Again” campaign. “Hello Again” featured 160+ musicians performing live in the round with Beck at the center of it all and was captured by visionary director Chris Milk. She worked for the past two years as part of The Windish Agency building out their creative crossover department working with artists such as Diplo, Dillon Francis, CHVRCHES, Ta-ku and WARPAINT." },
-      { "name": "Nate Auerbach", "bio": "Nate is a partner at Versus Creative, where he specializes in digital platforms and strategic partnerships for high-profile clients like Spotify. Previously, he spent four years as Head of Music at Tumblr and worked at The Collective talent management company in Los Angeles, spearheading artists’ digital strategies." },
-      { "name": "Nathan Larson", "bio": "Nathan Larson is a musician (SHUDDER TO THINK/ SWIZ) / film composer who has created music for over 70 films/ tv series/ docs. Larson is a teacher and practitioner of Vedic meditation. He is the co-founder of the Lumen Project, a non profit creating ritualized music experiences, now entering a new chapter as LUMENYC, in partnership with SOS." },
-      { "name": "Nick Hakim", "bio": "Nick is a musician and R&B singer based in Queens, NY who attended Berklee College of Music. His third studio album, Cometa, was released in October 2022 with critical acclaim." },
-      { "name": "Nicole Hegeman", "bio": "Nicole Hegeman is an Artist Manager, A&R Consultant, and Executive Producer in music. Originally from Burlington, Vermont, where there was an unusually rich and diverse music scene, Nicole’s love of music took her into roles as radio DJ and producer, event manager, stage manager, festival organizer, photographer, publisher and writer." },
-      { "name": "Peter Shapiro", "bio": "Peter is a club owner, concert promoter, and entrepreneur. He owns Brooklyn Bowl and The Capitol Theatre, is a publisher of Relix magazine, and is a chairman of HeadCount, a non-profit organization that works with musicians to promote participation in democracy, with a focus on registering voters at live music events. In 2022 he published a book: The Music Never Stops: What Putting on 10,000 Shows Has Taught Me About Life, Liberty and the Pursuit of Magic." },
-      { "name": "Robert Galligan", "bio": "Robert Galligan is a clinical psychologist in private practice in Brooklyn, NY. Dr. Galligan works with families, couples, and individuals in psychotherapy. He is particularly interested in helping parents develop more harmonious, satisfying relationships with their children and supporting individuals’ efforts to bring meaning and purpose to their lives. Dr. Galligan is on the advisory board of Sounds of Saving and is a Special Adjunct Professor/Clinical Supervisor at Long Island University. Dr. Galligan holds a Ph.D. in Clinical Psychology from Long Island University and a B.A. in English from Yale University. In his spare time, he surfs, makes music, and coaches flag football." },
-      { "name": "Ryan Hall", "bio": "Ryan Hall is a therapist and record label owner living in Cincinnati, OH. Ryan is a Licensed Independent Social Worker trained in and practicing EMDR therapy while also providing consultation to communities receiving federal funding to address youth homelessness. Ryan has run the experimental record label Whited Sepulchre Records since 2016 which has seen releases by Midwife, Joy Guidry, Endlings (Raven Chacon + John Dieterich) and many more." },
-      { "name": "Sharon Van Etten", "bio": "Sharon Van Etten is a musician, performer, and actress, and recognized as one of the most influential and iconic songwriters of our time. She released her sixth full-length album, We’ve Been Going About This All Wrong, this past May. Leading into its release, Pitchfork profiled Van Etten stating, “Sharon Van Etten Is an Institution Now,” while Rolling Stone called her “one of the most fearless, soul-shredding songwriters on the planet.” Van Etten made her return to The Late Show with Stephen Colbert in support of the new album and took the “soul-strengthening” (New Yorker) Wild Hearts Tour with Angel Olsen and Julien Baker all over the country. In support of Van Etten’s 2019 release, Remind Me Tomorrow, she was profiled in The New York Times’ Arts & Leisure section and the album was featured prominently in best of 2019 lists by NPR Music, Billboard, Fresh Air, Rolling Stone, Pitchfork, ESQUIRE, The New Yorker and more. Van Etten has collaborated with artists ranging from Courtney Barnett and Joshua Homme to Norah Jones and Angel Olsen, and been covered by artists including Fiona Apple, Lucinda Williams, Big Red Machine and Idles. She has performed on The Late Show with Stephen Colbert, Jimmy Kimmel Live!, The Ellen DeGeneres Show, Austin City Limits TV and The Tonight Show Starring Jimmy Fallon." },
-      { "name": "Taja Cheek", "bio": "Under the mononym L'Rain, Taja Cheek records and performs music rooted in r&b, jazz, noise, and pop, using voice memos and manipulated samples as inspiration and source material. Cheek has toured internationally with her band in support of her second album, Fatigue, the Wire’s #1 album of 2021, and the #2 album in Pitchfork’s year end list. Her most recent album, I Killed Your Dog, also earned praise from outlets including The New York Times, NPR, The New Yorker, and Artforum, among many others, and she has been featured on the cover of The Wire and Paste’s last digital issue of 2023. A frequent collaborator, she has worked with artists including Helado Negro; Okay, Kaya; Naama Tsabar; and Kevin Beasley. She has also toured with and opened for musicians including Animal Collective, Moses Sumney, Sharon Van Etten, Brittany Howard, Deerhunter, and Big Thief. In addition to her work as an artist, Cheek is a curator. As an Associate Curator at Large, she led performance programs at MoMA PS1. Prior, she worked closely with artists to realize projects at institutions including Creative Time and The High Line. She co-founded a DIY rehearsal and performance space in her neighborhood that primarily supports experimental music. Cheek is currently a guest curator for the upcoming Whitney Biennial." }
+      {
+        "name": "Alec Bemis",
+        "bio": "Alec is the cofounder of Brassland, along with Aaron and Bryce Dessner of The National. He is also a writer, critic, journalist, and speaker."
+      },
+      {
+        "name": "Alex Rosamilia",
+        "bio": "musician, founding member Gaslight Anthem, Dead Swords"
+      },
+      {
+        "name": "Brittney King Brock",
+        "bio": "Brittney is a music executive, entrepreneur, wellness enthusiast, and the founder of King Creative Group, an artist services and management company whose clients include Quality Control Music, Lil Baby, City Girls, & Jamaica Craft. She is the President of Operations at 10k Projects record label whose artists include Trippie Redd, Iann Dior & Surfaces, as well as a wellness advocate. Her personal brand Women Like Me is a dedicated platform to educate burned out, busy, overworked women in creative industries on how to slow down and make time to nurture their mind, body, and spirit."
+      },
+      {
+        "name": "Bryndon Cook",
+        "bio": "Bryndon Cook is a multidisciplinary artist, actor and music director. Composing and recording music as Starchild & The New Romantic, Cook released his sophomore LP, “Forever,” in 2020. Previous creative work includes collaborations with the Newark Boys Chorus, Solange Knowles, Maggie Rogers, Telfar, the Guggenheim Museum, Sydney Opera House, Hollywood Bowl and more. Television and film credits include season three of “The Marvelous Mrs. Maisel” (Amazon, 2020) and Lin Manuel Miranda’s “Tick, Tick… Boom!” (Netflix, 2021) and others. Cook has previously worked as an educator for Shakespeare Theater Company in Washington DC and smaller programs in the Maryland area."
+      },
+      {
+        "name": "Caithlin De Marrais",
+        "bio": "Caithlin De Marrais is a songwriter, musician, and public school music teacher based in Connecticut. She is a founding member of the rock band Rainer Maria, has gone to #1 on college radio, been awarded Top Ten Album of the Year by SPIN magazine, and twice appeared on the cover of the Arts section of the New York Times. In addition to her three decades of collaborative work with artists working in a variety of media, Caithlin has released four albums under her own name to great acclaim. She holds undergraduate degrees from the University of Wisconsin–Madison and the University of Bridgeport, and an MMEdu from U–Bridgeport. She specializes in working with musicians who have disabilities or are neurodivergent. Caithlin develops district-wide curricula and teaches music to students from Pre-K through High School in Bridgeport, Connecticut. She is the proud mother of two fabulous children."
+      },
+      {
+        "name": "Dana Wachs",
+        "bio": "Live sound engineer for Cat Power, Deerhunter, St. Vincent and others, musical director for Rachel Comey, and singer songwriter for Vorhees."
+      },
+      {
+        "name": "Dave Bellevue",
+        "bio": "Dave is a musician in the group The Oxymorrons and a mental health advocate. Dave has worked with the Jed Foundation and was featured in Time Magazine’s The Future of Mental Health"
+      },
+      {
+        "name": "Dr. Anna Palumbo",
+        "bio": "Dr. Anna Palumbo is the Research Manager at the Nordoff-Robbins Center for Music Therapy, New York University. Her research evaluates responsive music-making between therapist and client, such as through improvisation, to improve clinical outcomes in neurorehabilitation and child development. This work demonstrates how music works synergistically to engage multiple aspects of well-being, including mental health, motivation, physical activity, and social connection. Her research has been supported by the National Institutes of Health, the American Music Therapy Association, and the NeuroArts BluePrint Initiative. Dr. Palumbo completed her PhD in Rehabilitation Sciences at New York University. Prior to her doctorate, Anna received an MA in Music Therapy at New York University and conducted clinical work in the areas of neurorehabilitation, acute psychiatric care, and child development."
+      },
+      {
+        "name": "Emily Lazar",
+        "bio": "Grammy winning, American mastering engineer, Emily is the founder, president, and chief mastering engineer of The Lodge, an audio mastering facility that has operated in New York City's Greenwich Village since 1997."
+      },
+      {
+        "name": "Erica Sewell",
+        "bio": "Erica Sewell is founder of CreativeTypes; a talent advising consultancy. She’s led creative recruiting at Netflix, CBS and Williams Sonoma, and worked as a designer at Armani Exchange, Ralph Lauren, and Calvin Klein. Sewell helped launch the studio of artist Mickalene Thomas, collaborated with artists Leslie Hewitt and Oscar-nominated cinematographer Bradford Young, as well as Simone Leigh & Rashida Bumbray for “Funk, God, Jazz & Medicine”. She Executive Produced critically-acclaimed documentary “In Our Mother’s Garden’s” by Shantrelle P. Lewis & Ava Duvernay’s Array, and is working on a documentary about fashion legend, Patrick Kelly. Sewell’s held posts in the administrations of The Art Institute, Parsons School of Design, and Fashion Institute of Technology, and holds an MA from The New School for Social Research, a BFA from Virginia Commonwealth University, and her work has been featured in Elle South Africa, Vogue Magazine, The New York Times, and ArtForum"
+      },
+      {
+        "name": "Eric Dammann",
+        "bio": "Dr. Eric Dammann is a clinical psychologist/psychoanalyst and executive coach with a private practice in Manhattan. He specializes in executive coaching, financial counseling, and psychotherapy. Aside from his private practice, he is clinical supervisor at Columbia University and the William Alanson White Institute, where he is also Co-Director of the Artists Program. He is an associate editor of the professional journals Contemporary Psychoanalysis and The Journal of Financial Therapy. He graduated Magna Cum Laude and was Phi Beta Kappa at Bucknell University, and received his doctorate from Michigan State University. He completed psychoanalytic training at the William Alanson White Institute, and executive coach training at The College of Executive Coaching. When not working, he can be found hanging with his family, dog, and drum set."
+      },
+      {
+        "name": "Francis Rodriguez",
+        "bio": "Francis Rodriguez is a New York City based hair stylist and groomer. With 10 years of experience in editorial styling, Rodriguez specializes in creating both sleek and effortlessly undone looks for textures of all types, and wig cutting, coloring, and styling. Inspired by his Chicano culture and ‘70s-’80s era punk, Rodriguez has created looks for the likes of Julia Fox, Maye Musk, Awkwafina, Ciara, Bowen Yang, and more. His editorial work appears in the pages of L’Officiel, Paper, Numero, and Ladygunn, among others, and his commercial clients include UGG, Grailed, Makeup Forever, and Mario Badescu."
+      },
+      {
+        "name": "Gary Gunn",
+        "bio": "Gary is a composer, music producer, and audiovisual artist noted for his genre-defying musical aesthetic and forward-thinking application of sound across contemporary art, film, augmented/virtual realities, and botanical environments."
+      },
+      {
+        "name": "Graham Macindoe",
+        "bio": "Graham is a documentary and portrait photographer whose work focuses on a range of social justice issues, including drug policy and criminal justice reform, as well as music and running, a lifelong passion he continues today. An associate professor of photography at Parsons School of Design in New York City, Graham has worked as a photographer for more than 20 years and has published and exhibited his work widely, including solo exhibitions at the National Arts Club in New York City in 2021, the Contemporary Arts Center in Cincinnati in 2018, and the Scottish National Portrait Gallery in 2017."
+      },
+      {
+        "name": "Haley Elizabeth Anderson",
+        "bio": "Haley Elizabeth Anderson is a writer, filmmaker, and visual artist born in Houston, Texas. Named one of Filmmaker Magazine’s “25 New Faces of Independent Film,” Haley’s films have played Tribeca, Sundance, Rotterdam and won awards at SXSW and AFI. Her feature film Tendaberry premiered at the 2024 Sundance Film Festival. She is currently working on her second feature with support from SFFILM, Gotham, Tribeca, Sundance, Ucross Foundation, and Film Independent."
+      },
+      {
+        "name": "Jamie Feldman",
+        "bio": "Jamie is a non-profit, tech start-up, and L&D expert."
+      },
+      {
+        "name": "Joanna P. Elliot",
+        "bio": "Nonprofit management consultant including for Jennifer Lopez’s \"Lopez Family Foundation\" and Linkin Park’s \"Music For Relief\""
+      },
+      {
+        "name": "John Beeler",
+        "bio": "John Beeler has worked in the music industry for two decades, from running a college radio station to directing the independently owned record label of Oscar-nominated artist Sufjan Stevens. John also serves as an artist manager, community marketer, mental health advocate, and is a passionate co-conspirator in the creation and celebration of sustainable art and music"
+      },
+      {
+        "name": "Julia Cumming",
+        "bio": "Julia is the frontwoman and bass player of Sunflower Bean and a political activist. In 2017 she founded Anger Can Be Power, a project that \"endeavors to invoke the DIY spirit to inspire people to integrate political involvement in their lives.\" She is also active in the Model Alliance."
+      },
+      {
+        "name": "Julian Berman",
+        "bio": "Julian is a technologist and open source software developer based in New York City with a deep love of music in all its forms. He currently serves as VP of Solutioning at Quantum Rise after previously serving as VP of Engineering at Deloitte Digital and doing an open source software fellowship at Postman. He also is an associate professor at Columbia University. Julian previously served on the Governing Board of Sounds of Saving and now sits on the Advisory Board."
+      },
+      {
+        "name": "Ken Weinstein",
+        "bio": "Ken is the co-founder and co-president of Big Hassle Media."
+      },
+      {
+        "name": "Lisa Gottheil",
+        "bio": "Co-founder and partner at Grandstand Media. Has worked in the music business for 30 years. She is on the board of Josh’s Fund, a non-profit that works to provide educational support for nurses working on bone marrow and stem cell transplant units. She is also the co-founder of The Sled, a NYC non-profit that assists underprivileged NYC Public School students and their families, most of whom live in shelters or other temporary housing."
+      },
+      {
+        "name": "Mark Elzey",
+        "bio": "Mark Elzey is a fashion, portrait, and commercial photographer working across New York, Los Angeles, and Europe. Originally from Bogalusa, Louisiana, Mark’s life has always been filled with art. From watching his grandmother paint, to early placement in magnet charter schools as a gifted creative, Mark’s world is rooted in self expression and originality. Now residing in Brooklyn, Mark finds the city provides him with an endless source of inspiration."
+      },
+      {
+        "name": "Martin Mycoo",
+        "bio": "A rare Los Angeles native, Inglewood born and raised, Martin Mycoo is a Music Supervisor for TV and Film whose work spans unscripted and scripted projects, from tentpole IP to independent features. His comprehensive knowledge of music and wide-ranging taste across genres has afforded him the opportunity to work across nearly every type of television and film format, from live action to animation. At Format, Martin was part of the inaugural team that helped launch the MCU for Marvel Studios’ streaming division. He spearheaded the first live action and animated series set in the World of Wakanda, serving as Music Supervisor on Ironheart and Eyes of Wakanda. He was also part of the in-house music supervision and studio executive team supporting multiple MCU projects across Phases 4 through 6, including Moon Knight, Loki, and Daredevil: Born Again. In addition, Martin contributed to projects such as Westworld and Young Rock, and served on in-house music supervision teams for Lionsgate Films (John Wick: Chapter 4) and Spin Master Entertainment (the PAW Patrol film franchise). More recently, his work includes Shadow Force, Season Two of Netflix’s The Vince Staples Show, PBS’ The Inquisitor, and No Drama, a series of film shorts from Monkeypaw Productions and Universal Pictures. Martin previously served on the Governing Board of Sounds of Saving and now sits on the Advisory Board."
+      },
+      {
+        "name": "Meshell Ndegeocello",
+        "bio": "musician"
+      },
+      {
+        "name": "Michele Fleischli",
+        "bio": "Michele has been an artist manager for two decades, guiding the careers of Bad Religion, Sonic Youth, Beck, Tenacious D, Ryan Adams, Rage Against the Machine and Charlotte Gainsbourg, as well as providing support for Foo Fighters, Beastie Boys, Queens of the Stone Age, Jimmy Eat World and Band of Horses. Michele has produced wide-ranging and large-scale projects from Tenacious D’s Festival Supreme to Beck’s collaboration with Lincoln Motor for the car company’s “Hello Again” campaign. “Hello Again” featured 160+ musicians performing live in the round with Beck at the center of it all and was captured by visionary director Chris Milk. She worked for the past two years as part of The Windish Agency building out their creative crossover department working with artists such as Diplo, Dillon Francis, CHVRCHES, Ta-ku and WARPAINT."
+      },
+      {
+        "name": "Nate Auerbach",
+        "bio": "Nate is a partner at Versus Creative, where he specializes in digital platforms and strategic partnerships for high-profile clients like Spotify. Previously, he spent four years as Head of Music at Tumblr and worked at The Collective talent management company in Los Angeles, spearheading artists’ digital strategies."
+      },
+      {
+        "name": "Nathan Larson",
+        "bio": "Nathan Larson is a musician (SHUDDER TO THINK/ SWIZ) / film composer who has created music for over 70 films/ tv series/ docs. Larson is a teacher and practitioner of Vedic meditation. He is the co-founder of the Lumen Project, a non profit creating ritualized music experiences, now entering a new chapter as LUMENYC, in partnership with SOS."
+      },
+      {
+        "name": "Nick Hakim",
+        "bio": "Nick is a musician and R&B singer based in Queens, NY who attended Berklee College of Music. His third studio album, Cometa, was released in October 2022 with critical acclaim."
+      },
+      {
+        "name": "Nicole Hegeman",
+        "bio": "Nicole Hegeman is an Artist Manager, A&R Consultant, and Executive Producer in music. Originally from Burlington, Vermont, where there was an unusually rich and diverse music scene, Nicole’s love of music took her into roles as radio DJ and producer, event manager, stage manager, festival organizer, photographer, publisher and writer."
+      },
+      {
+        "name": "Peter Shapiro",
+        "bio": "Peter is a club owner, concert promoter, and entrepreneur. He owns Brooklyn Bowl and The Capitol Theatre, is a publisher of Relix magazine, and is a chairman of HeadCount, a non-profit organization that works with musicians to promote participation in democracy, with a focus on registering voters at live music events. In 2022 he published a book: The Music Never Stops: What Putting on 10,000 Shows Has Taught Me About Life, Liberty and the Pursuit of Magic."
+      },
+      {
+        "name": "Robert Galligan",
+        "bio": "Robert Galligan is a clinical psychologist in private practice in Brooklyn, NY. Dr. Galligan works with families, couples, and individuals in psychotherapy. He is particularly interested in helping parents develop more harmonious, satisfying relationships with their children and supporting individuals’ efforts to bring meaning and purpose to their lives. Dr. Galligan is on the advisory board of Sounds of Saving and is a Special Adjunct Professor/Clinical Supervisor at Long Island University. Dr. Galligan holds a Ph.D. in Clinical Psychology from Long Island University and a B.A. in English from Yale University. In his spare time, he surfs, makes music, and coaches flag football."
+      },
+      {
+        "name": "Ryan Hall",
+        "bio": "Ryan Hall is a therapist and record label owner living in Cincinnati, OH. Ryan is a Licensed Independent Social Worker trained in and practicing EMDR therapy while also providing consultation to communities receiving federal funding to address youth homelessness. Ryan has run the experimental record label Whited Sepulchre Records since 2016 which has seen releases by Midwife, Joy Guidry, Endlings (Raven Chacon + John Dieterich) and many more."
+      },
+      {
+        "name": "Sharon Van Etten",
+        "bio": "Sharon Van Etten is a musician, performer, and actress, and recognized as one of the most influential and iconic songwriters of our time. She released her sixth full-length album, We’ve Been Going About This All Wrong, this past May. Leading into its release, Pitchfork profiled Van Etten stating, “Sharon Van Etten Is an Institution Now,” while Rolling Stone called her “one of the most fearless, soul-shredding songwriters on the planet.” Van Etten made her return to The Late Show with Stephen Colbert in support of the new album and took the “soul-strengthening” (New Yorker) Wild Hearts Tour with Angel Olsen and Julien Baker all over the country. In support of Van Etten’s 2019 release, Remind Me Tomorrow, she was profiled in The New York Times’ Arts & Leisure section and the album was featured prominently in best of 2019 lists by NPR Music, Billboard, Fresh Air, Rolling Stone, Pitchfork, ESQUIRE, The New Yorker and more. Van Etten has collaborated with artists ranging from Courtney Barnett and Joshua Homme to Norah Jones and Angel Olsen, and been covered by artists including Fiona Apple, Lucinda Williams, Big Red Machine and Idles. She has performed on The Late Show with Stephen Colbert, Jimmy Kimmel Live!, The Ellen DeGeneres Show, Austin City Limits TV and The Tonight Show Starring Jimmy Fallon."
+      },
+      {
+        "name": "Taja Cheek",
+        "bio": "Under the mononym L'Rain, Taja Cheek records and performs music rooted in r&b, jazz, noise, and pop, using voice memos and manipulated samples as inspiration and source material. Cheek has toured internationally with her band in support of her second album, Fatigue, the Wire’s #1 album of 2021, and the #2 album in Pitchfork’s year end list. Her most recent album, I Killed Your Dog, also earned praise from outlets including The New York Times, NPR, The New Yorker, and Artforum, among many others, and she has been featured on the cover of The Wire and Paste’s last digital issue of 2023. A frequent collaborator, she has worked with artists including Helado Negro; Okay, Kaya; Naama Tsabar; and Kevin Beasley. She has also toured with and opened for musicians including Animal Collective, Moses Sumney, Sharon Van Etten, Brittany Howard, Deerhunter, and Big Thief. In addition to her work as an artist, Cheek is a curator. As an Associate Curator at Large, she led performance programs at MoMA PS1. Prior, she worked closely with artists to realize projects at institutions including Creative Time and The High Line. She co-founded a DIY rehearsal and performance space in her neighborhood that primarily supports experimental music. Cheek is currently a guest curator for the upcoming Whitney Biennial."
+      }
     ]
   }
 }
