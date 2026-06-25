@@ -13,27 +13,31 @@
  * ==================================================================== */
 
 :root {
-  /* — Liner Notes palette ————————————————————————————————————————— */
-  --paper:        #f6f1e9;   /* warm paper background */
-  --paper-2:      #efe7da;   /* slightly deeper paper surface */
-  --paper-3:      #e7dccb;   /* card / well surface */
-  --ink:          #16130f;   /* warm near-black text */
-  --ink-muted:    #4a4339;   /* secondary text (AA on paper) */
-  --ink-faint:    #6f665a;   /* tertiary / fine print (AA on paper) */
+  /* — Pressing Plant + Lime palette ———————————————————————————————— *
+   *  High-contrast light ground; bright acid lime is the signature pop
+   *  (CTA fills / highlights / focus), a deep lime carries readable text. */
+  --paper:        #f4f1ea;   /* bone — faintly warm, not beige */
+  --paper-2:      #eae6dc;   /* deeper bone surface */
+  --paper-3:      #e0dacb;   /* card / well surface */
+  --ink:          #14110d;   /* near-true black text */
+  --ink-muted:    #46413a;   /* secondary text (AA on bone) */
+  --ink-faint:    #6a655c;   /* tertiary / fine print (AA on bone) */
 
-  --accent:       #5b4b8a;   /* dusk violet — emotive primary */
-  --accent-deep:  #443a6b;   /* hover / pressed violet */
-  --coral:        #e8543e;   /* warm coral — highlights / CTAs */
-  --calm:         #3e6f66;   /* sage-teal — reserved for Get Help / resources */
-  --calm-deep:    #305851;   /* calm hover */
+  --accent:       #3f5f0d;   /* deep acid-lime — readable links / eyebrows (AA on bone) */
+  --accent-deep:  #2f470a;   /* hover / pressed */
+  --pop:          #c6f24e;   /* bright acid lime — CTA fill, highlights, focus */
+  --pop-deep:     #b2e03a;   /* pop hover */
+  --coral:        #c6f24e;   /* warm-accent usages alias to the lime pop */
+  --calm:         #1f6e63;   /* deep teal — reserved for Get Help / crisis (calm, trustworthy) */
+  --calm-deep:    #16544b;   /* calm hover */
 
-  /* warm dark surface for hero overlay + quote band (replaces grey) */
-  --dusk:         #211d2e;   /* deep warm-violet ink, for dark sections */
-  --dusk-2:       #2c2740;
+  /* near-black dark surface for hero overlay + quote / CTA bands */
+  --dusk:         #14110d;
+  --dusk-2:       #221e18;
 
   /* neutral borders (warm-tinted greys) */
-  --line:         #d8cdba;
-  --line-strong:  #c2b6a0;
+  --line:         #cfc8b8;
+  --line-strong:  #b3a992;
 
   /* — Legacy semantic names, RE-POINTED to the new palette ——————————— *
    *  Existing templates reference these; keep them working.             */
