@@ -28,14 +28,14 @@
   <meta name="twitter:image" content="{{ ogSrc | absImg }}" />
   <meta name="twitter:image:alt" content="{{ ogAlt }}" />
 
-  <meta name="theme-color" content="#006fe5" />
+  <meta name="theme-color" content="#5b4b8a" />
   <link rel="icon" href="/assets/img/site/favicon.png" type="image/png" />
   <link rel="apple-touch-icon" href="/assets/img/site/favicon.png" />
 
-  {# Inter — the original bundled it; Google Fonts link is the accepted replacement #}
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  {# "Liner Notes" — fonts are self-hosted woff2 (see fonts.css, imported by
+     site.css). No Google Fonts CDN. Preload the two above-the-fold faces. #}
+  <link rel="preload" href="/assets/fonts/bricolage-grotesque-400.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/assets/fonts/newsreader-roman.woff2" as="font" type="font/woff2" crossorigin />
 
   <link rel="stylesheet" href="/assets/css/site.css" />
 </head>
