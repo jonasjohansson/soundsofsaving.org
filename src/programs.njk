@@ -3,13 +3,14 @@ layout: base.njk
 current: programs
 permalink: /programs/
 title: Programs
-description: "With our online content, participation at live events, and therapy resources, we seek to save and improve lives through the stories and experiences of artists and fans, both inspiring human interconnectedness and feelings of hope, and demystifying access to mental health care."
+description: "Sounds of Saving works with artists, schools, and live events to help young people use music to take care of their mental health. Explore our programs across film, education, and community."
 ogType: website
 ---
 {#
-  Programs page — three pillars (Education & Engagement, Artist Storytelling,
-  Connection) rendered from content/pages/programs.json (the CMS-editable
-  source of record). Section order mirrors the live site.
+  Programs — program cards grouped under a backstage Listen / Learn / Connect
+  taxonomy. Each card follows a fixed schema: what it is / who it's for /
+  what happens / proof / one CTA. Content from content/pages/programs.json
+  (CMS-editable). The 988-co-branded Sessions series leads, marked featured.
 #}
 {% set p = pages.programs %}
 
@@ -18,57 +19,194 @@ ogType: website
   .programs-page h1 {
     font-size: var(--fs-title);
     line-height: var(--lh-tight);
-    margin: 0 0 var(--space-lg);
+    margin: 0 0 var(--space-md);
   }
-  .pillar { margin-top: var(--space-2xl); }
-  .pillar:first-of-type { margin-top: 0; }
-  .pillar__num {
-    display: inline-block;
+  .programs-lead {
+    font-size: var(--fs-lead);
+    line-height: var(--lh-base);
+    max-width: var(--maxw-prose);
+    margin: 0 0 var(--space-xl);
+  }
+
+  /* how-it-works loop */
+  .howto { margin: 0 0 var(--space-2xl); }
+  .howto__steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+    padding: 0;
+    list-style: none;
+  }
+  .howto__step {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--paper-2);
+    padding: var(--space-md);
+  }
+  .howto__label {
+    font-family: var(--font-mono);
     text-transform: uppercase;
     letter-spacing: var(--tracking-wide);
     font-size: var(--fs-tiny);
-    font-weight: var(--fw-semibold);
     color: var(--accent);
     margin: 0 0 var(--space-2xs);
   }
-  .pillar__heading {
-    font-size: var(--fs-h2);
-    line-height: var(--lh-tight);
-    margin: 0 0 var(--space-sm);
+  .howto__step p { font-size: var(--fs-small); line-height: var(--lh-base); margin: 0; }
+
+  /* group sections */
+  .pgroup { margin-top: var(--space-2xl); }
+  .pgroup__head { max-width: var(--maxw-prose); margin-bottom: var(--space-lg); }
+  .pgroup__label {
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    font-size: var(--fs-tiny);
+    color: var(--coral);
+    margin: 0 0 var(--space-2xs);
   }
-  .pillar__body { max-width: var(--maxw-prose); }
-  .pillar__body p { margin: 0 0 var(--space-sm); line-height: var(--lh-base); }
-  .pillar__item { margin-top: var(--space-lg); max-width: var(--maxw-prose); }
-  .pillar__item h3 {
-    font-size: var(--fs-h3);
-    margin: 0 0 var(--space-xs);
+  .pgroup__heading { font-size: var(--fs-h2); line-height: var(--lh-tight); margin: 0 0 var(--space-xs); }
+  .pgroup__intro { line-height: var(--lh-base); margin: 0; }
+
+  /* card grid */
+  .pcards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--space-lg);
+    list-style: none;
+    padding: 0;
   }
-  .pillar__item p { margin: 0 0 var(--space-sm); line-height: var(--lh-base); }
-  .pillar + .pillar { border-top: 1px solid var(--border); padding-top: var(--space-xl); }
+  .pcard {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--paper-2);
+    padding: var(--space-lg);
+  }
+  .pcard--featured {
+    grid-column: 1 / -1;
+    background: var(--dusk);
+    border-color: var(--dusk-2);
+    color: var(--on-dark);
+  }
+  .pcard--featured .pcard__title,
+  .pcard--featured .pcard__dt { color: var(--on-dark); }
+  .pcard--featured .pcard__dd { color: var(--paper-2); }
+  .pcard--featured .pcard__eyebrow { color: var(--coral); }
+
+  .pcard__eyebrow {
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    font-size: var(--fs-tiny);
+    color: var(--accent);
+    margin: 0 0 var(--space-2xs);
+  }
+  .pcard__title { font-size: var(--fs-h3); line-height: var(--lh-tight); margin: 0 0 var(--space-sm); }
+
+  .pcard__spec { margin: 0 0 var(--space-md); }
+  .pcard__dt {
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    font-size: var(--fs-tiny);
+    color: var(--ink-faint);
+    margin-top: var(--space-sm);
+  }
+  .pcard__dt:first-child { margin-top: 0; }
+  .pcard__dd { margin: var(--space-3xs) 0 0; font-size: var(--fs-small); line-height: var(--lh-base); max-width: none; }
+
+  .pcard__cta { margin-top: auto; }
+
+  /* educators pointer band */
+  .edu-pointer {
+    margin-top: var(--space-2xl);
+    border: 1px solid var(--accent);
+    border-radius: var(--radius);
+    padding: var(--space-lg);
+    background: var(--paper-3);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+  }
+  .edu-pointer__copy { max-width: var(--maxw-prose); }
+  .edu-pointer__eyebrow {
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    font-size: var(--fs-tiny);
+    color: var(--accent);
+    margin: 0 0 var(--space-2xs);
+  }
+  .edu-pointer h2 { font-size: var(--fs-h3); margin: 0 0 var(--space-2xs); }
+  .edu-pointer p { margin: 0; line-height: var(--lh-base); font-size: var(--fs-small); }
+
+  @media (max-width: 720px) {
+    .howto__steps { grid-template-columns: 1fr; }
+  }
 </style>
 
 <div class="container programs-page">
   <h1>{{ p.heading or "Programs" }}</h1>
+  {% if p.lead %}<p class="programs-lead">{{ p.lead }}</p>{% endif %}
 
-  {% for pillar in p.pillars %}
-  <section class="pillar" aria-label="{{ pillar.heading }}">
-    {% if pillar.number %}<p class="pillar__num">Program {{ pillar.number }}</p>{% endif %}
-    <h2 class="pillar__heading">{{ pillar.heading }}</h2>
+  {% if p.how_it_works %}
+  <section class="howto" aria-label="How it works">
+    {% if p.how_it_works.eyebrow %}<p class="howto__label">{{ p.how_it_works.eyebrow }}</p>{% endif %}
+    <ol class="howto__steps">
+      {% for step in p.how_it_works.steps %}
+      <li class="howto__step">
+        <p class="howto__label">{{ step.label }}</p>
+        <p>{{ step.body }}</p>
+      </li>
+      {% endfor %}
+    </ol>
+  </section>
+  {% endif %}
 
-    {% if pillar.body %}
-    <div class="pillar__body">
-      {% for para in pillar.body.split("\n\n") %}<p>{{ para | replace("\n", "<br>") | safe }}</p>{% endfor %}
+  {% for group in p.groups %}
+  <section class="pgroup" id="{{ group.id }}" aria-label="{{ group.label }}">
+    <div class="pgroup__head">
+      <p class="pgroup__label">{{ group.label }}</p>
+      <h2 class="pgroup__heading">{{ group.heading }}</h2>
+      {% if group.intro %}<p class="pgroup__intro">{{ group.intro }}</p>{% endif %}
     </div>
-    {% endif %}
 
-    {% for item in pillar.items %}
-      {% if item.heading or item.body %}
-      <div class="pillar__item">
-        {% if item.heading %}<h3>{{ item.heading }}</h3>{% endif %}
-        {% if item.body %}{% for para in item.body.split("\n\n") %}<p>{{ para | replace("\n", "<br>") | safe }}</p>{% endfor %}{% endif %}
-      </div>
-      {% endif %}
-    {% endfor %}
+    <ul class="pcards">
+      {% for card in group.cards %}
+      <li class="pcard{% if card.featured %} pcard--featured{% endif %}">
+        {% if card.eyebrow %}<p class="pcard__eyebrow">{{ card.eyebrow }}</p>{% endif %}
+        <h3 class="pcard__title">{{ card.title }}</h3>
+        <dl class="pcard__spec">
+          {% if card.what %}<dt class="pcard__dt">What it is</dt><dd class="pcard__dd">{{ card.what }}</dd>{% endif %}
+          {% if card.who %}<dt class="pcard__dt">Who it's for</dt><dd class="pcard__dd">{{ card.who }}</dd>{% endif %}
+          {% if card.happens %}<dt class="pcard__dt">What happens</dt><dd class="pcard__dd">{{ card.happens }}</dd>{% endif %}
+          {% if card.proof %}<dt class="pcard__dt">Proof</dt><dd class="pcard__dd">{{ card.proof }}</dd>{% endif %}
+        </dl>
+        {% if card.cta %}
+        <p class="pcard__cta">
+          <a class="btn {% if card.featured %}btn--stroke{% else %}btn--ghost{% endif %}" href="{{ card.cta.href }}">{{ card.cta.label }}</a>
+        </p>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
   </section>
   {% endfor %}
+
+  {% if p.educators_pointer %}
+  <aside class="edu-pointer" aria-label="For educators">
+    <div class="edu-pointer__copy">
+      {% if p.educators_pointer.eyebrow %}<p class="edu-pointer__eyebrow">{{ p.educators_pointer.eyebrow }}</p>{% endif %}
+      <h2>{{ p.educators_pointer.title }}</h2>
+      <p>{{ p.educators_pointer.body }}</p>
+    </div>
+    {% if p.educators_pointer.cta %}
+    <a class="btn btn--primary" href="{{ p.educators_pointer.cta.href }}">{{ p.educators_pointer.cta.label }}</a>
+    {% endif %}
+  </aside>
+  {% endif %}
 </div>
