@@ -1,28 +1,110 @@
 const Image = require("@11ty/eleventy-img");
 const path = require("path");
+const fs = require("fs");
+
+// Shared eleventy-img settings — moderate widths/formats so the build and the
+// on-disk variant count stay reasonable; the built-in disk cache makes repeat
+// builds fast. Output lands in _site/assets/img/opt/ (the path the deploy
+// workflow caches).
+const IMG_WIDTHS = [400, 800, 1200];
+const IMG_FORMATS = ["avif", "webp", "jpeg"];
+const IMG_OUTPUT_DIR = "./_site/assets/img/opt/";
+const IMG_URL_PATH = "/assets/img/opt/";
+
+// HTML-attribute escaper for the plain-<img> fallback path.
+function escAttr(v) {
+  return String(v == null ? "" : v)
+    .replace(/&/g, "&amp;")
+    .replace(/"/g, "&quot;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
+// Build a <picture>/srcset (AVIF+WebP+JPEG at several widths) for a local image
+// so phones never download the full-size original. Falls back to a plain <img>
+// for external URLs (https://...) or files missing on disk, so nothing breaks.
+//
+//   webSrc  root-absolute web path, e.g. "/assets/img/sessions/abc.jpg"
+//   opts    { alt, sizes, className, eager (LCP -> loading=eager+fetchpriority=high),
+//             width, height }  width/height seed intrinsic dims to avoid CLS.
+async function respImage(webSrc, opts = {}) {
+  const { alt = "", sizes, className, eager = false, width, height } = opts;
+  const sizesAttr = sizes || "(max-width: 640px) 92vw, 320px";
+
+  const isExternal = /^https?:\/\//.test(String(webSrc || ""));
+  const input = isExternal ? null : path.join("src", String(webSrc).replace(/^\/+/, "/"));
+
+  // External or missing file -> plain <img>, unoptimized but unbroken.
+  if (isExternal || !input || !fs.existsSync(input)) {
+    const attrs = [
+      `src="${escAttr(webSrc)}"`,
+      `alt="${escAttr(alt)}"`,
+      className ? `class="${escAttr(className)}"` : "",
+      width ? `width="${escAttr(width)}"` : "",
+      height ? `height="${escAttr(height)}"` : "",
+      eager ? `fetchpriority="high"` : `loading="lazy"`,
+      `decoding="async"`,
+    ].filter(Boolean).join(" ");
+    return `<img ${attrs} />`;
+  }
+
+  const metadata = await Image(input, {
+    widths: IMG_WIDTHS,
+    formats: IMG_FORMATS,
+    outputDir: IMG_OUTPUT_DIR,
+    urlPath: IMG_URL_PATH,
+  });
+
+  const imgAttrs = {
+    alt: alt || "",
+    sizes: sizesAttr,
+    decoding: "async",
+    // LCP image loads eagerly with high priority; everything else lazy-loads.
+    ...(eager ? { loading: "eager", fetchpriority: "high" } : { loading: "lazy" }),
+  };
+  if (className) imgAttrs.class = className;
+
+  return Image.generateHTML(metadata, imgAttrs);
+}
 
 module.exports = function (eleventyConfig) {
   // static assets + custom-domain file copied straight through
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
   eleventyConfig.addPassthroughCopy({ "src/CNAME": "CNAME" });
 
-  // Responsive images: emit AVIF/WebP/JPEG at several widths with srcset, so
-  // phones don't download full-size originals. `webSrc` is the root-absolute
-  // path from a data file (e.g. /assets/img/songs/001.jpg).
+  // Responsive image shortcode. Positional for the common case
+  // ({% respImg src, alt, sizes %}); pass an options object as `alt` for the
+  // full set ({% respImg src, { alt, sizes, className, eager, width, height } %}).
   eleventyConfig.addNunjucksAsyncShortcode("respImg", async function (webSrc, alt, sizes) {
-    const input = path.join("src", webSrc);
-    const metadata = await Image(input, {
-      widths: [400, 800, 1200],
-      formats: ["avif", "webp", "jpeg"],
-      outputDir: "./_site/assets/img/opt/",
-      urlPath: "/assets/img/opt/",
-    });
-    return Image.generateHTML(metadata, {
-      alt: alt || "",
-      sizes: sizes || "(max-width: 640px) 92vw, 320px",
-      loading: "lazy",
-      decoding: "async",
-    });
+    if (alt && typeof alt === "object") return respImage(webSrc, alt);
+    return respImage(webSrc, { alt, sizes });
+  });
+
+  // Rewrite local <img> tags inside already-rendered post-body HTML through the
+  // responsive pipeline. External images and anything we can't resolve are left
+  // untouched. Used by newspost.njk for inline body images.
+  eleventyConfig.addNunjucksAsyncFilter("respBody", function (html, cb) {
+    const run = async () => {
+      const src = String(html || "");
+      const imgTag = /<img\b[^>]*>/gi;
+      const tags = src.match(imgTag) || [];
+      let out = src;
+      for (const tag of tags) {
+        const srcMatch = tag.match(/\bsrc\s*=\s*["']([^"']+)["']/i);
+        if (!srcMatch) continue;
+        const url = srcMatch[1];
+        if (/^https?:\/\//.test(url) || /^data:/.test(url)) continue;
+        const altMatch = tag.match(/\balt\s*=\s*["']([^"']*)["']/i);
+        try {
+          const replacement = await respImage(url, { alt: altMatch ? altMatch[1] : "" });
+          out = out.replace(tag, replacement);
+        } catch (e) {
+          // leave the original tag in place on any failure
+        }
+      }
+      return out;
+    };
+    run().then((r) => cb(null, r)).catch((e) => cb(null, String(html || "")));
   });
 
   // human date: "July 11, 2025"
