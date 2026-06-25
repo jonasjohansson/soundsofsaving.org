@@ -13,13 +13,13 @@
  *  Latin subset only (this is an English-language site) to keep payload small.
  * ==================================================================== */
 
-/* — Bricolage Grotesque (display) — variable, 400–800 ———————————————— */
+/* — Hanken Grotesk (display) — variable, 400–800 ———————————————————— */
 @font-face {
-  font-family: "Bricolage Grotesque";
+  font-family: "Hanken Grotesk";
   font-style: normal;
   font-weight: 400 800;
   font-display: swap;
-  src: url("/assets/fonts/bricolage-grotesque-400.woff2") format("woff2");
+  src: url("/assets/fonts/hanken-grotesk.woff2") format("woff2");
 }
 
 /* — Newsreader (body) — variable roman, 400–600 ————————————————————— */

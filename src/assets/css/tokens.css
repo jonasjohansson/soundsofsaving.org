@@ -13,9 +13,9 @@
  * ==================================================================== */
 
 :root {
-  /* — Pressing Plant + Lime palette ———————————————————————————————— *
-   *  High-contrast light ground; bright acid lime is the signature pop
-   *  (CTA fills / highlights / focus), a deep lime carries readable text. */
+  /* — Pressing Plant palette — high-contrast light, standard primaries —— *
+   *  Bone ground, near-black ink, electric-blue accent, vermilion highlight,
+   *  teal reserved for the calm Get Help / crisis zone. */
   --paper:        #f4f1ea;   /* bone — faintly warm, not beige */
   --paper-2:      #eae6dc;   /* deeper bone surface */
   --paper-3:      #e0dacb;   /* card / well surface */
@@ -23,15 +23,13 @@
   --ink-muted:    #46413a;   /* secondary text (AA on bone) */
   --ink-faint:    #6a655c;   /* tertiary / fine print (AA on bone) */
 
-  --accent:       #3f5f0d;   /* deep acid-lime — readable links / eyebrows (AA on bone) */
-  --accent-deep:  #2f470a;   /* hover / pressed */
-  --pop:          #c6f24e;   /* bright acid lime — CTA fill, highlights, focus */
-  --pop-deep:     #b2e03a;   /* pop hover */
-  --coral:        #c6f24e;   /* warm-accent usages alias to the lime pop */
-  --calm:         #1f6e63;   /* deep teal — reserved for Get Help / crisis (calm, trustworthy) */
+  --accent:       #1e3ae6;   /* electric blue — links / eyebrows / primary */
+  --accent-deep:  #1429a8;   /* hover / pressed */
+  --coral:        #e23b1e;   /* vermilion red — highlights / accent CTAs */
+  --calm:         #1f6e63;   /* deep teal — reserved for Get Help / crisis */
   --calm-deep:    #16544b;   /* calm hover */
 
-  /* near-black dark surface for hero overlay + quote / CTA bands */
+  /* near-black dark surface for hero overlay + quote bands */
   --dusk:         #14110d;
   --dusk-2:       #221e18;
 
@@ -64,7 +62,7 @@
   --on-dark:      var(--paper);       /* text on dark surfaces */
 
   /* — Typography ————————————————————————————————————————————————— */
-  --font-display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
   --font-body:    "Newsreader", Georgia, "Times New Roman", serif;
   --font-mono:    "Space Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
 

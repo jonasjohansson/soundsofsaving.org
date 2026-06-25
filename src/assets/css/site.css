@@ -213,12 +213,12 @@ main { min-height: 50vh; }
   transition: background var(--transition), color var(--transition), border-color var(--transition);
 }
 .btn--primary {
-  background: var(--pop);
-  color: var(--ink);
+  background: var(--accent);
+  color: var(--paper);
 }
 .btn--primary:hover {
-  background: var(--pop-deep);
-  color: var(--ink);
+  background: var(--accent-deep);
+  color: var(--paper);
 }
 .btn--ghost {
   border-color: var(--accent);
