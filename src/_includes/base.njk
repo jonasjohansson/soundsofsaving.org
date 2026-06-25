@@ -61,6 +61,7 @@
           {% endfor %}
         </div>
         <div class="site-nav__cta">
+          {% if settings.socials.instagram %}<a class="site-nav__ig" href="{{ settings.socials.instagram }}" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg></a>{% endif %}
           <a class="site-nav__donate" href="{{ settings.donate_url }}" target="_blank" rel="noopener">Donate</a>
           <a class="btn btn--stroke" href="{{ settings.get_help_url or '/resources/' }}">Get Help</a>
         </div>
@@ -74,6 +75,17 @@
 
   <footer class="site-footer">
     <div class="container site-footer__inner">
+
+      {% if pages.community.partners.logos %}
+      <div class="footer-partners">
+        <p class="footer-partners__label">With support from</p>
+        <ul class="footer-partners__grid">
+          {% for logo in pages.community.partners.logos %}
+          <li><img class="footer-partner" src="{{ logo.src }}" alt="{{ logo.alt }}" loading="lazy" decoding="async" /></li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
 
       <div class="footer-meta">
         <nav class="socials" aria-label="Social media">

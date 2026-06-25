@@ -285,6 +285,37 @@ main { min-height: 50vh; }
 }
 .footer-brand img { height: 40px; width: auto; filter: brightness(0); }
 
+/* Header Instagram icon — inherits nav link color (white on the home overlay). */
+.site-nav__ig { display: inline-flex; align-items: center; color: var(--text); }
+
+/* Footer partner logos — uniform, desaturated black-and-white. */
+.footer-partners { margin-bottom: var(--space-lg); }
+.footer-partners__label {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  font-size: var(--fs-tiny);
+  color: var(--text-faint);
+  margin: 0 0 var(--space-sm);
+}
+.footer-partners__grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-md) var(--space-lg);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.footer-partner {
+  height: 30px;
+  width: auto;
+  filter: grayscale(1);
+  opacity: 0.55;
+  transition: opacity var(--transition);
+}
+.footer-partner:hover { opacity: 0.85; }
+
 .socials {
   display: flex;
   flex-wrap: wrap;
