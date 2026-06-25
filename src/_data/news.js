@@ -15,35 +15,11 @@
 const fs = require("fs");
 const path = require("path");
 const matter = require("gray-matter");
-const { imageSize } = require("image-size");
 const MarkdownIt = require("markdown-it");
+const { dimsOf, ymd } = require("../../lib/content");
 
 const CONTENT = path.join(__dirname, "..", "..", "content", "news");
-const ASSETS = path.join(__dirname, "..", "assets");
-
 const md = new MarkdownIt({ html: true, linkify: true, typographer: false });
-
-// intrinsic dimensions of a local image (root-absolute "/assets/img/news/x.jpg");
-// null for external/missing so templates omit width/height rather than lie.
-function dimsOf(src) {
-  if (!src || /^https?:\/\//.test(src)) return null;
-  const rel = String(src).replace(/^\/+/, "").replace(/^assets\//, "");
-  const file = path.join(ASSETS, rel);
-  try {
-    const { width, height } = imageSize(fs.readFileSync(file));
-    return width && height ? { width, height } : null;
-  } catch {
-    return null;
-  }
-}
-
-// robust YYYY-MM-DD, tolerant of YAML date objects (js-yaml parses an
-// unquoted date scalar into a JS Date).
-function ymd(v) {
-  if (!v) return "";
-  if (v instanceof Date) return v.toISOString().slice(0, 10);
-  return String(v).slice(0, 10);
-}
 
 // strip markdown/HTML to a clean ~160-char excerpt on a word boundary
 // (for index teasers / og:description when no summary is set).
