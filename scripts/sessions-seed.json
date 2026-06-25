@@ -1,0 +1,274 @@
+{
+  "_comment": "Curated episode data for 'Songs That Found Me at the Right Time'. Sourced by scripts/parse-sessions.js from two places, unioned + deduped by YouTube id: (1) the embedly oEmbed cards on the mirrored series landing page www.soundsofsaving.org/songs-that-found-me-at-the-right-time.html, and (2) the YouTube playlist PLrBVhh4EJvMOjNUKZO4C07XwSj0EAD0XH. Titles come from each video's YouTube oEmbed (authoritative); song names come from the landing-page headings where the oEmbed omits them. 'covers' = the original artist of the chosen song; song_title = the song they chose. date = YouTube upload_date (YYYY-MM-DD) where known. Re-runnable: parse-sessions.js writes one content/sessions/<slug>.md per entry and never clobbers CMS-authored story/pull_quote.",
+  "episodes": [
+    {
+      "youtube_id": "jpguLriXLik",
+      "artist": "Sharon Van Etten",
+      "covers": "Nine Inch Nails",
+      "song_title": "Hurt",
+      "date": "2020-09-29"
+    },
+    {
+      "youtube_id": "eCLoUHG8uEI",
+      "artist": "Bartees Strange",
+      "covers": "The National",
+      "song_title": "Lemonworld",
+      "date": "2022-03-23"
+    },
+    {
+      "youtube_id": "dMOTwpBm1x0",
+      "artist": "Indigo Sparke",
+      "covers": "PJ Harvey",
+      "song_title": "Dry",
+      "date": "2022-09-08"
+    },
+    {
+      "youtube_id": "XC7GRIRqNW8",
+      "artist": "CHAI",
+      "covers": "Mr. Big",
+      "song_title": "To Be With You",
+      "date": "2022-09-20"
+    },
+    {
+      "youtube_id": "-m0glN0yg3U",
+      "artist": "June McDoom",
+      "covers": "Judee Sill",
+      "song_title": "Emerald River Dance",
+      "date": "2023-06-28"
+    },
+    {
+      "youtube_id": "jvcJQwhs17g",
+      "artist": "Walter Schreifels",
+      "covers": "My Bloody Valentine",
+      "song_title": "Don't Ask Why",
+      "date": "2023-05-31"
+    },
+    {
+      "youtube_id": "3iy6HehLaOg",
+      "artist": "Circuit des Yeux",
+      "covers": "Lucinda Williams",
+      "song_title": "Fruits of My Labor",
+      "date": "2023-02-02"
+    },
+    {
+      "youtube_id": "VU1gQ2nKBv0",
+      "artist": "Melanie Charles",
+      "covers": "Alicia Myers",
+      "song_title": "I Wanna Thank You",
+      "date": "2022-11-02"
+    },
+    {
+      "youtube_id": "4aA93p6HT6o",
+      "artist": "Jim Ward",
+      "covers": "Ben Folds",
+      "song_title": "The Luckiest",
+      "date": "2022-08-04"
+    },
+    {
+      "youtube_id": "guqvWfKuxRw",
+      "artist": "Geese",
+      "covers": "Nick Drake",
+      "song_title": "Place to Be",
+      "date": "2022-06-13"
+    },
+    {
+      "youtube_id": "t6wZSIR8-uE",
+      "artist": "Xenia Rubinos",
+      "covers": "Nai Palm",
+      "song_title": "Homebody",
+      "date": "2022-05-23"
+    },
+    {
+      "youtube_id": "YDoLwnjGQf4",
+      "artist": "Thao",
+      "covers": "Bjork",
+      "song_title": "Human Behaviour",
+      "date": "2022-05-09"
+    },
+    {
+      "youtube_id": "tnHgPmvctdM",
+      "artist": "Cassandra Jenkins",
+      "covers": "Eartheater",
+      "song_title": "",
+      "date": "2021-08-19"
+    },
+    {
+      "youtube_id": "Jh6I3pFxKho",
+      "artist": "Kat Cunning",
+      "covers": "Death Cab for Cutie",
+      "song_title": "",
+      "date": "2021-06-30"
+    },
+    {
+      "youtube_id": "ymlr2TJr4Z0",
+      "artist": "Adia Victoria",
+      "covers": "Erykah Badu",
+      "song_title": "",
+      "date": "2021-06-10"
+    },
+    {
+      "youtube_id": "AEHKppmmMYs",
+      "artist": "Disturbed",
+      "covers": "",
+      "song_title": "",
+      "kind": "short",
+      "note": "SoS Short: Disturbed x Lifeline",
+      "date": "2021-05-27"
+    },
+    {
+      "youtube_id": "1dkL8IdQ1R0",
+      "artist": "Black Belt Eagle Scout",
+      "covers": "Grouper",
+      "song_title": "",
+      "date": "2021-05-20"
+    },
+    {
+      "youtube_id": "Jlx--tJZPUE",
+      "artist": "Madison McFerrin",
+      "covers": "Radiohead",
+      "song_title": "",
+      "date": "2021-02-25"
+    },
+    {
+      "youtube_id": "fXdscu1Atyc",
+      "artist": "Sean Solomon of Moaning",
+      "covers": "Elliott Smith",
+      "song_title": "",
+      "date": "2020-12-04"
+    },
+    {
+      "youtube_id": "5xI7qsO03SA",
+      "artist": "Alicia Bognanno of Bully",
+      "covers": "PJ Harvey",
+      "song_title": "Dry",
+      "date": "2021-02-02"
+    },
+    {
+      "youtube_id": "KT1CiGCsQL4",
+      "artist": "Kate Davis",
+      "covers": "Daniel Johnston",
+      "song_title": "",
+      "date": "2020-10-29"
+    },
+    {
+      "youtube_id": "cZLigJeLFFo",
+      "artist": "Jamie Lidell",
+      "covers": "Sly & the Family Stone",
+      "song_title": "",
+      "date": "2020-10-10"
+    },
+    {
+      "youtube_id": "nDrwTOqihB0",
+      "artist": "KeiyaA",
+      "covers": "Jazmine Sullivan",
+      "song_title": "",
+      "date": "2020-09-15"
+    },
+    {
+      "youtube_id": "Zvxnwsw0NTU",
+      "artist": "Meshell Ndegeocello",
+      "covers": "",
+      "song_title": "Good Day Bad",
+      "date": "2019-09-10"
+    },
+    {
+      "youtube_id": "jZ6mbh1ssiQ",
+      "artist": "Sasami",
+      "covers": "",
+      "song_title": "",
+      "kind": "short",
+      "note": "Sasami Short",
+      "date": "2019-09-10"
+    },
+    {
+      "youtube_id": "uFywlP0kGTQ",
+      "artist": "Kyp Malone of TV on the Radio",
+      "covers": "Jolie Holland",
+      "song_title": "Mexico City",
+      "date": "2019-09-09"
+    },
+    {
+      "youtube_id": "Ye0FWyYTvK0",
+      "artist": "Vorhees",
+      "covers": "Brian Eno",
+      "song_title": "Golden Hours",
+      "date": "2019-01-24"
+    },
+    {
+      "youtube_id": "RI-DQJVBj88",
+      "artist": "Shilpa Ray",
+      "covers": "The Velvet Underground",
+      "song_title": "New Age",
+      "date": "2018-09-27"
+    },
+    {
+      "youtube_id": "eyDCeCG-p9M",
+      "artist": "Denitia",
+      "covers": "Patty Griffin",
+      "song_title": "Heavenly Day",
+      "date": "2018-09-13"
+    },
+    {
+      "youtube_id": "KlH8Ndh6O6g",
+      "artist": "L'Rain",
+      "covers": "Patty Griffin",
+      "song_title": "",
+      "date": "2018-09-04"
+    },
+    {
+      "youtube_id": "bYrzxoekc2E",
+      "artist": "Brittain Ashford",
+      "covers": "Dirty Projectors",
+      "song_title": "",
+      "note": "Episode 1",
+      "date": "2018-03-19"
+    },
+    {
+      "youtube_id": "nwU5UTqCbMU",
+      "artist": "Jackie Mendoza",
+      "covers": "Suzanne Vega",
+      "song_title": "Book of Dreams",
+      "date": "2019-12-04"
+    },
+    {
+      "youtube_id": "fth9UUa1Mfw",
+      "artist": "John Coltrane",
+      "covers": "",
+      "song_title": "A Love Supreme, Pt. 1: Acknowledgement",
+      "kind": "favorite",
+      "date": "2009-12-10"
+    },
+    {
+      "youtube_id": "OXeh742_jak",
+      "artist": "Nina Simone",
+      "covers": "",
+      "song_title": "Who Knows Where the Time Goes",
+      "kind": "favorite",
+      "date": "2009-09-29"
+    },
+    {
+      "youtube_id": "XycBLF6kWuY",
+      "artist": "The Pixies",
+      "covers": "",
+      "song_title": "Monkey Gone to Heaven",
+      "kind": "favorite",
+      "date": "2009-11-14"
+    },
+    {
+      "youtube_id": "08ts6hekHlc",
+      "artist": "Neil Young",
+      "covers": "",
+      "song_title": "Out on the Weekend",
+      "kind": "favorite",
+      "date": "2011-01-10"
+    },
+    {
+      "youtube_id": "LwoSyRd5ngY",
+      "artist": "Prince",
+      "covers": "",
+      "song_title": "Something in the Water (Does Not Compute)",
+      "kind": "favorite",
+      "date": "2014-11-08"
+    }
+  ]
+}
