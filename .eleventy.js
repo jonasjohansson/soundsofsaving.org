@@ -54,6 +54,10 @@ async function respImage(webSrc, opts = {}) {
     formats: IMG_FORMATS,
     outputDir: IMG_OUTPUT_DIR,
     urlPath: IMG_URL_PATH,
+    // Higher per-format quality so cards/heroes stay artifact-free.
+    sharpAvifOptions: { quality: 62 },
+    sharpWebpOptions: { quality: 84 },
+    sharpJpegOptions: { quality: 85, mozjpeg: true },
   });
 
   const imgAttrs = {

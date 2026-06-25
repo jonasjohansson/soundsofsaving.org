@@ -52,8 +52,9 @@ eleventyComputed:
     inset: 0;
     z-index: 1;
     background:
-      linear-gradient(180deg, rgba(20,16,28,0.30) 0%, rgba(20,16,28,0) 20%),
-      linear-gradient(2deg, rgba(20,16,28,0.88) 0%, rgba(20,16,28,0.62) 28%, rgba(20,16,28,0.20) 52%, rgba(20,16,28,0) 72%);
+      linear-gradient(rgba(20,16,28,0.24), rgba(20,16,28,0.24)),
+      linear-gradient(180deg, rgba(20,16,28,0.24) 0%, rgba(20,16,28,0) 24%),
+      linear-gradient(0deg, rgba(20,16,28,0.84) 0%, rgba(20,16,28,0.6) 34%, rgba(20,16,28,0.28) 58%, rgba(20,16,28,0) 82%);
   }
   .home-hero__inner {
     position: relative;
@@ -61,7 +62,7 @@ eleventyComputed:
     width: 100%;
     padding-block: var(--space-2xl);
   }
-  .home-hero__eyebrow { color: var(--paper); margin: 0 0 var(--space-sm); text-shadow: 0 1px 12px rgba(0,0,0,0.55); }
+  .home-hero__eyebrow { color: var(--paper); margin: 0 0 var(--space-sm); }
   .home-hero__title {
     font-family: var(--font-display);
     font-size: var(--fs-mega);
@@ -71,7 +72,6 @@ eleventyComputed:
     max-width: 16ch;
     color: var(--paper);
     text-wrap: balance;
-    text-shadow: 0 2px 30px rgba(0,0,0,0.6), 0 1px 3px rgba(0,0,0,0.45);
   }
   .home-hero__sub {
     margin: var(--space-md) 0 0;
@@ -79,7 +79,6 @@ eleventyComputed:
     font-size: var(--fs-lead);
     line-height: var(--lh-base);
     color: var(--paper);
-    text-shadow: 0 1px 16px rgba(0,0,0,0.55);
   }
   .home-hero__cta { margin-top: var(--space-lg); }
   .home-hero__credit {
@@ -225,10 +224,8 @@ eleventyComputed:
   }
   .story:hover,
   .story:focus-visible { border-color: var(--accent); }
-  /* Desaturate + brand-tint duotone so mixed press images read as one set. */
-  .story__media { position: relative; aspect-ratio: 16 / 10; background: var(--ink); overflow: hidden; }
-  .story__media img { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(1) contrast(0.96) brightness(1.18); }
-  .story__media::after { content: ""; position: absolute; inset: 0; background: var(--accent); mix-blend-mode: color; opacity: 0.68; pointer-events: none; }
+  .story__media { aspect-ratio: 16 / 10; background: var(--bg-alt); overflow: hidden; }
+  .story__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .story__body { padding: var(--space-sm) var(--space-md) var(--space-md); }
   .story__date {
     font-family: var(--font-mono);
@@ -256,9 +253,8 @@ eleventyComputed:
   <div class="home-hero__scrim" aria-hidden="true"></div>
   <div class="home-hero__inner">
     <div class="container">
-      <p class="eyebrow home-hero__eyebrow">Sounds of Saving</p>
       <h1 class="home-hero__title">Find hope in music.</h1>
-      <p class="home-hero__sub">A music and mental health nonprofit.<br>For everyone, with young people at heart.</p>
+      <p class="home-hero__sub">Sounds of Saving is a music and mental health nonprofit.<br>For everyone, with young people at heart.</p>
       <a class="btn btn--primary home-hero__cta" href="/sessions/">Watch a Session</a>
       <p class="home-hero__credit">{% if hero.artist %}Pictured: {{ hero.artist }}{% if hero.song_title %}, &ldquo;{{ hero.song_title }}&rdquo;{% endif %}{% endif %}</p>
     </div>
@@ -281,7 +277,7 @@ eleventyComputed:
         <a class="door" href="/resources/">
           <p class="label">Find a resource</p>
           <h2 class="door__title">Get Help</h2>
-          <p class="door__copy">Search vetted mental-health support near you, right now.</p>
+          <p class="door__copy">Search vetted mental-health support near you.</p>
         </a>
       </li>
       <li>
