@@ -24,11 +24,31 @@ eleventyComputed:
     color: var(--white);
     overflow: hidden;
   }
+  /* Source-material hero background video (Sounds of Saving "Colors Pop" loop) */
+  .home-hero__video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+  .home-hero__scrim {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.65));
+  }
   .home-hero__inner {
+    position: relative;
+    z-index: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: var(--space-md);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .home-hero__video { display: none; }
   }
   .home-hero__logo {
     width: min(420px, 70vw);
@@ -195,6 +215,12 @@ eleventyComputed:
 
 {# 1. HERO ——————————————————————————————————————————————————————— #}
 <section class="home-hero">
+  <video class="home-hero__video" autoplay muted loop playsinline
+         poster="/assets/img/site/hero-poster.jpg" aria-hidden="true" tabindex="-1">
+    <source src="/assets/video/hero.webm" type="video/webm" />
+    <source src="/assets/video/hero.mp4" type="video/mp4" />
+  </video>
+  <div class="home-hero__scrim" aria-hidden="true"></div>
   <div class="container home-hero__inner">
     <img class="home-hero__logo" src="/assets/img/site/logo-animated.gif"
          alt="{{ settings.site_title }}" width="420" />
