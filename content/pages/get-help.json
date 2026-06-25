@@ -1,16 +1,13 @@
 {
   "title": "Get Help",
-  "meta_description": "A collection of mental health resources & help dealing with anxiety, stress, depression, grief, therapy and more.",
+  "meta_description": "A resource finder for mental health support: crisis lines plus a searchable directory of hotlines, therapy, and community services by topic, location, and language.",
   "crisis": {
-    "heading": "Get Help Now",
-    "intro": "If you or someone you know is struggling with depression or thoughts of suicide, speak with someone now:",
-    "phone": "988",
-    "phone_label": "Call 988 or text HOME to 741741",
-    "text_keyword": "HOME",
-    "text_number": "741741"
+    "heading": "Need help right now?",
+    "intro": "If you or someone you know is in crisis or thinking about suicide, reach a trained counselor any time. These lines are free, confidential, and open around the clock.",
+    "not_us": "Not in the US? Find a helpline in your country at findahelpline.com."
   },
   "directory": {
-    "heading": "Additional Help",
-    "intro": "Browse mental health resources by topic or by location. Each resource links out to the organization providing support."
+    "heading": "Find a resource",
+    "intro": "Browse 491 vetted organizations for mental health support. Search by name, then narrow by topic, location, or language. Every listing links out to the organization providing the care."
   }
 }

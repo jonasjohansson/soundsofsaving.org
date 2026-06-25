@@ -3,157 +3,468 @@ layout: base.njk
 current: resources
 permalink: /resources/
 title: Get Help
-description: "A collection of mental health resources & help dealing with anxiety, stress, depression, grief, therapy and more."
+description: "A resource finder for mental health support: crisis lines plus a searchable directory of hotlines, therapy, and community services by topic, location, and language."
 ogType: website
 ---
 {#
-  Get Help — the crisis 988 card first, then the resource directory built
-  from content/resources.json (parsed from the Webflow collection by
-  scripts/parse-resources.js). Browsable by topic and by city via a small
-  filter; each topic/city is an anchored section. Landing copy from
-  content/pages/get-help.json (CMS-editable).
+  Get Help — a resource FINDER, not a database dump.
+
+  Structure:
+    1. A persistent, hand-curated crisis band (sage-teal --calm) at the very
+       top. These four lines are NOT part of the searchable list — they are
+       always visible so a person in crisis never has to filter.
+    2. A client-side finder over the cleaned content/resources.json (491
+       resources): a search box + Topic / Location / Language filters with
+       live counts. All cards are rendered server-side as static HTML with
+       data-* attributes; a small vanilla-JS script shows/hides them. Works
+       with no build step at runtime.
+    3. A placeholder for the future "Understanding mental health" learn layer
+       (the news explainer articles), wired in later by another agent.
+
+  Data prep: scripts/parse-resources.js -> scripts/normalize-resources.js.
+  Loader: src/_data/resources.js. Landing copy: content/pages/get-help.json.
 #}
 {% set g = pages["get-help"] %}
 
 <style>
-  .gethelp-page { padding-block: var(--space-xl); }
+  /* ---- Get Help uses --calm (sage-teal) as its primary accent ---- */
+  .gethelp { --gh-accent: var(--calm); --gh-accent-deep: var(--calm-deep); }
+  .gethelp { padding-block: var(--space-lg) var(--space-2xl); }
 
-  .crisis-card {
-    background: var(--surface-dark, var(--accent));
-    color: var(--white);
+  /* ---- Crisis band: impossible to miss, separate from the finder ---- */
+  .crisis-band {
+    background: var(--calm);
+    color: var(--on-dark);
     border-radius: var(--radius);
-    padding: var(--space-xl);
-    text-align: center;
-    margin-bottom: var(--space-2xl);
+    padding: var(--space-lg);
+    margin-bottom: var(--space-xl);
   }
-  .crisis-card h1 { font-size: var(--fs-title); line-height: var(--lh-tight); margin: 0 0 var(--space-sm); }
-  .crisis-card__intro { font-size: var(--fs-lead); line-height: var(--lh-base); margin: 0 auto var(--space-md); max-width: 44ch; }
-  .crisis-card__line { font-size: var(--fs-h2); margin: 0; }
-  .crisis-card__line a { color: var(--white); text-decoration: underline; }
-
-  .directory__head { max-width: var(--maxw-prose); margin-bottom: var(--space-lg); }
-  .directory__head h2 { font-size: var(--fs-h2); line-height: var(--lh-tight); margin: 0 0 var(--space-xs); }
-  .directory__head p { color: var(--text-muted); line-height: var(--lh-base); margin: 0; }
-
-  .facet-tabs { display: flex; gap: var(--space-xs); margin-bottom: var(--space-md); flex-wrap: wrap; }
-  .facet-tabs button {
-    font: inherit;
+  .crisis-band .eyebrow { color: var(--on-dark); opacity: 0.85; }
+  .crisis-band h1 {
+    font-family: var(--font-display);
+    font-size: var(--fs-title);
+    line-height: var(--lh-tight);
+    letter-spacing: var(--tracking-tight);
+    margin: var(--space-2xs) 0 var(--space-xs);
+    color: var(--on-dark);
+  }
+  .crisis-band__intro {
+    font-size: var(--fs-lead);
+    line-height: var(--lh-base);
+    max-width: 60ch;
+    margin: 0 0 var(--space-md);
+  }
+  .crisis-lines { display: grid; gap: var(--space-2xs); list-style: none; margin: 0 0 var(--space-md); padding: 0; }
+  .crisis-lines li { font-size: var(--fs-base); line-height: var(--lh-base); }
+  .crisis-lines strong { font-weight: var(--fw-semibold); }
+  .crisis-lines a {
+    color: var(--on-dark);
+    text-decoration: underline;
+    text-underline-offset: 2px;
     font-weight: var(--fw-medium);
-    padding: var(--space-2xs) var(--space-md);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-pill);
+  }
+  .crisis-lines a:hover { color: var(--on-dark); opacity: 0.8; }
+  .crisis-band__note { font-size: var(--fs-small); margin: 0; opacity: 0.9; }
+  .crisis-band__note a { color: var(--on-dark); text-decoration: underline; }
+
+  /* ---- Finder ---- */
+  .finder__head { max-width: var(--maxw-prose); margin-bottom: var(--space-md); }
+  .finder__head h2 {
+    font-family: var(--font-display);
+    font-size: var(--fs-h2);
+    line-height: var(--lh-tight);
+    margin: 0 0 var(--space-2xs);
+  }
+  .finder__head p { color: var(--text-muted); line-height: var(--lh-base); margin: 0; }
+
+  .finder__controls {
+    position: sticky;
+    top: var(--header-h);
+    z-index: 5;
     background: var(--bg);
+    padding-block: var(--space-sm);
+    margin-bottom: var(--space-md);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .finder__search { position: relative; margin-bottom: var(--space-sm); }
+  .finder__search input {
+    width: 100%;
+    font: inherit;
+    font-size: var(--fs-base);
+    padding: var(--space-xs) var(--space-sm);
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius);
+    background: var(--paper);
     color: var(--text);
+  }
+  .finder__search input:focus-visible {
+    outline: 2px solid var(--calm);
+    outline-offset: 1px;
+    border-color: var(--calm);
+  }
+
+  .finder__filters { display: grid; gap: var(--space-sm); grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); align-items: end; }
+  .finder__field { display: grid; gap: var(--space-3xs); }
+  .finder__field label { color: var(--calm-deep); }
+  .finder__field select {
+    font: inherit;
+    font-size: var(--fs-small);
+    padding: var(--space-2xs) var(--space-xs);
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius);
+    background: var(--paper);
+    color: var(--text);
+  }
+  .finder__field select:focus-visible { outline: 2px solid var(--calm); outline-offset: 1px; }
+
+  .finder__status {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--space-sm);
+    margin-top: var(--space-sm);
+    font-size: var(--fs-small);
+    color: var(--text-muted);
+  }
+  .finder__count strong { color: var(--text); font-weight: var(--fw-semibold); }
+  .finder__reset {
+    font: inherit;
+    font-family: var(--font-mono);
+    font-size: var(--fs-tiny);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--calm-deep);
+    background: none;
+    border: 1px solid var(--calm);
+    border-radius: var(--radius-pill);
+    padding: var(--space-3xs) var(--space-sm);
     cursor: pointer;
   }
-  .facet-tabs button[aria-selected="true"] { background: var(--accent); color: var(--white); border-color: var(--accent); }
+  .finder__reset:hover { background: var(--calm); color: var(--on-dark); }
+  .finder__reset[hidden] { display: none; }
 
-  .facet-nav { display: flex; flex-wrap: wrap; gap: var(--space-2xs) var(--space-sm); margin-bottom: var(--space-lg); }
-  .facet-nav a { font-size: var(--fs-small); color: var(--link); }
-  .facet-nav a .count { color: var(--text-muted); }
+  /* ---- Topic intro (editorial framing when filtered to one topic) ---- */
+  .finder__intro {
+    border-left: 3px solid var(--calm);
+    padding: var(--space-2xs) 0 var(--space-2xs) var(--space-md);
+    margin-bottom: var(--space-md);
+    color: var(--text-muted);
+    font-size: var(--fs-base);
+    line-height: var(--lh-base);
+    max-width: var(--maxw-prose);
+  }
+  .finder__intro[hidden] { display: none; }
+  .finder__intro strong { color: var(--text); font-weight: var(--fw-semibold); font-style: normal; }
 
-  .facet-panel[hidden] { display: none; }
-
-  .facet-group { margin-top: var(--space-xl); scroll-margin-top: calc(var(--header-h, 64px) + var(--space-md)); }
-  .facet-group h3 { font-size: var(--fs-h3); margin: 0 0 var(--space-sm); padding-bottom: var(--space-2xs); border-bottom: 1px solid var(--border); }
-
-  .resource-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--space-md); list-style: none; margin: 0; padding: 0; }
+  /* ---- Cards ---- */
+  .resource-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--space-md);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
   .resource-card {
     border: 1px solid var(--border);
     border-radius: var(--radius);
     padding: var(--space-md);
-    background: var(--bg);
+    background: var(--paper-2);
     display: flex;
     flex-direction: column;
     gap: var(--space-2xs);
   }
-  .resource-card h4 { font-size: var(--fs-base); margin: 0; }
+  .resource-card[hidden] { display: none; }
+  .resource-card__name {
+    font-family: var(--font-display);
+    font-size: var(--fs-base);
+    line-height: var(--lh-tight);
+    margin: 0;
+  }
+  .resource-card__name a { color: var(--text); }
+  .resource-card__name a:hover { color: var(--calm-deep); }
+  .resource-card__badge {
+    font-family: var(--font-mono);
+    font-size: var(--fs-tiny);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--calm-deep);
+  }
   .resource-card p { font-size: var(--fs-small); color: var(--text-muted); line-height: var(--lh-base); margin: 0; }
-  .resource-card__meta { font-size: var(--fs-small); margin-top: auto; padding-top: var(--space-2xs); display: flex; flex-wrap: wrap; gap: var(--space-sm); }
-  .resource-card__phone a { font-weight: var(--fw-medium); }
+  .resource-card__tags { display: flex; flex-wrap: wrap; gap: var(--space-3xs); margin-top: var(--space-2xs); }
+  .resource-card__tags .tag {
+    font-family: var(--font-mono);
+    font-size: var(--fs-tiny);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--calm-deep);
+    background: var(--paper-3);
+    border-radius: var(--radius-pill);
+    padding: 2px var(--space-2xs);
+  }
+  .resource-card__meta {
+    font-size: var(--fs-small);
+    margin-top: auto;
+    padding-top: var(--space-xs);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+  .resource-card__meta a { color: var(--calm-deep); font-weight: var(--fw-medium); text-decoration: underline; text-underline-offset: 2px; }
+
+  .finder__empty {
+    text-align: center;
+    padding: var(--space-2xl) var(--space-md);
+    color: var(--text-muted);
+  }
+  .finder__empty[hidden] { display: none; }
+  .finder__empty h3 { font-family: var(--font-display); font-size: var(--fs-h3); color: var(--text); margin: 0 0 var(--space-2xs); }
+
+  /* ---- Learn layer placeholder ---- */
+  .gethelp-learn {
+    margin-top: var(--space-2xl);
+    padding-top: var(--space-xl);
+    border-top: 1px solid var(--border);
+  }
+  .gethelp-learn h2 { font-family: var(--font-display); font-size: var(--fs-h2); margin: 0 0 var(--space-2xs); }
+  .gethelp-learn p { color: var(--text-muted); max-width: var(--maxw-prose); line-height: var(--lh-base); }
 </style>
 
-{% macro resourceCard(r) %}
-<li class="resource-card">
-  <h4>{% if r.url %}<a href="{{ r.url }}" target="_blank" rel="noopener">{{ r.name }}</a>{% else %}{{ r.name }}{% endif %}</h4>
-  {% if r.description %}<p>{{ r.description }}</p>{% endif %}
-  {% if r.phone or r.url %}
-  <div class="resource-card__meta">
-    {% if r.phone %}<span class="resource-card__phone">Call <a href="tel:{{ r.phone | replace(' ', '') | replace('(', '') | replace(')', '') | replace('-', '') }}">{{ r.phone }}</a></span>{% endif %}
-    {% if r.url %}<span class="resource-card__site"><a href="{{ r.url }}" target="_blank" rel="noopener">Visit site</a></span>{% endif %}
-  </div>
-  {% endif %}
-</li>
-{% endmacro %}
+<div class="container gethelp">
 
-<div class="container gethelp-page">
-
-  <section class="crisis-card" aria-label="Get help now">
-    <h1>{{ g.crisis.heading or "Get Help Now" }}</h1>
-    <p class="crisis-card__intro">{{ g.crisis.intro }}</p>
-    <p class="crisis-card__line">
-      Call <a href="tel:{{ g.crisis.phone or '988' }}">{{ g.crisis.phone or "988" }}</a>
-      or text <strong>{{ g.crisis.text_keyword or "HOME" }}</strong> to {{ g.crisis.text_number or "741741" }}
-    </p>
+  {# ============================================================ #}
+  {#  1. CRISIS BAND — persistent, curated, never filtered         #}
+  {# ============================================================ #}
+  <section class="crisis-band" aria-labelledby="crisis-heading">
+    <p class="eyebrow">In crisis</p>
+    <h1 id="crisis-heading">{{ g.crisis.heading }}</h1>
+    <p class="crisis-band__intro">{{ g.crisis.intro }}</p>
+    <ul class="crisis-lines">
+      <li>
+        <strong>988 Suicide &amp; Crisis Lifeline.</strong>
+        Call or text <a href="tel:988">988</a> any time, any day.
+      </li>
+      <li>
+        <strong>Crisis Text Line.</strong>
+        Text <strong>HOME</strong> to <a href="sms:741741?&amp;body=HOME">741741</a> to reach a trained counselor.
+      </li>
+      <li>
+        <strong>The Trevor Project.</strong>
+        Crisis support for LGBTQ young people. Call <a href="tel:18664887386">1-866-488-7386</a> or text <strong>START</strong> to <a href="sms:678678?&amp;body=START">678678</a>.
+      </li>
+    </ul>
+    <p class="crisis-band__note">{{ g.crisis.not_us }}</p>
   </section>
 
-  <div class="directory">
-    <div class="directory__head">
-      <h2>{{ g.directory.heading or "Additional Help" }}</h2>
+  {# ============================================================ #}
+  {#  2. FINDER — searchable directory of 491 resources            #}
+  {# ============================================================ #}
+  <section class="finder" aria-labelledby="finder-heading">
+    <div class="finder__head">
+      <h2 id="finder-heading">{{ g.directory.heading }}</h2>
       {% if g.directory.intro %}<p>{{ g.directory.intro }}</p>{% endif %}
     </div>
 
-    <div class="facet-tabs" role="tablist" aria-label="Browse resources by">
-      <button id="tab-topic" role="tab" aria-controls="panel-topic" aria-selected="true" data-panel="panel-topic">By Topic</button>
-      <button id="tab-location" role="tab" aria-controls="panel-location" aria-selected="false" data-panel="panel-location">By Location</button>
+    <div class="finder__controls">
+      <div class="finder__search">
+        <label class="visually-hidden" for="finder-q">Search resources by name or description</label>
+        <input type="search" id="finder-q" placeholder="Search by name or keyword (e.g. grief, veterans, teens)" autocomplete="off" />
+      </div>
+
+      <div class="finder__filters">
+        <div class="finder__field">
+          <label class="label" for="finder-topic">Topic</label>
+          <select id="finder-topic">
+            <option value="">All topics</option>
+            {% for c in resources.categories %}<option value="{{ c.slug }}">{{ c.label }} ({{ c.count }})</option>{% endfor %}
+          </select>
+        </div>
+        <div class="finder__field">
+          <label class="label" for="finder-location">Location</label>
+          <select id="finder-location">
+            <option value="">All locations</option>
+            {% for l in resources.locations %}<option value="{{ l.slug }}">{{ l.label }} ({{ l.count }})</option>{% endfor %}
+          </select>
+        </div>
+        <div class="finder__field">
+          <label class="label" for="finder-language">Language</label>
+          <select id="finder-language">
+            <option value="">Any language</option>
+            {% for lang in resources.languages %}<option value="{{ lang.slug }}">{{ lang.label }} ({{ lang.count }})</option>{% endfor %}
+          </select>
+        </div>
+      </div>
+
+      <div class="finder__status" role="status" aria-live="polite">
+        <span class="finder__count"><strong id="finder-shown">{{ resources.all | length }}</strong> of {{ resources.all | length }} resources</span>
+        <button type="button" class="finder__reset" id="finder-reset" hidden>Reset filters</button>
+      </div>
     </div>
 
-    {# --- By Topic --- #}
-    <div id="panel-topic" class="facet-panel" role="tabpanel" aria-labelledby="tab-topic">
-      <nav class="facet-nav" aria-label="Topics">
-        {% for c in resources.categories %}<a href="#topic-{{ c.slug }}">{{ c.label }} <span class="count">({{ c.count }})</span></a>{% endfor %}
-      </nav>
-      {% for c in resources.categories %}
-      <section class="facet-group" id="topic-{{ c.slug }}">
-        <h3>{{ c.label }}</h3>
-        <ul class="resource-list">
-          {% for r in resources.byCategory[c.slug] %}{{ resourceCard(r) }}{% endfor %}
-        </ul>
-      </section>
-      {% endfor %}
-    </div>
+    {# Per-topic editorial intro, swapped in by JS when a single topic is chosen. #}
+    <p class="finder__intro" id="finder-intro" hidden></p>
 
-    {# --- By Location --- #}
-    <div id="panel-location" class="facet-panel" role="tabpanel" aria-labelledby="tab-location" hidden>
-      <nav class="facet-nav" aria-label="Locations">
-        {% for l in resources.locations %}<a href="#location-{{ l.slug }}">{{ l.label }} <span class="count">({{ l.count }})</span></a>{% endfor %}
-      </nav>
-      {% for l in resources.locations %}
-      <section class="facet-group" id="location-{{ l.slug }}">
-        <h3>{{ l.label }}</h3>
-        <ul class="resource-list">
-          {% for r in resources.byLocation[l.slug] %}{{ resourceCard(r) }}{% endfor %}
-        </ul>
-      </section>
+    <ul class="resource-list" id="finder-results">
+      {% for r in resources.all %}
+      <li class="resource-card"
+          data-name="{{ r.name | lower }}"
+          data-text="{{ (r.name ~ ' ' ~ (r.description or '')) | lower }}"
+          data-topics="{{ r.categories | join(' ') }}"
+          data-locations="{{ r.locations | join(' ') }}{% if r.national and 'national' not in r.locations %} national{% endif %}"
+          data-languages="{% for lang in r.languages %}{{ lang | lower | replace(' ', '-') }} {% endfor %}">
+        <p class="resource-card__name">
+          {% if r.url %}<a href="{{ r.url }}" target="_blank" rel="noopener">{{ r.name }}</a>{% else %}{{ r.name }}{% endif %}
+        </p>
+        {% if r.national %}<span class="resource-card__badge">National</span>{% endif %}
+        {% if r.description %}<p>{{ r.description }}</p>{% endif %}
+        {% if r.categories | length %}
+        <div class="resource-card__tags" aria-label="Topics">
+          {% for c in r.categories %}{% set cat = (resources.categories | selectattr('slug', 'equalto', c) | first) %}<span class="tag">{{ cat.label if cat else c }}</span>{% endfor %}
+        </div>
+        {% endif %}
+        {% if r.phone or r.url %}
+        <div class="resource-card__meta">
+          {% if r.phone %}<span class="resource-card__phone">Call <a href="tel:{{ r.phone | replace(' ', '') | replace('(', '') | replace(')', '') | replace('-', '') | replace('.', '') }}">{{ r.phone }}</a></span>{% endif %}
+          {% if r.url %}<span class="resource-card__site"><a href="{{ r.url }}" target="_blank" rel="noopener">Visit site</a></span>{% endif %}
+        </div>
+        {% endif %}
+      </li>
       {% endfor %}
+    </ul>
+
+    <div class="finder__empty" id="finder-empty" hidden>
+      <h3>No resources match those filters.</h3>
+      <p>Try removing a filter or searching a broader term. If you need help now, the crisis lines at the top of this page are always open.</p>
     </div>
-  </div>
+  </section>
+
+  {# ============================================================ #}
+  {#  3. LEARN LAYER PLACEHOLDER                                    #}
+  {#  Another agent will fold the news "explainer" articles        #}
+  {#  (what is EMDR / DBT / dysthymia, etc.) in here as a curated   #}
+  {#  "Understanding mental health" learn layer. Do not move the    #}
+  {#  news files; this is just the slot.                            #}
+  {# ============================================================ #}
+  <section class="gethelp-learn" id="understanding-mental-health" aria-labelledby="learn-heading">
+    <p class="eyebrow">Learn</p>
+    <h2 id="learn-heading">Understanding mental health</h2>
+    <p>
+      Short, plain-language explainers (what therapies like EMDR and DBT
+      actually involve, how conditions such as dysthymia present) will be
+      collected here so the finder above sits next to context, not just
+      contacts.
+    </p>
+    {# PLACEHOLDER: learn-layer cards slot in here. #}
+  </section>
+
 </div>
 
+{# ---- Editorial intros per topic. Keep keys = category slugs. ---- #}
+<script type="application/json" id="finder-topic-intros">
+{
+  "addiction": "Support for substance use and recovery, from peer groups to clinical treatment.",
+  "anxiety-stress": "Help for managing anxiety, panic, and chronic stress.",
+  "community-services": "Local organizations offering wraparound community support.",
+  "crisis-services": "Immediate, often 24/7 response for acute mental health crises.",
+  "depression": "Treatment and support for depression and persistent low mood.",
+  "domestic-violence-sexual-assault": "Confidential support for survivors of domestic violence and sexual assault.",
+  "eating-disorders": "Specialized care and support for eating disorders and disordered eating.",
+  "health-wellness": "Broader health and wellness services that support mental wellbeing.",
+  "hotline": "Phone and text lines you can reach directly when you need to talk.",
+  "houselessness": "Housing support and services for people experiencing houselessness.",
+  "lgbtq": "Affirming mental health support for LGBTQ+ people.",
+  "multilingual": "Services offered in languages beyond English.",
+  "suicide-prevention-support": "Suicide prevention, intervention, and loss-survivor support.",
+  "support-services": "General support services connecting people to care.",
+  "therapy-services": "Therapists, counselors, and clinics offering ongoing treatment.",
+  "youth-families": "Mental health support geared to young people and families.",
+  "other-general": "General resources that span topics or aren't yet categorized."
+}
+</script>
+
 <script>
+  /* Resource finder — vanilla, no framework. Filters the server-rendered
+     cards by toggling the [hidden] attribute. Performance: search/filter
+     reads cheap data-* attributes already on each <li>; matching is O(n)
+     over ~491 nodes and runs inside requestAnimationFrame, debounced for
+     keystrokes, so even full-list passes stay well under a frame. */
   (function () {
-    var tabs = document.querySelectorAll(".facet-tabs [role=tab]");
-    function show(panelId) {
-      tabs.forEach(function (t) {
-        var sel = t.dataset.panel === panelId;
-        t.setAttribute("aria-selected", sel ? "true" : "false");
-        document.getElementById(t.dataset.panel).hidden = !sel;
-      });
+    var q = document.getElementById("finder-q");
+    var topic = document.getElementById("finder-topic");
+    var loc = document.getElementById("finder-location");
+    var lang = document.getElementById("finder-language");
+    var reset = document.getElementById("finder-reset");
+    var shown = document.getElementById("finder-shown");
+    var empty = document.getElementById("finder-empty");
+    var intro = document.getElementById("finder-intro");
+    var list = document.getElementById("finder-results");
+    if (!list) return;
+
+    var cards = Array.prototype.slice.call(list.querySelectorAll(".resource-card"));
+    var total = cards.length;
+    var intros = {};
+    try {
+      intros = JSON.parse(document.getElementById("finder-topic-intros").textContent);
+    } catch (e) { intros = {}; }
+
+    function apply() {
+      var term = q.value.trim().toLowerCase();
+      var t = topic.value;
+      var l = loc.value;
+      var lg = lang.value;
+      var count = 0;
+
+      for (var i = 0; i < cards.length; i++) {
+        var c = cards[i];
+        var ok = true;
+        if (term && c.getAttribute("data-text").indexOf(term) === -1) ok = false;
+        if (ok && t && (" " + c.getAttribute("data-topics") + " ").indexOf(" " + t + " ") === -1) ok = false;
+        if (ok && l && (" " + c.getAttribute("data-locations") + " ").indexOf(" " + l + " ") === -1) ok = false;
+        if (ok && lg && (" " + c.getAttribute("data-languages") + " ").indexOf(" " + lg + " ") === -1) ok = false;
+        if (c.hidden === ok) c.hidden = !ok; // touch DOM only on change
+        if (ok) count++;
+      }
+
+      shown.textContent = count;
+      empty.hidden = count !== 0;
+      list.hidden = count === 0;
+
+      // Editorial intro: show only when exactly one topic is selected.
+      if (t && intros[t]) {
+        var label = topic.options[topic.selectedIndex].text.replace(/\s*\(\d+\)\s*$/, "");
+        intro.innerHTML = "<strong>" + label + ".</strong> " + intros[t];
+        intro.hidden = false;
+      } else {
+        intro.hidden = true;
+      }
+
+      var active = term || t || l || lg;
+      reset.hidden = !active;
     }
-    tabs.forEach(function (t) {
-      t.addEventListener("click", function () { show(t.dataset.panel); });
+
+    var raf = null;
+    function schedule() {
+      if (raf) return;
+      raf = requestAnimationFrame(function () { raf = null; apply(); });
+    }
+
+    q.addEventListener("input", schedule);
+    topic.addEventListener("change", apply);
+    loc.addEventListener("change", apply);
+    lang.addEventListener("change", apply);
+    reset.addEventListener("click", function () {
+      q.value = ""; topic.value = ""; loc.value = ""; lang.value = "";
+      apply();
+      q.focus();
     });
-    // If the page loads with a #location-* hash, open that panel.
-    if (location.hash.indexOf("#location-") === 0) show("panel-location");
+
+    // Allow deep-linking: /resources/?topic=lgbtq, ?location=national, ?q=grief
+    var params = new URLSearchParams(location.search);
+    if (params.get("q")) q.value = params.get("q");
+    if (params.get("topic")) topic.value = params.get("topic");
+    if (params.get("location")) loc.value = params.get("location");
+    if (params.get("language")) lang.value = params.get("language");
+    apply();
   })();
 </script>
