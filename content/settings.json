@@ -7,7 +7,7 @@
   "donate_url": "https://secure.givelively.org/donate/sounds-of-saving",
   "get_help_url": "/resources/",
   "nav": [
-    { "label": "Get Help", "url": "/resources/" },
+    { "label": "Home", "url": "/" },
     { "label": "Programs", "url": "/programs/" },
     { "label": "About Us", "url": "/about-us/" },
     { "label": "Community", "url": "/community/" },

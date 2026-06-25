@@ -122,6 +122,14 @@ main { min-height: 50vh; }
 
 .site-nav {
   display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-lg);
+}
+.site-nav__links,
+.site-nav__cta {
+  display: flex;
   align-items: center;
   gap: var(--space-md);
 }
@@ -130,8 +138,37 @@ main { min-height: 50vh; }
   font-weight: var(--fw-medium);
   font-size: var(--fs-small);
 }
-.site-nav a:hover,
-.site-nav a[aria-current="page"] { color: var(--accent); }
+.site-nav__links a:hover,
+.site-nav__links a[aria-current="page"] { color: var(--accent); }
+.site-nav__donate { color: var(--text); }
+.site-nav__donate:hover { color: var(--accent); }
+
+/* Overlay header (home only): transparent over the hero video, white text,
+   logo hidden (it lives in the hero); turns solid white once scrolled. */
+.site-header--overlay {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  background: transparent;
+  border-bottom-color: transparent;
+}
+.site-header--overlay .site-header__brand { display: none; }
+.site-header--overlay .site-nav a,
+.site-header--overlay .site-nav__donate,
+.site-header--overlay .nav-toggle { color: var(--white); }
+.site-header--overlay .btn--stroke { border-color: var(--white); color: var(--white); }
+.site-header--overlay .btn--stroke:hover { background: var(--white); color: var(--text); }
+.site-header--overlay.is-solid {
+  background: var(--white);
+  border-bottom-color: var(--border);
+}
+.site-header--overlay.is-solid .site-header__brand { display: inline-flex; }
+.site-header--overlay.is-solid .site-nav a,
+.site-header--overlay.is-solid .site-nav__donate,
+.site-header--overlay.is-solid .nav-toggle { color: var(--text); }
+.site-header--overlay.is-solid .btn--stroke { border-color: var(--accent); color: var(--accent); }
+.site-header--overlay.is-solid .btn--stroke:hover { background: var(--accent); color: var(--white); }
 
 /* — Buttons ————————————————————————————————————————————————— */
 .btn {
@@ -161,6 +198,15 @@ main { min-height: 50vh; }
   color: var(--accent);
 }
 .btn--ghost:hover {
+  background: var(--accent);
+  color: var(--white);
+}
+.btn--stroke {
+  background: transparent;
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.btn--stroke:hover {
   background: var(--accent);
   color: var(--white);
 }
@@ -247,17 +293,31 @@ main { min-height: 50vh; }
     left: 0;
     right: 0;
     top: 100%;
+    flex: none;
     flex-direction: column;
     align-items: stretch;
-    gap: 0;
+    gap: var(--space-2xs);
     background: var(--white);
     border-bottom: 1px solid var(--border);
     padding: var(--space-sm) var(--gutter);
   }
+  .site-nav__links,
+  .site-nav__cta {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-2xs);
+  }
   .site-header { position: relative; }
+  /* The mobile dropdown is always a solid white panel, even in overlay mode. */
+  .site-header--overlay { position: relative; background: var(--white); }
+  .site-header--overlay .site-header__brand { display: inline-flex; }
+  .site-header--overlay .site-nav a,
+  .site-header--overlay .site-nav__donate,
+  .site-header--overlay .nav-toggle { color: var(--text); }
+  .site-header--overlay .btn--stroke { border-color: var(--accent); color: var(--accent); }
   .site-nav.is-open { display: flex; }
   .site-nav a { padding-block: var(--space-2xs); }
-  .site-nav .btn--primary {
+  .site-nav__cta .btn--stroke {
     margin-top: var(--space-2xs);
     align-self: flex-start;
   }

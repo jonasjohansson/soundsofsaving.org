@@ -3,6 +3,7 @@ layout: base.njk
 current: home
 permalink: /
 title: ""
+heroOverlayNav: true
 eleventyComputed:
   description: "{{ settings.seo.home or settings.meta_description }}"
 ---
@@ -15,11 +16,14 @@ eleventyComputed:
   dropped (event is time-bound; partner logos belong on About/Community).
 #}
 <style>
-  /* — Hero ——————————————————————————————————————————————————— */
+  /* — Hero (full-bleed video, animated logo + Listen Now) ———————— */
   .home-hero {
     position: relative;
     text-align: center;
-    padding-block: var(--space-2xl);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background: var(--surface-dark);
     color: var(--white);
     overflow: hidden;
@@ -33,11 +37,12 @@ eleventyComputed:
     object-fit: cover;
     z-index: 0;
   }
+  /* Light top scrim only — keeps the white nav legible without dulling the video */
   .home-hero__scrim {
     position: absolute;
     inset: 0;
     z-index: 1;
-    background: linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.65));
+    background: linear-gradient(180deg, rgba(0,0,0,0.32) 0%, rgba(0,0,0,0) 26%);
   }
   .home-hero__inner {
     position: relative;
@@ -45,36 +50,36 @@ eleventyComputed:
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--space-md);
+    gap: var(--space-lg);
   }
   @media (prefers-reduced-motion: reduce) {
     .home-hero__video { display: none; }
   }
   .home-hero__logo {
-    width: min(420px, 70vw);
+    width: min(540px, 78vw);
     height: auto;
   }
-  .home-hero__tagline {
+  .home-hero__cta { border-color: var(--white); color: var(--white); }
+  .home-hero__cta:hover { background: var(--white); color: var(--text); }
+
+  /* — Quote band (black section under the hero) —————————————————— */
+  .home-quote {
+    background: var(--surface-dark);
+    color: var(--white);
+    text-align: center;
+    padding-block: var(--space-2xl);
+  }
+  .home-quote__title {
     font-size: var(--fs-mega);
     line-height: var(--lh-tight);
-    margin: 0;
-    max-width: 14ch;
+    margin: 0 auto;
+    max-width: 18ch;
   }
-  .home-hero__mission {
+  .home-quote__sub {
     font-size: var(--fs-lead);
-    line-height: var(--lh-base);
-    margin: 0;
-    max-width: 46ch;
     color: var(--white-smoke);
+    margin: var(--space-md) auto var(--space-lg);
   }
-  .home-hero__actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-sm);
-    justify-content: center;
-    margin-top: var(--space-2xs);
-  }
-  .home-hero .btn--ghost { border-color: var(--white); color: var(--white); }
   .home-hero .btn--ghost:hover { background: var(--white); color: var(--surface-dark); }
 
   /* — Shared section heads ——————————————————————————————————— */
@@ -221,15 +226,19 @@ eleventyComputed:
     <source src="/assets/video/hero.mp4" type="video/mp4" />
   </video>
   <div class="home-hero__scrim" aria-hidden="true"></div>
-  <div class="container home-hero__inner">
+  <div class="home-hero__inner">
     <img class="home-hero__logo" src="/assets/img/site/logo-animated.gif"
-         alt="{{ settings.site_title }}" width="420" />
-    <h1 class="home-hero__tagline">{{ settings.hero_heading or settings.tagline }}</h1>
-    <p class="home-hero__mission">{{ settings.hero_subheading }}</p>
-    <div class="home-hero__actions">
-      <a class="btn btn--primary" href="{{ settings.donate_url }}" target="_blank" rel="noopener">{{ settings.donate_label or 'Donate Now' }}</a>
-      <a class="btn btn--ghost" href="{{ settings.get_help_url or '/resources/' }}">Get Help</a>
-    </div>
+         alt="Find hope in music. {{ settings.site_title }}." />
+    <a class="btn btn--stroke home-hero__cta" href="/songs/">Listen Now</a>
+  </div>
+</section>
+
+{# Quote / tagline band — its own black section below the hero, as on the original #}
+<section class="home-quote">
+  <div class="container">
+    <h1 class="home-quote__title">{{ settings.hero_heading or settings.tagline }}</h1>
+    <p class="home-quote__sub">Help fund {{ settings.site_title }}'s school programs.</p>
+    <a class="btn btn--primary" href="{{ settings.donate_url }}" target="_blank" rel="noopener">{{ settings.donate_label or 'Donate Now' }}</a>
   </div>
 </section>
 
