@@ -244,7 +244,11 @@ eleventyComputed:
 {# 1. HERO ——————————————————————————————————————————————————————— #}
 <section class="home-hero">
   {% if hero.thumbnail %}
-  <img class="home-hero__img media media--full" src="{{ hero.thumbnail | img }}"
+  {% set heroBase = hero.thumbnail | replace(".jpg", "") %}
+  <img class="home-hero__img media media--full"
+       src="{{ heroBase }}-1280.webp"
+       srcset="{{ heroBase }}-800.webp 800w, {{ heroBase }}-1280.webp 1280w"
+       sizes="100vw"
        alt="{{ hero.artist }} performing for Sounds of Saving"
        {% if hero.dims %}width="{{ hero.dims.width }}" height="{{ hero.dims.height }}"{% endif %}
        fetchpriority="high" decoding="async" />
@@ -309,7 +313,12 @@ eleventyComputed:
     <div class="featured">
       <a class="featured__media" href="{{ featured.url }}" aria-label="Watch {{ featured.artist }}{% if featured.song_title %}, {{ featured.song_title }}{% endif %}">
         {% if featured.thumbnail %}
-        <img class="media media--full" src="{{ featured.thumbnail | img }}" alt="{{ featured.artist }}"
+        {% set fBase = featured.thumbnail | replace(".jpg", "") %}
+        <img class="media media--full"
+             src="{{ fBase }}-800.webp"
+             srcset="{{ fBase }}-800.webp 800w, {{ fBase }}-1280.webp 1280w"
+             sizes="(max-width: 720px) 92vw, 700px"
+             alt="{{ featured.artist }}"
              {% if featured.dims %}width="{{ featured.dims.width }}" height="{{ featured.dims.height }}"{% endif %}
              loading="lazy" decoding="async" />
         {% endif %}
@@ -384,7 +393,7 @@ eleventyComputed:
 {%- set pool = [] -%}
 {%- for s in sessions -%}
   {%- if s.thumbnail -%}
-    {%- set _ = pool.push({ "artist": s.artist, "song": s.song_title, "thumb": s.thumbnail, "url": s.url, "kind": s.kind }) -%}
+    {%- set _ = pool.push({ "artist": s.artist, "song": s.song_title, "base": (s.thumbnail | replace(".jpg", "")), "url": s.url, "kind": s.kind }) -%}
   {%- endif -%}
 {%- endfor -%}
 {{ pool | dump | safe }}
@@ -402,14 +411,22 @@ eleventyComputed:
     var h = pick(produced);
     var hImg = document.querySelector(".home-hero__img");
     var hCredit = document.querySelector(".home-hero__credit");
-    if (hImg && h.thumb) { hImg.src = h.thumb; hImg.alt = h.artist + " performing for Sounds of Saving"; }
+    if (hImg && h.base) {
+      hImg.srcset = h.base + "-800.webp 800w, " + h.base + "-1280.webp 1280w";
+      hImg.src = h.base + "-1280.webp";
+      hImg.alt = h.artist + " performing for Sounds of Saving";
+    }
     if (hCredit) { hCredit.textContent = "Pictured: " + h.artist + (h.song ? ", “" + h.song + "”" : ""); }
     var f = pick(all);
     var fImg = document.querySelector(".featured__media img");
     var fLink = document.querySelector(".featured__media");
     var fArtist = document.querySelector(".featured__artist");
     var fSong = document.querySelector(".featured__song");
-    if (fImg && f.thumb) { fImg.src = f.thumb; fImg.alt = f.artist; }
+    if (fImg && f.base) {
+      fImg.srcset = f.base + "-800.webp 800w, " + f.base + "-1280.webp 1280w";
+      fImg.src = f.base + "-800.webp";
+      fImg.alt = f.artist;
+    }
     if (fLink && f.url) { fLink.setAttribute("href", f.url); }
     if (fArtist) { fArtist.textContent = f.artist; }
     if (fSong) { fSong.textContent = f.song || ""; fSong.style.display = f.song ? "" : "none"; }

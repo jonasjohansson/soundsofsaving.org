@@ -1,6 +1,7 @@
 const Image = require("@11ty/eleventy-img");
 const path = require("path");
 const fs = require("fs");
+const CleanCSS = require("clean-css");
 
 // Shared eleventy-img settings — moderate widths/formats so the build and the
 // on-disk variant count stay reasonable; the built-in disk cache makes repeat
@@ -126,6 +127,21 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("absImg", (v) => {
     if (!v) return "";
     return /^https?:\/\//.test(v) ? v : ORIGIN + "/" + String(v).replace(/^\/+/, "");
+  });
+
+  // Minify the global stylesheet after build (inlining its local @imports so
+  // the browser fetches one small file instead of three unminified ones).
+  eleventyConfig.on("eleventy.after", ({ dir } = {}) => {
+    const outDir = (dir && dir.output) || "_site";
+    const cssPath = path.join(outDir, "assets/css/site.css");
+    try {
+      if (!fs.existsSync(cssPath)) return;
+      const min = new CleanCSS({ inline: ["local"], level: 2 }).minify([cssPath]);
+      if (min.errors && min.errors.length) return;
+      fs.writeFileSync(cssPath, min.styles);
+    } catch (e) {
+      console.warn("[css] minify skipped:", e.message);
+    }
   });
 
   return {
