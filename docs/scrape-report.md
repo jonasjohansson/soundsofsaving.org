@@ -297,3 +297,45 @@ dropped from the location facet list.
 Output: `content/resources.json` (`{ categories[], locations[], resources[] }`).
 Loaded by `src/_data/resources.js`, which exposes `all`, `byCategory`,
 `byLocation`, and the canonical facet lists with per-facet counts.
+
+## Resources normalization
+
+`scripts/normalize-resources.js` is a re-runnable cleaner that reads
+`content/resources.json` (the parser output), cleans it in place, and writes it
+back with a printed summary. It is idempotent: a second run reports zero
+changes. Run it after any re-scrape, before build.
+
+Counts from the clean run (504 raw resources in):
+
+| Change | Count |
+|---|---|
+| Resources after dedupe | 491 |
+| Phones extracted into the `phone` field | 38 |
+| Descriptions cleaned (pipe/label cruft stripped) | 448 |
+| Dead Webflow URLs (`.html#`) nulled | 17 |
+| Duplicate records merged (by url, then name) | 13 |
+| Uncategorized rows bucketed into "Other / General" | 84 |
+| Resources tagged with one or more `languages[]` | 64 |
+| Resources flagged `national` | 33 |
+| Resources left with empty categories | 0 |
+
+Notes:
+
+- **Phones / descriptions.** Pipe-delimited `Label: value` segments
+  (`Phone:`/`Email:`/`Text:`/`Call:`) are split out; when the `phone` field was
+  empty a real number is mined from the description (or its own field) and the
+  contact cruft is stripped from the blurb. Already-present phones are
+  normalized (e.g. `(844) 493-8255` kept whole).
+- **Default bucket.** Empty `categories[]` become `["other-general"]`
+  (label "Other / General"), which is appended to the category facet list so
+  filters never carry a null/empty facet. (89 raw empties → 84 after dedupe
+  folded five empties into richer records.)
+- **Dedupe.** Groups by normalized url first, then by normalized name; keeps the
+  richest record (longest description, has url/phone, most facets) and unions
+  the dropped record's `categories[]` + `locations[]` into it.
+- **Derived fields.** `languages[]` detects Spanish / Multilingual / Mandarin /
+  Korean / Vietnamese / ASL / French signals in name+description (and the
+  `multilingual` category). `national` is true for explicit "national" location
+  slugs plus a nationwide-hotline heuristic (known lines + "national"/"nationwide"
+  language). `src/_data/resources.js` surfaces a single reconciled "National"
+  location facet from this.
