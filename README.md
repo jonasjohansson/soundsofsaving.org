@@ -10,11 +10,10 @@ database, no lock-in.
 
 This mirrors the architecture of the sibling `lumenproject.se` repo.
 
-> **Heads up on deploy / DNS.** `soundsofsaving.org` is the live nonprofit's own
-> domain. This repo wires the custom domain via `src/CNAME` exactly like a real
-> deploy, but **going live requires controlling that DNS** and is a deliberate,
-> separate decision. Until then, build and preview locally (below). Do not point
-> the domain or publish a public copy without authorization.
+> **Deploy.** This is a rebuild of the nonprofit's site for Jonas's own use,
+> published to the subdomain **`soundsofsaving.jonasjohansson.se`** (wired via
+> `src/CNAME`), not to the nonprofit's own domain. It deploys to GitHub Pages via
+> the workflow below.
 
 ## What was built
 
@@ -57,10 +56,10 @@ Localhost preview of the built output is also served at
 
 GitHub Actions builds `_site/` and deploys to GitHub Pages
 (`.github/workflows/deploy.yml`) on push, a daily cron, and manual dispatch.
-Custom domain `soundsofsaving.org` is set via `src/CNAME` (apex domain -> point
-DNS at GitHub Pages with A records `185.199.108.153`, `185.199.109.153`,
-`185.199.110.153`, `185.199.111.153`, or Cloudflare CNAME-flattening to
-`<user>.github.io`). See the DNS caveat above before doing any of this.
+Custom domain `soundsofsaving.jonasjohansson.se` is set via `src/CNAME`. Because
+it is a subdomain, point DNS at GitHub Pages with a single `CNAME` record:
+`soundsofsaving` -> `jonasjohansson.github.io` (in the jonasjohansson.se zone).
+GitHub Pages provisions the TLS certificate automatically once DNS resolves.
 
 ## Structure
 

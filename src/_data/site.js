@@ -1,6 +1,6 @@
 module.exports = {
   // canonical origin, used for absolute canonical / og / sitemap URLs
-  origin: "https://soundsofsaving.org",
+  origin: "https://soundsofsaving.jonasjohansson.se",
 
   // build timestamp (ISO) — useful for cache-busting / footer "last built"
   buildTime: new Date().toISOString(),

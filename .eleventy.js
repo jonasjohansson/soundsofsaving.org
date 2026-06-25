@@ -40,7 +40,7 @@ module.exports = function (eleventyConfig) {
   });
 
   // fully-qualified image URL (for og:image / twitter:image — scrapers need absolute)
-  const ORIGIN = "https://soundsofsaving.org";
+  const ORIGIN = "https://soundsofsaving.jonasjohansson.se";
   eleventyConfig.addFilter("absImg", (v) => {
     if (!v) return "";
     return /^https?:\/\//.test(v) ? v : ORIGIN + "/" + String(v).replace(/^\/+/, "");
