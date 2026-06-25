@@ -1,0 +1,120 @@
+---
+layout: base.njk
+current: news
+pagination:
+  data: news
+  size: 1
+  alias: post
+permalink: "{{ post.url }}"
+eleventyComputed:
+  title: "{{ post.title }}"
+  description: "{{ post.summary or post.excerpt }}"
+  ogType: "article"
+  ogImage: "{{ post.image }}"
+  ogImageW: "{{ post.dims.width if post.image else '' }}"
+  ogImageH: "{{ post.dims.height if post.image else '' }}"
+  ogImageAlt: "{{ post.title }}"
+---
+<style>
+  .post { padding-block: var(--space-lg) var(--space-2xl); }
+  .post__head { max-width: var(--maxw-prose); margin-bottom: var(--space-lg); }
+  .post__back {
+    display: inline-block;
+    color: var(--text-muted);
+    font-size: var(--fs-small);
+    font-weight: var(--fw-medium);
+    margin-bottom: var(--space-md);
+  }
+  .post__back:hover { color: var(--accent); }
+  .post__date {
+    color: var(--text-faint);
+    font-size: var(--fs-small);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+  }
+  .post__title { font-size: var(--fs-title); margin-top: var(--space-2xs); }
+  .post__author { color: var(--text-muted); margin-top: var(--space-2xs); }
+
+  .post__hero {
+    margin: var(--space-md) 0 var(--space-lg);
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--bg-alt);
+  }
+  .post__hero img { width: 100%; height: auto; display: block; }
+
+  .post__body { max-width: var(--maxw-prose); }
+  .post__body p { max-width: none; margin-bottom: var(--space-md); }
+  .post__body h2, .post__body h3, .post__body h4 {
+    margin: var(--space-lg) 0 var(--space-2xs);
+  }
+  .post__body h2 { font-size: var(--fs-h2); }
+  .post__body h3 { font-size: var(--fs-h3); }
+  .post__body a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+  .post__body ul, .post__body ol { margin: 0 0 var(--space-md); padding-left: 1.4em; }
+  .post__body li { margin-bottom: var(--space-2xs); }
+  .post__body img {
+    border-radius: var(--radius);
+    margin: var(--space-md) auto;
+  }
+  .post__body figure { margin: var(--space-md) 0; }
+  .post__body blockquote {
+    margin: var(--space-md) 0;
+    padding-left: var(--space-md);
+    border-left: 3px solid var(--border);
+    color: var(--text-muted);
+    font-style: italic;
+  }
+  .post__body em { color: var(--text-muted); }
+
+  .post__nav {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-md);
+    max-width: var(--maxw-prose);
+    margin-top: var(--space-xl);
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--border);
+  }
+  .post__nav a { font-size: var(--fs-small); font-weight: var(--fw-semibold); }
+</style>
+
+<article class="container post">
+  <a class="post__back" href="/news/">&larr; All news</a>
+
+  <header class="post__head">
+    <p class="post__date"><time datetime="{{ post.date }}">{{ post.date | postDate }}</time></p>
+    <h1 class="post__title">{{ post.title }}</h1>
+    {% if post.author %}<p class="post__author">By {{ post.author }}</p>{% endif %}
+  </header>
+
+  {% if post.image %}
+  <figure class="post__hero">
+    <img src="{{ post.image | img }}" alt="{{ post.title }}"
+         {% if post.dims %}width="{{ post.dims.width }}" height="{{ post.dims.height }}"{% endif %}
+         fetchpriority="high" decoding="async" />
+  </figure>
+  {% endif %}
+
+  <div class="post__body prose">
+    {{ post.body | safe }}
+  </div>
+
+  <nav class="post__nav" aria-label="More news">
+    <a href="/news/">&larr; All news</a>
+  </nav>
+</article>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": {{ post.title | dump | safe }},
+  "datePublished": {{ post.date | dump | safe }},
+  {% if post.author %}"author": { "@type": "Person", "name": {{ post.author | dump | safe }} },{% endif %}
+  {% if post.image %}"image": [{{ (post.image | absImg) | dump | safe }}],{% endif %}
+  "description": {{ (post.summary or post.excerpt) | dump | safe }},
+  "publisher": { "@type": "Organization", "name": "Sounds of Saving", "url": {{ site.origin | dump | safe }} },
+  "mainEntityOfPage": {{ (site.origin + post.url) | dump | safe }}
+}
+</script>

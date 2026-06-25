@@ -1,0 +1,129 @@
+---
+layout: base.njk
+current: news
+title: News
+pagination:
+  data: news
+  size: 11
+  alias: posts
+permalink: "{% if pagination.pageNumber == 0 %}/news/{% else %}/news/page/{{ pagination.pageNumber + 1 }}/{% endif %}"
+eleventyComputed:
+  description: "{{ settings.meta_description }}"
+---
+<style>
+  .news-page { padding-block: var(--space-xl); }
+  .news-page__head { margin-bottom: var(--space-lg); }
+  .news-page__title { font-size: var(--fs-title); }
+  .news-page__sub { color: var(--text-muted); margin-top: var(--space-2xs); }
+
+  .news-list { display: grid; gap: var(--space-lg); }
+  .news-card {
+    display: grid;
+    grid-template-columns: minmax(0, 220px) 1fr;
+    gap: var(--space-md);
+    align-items: start;
+    padding-bottom: var(--space-lg);
+    border-bottom: 1px solid var(--border);
+  }
+  .news-card:last-child { border-bottom: 0; }
+  .news-card__media {
+    display: block;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border-radius: var(--radius);
+    background: var(--bg-alt);
+  }
+  .news-card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition);
+  }
+  .news-card__media:hover img { transform: scale(1.03); }
+  .news-card__body { min-width: 0; }
+  .news-card__date {
+    color: var(--text-faint);
+    font-size: var(--fs-small);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+  }
+  .news-card__title { font-size: var(--fs-h3); margin-top: var(--space-3xs); }
+  .news-card__title a { color: var(--black); }
+  .news-card__title a:hover { color: var(--accent); }
+  .news-card__author { color: var(--text-muted); font-size: var(--fs-small); margin-top: var(--space-3xs); }
+  .news-card__excerpt {
+    color: var(--text-muted);
+    margin-top: var(--space-2xs);
+    max-width: var(--maxw-prose);
+  }
+  .news-card__more {
+    display: inline-block;
+    margin-top: var(--space-2xs);
+    color: var(--accent);
+    font-weight: var(--fw-semibold);
+    font-size: var(--fs-small);
+  }
+
+  .news-pager {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+    margin-top: var(--space-xl);
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--border);
+  }
+  .news-pager__count { color: var(--text-faint); font-size: var(--fs-small); }
+  .news-pager__links { display: flex; gap: var(--space-sm); }
+  .news-pager__links a, .news-pager__links span {
+    font-size: var(--fs-small);
+    font-weight: var(--fw-semibold);
+  }
+  .news-pager__links span { color: var(--text-faint); }
+
+  @media (max-width: 640px) {
+    .news-card { grid-template-columns: 1fr; }
+    .news-card__media { max-width: 320px; }
+  }
+</style>
+
+<div class="container news-page">
+  <header class="news-page__head">
+    <h1 class="news-page__title">News</h1>
+    <p class="news-page__sub">Stories on music, mental health, and the artists telling them.</p>
+  </header>
+
+  <div class="news-list">
+    {% for post in posts %}
+    <article class="news-card">
+      {% if post.image %}
+      <a class="news-card__media" href="{{ post.url }}" aria-hidden="true" tabindex="-1">
+        <img src="{{ post.image | img }}" alt=""
+             {% if post.dims %}width="{{ post.dims.width }}" height="{{ post.dims.height }}"{% endif %}
+             loading="lazy" decoding="async" />
+      </a>
+      {% else %}
+      <span class="news-card__media" aria-hidden="true"></span>
+      {% endif %}
+
+      <div class="news-card__body">
+        <p class="news-card__date"><time datetime="{{ post.date }}">{{ post.date | postDate }}</time></p>
+        <h2 class="news-card__title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+        {% if post.author %}<p class="news-card__author">By {{ post.author }}</p>{% endif %}
+        {% if post.excerpt %}<p class="news-card__excerpt">{{ post.excerpt }}</p>{% endif %}
+        <a class="news-card__more" href="{{ post.url }}">Learn More &rarr;</a>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+
+  {% if pagination.pages.length > 1 %}
+  <nav class="news-pager" aria-label="News pages">
+    <p class="news-pager__count">Page {{ pagination.pageNumber + 1 }} of {{ pagination.pages.length }}</p>
+    <div class="news-pager__links">
+      {% if pagination.href.previous %}<a href="{{ pagination.href.previous }}" rel="prev">&larr; Newer</a>{% else %}<span>&larr; Newer</span>{% endif %}
+      {% if pagination.href.next %}<a href="{{ pagination.href.next }}" rel="next">Older &rarr;</a>{% else %}<span>Older &rarr;</span>{% endif %}
+    </div>
+  </nav>
+  {% endif %}
+</div>
