@@ -346,22 +346,7 @@ eleventyComputed:
 </section>
 {% endif %}
 
-{# 5. GET HELP TEASER (sage-teal band) ——————————————————————————— #}
-<section class="section gethelp-band">
-  <div class="container">
-    <p class="eyebrow">Get Help</p>
-    <h2 class="gethelp-band__title">500+ vetted mental-health resources across the US</h2>
-    <p class="gethelp-band__crisis">{{ settings.crisis_line.intro }}</p>
-    <p class="gethelp-band__crisis gethelp-band__line">
-      <strong>{{ settings.crisis_line.name }}:</strong>
-      <a href="tel:{{ settings.crisis_line.phone }}">Call or text {{ settings.crisis_line.phone }}</a>
-      or chat at <a href="{{ settings.crisis_line.url }}" target="_blank" rel="noopener">988lifeline.org</a>.
-    </p>
-    <a class="btn btn--stroke" href="/resources/">Find help near you</a>
-  </div>
-</section>
-
-{# 6. STORIES ————————————————————————————————————————————————————— #}
+{# STORIES ————————————————————————————————————————————————————— #}
 {% if storyList.length %}
 <section class="section section--alt">
   <div class="container">
