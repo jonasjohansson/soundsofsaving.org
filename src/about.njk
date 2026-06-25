@@ -1,0 +1,136 @@
+---
+layout: base.njk
+current: about-us
+permalink: /about-us/
+title: About Us
+description: "Our approach: telling the stories of how music and mental health care can save and improve lives, in partnership with artists and young people."
+ogType: website
+---
+{#
+  About Us — intro/mission, Why Now (with stats + pullquote), Our Approach,
+  Founding Story, Team, Board of Directors, Advisory Board. All copy from
+  content/pages/about.json (CMS-editable). Section order mirrors the live site.
+#}
+{% set a = pages.about %}
+
+<style>
+  .about-page { padding-block: var(--space-xl); }
+  .about-page h1 { font-size: var(--fs-title); line-height: var(--lh-tight); margin: 0 0 var(--space-md); }
+  .about-page h2 { font-size: var(--fs-h2); line-height: var(--lh-tight); margin: 0 0 var(--space-sm); }
+  .about-intro { font-size: var(--fs-lead); line-height: var(--lh-base); max-width: var(--maxw-prose); margin: 0 0 var(--space-2xl); }
+  .about-section { margin-top: var(--space-2xl); padding-top: var(--space-xl); border-top: 1px solid var(--border); }
+  .about-section p { line-height: var(--lh-base); max-width: var(--maxw-prose); }
+  .about-section p + p { margin-top: var(--space-sm); }
+  .stat-list { max-width: var(--maxw-prose); margin: var(--space-md) 0; padding-left: var(--space-md); }
+  .stat-list li { margin-bottom: var(--space-sm); line-height: var(--lh-base); }
+  .about-sources { font-size: var(--fs-small); color: var(--text-muted); max-width: var(--maxw-prose); }
+  .about-sources p { margin: 0 0 var(--space-2xs); }
+  .pullquote {
+    border-left: 3px solid var(--accent);
+    padding-left: var(--space-md);
+    margin: var(--space-lg) 0;
+    max-width: var(--maxw-prose);
+  }
+  .pullquote blockquote { font-size: var(--fs-lead); line-height: var(--lh-base); margin: 0 0 var(--space-xs); font-style: italic; }
+  .pullquote cite { font-size: var(--fs-small); color: var(--text-muted); font-style: normal; }
+  .people-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: var(--space-md) var(--space-lg);
+    margin-top: var(--space-lg);
+    list-style: none;
+    padding: 0;
+  }
+  .person h3 { font-size: var(--fs-h3); margin: 0 0 var(--space-3xs); }
+  .person__role { text-transform: uppercase; letter-spacing: var(--tracking-wide); font-size: var(--fs-tiny); font-weight: var(--fw-semibold); color: var(--accent); margin: 0 0 var(--space-2xs); }
+  .person__email { font-size: var(--fs-small); margin: 0 0 var(--space-xs); }
+  .person p { line-height: var(--lh-base); font-size: var(--fs-small); margin: 0; }
+  .person p + p { margin-top: var(--space-xs); }
+</style>
+
+<div class="container about-page">
+  <h1>About Us</h1>
+  {% if a.intro %}<p class="about-intro">{{ a.intro }}</p>{% endif %}
+
+  {% if a.why_now %}
+  <section class="about-section" aria-label="{{ a.why_now.heading }}">
+    <h2>{{ a.why_now.heading }}</h2>
+    <p>{{ a.why_now.body }}</p>
+    {% if a.why_now.stats.length %}
+    <ul class="stat-list">
+      {% for s in a.why_now.stats %}<li>{{ s }}</li>{% endfor %}
+    </ul>
+    {% endif %}
+    {% if a.why_now.pullquote %}
+    <figure class="pullquote">
+      <blockquote>{{ a.why_now.pullquote }}</blockquote>
+      {% if a.why_now.pullquote_attribution %}<cite>{{ a.why_now.pullquote_attribution }}</cite>{% endif %}
+    </figure>
+    {% endif %}
+    {% if a.why_now.sources.length %}
+    <div class="about-sources">
+      {% for src in a.why_now.sources %}<p>{{ src }}</p>{% endfor %}
+    </div>
+    {% endif %}
+  </section>
+  {% endif %}
+
+  {% if a.approach %}
+  <section class="about-section" aria-label="{{ a.approach.heading }}">
+    <h2>{{ a.approach.heading }}</h2>
+    <p>{{ a.approach.body }}</p>
+  </section>
+  {% endif %}
+
+  {% if a.founding_story %}
+  <section class="about-section" aria-label="{{ a.founding_story.heading }}">
+    <h2>{{ a.founding_story.heading }}</h2>
+    {% for para in a.founding_story.body.split("\n\n") %}<p>{{ para }}</p>{% endfor %}
+  </section>
+  {% endif %}
+
+  {% if a.team %}
+  <section class="about-section" aria-label="{{ a.team.heading }}">
+    <h2>{{ a.team.heading }}</h2>
+    <ul class="people-grid">
+      {% for m in a.team.members %}
+      <li class="person">
+        <p class="person__role">{{ m.role }}</p>
+        <h3>{{ m.name }}</h3>
+        {% if m.email %}<p class="person__email"><a href="mailto:{{ m.email }}">{{ m.email }}</a></p>{% endif %}
+        {% for para in m.bio.split("\n\n") %}<p>{{ para }}</p>{% endfor %}
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+
+  {% if a.board_of_directors %}
+  <section class="about-section" aria-label="{{ a.board_of_directors.heading }}">
+    <h2>{{ a.board_of_directors.heading }}</h2>
+    <ul class="people-grid">
+      {% for m in a.board_of_directors.members %}
+      <li class="person">
+        <h3>{{ m.name }}</h3>
+        <p>{{ m.bio }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+
+  {% if a.advisory_board %}
+  <section class="about-section" aria-label="{{ a.advisory_board.heading }}">
+    <h2>{{ a.advisory_board.heading }}</h2>
+    {% if a.advisory_board.intro %}<p>{{ a.advisory_board.intro }}</p>{% endif %}
+    <ul class="people-grid">
+      {% for m in a.advisory_board.members %}
+      <li class="person">
+        <h3>{{ m.name }}</h3>
+        <p>{{ m.bio }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+</div>

@@ -1,0 +1,74 @@
+---
+layout: base.njk
+current: programs
+permalink: /programs/
+title: Programs
+description: "With our online content, participation at live events, and therapy resources, we seek to save and improve lives through the stories and experiences of artists and fans, both inspiring human interconnectedness and feelings of hope, and demystifying access to mental health care."
+ogType: website
+---
+{#
+  Programs page — three pillars (Education & Engagement, Artist Storytelling,
+  Connection) rendered from content/pages/programs.json (the CMS-editable
+  source of record). Section order mirrors the live site.
+#}
+{% set p = pages.programs %}
+
+<style>
+  .programs-page { padding-block: var(--space-xl); }
+  .programs-page h1 {
+    font-size: var(--fs-title);
+    line-height: var(--lh-tight);
+    margin: 0 0 var(--space-lg);
+  }
+  .pillar { margin-top: var(--space-2xl); }
+  .pillar:first-of-type { margin-top: 0; }
+  .pillar__num {
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    font-size: var(--fs-tiny);
+    font-weight: var(--fw-semibold);
+    color: var(--accent);
+    margin: 0 0 var(--space-2xs);
+  }
+  .pillar__heading {
+    font-size: var(--fs-h2);
+    line-height: var(--lh-tight);
+    margin: 0 0 var(--space-sm);
+  }
+  .pillar__body { max-width: var(--maxw-prose); }
+  .pillar__body p { margin: 0 0 var(--space-sm); line-height: var(--lh-base); }
+  .pillar__item { margin-top: var(--space-lg); max-width: var(--maxw-prose); }
+  .pillar__item h3 {
+    font-size: var(--fs-h3);
+    margin: 0 0 var(--space-xs);
+  }
+  .pillar__item p { margin: 0 0 var(--space-sm); line-height: var(--lh-base); }
+  .pillar + .pillar { border-top: 1px solid var(--border); padding-top: var(--space-xl); }
+</style>
+
+<div class="container programs-page">
+  <h1>{{ p.heading or "Programs" }}</h1>
+
+  {% for pillar in p.pillars %}
+  <section class="pillar" aria-label="{{ pillar.heading }}">
+    {% if pillar.number %}<p class="pillar__num">Program {{ pillar.number }}</p>{% endif %}
+    <h2 class="pillar__heading">{{ pillar.heading }}</h2>
+
+    {% if pillar.body %}
+    <div class="pillar__body">
+      {% for para in pillar.body.split("\n\n") %}<p>{{ para | replace("\n", "<br>") | safe }}</p>{% endfor %}
+    </div>
+    {% endif %}
+
+    {% for item in pillar.items %}
+      {% if item.heading or item.body %}
+      <div class="pillar__item">
+        {% if item.heading %}<h3>{{ item.heading }}</h3>{% endif %}
+        {% if item.body %}{% for para in item.body.split("\n\n") %}<p>{{ para | replace("\n", "<br>") | safe }}</p>{% endfor %}{% endif %}
+      </div>
+      {% endif %}
+    {% endfor %}
+  </section>
+  {% endfor %}
+</div>

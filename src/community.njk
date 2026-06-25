@@ -1,0 +1,98 @@
+---
+layout: base.njk
+current: community
+permalink: /community/
+title: Community
+description: "Join the Sounds of Saving community. Personal stories, youth voices, and a conversation about music and mental wellness."
+ogType: website
+---
+{#
+  Community — "Our Partners" logo wall (faithfully mirrored) plus a
+  song-submission form. The live Webflow Community page renders ONLY the
+  partner wall; it has no submission form, so the form below is a STUB
+  (no action endpoint in the mirror) to be wired to a real handler later.
+  Copy + partner logos come from content/pages/community.json (CMS-editable).
+#}
+{% set c = pages.community %}
+
+<style>
+  .community-page { padding-block: var(--space-xl); }
+  .community-page h1 { font-size: var(--fs-title); line-height: var(--lh-tight); margin: 0 0 var(--space-md); }
+  .partners h2 { font-size: var(--fs-h2); line-height: var(--lh-tight); margin: 0 0 var(--space-sm); }
+  .partners__note { color: var(--text-muted); max-width: var(--maxw-prose); margin: 0 0 var(--space-lg); }
+  .partners__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: var(--space-lg);
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .partners__grid li {
+    display: grid;
+    place-items: center;
+    padding: var(--space-sm);
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    min-height: 96px;
+  }
+  .partners__grid img { max-width: 100%; max-height: 72px; height: auto; width: auto; object-fit: contain; }
+
+  .submit-section { margin-top: var(--space-2xl); padding-top: var(--space-xl); border-top: 1px solid var(--border); max-width: var(--maxw-prose); }
+  .submit-section h2 { font-size: var(--fs-h2); line-height: var(--lh-tight); margin: 0 0 var(--space-sm); }
+  .submit-section__intro { color: var(--text-muted); line-height: var(--lh-base); margin: 0 0 var(--space-lg); }
+  .field { margin-bottom: var(--space-md); }
+  .field label { display: block; font-weight: var(--fw-medium); margin-bottom: var(--space-2xs); }
+  .field input,
+  .field textarea {
+    width: 100%;
+    padding: var(--space-xs) var(--space-sm);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font: inherit;
+    background: var(--bg);
+    color: var(--text);
+  }
+  .field textarea { min-height: 8rem; resize: vertical; }
+</style>
+
+<div class="container community-page">
+  <h1>Community</h1>
+
+  {% if c.partners %}
+  <section class="partners" aria-label="{{ c.partners.heading }}">
+    <h2>{{ c.partners.heading }}</h2>
+    {% if c.partners.note %}<p class="partners__note">{{ c.partners.note }}</p>{% endif %}
+    <ul class="partners__grid">
+      {% for logo in c.partners.logos %}
+      <li><img src="{{ logo.src }}" alt="{{ logo.alt }}" loading="lazy" decoding="async" /></li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+
+  {% if c.submit_form %}
+  {# STUB: no submission endpoint exists in the source site. `action` is empty,
+     so this form does not post anywhere yet. Wire it to a real handler
+     (Formspree, a serverless function, or the org's CRM) before launch. #}
+  <section class="submit-section" aria-label="{{ c.submit_form.heading }}">
+    <h2>{{ c.submit_form.heading }}</h2>
+    {% if c.submit_form.intro %}<p class="submit-section__intro">{{ c.submit_form.intro }}</p>{% endif %}
+    <form{% if c.submit_form.action %} action="{{ c.submit_form.action }}" method="post"{% endif %} novalidate>
+      {% for f in c.submit_form.fields %}
+      <div class="field">
+        <label for="field-{{ f.name }}">{{ f.label }}{% if f.required %} *{% endif %}</label>
+        {% if f.type == "textarea" %}
+        <textarea id="field-{{ f.name }}" name="{{ f.name }}"{% if f.required %} required{% endif %}></textarea>
+        {% else %}
+        <input id="field-{{ f.name }}" name="{{ f.name }}" type="{{ f.type }}"{% if f.required %} required{% endif %} />
+        {% endif %}
+      </div>
+      {% endfor %}
+      <button class="btn btn--primary" type="submit">{{ c.submit_form.submit_label or "Submit" }}</button>
+    </form>
+  </section>
+  {% endif %}
+</div>
