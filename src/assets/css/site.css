@@ -17,6 +17,10 @@
 
 html { -webkit-text-size-adjust: 100%; }
 
+/* Hide the scrollbar site-wide while keeping scroll behavior. */
+html { scrollbar-width: none; -ms-overflow-style: none; }
+html::-webkit-scrollbar { width: 0; height: 0; display: none; }
+
 body,
 h1, h2, h3, h4, p, figure, ul, ol { margin: 0; }
 
@@ -126,6 +130,8 @@ main { min-height: 50vh; }
 .site-header__logo {
   height: 44px;
   width: auto;
+  /* Brand mark art is white; render it as ink on the light header. */
+  filter: brightness(0);
 }
 
 .nav-toggle {
@@ -154,7 +160,7 @@ main { min-height: 50vh; }
 .site-nav a {
   color: var(--text);
   font-weight: var(--fw-medium);
-  font-size: var(--fs-small);
+  font-size: var(--fs-base);
 }
 .site-nav__links a:hover,
 .site-nav__links a[aria-current="page"] { color: var(--accent); }
@@ -271,7 +277,7 @@ main { min-height: 50vh; }
   align-items: center;
   gap: var(--space-sm);
 }
-.footer-brand img { height: 40px; width: auto; }
+.footer-brand img { height: 40px; width: auto; filter: brightness(0); }
 
 .socials {
   display: flex;

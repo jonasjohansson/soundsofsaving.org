@@ -107,6 +107,7 @@
   --radius-pill: 999px;
   --shadow-sm: 0 1px 3px rgba(33, 29, 46, 0.1);
   --header-h: 72px;
+  --roster-card-min-h: 3.4em;
   --transition: 150ms ease;
 
   /* — Imagery treatment ("salvage" duotone) ————————————————————————— */

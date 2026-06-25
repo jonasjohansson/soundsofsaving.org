@@ -68,9 +68,18 @@ eleventyComputed:
     line-height: var(--lh-tight);
     font-weight: var(--fw-semibold);
     margin: 0;
-    max-width: 22ch;
+    max-width: 16ch;
+    color: var(--paper);
     text-wrap: balance;
     text-shadow: 0 2px 30px rgba(0,0,0,0.6), 0 1px 3px rgba(0,0,0,0.45);
+  }
+  .home-hero__sub {
+    margin: var(--space-md) 0 0;
+    max-width: 34ch;
+    font-size: var(--fs-lead);
+    line-height: var(--lh-base);
+    color: var(--paper);
+    text-shadow: 0 1px 16px rgba(0,0,0,0.55);
   }
   .home-hero__cta { margin-top: var(--space-lg); }
   .home-hero__credit {
@@ -119,10 +128,10 @@ eleventyComputed:
     border-radius: var(--radius);
     padding: var(--space-md);
     background: var(--paper);
-    transition: box-shadow var(--transition), transform var(--transition), border-color var(--transition);
+    transition: border-color var(--transition), background var(--transition);
   }
   .door:hover,
-  .door:focus-visible { box-shadow: var(--shadow-sm); transform: translateY(-2px); border-color: var(--accent); }
+  .door:focus-visible { border-color: var(--accent); }
   .door__title { font-family: var(--font-display); font-size: var(--fs-h3); margin: var(--space-2xs) 0 var(--space-3xs); }
   .door__copy { color: var(--text-muted); margin: 0; line-height: var(--lh-base); }
 
@@ -208,10 +217,10 @@ eleventyComputed:
     border-radius: var(--radius);
     overflow: hidden;
     background: var(--paper);
-    transition: box-shadow var(--transition), transform var(--transition);
+    transition: border-color var(--transition);
   }
   .story:hover,
-  .story:focus-visible { box-shadow: var(--shadow-sm); transform: translateY(-2px); }
+  .story:focus-visible { border-color: var(--accent); }
   .story__media { aspect-ratio: 16 / 10; background: var(--bg-alt); overflow: hidden; }
   .story__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .story__body { padding: var(--space-sm) var(--space-md) var(--space-md); }
@@ -238,9 +247,10 @@ eleventyComputed:
   <div class="home-hero__inner">
     <div class="container">
       <p class="eyebrow home-hero__eyebrow">Sounds of Saving</p>
-      <h1 class="home-hero__title">We help young people use music to take care of their mental health.</h1>
+      <h1 class="home-hero__title">Find hope in music.</h1>
+      <p class="home-hero__sub">A music and mental health nonprofit. For everyone, with young people at heart.</p>
       <a class="btn btn--primary home-hero__cta" href="/sessions/">Watch a Session</a>
-      {% if hero.artist %}<p class="home-hero__credit">Pictured: {{ hero.artist }}{% if hero.song_title %}, &ldquo;{{ hero.song_title }}&rdquo;{% endif %}</p>{% endif %}
+      <p class="home-hero__credit">{% if hero.artist %}Pictured: {{ hero.artist }}{% if hero.song_title %}, &ldquo;{{ hero.song_title }}&rdquo;{% endif %}{% endif %}</p>
     </div>
   </div>
 </section>
@@ -248,7 +258,7 @@ eleventyComputed:
 {# 2. SUPPORT LINE + FOUR DOORS ————————————————————————————————— #}
 <section class="section">
   <div class="container">
-    <p class="doors-line">For young people ages 14 to 24. Always free.</p>
+    <p class="doors-line">Open to everyone. Always free.</p>
     <ul class="doors">
       <li>
         <a class="door" href="/sessions/">
@@ -304,36 +314,12 @@ eleventyComputed:
       <div>
         <p class="featured__artist">{{ featured.artist }}</p>
         {% if featured.song_title %}<p class="featured__song">{{ featured.song_title }}{% if featured.covers %} ({{ featured.covers }}){% endif %}</p>{% endif %}
-        <a class="home-more" href="/sessions/">See all {{ sessions.length }} sessions &rarr;</a>
+        <p class="featured__links">
+          <a class="home-more" href="/sessions/">See all {{ sessions.length }} sessions &rarr;</a>
+          <a class="home-more" href="/sessions/artists/">Browse every artist &rarr;</a>
+        </p>
       </div>
     </div>
-  </div>
-</section>
-{% endif %}
-
-{# 4. ARTIST MARQUEE ————————————————————————————————————————————— #}
-{% if sessions.length %}
-<section class="section">
-  <div class="container">
-    <header class="home-head">
-      <p class="eyebrow">The artists</p>
-      <h2 class="home-head__title">In good company</h2>
-    </header>
-    <ul class="marquee">
-      {% for s in sessions %}
-      {% if loop.index <= 14 %}
-      <li class="marquee__item">
-        <a class="marquee__link" href="/sessions/artists/">
-          <span class="marquee__thumb">
-            {% if s.thumbnail %}<img src="{{ s.thumbnail | img }}" alt=""{% if s.dims %} width="{{ s.dims.width }}" height="{{ s.dims.height }}"{% endif %} loading="lazy" decoding="async" />{% endif %}
-          </span>
-          <p class="marquee__name">{{ s.artist }}</p>
-        </a>
-      </li>
-      {% endif %}
-      {% endfor %}
-    </ul>
-    <a class="home-more" href="/sessions/artists/">Browse every artist &rarr;</a>
   </div>
 </section>
 {% endif %}
@@ -386,3 +372,40 @@ eleventyComputed:
   </div>
 </section>
 {% endif %}
+
+{# Randomize the hero + featured session on each page load (client-side). #}
+<script id="session-pool" type="application/json">
+{%- set pool = [] -%}
+{%- for s in sessions -%}
+  {%- if s.thumbnail -%}
+    {%- set _ = pool.push({ "artist": s.artist, "song": s.song_title, "thumb": s.thumbnail, "url": s.url, "kind": s.kind }) -%}
+  {%- endif -%}
+{%- endfor -%}
+{{ pool | dump | safe }}
+</script>
+<script>
+  (function () {
+    var el = document.getElementById("session-pool");
+    if (!el) return;
+    var all;
+    try { all = JSON.parse(el.textContent); } catch (e) { return; }
+    if (!all.length) return;
+    var pick = function (arr) { return arr[Math.floor(Math.random() * arr.length)]; };
+    var produced = all.filter(function (s) { return s.kind !== "favorite" && s.kind !== "short"; });
+    if (!produced.length) produced = all;
+    var h = pick(produced);
+    var hImg = document.querySelector(".home-hero__img");
+    var hCredit = document.querySelector(".home-hero__credit");
+    if (hImg && h.thumb) { hImg.src = h.thumb; hImg.alt = h.artist + " performing for Sounds of Saving"; }
+    if (hCredit) { hCredit.textContent = "Pictured: " + h.artist + (h.song ? ", “" + h.song + "”" : ""); }
+    var f = pick(all);
+    var fImg = document.querySelector(".featured__media img");
+    var fLink = document.querySelector(".featured__media");
+    var fArtist = document.querySelector(".featured__artist");
+    var fSong = document.querySelector(".featured__song");
+    if (fImg && f.thumb) { fImg.src = f.thumb; fImg.alt = f.artist; }
+    if (fLink && f.url) { fLink.setAttribute("href", f.url); }
+    if (fArtist) { fArtist.textContent = f.artist; }
+    if (fSong) { fSong.textContent = f.song || ""; fSong.style.display = f.song ? "" : "none"; }
+  })();
+</script>
