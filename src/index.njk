@@ -300,28 +300,30 @@ eleventyComputed:
       <h2 class="home-head__title">Songs that found them<br>at the right time</h2>
     </header>
     <div class="featured">
-      <a class="featured__media" href="{{ featured.url }}" aria-label="Watch {{ featured.artist }}{% if featured.song_title %}, {{ featured.song_title }}{% endif %}">
-        {% if featured.thumbnail %}
-        {% set fBase = featured.thumbnail | replace(".jpg", "") %}
-        <img class="media media--full"
-             src="{{ fBase }}-800.webp"
-             srcset="{{ fBase }}-800.webp 800w, {{ fBase }}-1280.webp 1280w"
-             sizes="(max-width: 720px) 92vw, 700px"
-             alt="{{ featured.artist }}"
-             {% if featured.dims %}width="{{ featured.dims.width }}" height="{{ featured.dims.height }}"{% endif %}
-             loading="lazy" decoding="async" />
-        {% endif %}
-        <span class="featured__play" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-        </span>
-      </a>
-      <div>
-        <p class="featured__artist">{{ featured.artist }}</p>
-        {% if featured.song_title %}<p class="featured__song">{{ featured.song_title }} by {{ featured.covers or featured.artist }}</p>{% endif %}
+      <div class="featured__col">
+        <a class="featured__media" href="{{ featured.url }}" aria-label="Watch {{ featured.artist }}{% if featured.song_title %}, {{ featured.song_title }}{% endif %}">
+          {% if featured.thumbnail %}
+          {% set fBase = featured.thumbnail | replace(".jpg", "") %}
+          <img class="media media--full"
+               src="{{ fBase }}-800.webp"
+               srcset="{{ fBase }}-800.webp 800w, {{ fBase }}-1280.webp 1280w"
+               sizes="(max-width: 720px) 92vw, 700px"
+               alt="{{ featured.artist }}"
+               {% if featured.dims %}width="{{ featured.dims.width }}" height="{{ featured.dims.height }}"{% endif %}
+               loading="lazy" decoding="async" />
+          {% endif %}
+          <span class="featured__play" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </span>
+        </a>
         <p class="featured__links">
           <a class="home-more" href="/sessions/">See all {{ sessions.length }} sessions &rarr;</a>
           <a class="home-more" href="/sessions/artists/">Browse every artist &rarr;</a>
         </p>
+      </div>
+      <div>
+        <p class="featured__artist">{{ featured.artist }}</p>
+        {% if featured.song_title %}<p class="featured__song">{{ featured.song_title }} by {{ featured.covers or featured.artist }}</p>{% endif %}
       </div>
     </div>
   </div>
@@ -339,16 +341,18 @@ eleventyComputed:
       <h2 class="home-head__title">Voices on music<br>and mental health</h2>
     </header>
     <div class="featured featured--story">
-      <a class="featured__media" href="{{ fStory.url }}" aria-label="Read {{ fStory.title }}">
-        {% if fStory.image %}<img class="media media--full" src="{{ fStory.image | img }}" alt="{{ fStory.title }}"{% if fStory.dims %} width="{{ fStory.dims.width }}" height="{{ fStory.dims.height }}"{% endif %} loading="lazy" decoding="async" />{% endif %}
-      </a>
-      <div>
-        <p class="featured__artist">{{ fStory.title }}</p>
-        {% if fStory.author %}<p class="featured__song">{{ fStory.author }}</p>{% endif %}
+      <div class="featured__col">
+        <a class="featured__media" href="{{ fStory.url }}" aria-label="Read {{ fStory.title }}">
+          {% if fStory.image %}<img class="media media--full" src="{{ fStory.image | img }}" alt="{{ fStory.title }}"{% if fStory.dims %} width="{{ fStory.dims.width }}" height="{{ fStory.dims.height }}"{% endif %} loading="lazy" decoding="async" />{% endif %}
+        </a>
         <p class="featured__links">
           <a class="home-more" href="{{ fStory.url }}">Read this interview &rarr;</a>
           <a class="home-more" href="/stories/">All stories &rarr;</a>
         </p>
+      </div>
+      <div>
+        <p class="featured__artist">{{ fStory.title }}</p>
+        {% if fStory.author %}<p class="featured__song">{{ fStory.author }}</p>{% endif %}
       </div>
     </div>
   </div>
