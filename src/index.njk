@@ -145,6 +145,9 @@ eleventyComputed:
     background: var(--bg-alt);
   }
   .featured__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  /* Story/interview images vary in aspect ratio, so show them in full (uncropped). */
+  .featured--story .featured__media { aspect-ratio: auto; }
+  .featured--story .featured__media img { height: auto; object-fit: contain; }
   .featured__play {
     position: absolute;
     inset: 0;
