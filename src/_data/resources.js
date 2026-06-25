@@ -17,9 +17,6 @@
  *    resources.categories — [{ slug, label, count }]  (topics, incl. Other)
  *    resources.locations  — [{ slug, label, count }]  (cities, incl. National)
  *    resources.languages  — [{ slug, label, count }]  (derived languages)
- *    resources.byCategory — { slug: [resource, ...] }
- *    resources.byLocation — { slug: [resource, ...] }
- *    resources.byLanguage — { slug: [resource, ...] }
  * ------------------------------------------------------------------ */
 
 const fs = require("fs");
@@ -126,9 +123,6 @@ module.exports = function () {
     categories,
     locations,
     languages,
-    byCategory,
-    byLocation,
-    byLanguage,
     catLabels,
     // Pre-stringified so the template embeds it verbatim with no per-build
     // Nunjucks escaping cost; consumed by the client finder script.

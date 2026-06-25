@@ -134,6 +134,12 @@ module.exports = function () {
   const storyClusters = STORY_CLUSTERS
     .map((c) => ({ ...c, posts: stories.filter((p) => (p.cluster || "features") === c.slug) }))
     .filter((c) => c.posts.length);
+  // Surface stories that would silently vanish from /stories/ via an unknown cluster.
+  const knownClusters = new Set(STORY_CLUSTERS.map((c) => c.slug));
+  stories.forEach((p) => {
+    const c = p.cluster || "features";
+    if (!knownClusters.has(c)) console.warn(`[news] story "${p.slug}" has unknown cluster "${c}" — not shown on /stories/`);
+  });
 
   // attach subsets as enumerable props on the array so templates can read
   // either `news` (the array) or `news.stories` / `news.learn` / etc.
@@ -146,11 +152,6 @@ module.exports = function () {
   // Posts that generate their own on-site page (the white paper links out to a PDF).
   posts.pages = posts.filter((p) => p.category !== "whitepaper");
   posts.storyClusters = storyClusters;
-  posts.learnByCategory = {
-    learn: byCat("learn"),
-    "resource-sheet": byCat("resource-sheet"),
-    whitepaper: byCat("whitepaper"),
-  };
 
   return posts;
 };

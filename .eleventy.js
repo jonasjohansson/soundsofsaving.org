@@ -102,7 +102,8 @@ module.exports = function (eleventyConfig) {
         const altMatch = tag.match(/\balt\s*=\s*["']([^"']*)["']/i);
         try {
           const replacement = await respImage(url, { alt: altMatch ? altMatch[1] : "" });
-          out = out.replace(tag, replacement);
+          // split/join avoids $-pattern interpretation in String.replace's 2nd arg
+          out = out.split(tag).join(replacement);
         } catch (e) {
           // leave the original tag in place on any failure
         }
