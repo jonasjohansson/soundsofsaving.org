@@ -97,12 +97,19 @@ a:hover { color: var(--accent-deep); }
 
 /* Per-section accent: re-points --accent for the whole page (eyebrows, links,
    buttons all follow). Get Help and Home keep the default blue. */
+/* Derive the hover (deep) and on-dark (bright) shades from whichever --accent
+   is active, so they recompute per section instead of baking in the :root blue. */
+[data-section] {
+  --accent-deep:   color-mix(in srgb, var(--accent), #000 24%);
+  --accent-bright: color-mix(in srgb, var(--accent), #fff 26%);
+}
 [data-section="home"]      { --accent: var(--accent-home); }
 [data-section="sessions"]  { --accent: var(--accent-sessions); }
 [data-section="programs"]  { --accent: var(--accent-programs); }
 [data-section="educators"] { --accent: var(--accent-educators); }
 [data-section="stories"]   { --accent: var(--accent-stories); }
 [data-section="about"]     { --accent: var(--accent-about); }
+[data-section="resources"] { --accent: var(--accent-resources); }
 
 strong { font-weight: var(--fw-semibold); }
 

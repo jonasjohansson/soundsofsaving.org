@@ -30,12 +30,12 @@ ogType: website
 
 <style>
   /* ---- Get Help uses --calm (sage-teal) as its primary accent ---- */
-  .gethelp { --gh-accent: var(--calm); --gh-accent-deep: var(--calm-deep); }
+  .gethelp { --gh-accent: var(--accent); --gh-accent-deep: var(--accent-deep); }
   .gethelp { padding-block: var(--space-lg) var(--space-2xl); }
 
   /* ---- Crisis band: impossible to miss, separate from the finder ---- */
   .crisis-band {
-    background: var(--calm);
+    background: var(--accent);
     color: var(--on-dark);
     border-radius: var(--radius);
     padding: var(--space-lg);
@@ -101,14 +101,14 @@ ogType: website
     color: var(--text);
   }
   .finder__search input:focus-visible {
-    outline: 2px solid var(--calm);
+    outline: 2px solid var(--accent);
     outline-offset: 1px;
-    border-color: var(--calm);
+    border-color: var(--accent);
   }
 
   .finder__filters { display: grid; gap: var(--space-sm); grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); align-items: end; }
   .finder__field { display: grid; gap: var(--space-3xs); }
-  .finder__field label { color: var(--calm-deep); }
+  .finder__field label { color: var(--accent-deep); }
   .finder__field select {
     font: inherit;
     font-size: var(--fs-small);
@@ -118,7 +118,7 @@ ogType: website
     background: var(--paper);
     color: var(--text);
   }
-  .finder__field select:focus-visible { outline: 2px solid var(--calm); outline-offset: 1px; }
+  .finder__field select:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 
   .finder__status {
     display: flex;
@@ -136,19 +136,19 @@ ogType: website
     font-size: var(--fs-tiny);
     letter-spacing: var(--tracking-wide);
     text-transform: uppercase;
-    color: var(--calm-deep);
+    color: var(--accent-deep);
     background: none;
-    border: 1px solid var(--calm);
+    border: 1px solid var(--accent);
     border-radius: var(--radius-pill);
     padding: var(--space-3xs) var(--space-sm);
     cursor: pointer;
   }
-  .finder__reset:hover { background: var(--calm); color: var(--on-dark); }
+  .finder__reset:hover { background: var(--accent); color: var(--on-dark); }
   .finder__reset[hidden] { display: none; }
 
   /* ---- Topic intro (editorial framing when filtered to one topic) ---- */
   .finder__intro {
-    border-left: 3px solid var(--calm);
+    border-left: 3px solid var(--accent);
     padding: var(--space-2xs) 0 var(--space-2xs) var(--space-md);
     margin-bottom: var(--space-md);
     color: var(--text-muted);
@@ -185,13 +185,13 @@ ogType: website
     margin: 0;
   }
   .resource-card__name a { color: var(--text); }
-  .resource-card__name a:hover { color: var(--calm-deep); }
+  .resource-card__name a:hover { color: var(--accent-deep); }
   .resource-card__badge {
     font-family: var(--font-mono);
     font-size: var(--fs-tiny);
     letter-spacing: var(--tracking-wide);
     text-transform: uppercase;
-    color: var(--calm-deep);
+    color: var(--accent-deep);
   }
   .resource-card p { font-size: var(--fs-small); color: var(--text-muted); line-height: var(--lh-base); margin: 0; }
   .resource-card__tags { display: flex; flex-wrap: wrap; gap: var(--space-3xs); margin-top: var(--space-2xs); }
@@ -200,7 +200,7 @@ ogType: website
     font-size: var(--fs-tiny);
     letter-spacing: var(--tracking-wide);
     text-transform: uppercase;
-    color: var(--calm-deep);
+    color: var(--accent-deep);
     background: var(--paper-3);
     border-radius: var(--radius-pill);
     padding: 2px var(--space-2xs);
@@ -213,7 +213,7 @@ ogType: website
     flex-wrap: wrap;
     gap: var(--space-sm);
   }
-  .resource-card__meta a { color: var(--calm-deep); font-weight: var(--fw-medium); text-decoration: underline; text-underline-offset: 2px; }
+  .resource-card__meta a { color: var(--accent-deep); font-weight: var(--fw-medium); text-decoration: underline; text-underline-offset: 2px; }
 
   .finder__empty {
     text-align: center;
@@ -232,15 +232,15 @@ ogType: website
     font-size: var(--fs-tiny);
     letter-spacing: var(--tracking-wide);
     text-transform: uppercase;
-    color: var(--calm-deep);
+    color: var(--accent-deep);
     background: none;
-    border: 1px solid var(--calm);
+    border: 1px solid var(--accent);
     border-radius: var(--radius-pill);
     padding: var(--space-2xs) var(--space-lg);
     cursor: pointer;
   }
-  .finder__more button:hover { background: var(--calm); color: var(--on-dark); }
-  .finder__more button:focus-visible { outline: 2px solid var(--calm); outline-offset: 2px; }
+  .finder__more button:hover { background: var(--accent); color: var(--on-dark); }
+  .finder__more button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
   /* No-JS notice: hidden when JS runs (it removes [hidden]-less .finder__noscript via <noscript>). */
   .finder__noscript {
@@ -283,13 +283,13 @@ ogType: website
     font-size: var(--fs-tiny);
     letter-spacing: var(--tracking-wide);
     text-transform: uppercase;
-    color: var(--calm-deep);
+    color: var(--accent-deep);
   }
   .learn-card__title { font-family: var(--font-display); font-size: var(--fs-base); line-height: var(--lh-tight); margin: 0; }
   .learn-card__title a { color: var(--ink); }
-  .learn-card__title a:hover { color: var(--calm-deep); }
+  .learn-card__title a:hover { color: var(--accent-deep); }
   .learn-card p { font-size: var(--fs-small); color: var(--text-muted); line-height: var(--lh-base); margin: 0; }
-  .learn-card__more { font-size: var(--fs-small); color: var(--calm-deep); font-weight: var(--fw-medium); margin-top: auto; padding-top: var(--space-2xs); }
+  .learn-card__more { font-size: var(--fs-small); color: var(--accent-deep); font-weight: var(--fw-medium); margin-top: auto; padding-top: var(--space-2xs); }
 </style>
 
 <div class="container gethelp">
