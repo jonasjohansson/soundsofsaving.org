@@ -70,10 +70,25 @@ eleventyComputed:
   }
   .session-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
 
-  .session-body { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-lg); max-width: var(--maxw); }
-  @media (min-width: 760px) {
-    .session-body { grid-template-columns: minmax(0, 1fr) 280px; align-items: start; }
+  .session-body { max-width: var(--maxw-prose); }
+
+  /* Song metadata, integrated under the title (replaces the aside card). */
+  .session-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md) var(--space-lg);
+    margin: var(--space-md) 0 0;
+    padding: 0;
   }
+  .session-meta > div { display: flex; flex-direction: column; gap: 2px; }
+  .session-meta dt {
+    font-family: var(--font-mono);
+    font-size: var(--fs-tiny);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+  .session-meta dd { margin: 0; font-family: var(--font-body); color: var(--text); }
 
   .session-story-col { max-width: var(--maxw-prose); }
   .session-pull {
@@ -158,9 +173,13 @@ eleventyComputed:
   <a class="session-back" href="/sessions/">&larr; Songs That Found Me at the Right Time</a>
 
   <header class="session-detail__head">
-    <p class="session-eyebrow">Songs That Found Me at the Right Time</p>
     <h1>{{ session.artist }}</h1>
     {% if session.chose %}<p class="session-song">The song: {{ session.chose }}</p>{% endif %}
+    <dl class="session-meta">
+      {% if session.song_title %}<div><dt>Song</dt><dd>{{ session.song_title }}</dd></div>{% endif %}
+      {% if session.covers %}<div><dt>Written by</dt><dd>{{ session.covers }}</dd></div>{% endif %}
+      {% if session.date %}<div><dt>Released</dt><dd>{{ session.date | postDate }}</dd></div>{% endif %}
+    </dl>
   </header>
 
   {% if session.youtube_id %}
@@ -176,25 +195,11 @@ eleventyComputed:
   {% endif %}
 
   <div class="session-body">
-    <div class="session-story-col">
-      {% if session.pull_quote %}<blockquote class="session-pull">{{ session.pull_quote }}</blockquote>{% endif %}
-      {% if session.storyHtml %}<div class="session-story prose">{{ session.storyHtml | safe }}</div>{% endif %}
-      {% if session.youtube_url %}
-      <a class="session-watch" href="{{ session.youtube_url }}" target="_blank" rel="noopener">Watch on YouTube &rarr;</a>
-      {% endif %}
-    </div>
-
-    <aside class="session-card-aside" aria-label="Song card">
-      <figure class="media media--full">
-        {% if session.thumbnail %}{% respImg session.thumbnail, { alt: session.artist, sizes: "(max-width: 760px) 92vw, 280px", width: session.dims.width if session.dims else null, height: session.dims.height if session.dims else null } %}{% endif %}
-      </figure>
-      <ul class="session-card-aside__list">
-        <li class="session-card-aside__row"><span class="session-card-aside__k">Artist</span><span class="session-card-aside__v">{{ session.artist }}</span></li>
-        {% if session.song_title %}<li class="session-card-aside__row"><span class="session-card-aside__k">Song</span><span class="session-card-aside__v">{{ session.song_title }}</span></li>{% endif %}
-        {% if session.covers %}<li class="session-card-aside__row"><span class="session-card-aside__k">Written by</span><span class="session-card-aside__v">{{ session.covers }}</span></li>{% endif %}
-        {% if session.date %}<li class="session-card-aside__row"><span class="session-card-aside__k">Released</span><span class="session-card-aside__v">{{ session.date | postDate }}</span></li>{% endif %}
-      </ul>
-    </aside>
+    {% if session.pull_quote %}<blockquote class="session-pull">{{ session.pull_quote }}</blockquote>{% endif %}
+    {% if session.storyHtml %}<div class="session-story prose">{{ session.storyHtml | safe }}</div>{% endif %}
+    {% if session.youtube_url %}
+    <a class="session-watch" href="{{ session.youtube_url }}" target="_blank" rel="noopener">Watch on YouTube &rarr;</a>
+    {% endif %}
   </div>
 
   <nav class="session-nav" aria-label="Episode navigation">
