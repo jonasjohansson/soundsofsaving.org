@@ -1,0 +1,313 @@
+---
+layout: base.njk
+current: educators
+permalink: /educators/
+title: For Educators
+description: "Sounds of Saving brings a music-based, SEL-rooted mental health curriculum to high schools and college campuses. Now accepting pilot partners for the 2026 to 2027 school year."
+ogType: website
+---
+{#
+  For Educators — dedicated landing page for school counselors, SEL leads, and
+  college wellness staff. Thesis headline, two curriculum tracks + a workshop
+  band (each a "what you get" spec list + one CTA), a proof band, a lead-magnet
+  pointer to the white paper, and a STUBBED intake form. Copy is CMS-editable
+  via content/pages/educators.json.
+
+  FORM IS A STUB: action="#", no backend yet. Before launch it must be wired to
+  Netlify Forms (add `data-netlify="true"` + a hidden form-name input, or a
+  /forms POST) with the submission routed to a shared programs@ alias, never a
+  personal inbox. See the comment block on the <form> below.
+#}
+{% set e = pages.educators %}
+
+<style>
+  .edu-page { padding-block: var(--space-xl); }
+  .edu-page h1 {
+    font-size: var(--fs-mega);
+    line-height: var(--lh-tight);
+    letter-spacing: var(--tracking-tight);
+    max-width: 16ch;
+    margin: 0 0 var(--space-md);
+  }
+  .edu-lead { font-size: var(--fs-lead); line-height: var(--lh-base); max-width: var(--maxw-prose); margin: 0 0 var(--space-lg); }
+
+  .edu-pullquote {
+    border-left: 3px solid var(--accent);
+    padding-left: var(--space-md);
+    margin: var(--space-xl) 0;
+    max-width: var(--maxw-prose);
+  }
+  .edu-pullquote blockquote { font-family: var(--font-body); font-style: italic; font-size: var(--fs-lead); line-height: var(--lh-base); margin: 0 0 var(--space-xs); max-width: none; }
+  .edu-pullquote cite { font-style: normal; font-size: var(--fs-small); color: var(--text-muted); }
+  .edu-why { max-width: var(--maxw-prose); line-height: var(--lh-base); margin: 0 0 var(--space-2xl); }
+
+  .edu-eyebrow {
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    font-size: var(--fs-tiny);
+    color: var(--coral);
+    margin: 0 0 var(--space-2xs);
+  }
+
+  /* track grid */
+  .tracks { margin-bottom: var(--space-2xl); }
+  .tracks__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-lg);
+    list-style: none;
+    padding: 0;
+  }
+  .track {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--paper-2);
+    padding: var(--space-lg);
+  }
+  .track__eyebrow {
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    font-size: var(--fs-tiny);
+    color: var(--accent);
+    margin: 0 0 var(--space-2xs);
+  }
+  .track__title { font-size: var(--fs-h3); margin: 0 0 var(--space-xs); }
+  .track__summary { font-size: var(--fs-small); line-height: var(--lh-base); margin: 0 0 var(--space-sm); }
+  .track__audience { font-size: var(--fs-small); color: var(--text-muted); margin: 0 0 var(--space-md); }
+  .track__audience strong { color: var(--ink); }
+  .track__spec-h {
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    font-size: var(--fs-tiny);
+    color: var(--ink-faint);
+    margin: 0 0 var(--space-2xs);
+  }
+  .track__spec { margin: 0 0 var(--space-md); padding-left: var(--space-md); }
+  .track__spec li { font-size: var(--fs-small); line-height: var(--lh-base); margin-bottom: var(--space-2xs); }
+  .track__cta { margin-top: auto; }
+
+  /* proof band */
+  .proof-band {
+    background: var(--dusk);
+    color: var(--on-dark);
+    border-radius: var(--radius);
+    padding: var(--space-xl) var(--space-lg);
+    margin-bottom: var(--space-2xl);
+  }
+  .proof-band h2 { color: var(--on-dark); font-size: var(--fs-h2); max-width: 24ch; margin: 0 0 var(--space-lg); }
+  .proof-band .edu-eyebrow { color: var(--coral); }
+  .proof-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--space-lg);
+    margin-bottom: var(--space-lg);
+    list-style: none;
+    padding: 0;
+  }
+  .proof-stat__num { font-family: var(--font-display); font-size: var(--fs-h2); color: var(--coral); line-height: 1; margin: 0 0 var(--space-2xs); }
+  .proof-stat__body { font-size: var(--fs-small); line-height: var(--lh-base); color: var(--paper-2); margin: 0 0 var(--space-2xs); max-width: none; }
+  .proof-stat__src { font-family: var(--font-mono); font-size: var(--fs-tiny); color: var(--ink-faint); }
+  .proof-band .proof-stat__src { color: var(--line); }
+  .proof-cred { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--dusk-2); padding-top: var(--space-lg); }
+  .proof-cred li { font-size: var(--fs-small); line-height: var(--lh-base); color: var(--paper-2); margin-bottom: var(--space-2xs); padding-left: var(--space-md); position: relative; }
+  .proof-cred li::before { content: "+"; position: absolute; left: 0; color: var(--coral); font-family: var(--font-mono); }
+
+  /* lead magnet */
+  .lead-magnet {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+    border: 1px solid var(--accent);
+    border-radius: var(--radius);
+    padding: var(--space-lg);
+    background: var(--paper-3);
+    margin-bottom: var(--space-2xl);
+  }
+  .lead-magnet__copy { max-width: var(--maxw-prose); }
+  .lead-magnet h2 { font-size: var(--fs-h3); margin: 0 0 var(--space-2xs); }
+  .lead-magnet p { font-size: var(--fs-small); line-height: var(--lh-base); margin: 0; }
+
+  /* intake form */
+  .intake { border-top: 1px solid var(--border); padding-top: var(--space-xl); }
+  .intake__head { max-width: var(--maxw-prose); margin-bottom: var(--space-lg); }
+  .intake h2 { font-size: var(--fs-h2); margin: 0 0 var(--space-xs); }
+  .intake__head p { line-height: var(--lh-base); margin: 0; }
+  .intake-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+    max-width: var(--maxw-prose);
+  }
+  .field { display: flex; flex-direction: column; gap: var(--space-3xs); }
+  .field--full { grid-column: 1 / -1; }
+  .field label {
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    font-size: var(--fs-tiny);
+    color: var(--ink-muted);
+  }
+  .field input,
+  .field select,
+  .field textarea {
+    font-family: var(--font-body);
+    font-size: var(--fs-base);
+    color: var(--ink);
+    background: var(--paper);
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius);
+    padding: var(--space-2xs) var(--space-xs);
+  }
+  .field textarea { min-height: 7rem; resize: vertical; }
+  .field input:focus,
+  .field select:focus,
+  .field textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .intake__submit { grid-column: 1 / -1; }
+  .intake__note { grid-column: 1 / -1; font-size: var(--fs-tiny); color: var(--text-faint); margin: 0; }
+
+  @media (max-width: 600px) {
+    .intake-form { grid-template-columns: 1fr; }
+  }
+</style>
+
+<div class="container edu-page">
+  <h1>{{ e.heading }}</h1>
+  {% if e.lead %}<p class="edu-lead">{{ e.lead }}</p>{% endif %}
+
+  {% if e.pullquote %}
+  <figure class="edu-pullquote">
+    <blockquote>{{ e.pullquote }}</blockquote>
+    {% if e.pullquote_attribution %}<cite>{{ e.pullquote_attribution }}</cite>{% endif %}
+  </figure>
+  {% endif %}
+
+  {% if e.why_music %}<p class="edu-why">{{ e.why_music }}</p>{% endif %}
+
+  {# — Two tracks + workshop band ————————————————————————————————— #}
+  <section class="tracks" aria-label="Programs for educators">
+    <ul class="tracks__grid">
+      {% for t in e.tracks %}
+      <li class="track">
+        {% if t.eyebrow %}<p class="track__eyebrow">{{ t.eyebrow }}</p>{% endif %}
+        <h2 class="track__title">{{ t.title }}</h2>
+        {% if t.summary %}<p class="track__summary">{{ t.summary }}</p>{% endif %}
+        {% if t.audience %}<p class="track__audience"><strong>For:</strong> {{ t.audience }}</p>{% endif %}
+        {% if t.spec.length %}
+        <p class="track__spec-h">{{ t.spec_heading or "What you get" }}</p>
+        <ul class="track__spec">
+          {% for s in t.spec %}<li>{{ s }}</li>{% endfor %}
+        </ul>
+        {% endif %}
+        {% if t.cta %}
+        <p class="track__cta"><a class="btn btn--primary" href="{{ t.cta.href }}">{{ t.cta.label }}</a></p>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+
+  {# — Proof band ————————————————————————————————————————————————— #}
+  {% if e.proof %}
+  <section class="proof-band" aria-label="{{ e.proof.eyebrow or 'Why now' }}">
+    {% if e.proof.eyebrow %}<p class="edu-eyebrow">{{ e.proof.eyebrow }}</p>{% endif %}
+    {% if e.proof.heading %}<h2>{{ e.proof.heading }}</h2>{% endif %}
+    {% if e.proof.stats.length %}
+    <ul class="proof-stats">
+      {% for s in e.proof.stats %}
+      <li class="proof-stat">
+        <p class="proof-stat__num">{{ s.stat }}</p>
+        <p class="proof-stat__body">{{ s.body }}</p>
+        {% if s.source %}<p class="proof-stat__src">{{ s.source }}</p>{% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    {% if e.proof.credibility.length %}
+    <ul class="proof-cred">
+      {% for c in e.proof.credibility %}<li>{{ c }}</li>{% endfor %}
+    </ul>
+    {% endif %}
+  </section>
+  {% endif %}
+
+  {# — Lead magnet (white paper) ——————————————————————————————————— #}
+  {% if e.lead_magnet %}
+  <aside class="lead-magnet" aria-label="{{ e.lead_magnet.title }}">
+    <div class="lead-magnet__copy">
+      {% if e.lead_magnet.eyebrow %}<p class="edu-eyebrow">{{ e.lead_magnet.eyebrow }}</p>{% endif %}
+      <h2>{{ e.lead_magnet.title }}</h2>
+      <p>{{ e.lead_magnet.body }}</p>
+    </div>
+    {% if e.lead_magnet.cta %}
+    <a class="btn btn--ghost" href="{{ e.lead_magnet.cta.href }}">{{ e.lead_magnet.cta.label }}</a>
+    {% endif %}
+  </aside>
+  {% endif %}
+
+  {# — Intake form (STUB) ————————————————————————————————————————— #}
+  {% if e.intake %}
+  <section class="intake" id="intake" aria-label="{{ e.intake.heading }}">
+    <div class="intake__head">
+      {% if e.intake.eyebrow %}<p class="edu-eyebrow">{{ e.intake.eyebrow }}</p>{% endif %}
+      <h2>{{ e.intake.heading }}</h2>
+      {% if e.intake.body %}<p>{{ e.intake.body }}</p>{% endif %}
+    </div>
+
+    {#
+      STUB FORM — not yet wired to a backend.
+      TODO before launch:
+        1. Add `data-netlify="true"` and `name="educator-intake"` to <form>,
+           plus a hidden <input type="hidden" name="form-name" value="educator-intake">
+           (Netlify Forms requirement), and change action="#" to a thank-you path.
+        2. Route notifications to a SHARED programs@ alias (e.g. programs@soundsofsaving.org)
+           via Netlify form notifications / Airtable — never a personal inbox.
+        3. Optionally add a honeypot field for spam.
+      Until then the form does nothing on submit (action="#").
+    #}
+    <form class="intake-form" action="#" method="post" aria-describedby="intake-stub-note">
+      <div class="field">
+        <label for="f-name">Name</label>
+        <input type="text" id="f-name" name="name" autocomplete="name">
+      </div>
+      <div class="field">
+        <label for="f-role">Role</label>
+        <input type="text" id="f-role" name="role" placeholder="Counselor, SEL lead, wellness staff" autocomplete="organization-title">
+      </div>
+      <div class="field">
+        <label for="f-school">School or institution</label>
+        <input type="text" id="f-school" name="school" autocomplete="organization">
+      </div>
+      <div class="field">
+        <label for="f-email">Email</label>
+        <input type="email" id="f-email" name="email" autocomplete="email">
+      </div>
+      <div class="field field--full">
+        <label for="f-track">Which track</label>
+        <select id="f-track" name="track">
+          <option value="">No preference yet</option>
+          <option value="sos-hs">SoS HS (high school)</option>
+          <option value="sos-uni">SoS Uni (college)</option>
+          <option value="workshop">Bring an Artist Workshop</option>
+        </select>
+      </div>
+      <div class="field field--full">
+        <label for="f-message">Message</label>
+        <textarea id="f-message" name="message" placeholder="Tell us about your school and what you're hoping for."></textarea>
+      </div>
+      <div class="intake__submit">
+        <button type="submit" class="btn btn--primary">Request a pilot conversation</button>
+      </div>
+      <p class="intake__note" id="intake-stub-note">
+        This form is not yet connected. It needs wiring to Netlify Forms with submissions routed to a shared programs@ inbox.
+      </p>
+    </form>
+  </section>
+  {% endif %}
+</div>

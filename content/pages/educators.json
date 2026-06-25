@@ -1,0 +1,78 @@
+{
+  "title": "For Educators",
+  "meta_description": "Sounds of Saving brings a music-based, SEL-rooted mental health curriculum to high schools and college campuses. Now accepting pilot partners for the 2026 to 2027 school year.",
+  "heading": "Music students will actually open up to.",
+  "lead": "Young people will tell an artist they love something they will not tell an adult in an office. Sounds of Saving turns that into a classroom: a music-based, SEL-rooted curriculum that teaches students to use music intentionally for their mental health, and connects them to real pathways to care. Now accepting pilot partners for the 2026 to 2027 school year.",
+  "pullquote": "The school mental health workforce needs to be built out. Instead of relying only on clinicians with advanced degrees, the system needs a more expansive approach that uses the skills and training of a wide range of people. There needs to be something in the middle.",
+  "pullquote_attribution": "Sharon Hoover, professor of child and adolescent psychiatry and co-director of the National Center for School Mental Health, University of Maryland School of Medicine",
+  "why_music": "Music is the something in the middle. It is already in every student's pocket, already how they regulate, connect, and process. We give educators a structured, culturally relevant way to use it, built on Social and Emotional Learning and designed with clinicians on our board.",
+  "tracks": [
+    {
+      "eyebrow": "High school",
+      "title": "SoS HS",
+      "summary": "A limited high-school curriculum that teaches students to use music receptively and intentionally for their mental health and wellbeing.",
+      "audience": "School counselors, SEL leads, and health and wellness educators.",
+      "spec_heading": "What you get",
+      "spec": [
+        "4 to 5 facilitated sessions across the school year",
+        "Rooted in Social and Emotional Learning (SEL)",
+        "Supplemental materials for student-led touchpoints between sessions",
+        "A clear handoff to local mental-health resources"
+      ],
+      "cta": { "label": "Start a high-school pilot", "href": "#intake" }
+    },
+    {
+      "eyebrow": "College",
+      "title": "SoS Uni",
+      "summary": "A two-pronged campus initiative pairing awareness with music-based community building.",
+      "audience": "College wellness staff, campus radio, and student clubs.",
+      "spec_heading": "What you get",
+      "spec": [
+        "An annual College Campus Radio Campaign anchored by peer and artist storytelling",
+        "Music-based prompts students can run themselves",
+        "Live events and community-building experiences for campus clubs and groups",
+        "Support connecting students to on- and off-campus care"
+      ],
+      "cta": { "label": "Start a campus pilot", "href": "#intake" }
+    },
+    {
+      "eyebrow": "Workshops",
+      "title": "Bring an Artist Workshop",
+      "summary": "A single high-impact event built around live performance, discussion, and storytelling, with a path to care.",
+      "audience": "Schools and campuses that want one event rather than a full curriculum.",
+      "spec_heading": "What you get",
+      "spec": [
+        "An artist-led session built around a mental-health theme",
+        "Live performance, discussion, and storytelling",
+        "A connection to local mental-health professionals and pathways to care",
+        "Past artists include Erick the Architect, Pink Siifu, Cleo Reed, Bryndon Cook, deem spencer, and Maassai"
+      ],
+      "cta": { "label": "Ask about a workshop", "href": "#intake" }
+    }
+  ],
+  "proof": {
+    "eyebrow": "Why now",
+    "heading": "The need is documented, and so is our credibility.",
+    "stats": [
+      { "stat": "42%", "body": "of high-school students felt persistently sad or hopeless in 2021, and 22% seriously considered suicide.", "source": "CDC Youth Risk Behavior Survey, 2011 to 2021" },
+      { "stat": "15 cigarettes/day", "body": "the mortality impact of being socially disconnected, comparable to smoking that much.", "source": "U.S. Surgeon General's Advisory on Loneliness and Isolation, 2023" }
+    ],
+    "credibility": [
+      "Produced in partnership with the 988 Suicide and Crisis Lifeline and Vibrant Emotional Support",
+      "Featured in Pitchfork, Rolling Stone, AfroPunk, and MTV",
+      "Co-founded by a licensed psychotherapist; clinicians and crisis experts on our board, including the founder of the National Suicide Prevention Lifeline",
+      "Artist roster includes Sharon Van Etten, Meshell Ndegeocello, and dozens more"
+    ]
+  },
+  "lead_magnet": {
+    "eyebrow": "Read first",
+    "title": "Why music for mental health",
+    "body": "A Sound Approach, our white paper co-authored with the We Are All Music Foundation, brings together research from neuroscientists, music therapists, and psychologists on how music supports wellbeing, especially among youth underserved by traditional care.",
+    "cta": { "label": "Read A Sound Approach", "href": "/learn/a-sound-approach/" }
+  },
+  "intake": {
+    "eyebrow": "Now accepting pilot partners",
+    "heading": "Bring Sounds of Saving to your school or campus",
+    "body": "Tell us a little about your school or institution and which track fits. We are accepting pilot partners for the 2026 to 2027 school year and will follow up personally."
+  }
+}
