@@ -274,34 +274,18 @@ eleventyComputed:
 <section class="section">
   <div class="container">
     <p class="doors-line">Open to everyone. Always free.</p>
-    <ul class="doors">
-      <li>
-        <a class="door" href="/sessions/">
-          <p class="label">The films</p>
-          <h2 class="door__title">Sessions</h2>
-          <p class="door__copy">Artists play the songs that carried them, and tell you why.</p>
-        </a>
+    <ul class="home-features">
+      <li class="home-feature home-feature--programs">
+        <p class="eyebrow">Programs</p>
+        <h2 class="home-feature__title">Music, where young people already are</h2>
+        <p class="home-feature__copy">From the film series to live events and campus radio, our programs meet people where music already lives, and turn honest artist storytelling into a real path to care.</p>
+        <a class="home-more" href="/programs/">Explore the programs &rarr;</a>
       </li>
-      <li>
-        <a class="door" href="/resources/">
-          <p class="label">Find a resource</p>
-          <h2 class="door__title">Get Help</h2>
-          <p class="door__copy">Search vetted mental-health support near you.</p>
-        </a>
-      </li>
-      <li>
-        <a class="door" href="/educators/">
-          <p class="label">Bring it to your school</p>
-          <h2 class="door__title">Educators</h2>
-          <p class="door__copy">Free curriculum that opens conversations through music.</p>
-        </a>
-      </li>
-      <li>
-        <a class="door" href="{{ settings.donate_url }}" target="_blank" rel="noopener">
-          <p class="label">Support the work</p>
-          <h2 class="door__title">Donate</h2>
-          <p class="door__copy">Keep every session and resource free for the people who need it.</p>
-        </a>
+      <li class="home-feature home-feature--educators">
+        <p class="eyebrow">For educators</p>
+        <h2 class="home-feature__title">A classroom built on music</h2>
+        <p class="home-feature__copy">Students will tell an artist something they won't tell an adult in an office. Our music-based, SEL-rooted curriculum turns that into a classroom, with a clear handoff to support.</p>
+        <a class="home-more" href="/educators/">Bring it to your school &rarr;</a>
       </li>
     </ul>
   </div>
@@ -344,25 +328,32 @@ eleventyComputed:
 </section>
 {% endif %}
 
-{# PROGRAMS + EDUCATORS ————————————————————————————————————————— #}
-<section class="section section--alt">
-  <div class="container">
-    <ul class="home-features">
-      <li class="home-feature home-feature--programs">
-        <p class="eyebrow">Programs</p>
-        <h2 class="home-feature__title">Music, where young people already are</h2>
-        <p class="home-feature__copy">From the film series to live events and campus radio, our programs meet people where music already lives, and turn honest artist storytelling into a real path to care.</p>
-        <a class="home-more" href="/programs/">Explore the programs &rarr;</a>
-      </li>
-      <li class="home-feature home-feature--educators">
-        <p class="eyebrow">For educators</p>
-        <h2 class="home-feature__title">A classroom built on music</h2>
-        <p class="home-feature__copy">Students will tell an artist something they won't tell an adult in an office. Our music-based, SEL-rooted curriculum turns that into a classroom, with a clear handoff to support.</p>
-        <a class="home-more" href="/educators/">Bring it to your school &rarr;</a>
-      </li>
-    </ul>
+{# FEATURED INTERVIEW ——————————————————————————————————————————— #}
+{% set interviewCluster = (news.storyClusters | selectattr("slug", "equalto", "interviews") | first) %}
+{% if interviewCluster and interviewCluster.posts.length %}
+{% set fStory = interviewCluster.posts[0] %}
+<section class="section">
+  <div class="container" data-section="stories">
+    <header class="home-head">
+      <p class="eyebrow">Featured interview</p>
+      <h2 class="home-head__title">Voices on music<br>and mental health</h2>
+    </header>
+    <div class="featured featured--story">
+      <a class="featured__media" href="{{ fStory.url }}" aria-label="Read {{ fStory.title }}">
+        {% if fStory.image %}<img class="media media--full" src="{{ fStory.image | img }}" alt="{{ fStory.title }}"{% if fStory.dims %} width="{{ fStory.dims.width }}" height="{{ fStory.dims.height }}"{% endif %} loading="lazy" decoding="async" />{% endif %}
+      </a>
+      <div>
+        <p class="featured__artist">{{ fStory.title }}</p>
+        {% if fStory.author %}<p class="featured__song">{{ fStory.author }}</p>{% endif %}
+        <p class="featured__links">
+          <a class="home-more" href="{{ fStory.url }}">Read this interview &rarr;</a>
+          <a class="home-more" href="/stories/">All stories &rarr;</a>
+        </p>
+      </div>
+    </div>
   </div>
 </section>
+{% endif %}
 
 {# Randomize the hero + featured session on each page load (client-side). #}
 <script id="session-pool" type="application/json">
@@ -373,6 +364,16 @@ eleventyComputed:
   {%- endif -%}
 {%- endfor -%}
 {{ pool | dump | safe }}
+</script>
+<script id="story-pool" type="application/json">
+{%- set spool = [] -%}
+{%- set ic = (news.storyClusters | selectattr("slug", "equalto", "interviews") | first) -%}
+{%- if ic -%}
+{%- for p in ic.posts -%}
+  {%- if p.image -%}{%- set _ = spool.push({ "title": p.title, "author": p.author, "url": p.url, "img": (p.image | img) }) -%}{%- endif -%}
+{%- endfor -%}
+{%- endif -%}
+{{ spool | dump | safe }}
 </script>
 <script>
   (function () {
@@ -409,6 +410,24 @@ eleventyComputed:
     if (fSong) {
       if (f.song) { fSong.textContent = f.song + " by " + (f.covers || f.artist); fSong.style.display = ""; }
       else { fSong.style.display = "none"; }
+    }
+
+    // Randomize the featured interview too.
+    var sEl = document.getElementById("story-pool");
+    var stories = [];
+    if (sEl) { try { stories = JSON.parse(sEl.textContent); } catch (e) {} }
+    if (stories.length) {
+      var st = pick(stories);
+      var stImg = document.querySelector(".featured--story .featured__media img");
+      var stMedia = document.querySelector(".featured--story .featured__media");
+      var stTitle = document.querySelector(".featured--story .featured__artist");
+      var stAuthor = document.querySelector(".featured--story .featured__song");
+      var stRead = document.querySelector(".featured--story .featured__links a");
+      if (stImg && st.img) { stImg.src = st.img; stImg.alt = st.title; }
+      if (stMedia && st.url) { stMedia.setAttribute("href", st.url); stMedia.setAttribute("aria-label", "Read " + st.title); }
+      if (stTitle) { stTitle.textContent = st.title; }
+      if (stAuthor) { if (st.author) { stAuthor.textContent = st.author; stAuthor.style.display = ""; } else { stAuthor.style.display = "none"; } }
+      if (stRead && st.url) { stRead.setAttribute("href", st.url); }
     }
   })();
 </script>
