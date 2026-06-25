@@ -1,37 +1,70 @@
 /* ==================================================================== *
- *  SOUNDS OF SAVING — design tokens
+ *  SOUNDS OF SAVING — design tokens — "Liner Notes" design system
  *
  *  Single source of truth for the brand. Components consume these vars
  *  only; never hardcode a color, size, or spacing value below this file.
- *  Palette mirrors the original Webflow custom properties (recon report).
+ *
+ *  "Liner Notes": warm dusk, not corporate blue. Warm paper + ink, a dusk
+ *  violet accent, a warm coral highlight, and a sage-teal "calm" reserved
+ *  for the Get Help / resources area. The original semantic names (--white,
+ *  --text, --accent, --surface-dark, --border, --white-smoke, --links-color,
+ *  etc.) are RE-POINTED to the new palette so existing templates restyle
+ *  without edits. New names (--paper, --ink, --calm, --coral) live alongside.
  * ==================================================================== */
 
 :root {
-  /* — Brand palette (from the original Webflow tokens) ——————————— */
-  --white: #fff;
-  --white-smoke: #f0f0f0;
-  --gray: #dfdfdf;
-  --dark-grey-2: #9e9e9e;
-  --medium-grey-1: #292929;
-  --dark-slate-grey: #444;
-  --dark-grey: #111;
-  --black: #000;
-  --header-blue: #006fe5;
-  --links-color: #91a7db;
+  /* — Liner Notes palette ————————————————————————————————————————— */
+  --paper:        #f6f1e9;   /* warm paper background */
+  --paper-2:      #efe7da;   /* slightly deeper paper surface */
+  --paper-3:      #e7dccb;   /* card / well surface */
+  --ink:          #16130f;   /* warm near-black text */
+  --ink-muted:    #4a4339;   /* secondary text (AA on paper) */
+  --ink-faint:    #6f665a;   /* tertiary / fine print (AA on paper) */
 
-  /* — Semantic roles ————————————————————————————————————————— */
-  --bg: var(--white);
-  --bg-alt: var(--white-smoke);
-  --text: var(--dark-grey);
-  --text-muted: var(--dark-slate-grey);
-  --text-faint: var(--dark-grey-2);
-  --border: var(--gray);
-  --accent: var(--header-blue);
-  --link: var(--links-color);
-  --surface-dark: var(--medium-grey-1);
+  --accent:       #5b4b8a;   /* dusk violet — emotive primary */
+  --accent-deep:  #443a6b;   /* hover / pressed violet */
+  --coral:        #e8543e;   /* warm coral — highlights / CTAs */
+  --calm:         #3e6f66;   /* sage-teal — reserved for Get Help / resources */
+  --calm-deep:    #305851;   /* calm hover */
 
-  /* — Typography ————————————————————————————————————————————— */
-  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  /* warm dark surface for hero overlay + quote band (replaces grey) */
+  --dusk:         #211d2e;   /* deep warm-violet ink, for dark sections */
+  --dusk-2:       #2c2740;
+
+  /* neutral borders (warm-tinted greys) */
+  --line:         #d8cdba;
+  --line-strong:  #c2b6a0;
+
+  /* — Legacy semantic names, RE-POINTED to the new palette ——————————— *
+   *  Existing templates reference these; keep them working.             */
+  --white:          var(--paper);     /* "white" surfaces are now warm paper */
+  --white-smoke:    var(--paper-2);
+  --gray:           var(--line);
+  --dark-grey-2:    var(--ink-faint);
+  --medium-grey-1:  var(--dusk);      /* was the dark surface grey */
+  --dark-slate-grey:var(--ink-muted);
+  --dark-grey:      var(--ink);
+  --black:          var(--ink);
+  --header-blue:    var(--accent);    /* old periwinkle/blue -> dusk violet */
+  --links-color:    var(--accent);
+
+  /* — Semantic roles ————————————————————————————————————————————— */
+  --bg:           var(--paper);
+  --bg-alt:       var(--paper-2);
+  --text:         var(--ink);
+  --text-muted:   var(--ink-muted);
+  --text-faint:   var(--ink-faint);
+  --border:       var(--line);
+  --link:         var(--accent);
+  --surface-dark: var(--dusk);        /* hero overlay + quote band */
+  --on-dark:      var(--paper);       /* text on dark surfaces */
+
+  /* — Typography ————————————————————————————————————————————————— */
+  --font-display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --font-body:    "Newsreader", Georgia, "Times New Roman", serif;
+  --font-mono:    "Space Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+
+  /* legacy alias — old --font-body name now points at the body serif */
 
   --fs-mega:  clamp(2.4rem, 6vw, 4.5rem);   /* hero line */
   --fs-title: clamp(1.9rem, 4vw, 3rem);     /* page titles / h1 */
@@ -42,17 +75,19 @@
   --fs-small: 0.85rem;
   --fs-tiny:  0.75rem;
 
-  --lh-tight: 1.15;
-  --lh-base:  1.6;
+  --lh-tight: 1.1;     /* tighter display tracking for the grotesque */
+  --lh-base:  1.6;     /* relaxed long-form body */
 
   --fw-regular:  400;
   --fw-medium:   500;
   --fw-semibold: 600;
+  --fw-bold:     700;
 
-  --tracking: 0.01em;
-  --tracking-wide: 0.06em;
+  --tracking:        0.005em;   /* body, near-neutral for the serif */
+  --tracking-tight: -0.015em;   /* display lines */
+  --tracking-wide:   0.1em;     /* mono eyebrows / labels */
 
-  /* — Spacing scale ————————————————————————————————————————— */
+  /* — Spacing scale ————————————————————————————————————————————— */
   --space-3xs: 0.25rem;
   --space-2xs: 0.5rem;
   --space-xs:  0.75rem;
@@ -62,15 +97,20 @@
   --space-xl:  4rem;
   --space-2xl: 6rem;
 
-  /* — Layout ————————————————————————————————————————————————— */
+  /* — Layout ————————————————————————————————————————————————————— */
   --maxw: 1140px;
   --maxw-prose: 720px;
   --gutter: clamp(1rem, 4vw, 2.5rem);
 
-  /* — UI ————————————————————————————————————————————————————— */
+  /* — UI ————————————————————————————————————————————————————————— */
   --radius: 6px;
   --radius-pill: 999px;
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-sm: 0 1px 3px rgba(33, 29, 46, 0.1);
   --header-h: 72px;
   --transition: 150ms ease;
+
+  /* — Imagery treatment ("salvage" duotone) ————————————————————————— */
+  --salvage-shadow: var(--ink);      /* duotone dark stop */
+  --salvage-light:  var(--accent);   /* duotone light stop (dusk violet) */
+  --grain-opacity:  0.16;
 }
