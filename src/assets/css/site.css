@@ -85,6 +85,23 @@ p { max-width: var(--maxw-prose); }
   color: var(--accent);
 }
 
+/* Per-template eyebrow/label classes share the mono base; their color/margin/
+   layout stay local. Excludes .finder__reset / .finder__more button (font: inherit). */
+.research__eyebrow, .archive-row__date,
+.edu-eyebrow, .track__eyebrow, .track__spec-h, .field label,
+.resource-card__badge, .resource-card__tags .tag, .learn-card__kind,
+.home-hero__credit,
+.stories__tab, .stories__group-count, .story-card__date,
+.howto__label, .pgroup__label, .pcard__eyebrow, .pcard__dt, .edu-pointer__eyebrow,
+.session-back, .session-eyebrow, .session-meta dt, .session-watch, .session-nav .dir,
+.artists-back, .artist-row__song,
+.sessions-cobrand, .sessions-toolbar a, .sessions-count, .sessions-section__label, .session-card__song, .sessions-teaser a.btn-text {
+  font-family: var(--font-mono);
+  font-size: var(--fs-tiny);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
 a {
   color: var(--accent);
   text-decoration: none;
