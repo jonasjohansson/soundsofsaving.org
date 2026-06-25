@@ -90,7 +90,7 @@ a {
   text-decoration: none;
   transition: color var(--transition);
 }
-a:hover { color: var(--accent); }
+a:hover { color: var(--accent-deep); }
 
 /* Global keyboard focus ring (accessibility). */
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
@@ -189,10 +189,10 @@ main { min-height: 50vh; }
   font-weight: var(--fw-medium);
   font-size: var(--fs-base);
 }
-.site-nav__links a:hover,
+.site-nav__links a:hover { color: var(--accent-deep); }
 .site-nav__links a[aria-current="page"] { color: var(--accent); }
 .site-nav__donate { color: var(--text); }
-.site-nav__donate:hover { color: var(--accent); }
+.site-nav__donate:hover { color: var(--accent-deep); }
 
 /* Overlay header (home only): transparent over the hero video, white text,
    logo hidden (it lives in the hero); turns solid white once scrolled. */
@@ -323,14 +323,14 @@ main { min-height: 50vh; }
   color: var(--text-muted);
   font-weight: var(--fw-medium);
 }
-.socials a:hover { color: var(--accent); }
+.socials a:hover { color: var(--accent-deep); }
 
 .footer-fine {
   color: var(--text-faint);
   font-size: var(--fs-tiny);
 }
 .footer-fine a { color: var(--text-faint); text-decoration: underline; }
-.footer-fine a:hover { color: var(--accent); }
+.footer-fine a:hover { color: var(--accent-deep); }
 
 /* — Imagery treatment system ("Liner Notes") ————————————————————————— *
  *

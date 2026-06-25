@@ -25,6 +25,7 @@
 
   --accent:       #1e3ae6;   /* electric blue — default (home + Get Help) */
   --accent-deep:  color-mix(in srgb, var(--accent), #000 24%);  /* auto hover/pressed shade */
+  --accent-bright: color-mix(in srgb, var(--accent), #fff 26%); /* lightened accent for dark surfaces */
   --coral:        #e23b1e;   /* vermilion red — highlights / accent CTAs */
   --calm:         #1f6e63;   /* deep teal — reserved for Get Help / crisis */
   --calm-deep:    #16544b;   /* calm hover */
