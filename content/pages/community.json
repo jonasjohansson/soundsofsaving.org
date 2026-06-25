@@ -5,24 +5,86 @@
     "heading": "Our Partners",
     "note": "Partner organizations who help make our programs possible.",
     "logos": [
-      { "alt": "The Ally Coalition", "src": "/assets/img/site/partners/64b83c06455979440da1451d_tac-transparent-copy.png" },
-      { "alt": "Republic Records", "src": "/assets/img/site/partners/64b83c225e3bcf19586d3836_ps-republicrecords-featured.jpeg" },
-      { "alt": "988 Suicide & Crisis Lifeline", "src": "/assets/img/site/partners/67b3c562f4f84e2e167b83f4_988.png" },
-      { "alt": "OFFAIR", "src": "/assets/img/site/partners/64ca712e1e2f96bea7d72058_d0249977-31fb-4b55-8337-113ecf367afb.jpeg" },
-      { "alt": "Propeller", "src": "/assets/img/site/partners/64b83d0ba117ef929c2fe3c6_propeller-logo001_28422_32951-2.png" },
-      { "alt": "AEG Worldwide", "src": "/assets/img/site/partners/64ca7001c935edb0358055d6_anschutz-entertainment-group-aeg-worldwide-logo-vector.png" },
-      { "alt": "Lalaland", "src": "/assets/img/site/partners/64b83c3697c120b90d86428d_ll_logo_2.0-03.jpg" },
-      { "alt": "Prose", "src": "/assets/img/site/partners/64b83c3d5e3bcf19586d6098_https___supergreat-images.s3.amazonaws.com_prose-cac1435.png" },
-      { "alt": "Vibrant Emotional Health", "src": "/assets/img/site/partners/64ca71878c50385b0a5d21ab_vibrant.png" },
-      { "alt": "Partner", "src": "/assets/img/site/partners/64b83c429ade4cceec7cb214_logo_400x200.png" },
-      { "alt": "SMASH", "src": "/assets/img/site/partners/64b83c4674fbb94bb85a8b1d_smash-logo-marquee-no-tag.png" },
-      { "alt": "Partner logos", "src": "/assets/img/site/partners/64b83c68eade17d53fe791e4_partner-logos.png" },
-      { "alt": "American Association of Suicidology", "src": "/assets/img/site/partners/64ca70eb786dfcbdb5bb8ba0_aas_logo.png" },
-      { "alt": "Partner", "src": "/assets/img/site/partners/64ca70f15a0181f9ba0185c5_f1e16f14-5056-a830-8c8dc053298b25a1.png" },
-      { "alt": "Partner", "src": "/assets/img/site/partners/64b83bf8455979440da13244_fulllogowhite.jpeg" },
-      { "alt": "National Sawdust", "src": "/assets/img/site/partners/64ca737345ed824d62d509dd_national_sawdust_logo.jpeg" },
-      { "alt": "NCMF", "src": "/assets/img/site/partners/64b83c0a63d39b6cc9ca9799_ncmf_website.png" },
-      { "alt": "Partner", "src": "/assets/img/site/partners/64ca78010213b863b088ebf2_logo.gif" }
+      {
+        "alt": "The Ally Coalition",
+        "src": "/assets/img/site/partners/64b83c06455979440da1451d_tac-transparent-copy.png",
+        "url": "https://www.theallycoalition.org"
+      },
+      {
+        "alt": "Republic Records",
+        "src": "/assets/img/site/partners/64b83c225e3bcf19586d3836_ps-republicrecords-featured.jpeg",
+        "url": "https://www.republicrecords.com"
+      },
+      {
+        "alt": "988 Suicide & Crisis Lifeline",
+        "src": "/assets/img/site/partners/67b3c562f4f84e2e167b83f4_988.png",
+        "url": "https://988lifeline.org"
+      },
+      {
+        "alt": "OFFAIR",
+        "src": "/assets/img/site/partners/64ca712e1e2f96bea7d72058_d0249977-31fb-4b55-8337-113ecf367afb.jpeg"
+      },
+      {
+        "alt": "Propeller",
+        "src": "/assets/img/site/partners/64b83d0ba117ef929c2fe3c6_propeller-logo001_28422_32951-2.png",
+        "url": "https://www.propeller.la"
+      },
+      {
+        "alt": "AEG Worldwide",
+        "src": "/assets/img/site/partners/64ca7001c935edb0358055d6_anschutz-entertainment-group-aeg-worldwide-logo-vector.png",
+        "url": "https://www.aegworldwide.com"
+      },
+      {
+        "alt": "Lalaland",
+        "src": "/assets/img/site/partners/64b83c3697c120b90d86428d_ll_logo_2.0-03.jpg"
+      },
+      {
+        "alt": "Prose",
+        "src": "/assets/img/site/partners/64b83c3d5e3bcf19586d6098_https___supergreat-images.s3.amazonaws.com_prose-cac1435.png"
+      },
+      {
+        "alt": "Vibrant Emotional Health",
+        "src": "/assets/img/site/partners/64ca71878c50385b0a5d21ab_vibrant.png",
+        "url": "https://www.vibrant.org"
+      },
+      {
+        "alt": "Partner",
+        "src": "/assets/img/site/partners/64b83c429ade4cceec7cb214_logo_400x200.png"
+      },
+      {
+        "alt": "SMASH",
+        "src": "/assets/img/site/partners/64b83c4674fbb94bb85a8b1d_smash-logo-marquee-no-tag.png"
+      },
+      {
+        "alt": "Partner logos",
+        "src": "/assets/img/site/partners/64b83c68eade17d53fe791e4_partner-logos.png"
+      },
+      {
+        "alt": "American Association of Suicidology",
+        "src": "/assets/img/site/partners/64ca70eb786dfcbdb5bb8ba0_aas_logo.png",
+        "url": "https://suicidology.org"
+      },
+      {
+        "alt": "Partner",
+        "src": "/assets/img/site/partners/64ca70f15a0181f9ba0185c5_f1e16f14-5056-a830-8c8dc053298b25a1.png"
+      },
+      {
+        "alt": "Partner",
+        "src": "/assets/img/site/partners/64b83bf8455979440da13244_fulllogowhite.jpeg"
+      },
+      {
+        "alt": "National Sawdust",
+        "src": "/assets/img/site/partners/64ca737345ed824d62d509dd_national_sawdust_logo.jpeg",
+        "url": "https://www.nationalsawdust.org"
+      },
+      {
+        "alt": "NCMF",
+        "src": "/assets/img/site/partners/64b83c0a63d39b6cc9ca9799_ncmf_website.png"
+      },
+      {
+        "alt": "Partner",
+        "src": "/assets/img/site/partners/64ca78010213b863b088ebf2_logo.gif"
+      }
     ]
   },
   "submit_form": {
@@ -30,11 +92,36 @@
     "intro": "Music carries us through. Tell us about a song that found you at the right time, and the story of why it matters to you. Your story may be featured as part of the community series.",
     "action": "",
     "fields": [
-      { "name": "name", "label": "Your name", "type": "text", "required": true },
-      { "name": "email", "label": "Email", "type": "email", "required": true },
-      { "name": "song", "label": "Song title", "type": "text", "required": true },
-      { "name": "artist", "label": "Artist", "type": "text", "required": false },
-      { "name": "story", "label": "What's the story behind this song for you?", "type": "textarea", "required": true }
+      {
+        "name": "name",
+        "label": "Your name",
+        "type": "text",
+        "required": true
+      },
+      {
+        "name": "email",
+        "label": "Email",
+        "type": "email",
+        "required": true
+      },
+      {
+        "name": "song",
+        "label": "Song title",
+        "type": "text",
+        "required": true
+      },
+      {
+        "name": "artist",
+        "label": "Artist",
+        "type": "text",
+        "required": false
+      },
+      {
+        "name": "story",
+        "label": "What's the story behind this song for you?",
+        "type": "textarea",
+        "required": true
+      }
     ],
     "submit_label": "Share your song"
   }

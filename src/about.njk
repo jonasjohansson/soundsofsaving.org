@@ -74,51 +74,30 @@ ogType: website
   .research .btn--stroke { border-color: var(--paper); color: var(--paper); }
   .research .btn--stroke:hover { background: var(--paper); color: var(--dusk); }
 
-  /* Advisory roster — designed credibility wall. Denser grid, mono name index,
-     bios revealed on demand via <details> so ~35 names read as one proof block. */
+  /* Advisory roster — a consistent name index (no toggles). */
   .roster {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: var(--space-sm);
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: var(--space-2xs) var(--space-lg);
     margin-top: var(--space-lg);
     list-style: none;
     padding: 0;
   }
   .roster__item {
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    background: var(--paper-2);
-  }
-  .roster__item summary {
-    cursor: pointer;
-    list-style: none;
-    min-height: var(--roster-card-min-h);
-    padding: var(--space-sm) var(--space-md);
     font-family: var(--font-display);
-    font-weight: var(--fw-semibold);
+    font-weight: var(--fw-medium);
     color: var(--ink);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--space-2xs);
+    padding: var(--space-2xs) 0;
+    border-bottom: 1px solid var(--line);
   }
-  .roster__item summary::-webkit-details-marker { display: none; }
-  .roster__item summary::after {
-    content: "+";
-    font-family: var(--font-mono);
-    color: var(--accent);
-    font-size: var(--fs-base);
-  }
-  .roster__item[open] summary::after { content: "–"; }
-  .roster__item summary:hover { color: var(--accent); }
-  .roster__bio {
-    padding: 0 var(--space-md) var(--space-md);
-    font-size: var(--fs-small);
-    line-height: var(--lh-base);
-    color: var(--text-muted);
-    margin: 0;
-    max-width: none;
-  }
+
+  /* Partners and supporters — linked where known, desaturated, larger. */
+  .about-partners { margin-top: var(--space-2xl); padding-top: var(--space-xl); border-top: 1px solid var(--line); }
+  .about-partners h2 { font-size: var(--fs-h2); margin: 0 0 var(--space-lg); }
+  .partner-grid { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-lg) var(--space-2xl); list-style: none; margin: 0; padding: 0; }
+  .partner-grid li { display: flex; }
+  .partner-logo { height: 46px; width: auto; filter: grayscale(1); opacity: 0.6; transition: opacity var(--transition); }
+  .partner-grid a:hover .partner-logo, .partner-logo:hover { opacity: 1; }
 </style>
 
 <div class="container about-page">
@@ -148,19 +127,11 @@ ogType: website
   </section>
   {% endif %}
 
-  {% if a.approach %}
-  <section class="about-section" aria-label="{{ a.approach.heading }}">
-    <h2>{{ a.approach.heading }}</h2>
-    <p>{{ a.approach.body }}</p>
-  </section>
-  {% endif %}
-
   {% if a.research %}
   <aside class="research" aria-label="{{ a.research.heading }}">
     <div class="research__copy">
-      {% if a.research.eyebrow %}<p class="research__eyebrow">{{ a.research.eyebrow }}</p>{% endif %}
       <h2>{{ a.research.heading }}</h2>
-      <p>{{ a.research.body }}</p>
+      <p>{{ a.research.body | safe }}</p>
     </div>
     {% if a.research.cta %}
     <a class="btn btn--stroke" href="{{ a.research.cta.href }}">{{ a.research.cta.label }}</a>
@@ -211,11 +182,19 @@ ogType: website
     {% if a.advisory_board.intro %}<p>{{ a.advisory_board.intro }}</p>{% endif %}
     <ul class="roster">
       {% for m in a.advisory_board.members %}
+      <li class="roster__item">{{ m.name }}</li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+
+  {% if pages.community.partners.logos %}
+  <section class="about-partners" aria-label="Partners and supporters">
+    <h2>Partners and supporters</h2>
+    <ul class="partner-grid">
+      {% for logo in pages.community.partners.logos %}
       <li>
-        <details class="roster__item">
-          <summary>{{ m.name }}</summary>
-          <p class="roster__bio">{{ m.bio }}</p>
-        </details>
+        {% if logo.url %}<a href="{{ logo.url }}" target="_blank" rel="noopener" title="{{ logo.alt }}"><img class="partner-logo" src="{{ logo.src }}" alt="{{ logo.alt }}" loading="lazy" decoding="async" /></a>{% else %}<img class="partner-logo" src="{{ logo.src }}" alt="{{ logo.alt }}" loading="lazy" decoding="async" />{% endif %}
       </li>
       {% endfor %}
     </ul>

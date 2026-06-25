@@ -105,7 +105,6 @@ eleventyComputed:
     font-weight: var(--fw-semibold);
   }
   .home-more:hover { text-decoration: underline; }
-  .home-more--head { margin-top: var(--space-sm); }
 
   /* — 2. Support line + four doors ———————————————————————————————— */
   .doors-line {
@@ -340,7 +339,6 @@ eleventyComputed:
     <header class="home-head">
       <p class="eyebrow">Stories</p>
       <h2 class="home-head__title">Voices on music and mental health</h2>
-      <a class="home-more home-more--head" href="/stories/">Read all stories &rarr;</a>
     </header>
     <ul class="stories">
       {% for post in storyList %}
@@ -363,7 +361,6 @@ eleventyComputed:
       {% endif %}
       {% endfor %}
     </ul>
-    <a class="home-more" href="/stories/">Read all stories &rarr;</a>
   </div>
 </section>
 {% endif %}
@@ -397,7 +394,8 @@ eleventyComputed:
       hImg.alt = h.artist + " performing for Sounds of Saving";
     }
     if (hCredit) { hCredit.textContent = "Pictured: " + h.artist + (h.song ? ", “" + h.song + "”" : ""); }
-    var f = pick(all);
+    var withSong = all.filter(function (s) { return s.song; });
+    var f = pick(withSong.length ? withSong : all);
     var fImg = document.querySelector(".featured__media img");
     var fLink = document.querySelector(".featured__media");
     var fArtist = document.querySelector(".featured__artist");

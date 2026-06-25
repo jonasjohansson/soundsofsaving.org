@@ -6,7 +6,7 @@ pagination:
   alias: post
 permalink: "{{ post.url }}"
 eleventyComputed:
-  current: "{{ 'news' if post.section == 'stories' else post.section }}"
+  current: "{{ post.section }}"
   title: "{{ post.title }}"
   description: "{{ post.summary or post.excerpt }}"
   ogType: "article"

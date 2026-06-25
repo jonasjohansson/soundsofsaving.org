@@ -76,17 +76,6 @@
   <footer class="site-footer">
     <div class="container site-footer__inner">
 
-      {% if pages.community.partners.logos %}
-      <div class="footer-partners">
-        <p class="footer-partners__label">With support from</p>
-        <ul class="footer-partners__grid">
-          {% for logo in pages.community.partners.logos %}
-          <li><img class="footer-partner" src="{{ logo.src }}" alt="{{ logo.alt }}" loading="lazy" decoding="async" /></li>
-          {% endfor %}
-        </ul>
-      </div>
-      {% endif %}
-
       <div class="footer-meta">
         <nav class="socials" aria-label="Social media">
           {% if settings.socials.youtube %}<a href="{{ settings.socials.youtube }}" target="_blank" rel="noopener">YouTube</a>{% endif %}

@@ -31,11 +31,12 @@
 
   /* Per-section accents (all AA on bone). Applied via [data-section] in site.css;
      --accent-deep above auto-derives the hover shade from whichever is active. */
-  --accent-sessions:  #1e3ae6;   /* blue   — the films */
-  --accent-programs:  #1d6e3a;   /* green  — programs */
-  --accent-educators: #a8480c;   /* orange — educators */
-  --accent-stories:   #6d3bbf;   /* violet — stories */
-  --accent-about:     #a8323a;   /* crimson — about */
+  --accent-home:      #1e3ae6;   /* blue    — landing */
+  --accent-sessions:  #b4138a;   /* magenta — sessions */
+  --accent-programs:  #1d6e3a;   /* green    — programs */
+  --accent-educators: #a8480c;   /* orange   — educators */
+  --accent-stories:   #6d3bbf;   /* violet   — stories */
+  --accent-about:     #a8323a;   /* crimson  — about */
 
   /* near-black dark surface for hero overlay + quote bands */
   --dusk:         #14110d;

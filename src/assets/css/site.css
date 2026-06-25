@@ -97,10 +97,11 @@ a:hover { color: var(--accent); }
 
 /* Per-section accent: re-points --accent for the whole page (eyebrows, links,
    buttons all follow). Get Help and Home keep the default blue. */
+[data-section="home"]      { --accent: var(--accent-home); }
 [data-section="sessions"]  { --accent: var(--accent-sessions); }
 [data-section="programs"]  { --accent: var(--accent-programs); }
 [data-section="educators"] { --accent: var(--accent-educators); }
-[data-section="news"]      { --accent: var(--accent-stories); }
+[data-section="stories"]   { --accent: var(--accent-stories); }
 [data-section="about"]     { --accent: var(--accent-about); }
 
 strong { font-weight: var(--fw-semibold); }
@@ -309,34 +310,6 @@ main { min-height: 50vh; }
 
 /* Header Instagram icon — inherits nav link color (white on the home overlay). */
 .site-nav__ig { display: inline-flex; align-items: center; color: var(--text); }
-
-/* Footer partner logos — uniform, desaturated black-and-white. */
-.footer-partners { margin-bottom: var(--space-lg); }
-.footer-partners__label {
-  font-family: var(--font-mono);
-  text-transform: uppercase;
-  letter-spacing: var(--tracking-wide);
-  font-size: var(--fs-tiny);
-  color: var(--text-faint);
-  margin: 0 0 var(--space-sm);
-}
-.footer-partners__grid {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: var(--space-md) var(--space-lg);
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.footer-partner {
-  height: 30px;
-  width: auto;
-  filter: grayscale(1);
-  opacity: 0.55;
-  transition: opacity var(--transition);
-}
-.footer-partner:hover { opacity: 0.85; }
 
 .socials {
   display: flex;
