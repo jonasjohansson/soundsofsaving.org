@@ -118,50 +118,24 @@ eleventyComputed:
   .home-feature .home-more { margin-top: var(--space-md); }
   @media (max-width: 760px) { .home-features { grid-template-columns: 1fr; gap: var(--space-lg); } }
 
-  /* — 2. Support line + four doors ———————————————————————————————— */
-  .doors-line {
-    font-family: var(--font-display);
-    font-size: var(--fs-h2);
-    line-height: var(--lh-tight);
-    margin: 0 0 var(--space-lg);
-    max-width: 24ch;
-    text-wrap: balance;
-  }
-  .doors {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: var(--space-md);
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  @media (max-width: 1000px) { .doors { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-  @media (max-width: 460px) { .doors { grid-template-columns: 1fr; } }
-  .doors > li { display: flex; }
-  .door {
-    display: block;
-    width: 100%;
-    text-decoration: none;
-    color: inherit;
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: var(--space-md);
-    background: var(--paper);
-    transition: border-color var(--transition), background var(--transition);
-  }
-  .door:hover,
-  .door:focus-visible { border-color: var(--accent); }
-  .door__title { font-family: var(--font-display); font-size: var(--fs-h3); margin: var(--space-2xs) 0 var(--space-3xs); }
-  .door__copy { color: var(--text-muted); margin: 0; line-height: var(--lh-base); }
-
-  /* — 3. Featured session ———————————————————————————————————————— */
+  /* — Featured session / interview ——————————————————————————————— */
   .featured {
     display: grid;
     grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-    gap: var(--space-xl);
+    grid-template-areas: "media meta" "links meta";
+    gap: var(--space-md) var(--space-xl);
     align-items: start;
   }
-  @media (max-width: 720px) { .featured { grid-template-columns: 1fr; } }
+  .featured__media { grid-area: media; }
+  .featured__meta  { grid-area: meta; }
+  .featured__links { grid-area: links; }
+  /* Mobile: stack thumbnail, then artist/title, then the links. */
+  @media (max-width: 720px) {
+    .featured {
+      grid-template-columns: 1fr;
+      grid-template-areas: "media" "meta" "links";
+    }
+  }
   .featured__media {
     position: relative;
     display: block;
@@ -299,31 +273,29 @@ eleventyComputed:
       <h2 class="home-head__title">Songs that found them<br>at the right time</h2>
     </header>
     <div class="featured">
-      <div class="featured__col">
-        <a class="featured__media" href="{{ featured.url }}" aria-label="Watch {{ featured.artist }}{% if featured.song_title %}, {{ featured.song_title }}{% endif %}">
-          {% if featured.thumbnail %}
-          {% set fBase = featured.thumbnail | replace(".jpg", "") %}
-          <img class="media media--full"
-               src="{{ fBase }}-800.webp"
-               srcset="{{ fBase }}-800.webp 800w, {{ fBase }}-1280.webp 1280w"
-               sizes="(max-width: 720px) 92vw, 700px"
-               alt="{{ featured.artist }}"
-               {% if featured.dims %}width="{{ featured.dims.width }}" height="{{ featured.dims.height }}"{% endif %}
-               loading="lazy" decoding="async" />
-          {% endif %}
-          <span class="featured__play" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-          </span>
-        </a>
-        <p class="featured__links">
-          <a class="home-more" href="/sessions/">See all {{ sessions.length }} sessions &rarr;</a>
-          <a class="home-more" href="/sessions/artists/">Browse every artist &rarr;</a>
-        </p>
-      </div>
-      <div>
+      <a class="featured__media" href="{{ featured.url }}" aria-label="Watch {{ featured.artist }}{% if featured.song_title %}, {{ featured.song_title }}{% endif %}">
+        {% if featured.thumbnail %}
+        {% set fBase = featured.thumbnail | replace(".jpg", "") %}
+        <img class="media media--full"
+             src="{{ fBase }}-800.webp"
+             srcset="{{ fBase }}-800.webp 800w, {{ fBase }}-1280.webp 1280w"
+             sizes="(max-width: 720px) 92vw, 700px"
+             alt="{{ featured.artist }}"
+             {% if featured.dims %}width="{{ featured.dims.width }}" height="{{ featured.dims.height }}"{% endif %}
+             loading="lazy" decoding="async" />
+        {% endif %}
+        <span class="featured__play" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        </span>
+      </a>
+      <div class="featured__meta">
         <p class="featured__artist">{{ featured.artist }}</p>
         {% if featured.song_title %}<p class="featured__song">{{ featured.song_title }} by {{ featured.covers or featured.artist }}</p>{% endif %}
       </div>
+      <p class="featured__links">
+        <a class="home-more" href="/sessions/">See all {{ sessions.length }} sessions &rarr;</a>
+        <a class="home-more" href="/sessions/artists/">Browse every artist &rarr;</a>
+      </p>
     </div>
   </div>
 </section>
@@ -340,19 +312,17 @@ eleventyComputed:
       <h2 class="home-head__title">Voices on music<br>and mental health</h2>
     </header>
     <div class="featured featured--story">
-      <div class="featured__col">
-        <a class="featured__media" href="{{ fStory.url }}" aria-label="Read {{ fStory.title }}">
-          {% if fStory.image %}<img class="media media--full" src="{{ fStory.image | img }}" alt="{{ fStory.title }}"{% if fStory.dims %} width="{{ fStory.dims.width }}" height="{{ fStory.dims.height }}"{% endif %} loading="lazy" decoding="async" />{% endif %}
-        </a>
-        <p class="featured__links">
-          <a class="home-more" href="{{ fStory.url }}">Read this interview &rarr;</a>
-          <a class="home-more" href="/stories/">All stories &rarr;</a>
-        </p>
-      </div>
-      <div>
+      <a class="featured__media" href="{{ fStory.url }}" aria-label="Read {{ fStory.title }}">
+        {% if fStory.image %}<img class="media media--full" src="{{ fStory.image | img }}" alt="{{ fStory.title }}"{% if fStory.dims %} width="{{ fStory.dims.width }}" height="{{ fStory.dims.height }}"{% endif %} loading="lazy" decoding="async" />{% endif %}
+      </a>
+      <div class="featured__meta">
         <p class="featured__artist">{{ fStory.title }}</p>
         {% if fStory.author %}<p class="featured__song">{{ fStory.author }}</p>{% endif %}
       </div>
+      <p class="featured__links">
+        <a class="home-more" href="{{ fStory.url }}">Read this interview &rarr;</a>
+        <a class="home-more" href="/stories/">All stories &rarr;</a>
+      </p>
     </div>
   </div>
 </section>

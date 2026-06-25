@@ -50,12 +50,12 @@ body::after {
   inset: 0;
   z-index: 9999;
   pointer-events: none;
-  opacity: 0.15;
+  opacity: 0.2;
   mix-blend-mode: multiply;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size: 160px 160px;
 }
-@media (prefers-reduced-motion: reduce) { body::after { opacity: 0.09; } }
+@media (prefers-reduced-motion: reduce) { body::after { opacity: 0.12; } }
 
 h1, h2, h3, h4 {
   font-family: var(--font-display);
@@ -454,22 +454,21 @@ main { min-height: 50vh; }
 
 /* — Responsive ————————————————————————————————————————————————— */
 @media (max-width: 860px) {
-  /* Mobile: no hamburger. The logo stacks above an always-visible nav, with
-     no separate panel background; items follow the desktop order. */
+  /* Mobile: no hamburger. The nav stacks in a left column (Get Help below
+     Donate); the logo is pinned to the top-right. */
   .nav-toggle { display: none; }
 
-  /* Logo sits in its own left column; the nav links stack beside it, and
-     Get Help is pinned to the top-right corner. */
   .site-header__inner {
     position: relative;
-    flex-direction: row;
+    flex-direction: column;
     align-items: flex-start;
-    gap: var(--space-lg);
+    gap: var(--space-sm);
   }
-  .site-header__brand { flex-shrink: 0; }
+  .site-header__brand { position: absolute; top: 0; right: 0; }
   .site-nav {
     display: flex;
-    flex: 1;
+    flex: none;
+    width: 100%;
     flex-direction: column;
     align-items: flex-start;
     gap: var(--space-xs);
@@ -486,7 +485,7 @@ main { min-height: 50vh; }
   }
   .site-nav__ig { display: none; }            /* skip Instagram on mobile */
   .site-nav a { padding-block: var(--space-3xs); }
-  .site-nav__cta .btn--stroke { position: absolute; top: 0; right: 0; margin: 0; }
+  .site-nav__cta .btn--stroke { align-self: flex-start; margin-top: var(--space-2xs); }
 
   /* Home: header overlays the top of the hero (no tan bar), white text,
      absolute so it scrolls away with the hero instead of staying fixed. */
