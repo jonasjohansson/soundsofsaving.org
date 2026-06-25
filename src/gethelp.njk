@@ -221,14 +221,43 @@ ogType: website
   .finder__empty[hidden] { display: none; }
   .finder__empty h3 { font-family: var(--font-display); font-size: var(--fs-h3); color: var(--text); margin: 0 0 var(--space-2xs); }
 
-  /* ---- Learn layer placeholder ---- */
+  /* ---- Learn layer ---- */
   .gethelp-learn {
     margin-top: var(--space-2xl);
     padding-top: var(--space-xl);
     border-top: 1px solid var(--border);
   }
   .gethelp-learn h2 { font-family: var(--font-display); font-size: var(--fs-h2); margin: 0 0 var(--space-2xs); }
-  .gethelp-learn p { color: var(--text-muted); max-width: var(--maxw-prose); line-height: var(--lh-base); }
+  .gethelp-learn > p { color: var(--text-muted); max-width: var(--maxw-prose); line-height: var(--lh-base); margin-bottom: var(--space-lg); }
+  .learn-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: var(--space-md);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .learn-card {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: var(--space-md);
+    background: var(--paper-2);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xs);
+  }
+  .learn-card__kind {
+    font-family: var(--font-mono);
+    font-size: var(--fs-tiny);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--calm-deep);
+  }
+  .learn-card__title { font-family: var(--font-display); font-size: var(--fs-base); line-height: var(--lh-tight); margin: 0; }
+  .learn-card__title a { color: var(--ink); }
+  .learn-card__title a:hover { color: var(--calm-deep); }
+  .learn-card p { font-size: var(--fs-small); color: var(--text-muted); line-height: var(--lh-base); margin: 0; }
+  .learn-card__more { font-size: var(--fs-small); color: var(--calm-deep); font-weight: var(--fw-medium); margin-top: auto; padding-top: var(--space-2xs); }
 </style>
 
 <div class="container gethelp">
@@ -340,23 +369,37 @@ ogType: website
   </section>
 
   {# ============================================================ #}
-  {#  3. LEARN LAYER PLACEHOLDER                                    #}
-  {#  Another agent will fold the news "explainer" articles        #}
-  {#  (what is EMDR / DBT / dysthymia, etc.) in here as a curated   #}
-  {#  "Understanding mental health" learn layer. Do not move the    #}
-  {#  news files; this is just the slot.                            #}
+  {#  3. LEARN LAYER                                                #}
+  {#  The former news "explainer" + resource-sheet articles        #}
+  {#  (category: learn / resource-sheet / whitepaper), surfaced as  #}
+  {#  cards linking to /learn/<slug>/. Driven off news.learn in     #}
+  {#  src/_data/news.js — the .md files stay in content/news/.      #}
   {# ============================================================ #}
+  {# whitepaper (a-sound-approach) builds at /learn/ but lives on About, so
+     it's excluded upstream in news.learnForGetHelp. #}
+  {% set learnCards = news.learnForGetHelp %}
+  {% if learnCards | length %}
   <section class="gethelp-learn" id="understanding-mental-health" aria-labelledby="learn-heading">
     <p class="eyebrow">Learn</p>
     <h2 id="learn-heading">Understanding mental health</h2>
     <p>
-      Short, plain-language explainers (what therapies like EMDR and DBT
-      actually involve, how conditions such as dysthymia present) will be
-      collected here so the finder above sits next to context, not just
-      contacts.
+      Short, plain-language explainers and resource sheets, what therapies like
+      EMDR and DBT actually involve, how conditions such as dysthymia present,
+      and where to turn in a crisis, so the finder above sits next to context,
+      not just contacts.
     </p>
-    {# PLACEHOLDER: learn-layer cards slot in here. #}
+    <ul class="learn-grid">
+      {% for post in learnCards %}
+      <li class="learn-card">
+        <span class="learn-card__kind">{% if post.category == "resource-sheet" %}Resource sheet{% else %}Explainer{% endif %}</span>
+        <h3 class="learn-card__title"><a href="{{ post.url }}">{{ post.title }}</a></h3>
+        {% if post.excerpt %}<p>{{ post.excerpt }}</p>{% endif %}
+        <span class="learn-card__more">Read &rarr;</span>
+      </li>
+      {% endfor %}
+    </ul>
   </section>
+  {% endif %}
 
 </div>
 
