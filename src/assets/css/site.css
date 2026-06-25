@@ -273,8 +273,11 @@ main { min-height: 50vh; }
   font-size: var(--fs-small);
 }
 .site-footer__inner {
-  display: grid;
-  gap: var(--space-lg);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-md) var(--space-lg);
 }
 .crisis {
   display: grid;

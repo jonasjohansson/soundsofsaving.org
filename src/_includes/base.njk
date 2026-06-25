@@ -76,20 +76,18 @@
   <footer class="site-footer">
     <div class="container site-footer__inner">
 
-      <div class="footer-meta">
-        <nav class="socials" aria-label="Social media">
-          {% if settings.socials.youtube %}<a href="{{ settings.socials.youtube }}" target="_blank" rel="noopener">YouTube</a>{% endif %}
-          {% if settings.socials.facebook %}<a href="{{ settings.socials.facebook }}" target="_blank" rel="noopener">Facebook</a>{% endif %}
-          {% if settings.socials.spotify %}<a href="{{ settings.socials.spotify }}" target="_blank" rel="noopener">Spotify</a>{% endif %}
-          {% if settings.socials.twitter %}<a href="{{ settings.socials.twitter }}" target="_blank" rel="noopener">Twitter</a>{% endif %}
-          {% if settings.socials.instagram %}<a href="{{ settings.socials.instagram }}" target="_blank" rel="noopener">Instagram</a>{% endif %}
-        </nav>
-      </div>
-
       <p class="footer-fine">
         &copy; 2026 {{ settings.copyright }}
         {% if settings.privacy_url %}<a href="{{ settings.privacy_url }}">Privacy Policy</a>{% endif %}
       </p>
+
+      <nav class="socials" aria-label="Social media">
+        {% if settings.socials.youtube %}<a href="{{ settings.socials.youtube }}" target="_blank" rel="noopener">YouTube</a>{% endif %}
+        {% if settings.socials.facebook %}<a href="{{ settings.socials.facebook }}" target="_blank" rel="noopener">Facebook</a>{% endif %}
+        {% if settings.socials.spotify %}<a href="{{ settings.socials.spotify }}" target="_blank" rel="noopener">Spotify</a>{% endif %}
+        {% if settings.socials.twitter %}<a href="{{ settings.socials.twitter }}" target="_blank" rel="noopener">Twitter</a>{% endif %}
+        {% if settings.socials.instagram %}<a href="{{ settings.socials.instagram }}" target="_blank" rel="noopener">Instagram</a>{% endif %}
+      </nav>
 
     </div>
   </footer>
