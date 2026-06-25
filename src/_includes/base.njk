@@ -102,14 +102,6 @@
         btn.setAttribute("aria-expanded", open ? "true" : "false");
       });
     })();
-    // Overlay header (home): transparent over the hero, solid white once scrolled.
-    (function () {
-      var h = document.getElementById("site-header");
-      if (!h || !h.classList.contains("site-header--overlay")) return;
-      var sync = function () { h.classList.toggle("is-solid", window.scrollY > 80); };
-      sync();
-      window.addEventListener("scroll", sync, { passive: true });
-    })();
   </script>
 
 </body>

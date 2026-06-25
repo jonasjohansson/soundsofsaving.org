@@ -141,8 +141,7 @@ main { min-height: 50vh; }
 
 /* — Header / nav ————————————————————————————————————————————— */
 .site-header {
-  position: sticky;
-  top: 0;
+  position: relative;
   z-index: 50;
   background: var(--white);
   border-bottom: 1px solid var(--border);
@@ -204,7 +203,7 @@ main { min-height: 50vh; }
 /* Overlay header (home only): transparent over the hero video, white text,
    logo hidden (it lives in the hero); turns solid white once scrolled. */
 .site-header--overlay {
-  position: fixed;
+  position: absolute;
   left: 0;
   right: 0;
   top: 0;
@@ -459,15 +458,18 @@ main { min-height: 50vh; }
      no separate panel background; items follow the desktop order. */
   .nav-toggle { display: none; }
 
+  /* Logo sits in its own left column; the nav links stack beside it, and
+     Get Help is pinned to the top-right corner. */
   .site-header__inner {
-    flex-direction: column;
+    position: relative;
+    flex-direction: row;
     align-items: flex-start;
-    gap: var(--space-sm);
+    gap: var(--space-lg);
   }
+  .site-header__brand { flex-shrink: 0; }
   .site-nav {
     display: flex;
-    flex: none;
-    width: 100%;
+    flex: 1;
     flex-direction: column;
     align-items: flex-start;
     gap: var(--space-xs);
@@ -484,7 +486,7 @@ main { min-height: 50vh; }
   }
   .site-nav__ig { display: none; }            /* skip Instagram on mobile */
   .site-nav a { padding-block: var(--space-3xs); }
-  .site-nav__cta .btn--stroke { align-self: flex-start; margin-top: var(--space-2xs); }
+  .site-nav__cta .btn--stroke { position: absolute; top: 0; right: 0; margin: 0; }
 
   /* Home: header overlays the top of the hero (no tan bar), white text,
      absolute so it scrolls away with the hero instead of staying fixed. */
