@@ -101,6 +101,22 @@
         btn.setAttribute("aria-expanded", open ? "true" : "false");
       });
     })();
+
+    // Show the logo only when the nav still fits beside it; otherwise hide it.
+    (function () {
+      var header = document.getElementById("site-header");
+      var nav = document.getElementById("site-nav");
+      if (!header || !nav) return;
+      var brand = header.querySelector(".site-header__brand");
+      if (!brand) return;
+      function fit() {
+        brand.style.display = "";
+        if (nav.scrollWidth > nav.clientWidth + 1) brand.style.display = "none";
+      }
+      fit();
+      var t;
+      window.addEventListener("resize", function () { clearTimeout(t); t = setTimeout(fit, 100); }, { passive: true });
+    })();
   </script>
 
 </body>

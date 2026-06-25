@@ -489,6 +489,3 @@ main { min-height: 50vh; }
   /* Footer stacks with the social links above the copyright line. */
   .site-footer__inner { flex-direction: column-reverse; align-items: flex-start; gap: var(--space-sm); }
 }
-
-/* On the narrowest phones, drop the logo so the single-row nav keeps Get Help visible. */
-@media (max-width: 600px) { .site-header__brand { display: none; } }
