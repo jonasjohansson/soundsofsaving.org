@@ -1,0 +1,329 @@
+---
+layout: base.njk
+current: home
+permalink: /
+title: ""
+eleventyComputed:
+  description: "{{ settings.seo.home or settings.meta_description }}"
+---
+{#
+  Home page — mirrors the original soundsofsaving.org section order:
+  Hero (animated logo + tagline + Donate / Get Help) → Programs overview
+  (3 pillars) → Songs That Found Me (featured episodes) → Community teaser →
+  Recent News. Copy is pulled from settings + the songs/news collections; the
+  ephemeral Event and Partners strips from the original were intentionally
+  dropped (event is time-bound; partner logos belong on About/Community).
+#}
+<style>
+  /* — Hero ——————————————————————————————————————————————————— */
+  .home-hero {
+    position: relative;
+    text-align: center;
+    padding-block: var(--space-2xl);
+    background: var(--surface-dark);
+    color: var(--white);
+    overflow: hidden;
+  }
+  .home-hero__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
+  }
+  .home-hero__logo {
+    width: min(420px, 70vw);
+    height: auto;
+  }
+  .home-hero__tagline {
+    font-size: var(--fs-mega);
+    line-height: var(--lh-tight);
+    margin: 0;
+    max-width: 14ch;
+  }
+  .home-hero__mission {
+    font-size: var(--fs-lead);
+    line-height: var(--lh-base);
+    margin: 0;
+    max-width: 46ch;
+    color: var(--white-smoke);
+  }
+  .home-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    justify-content: center;
+    margin-top: var(--space-2xs);
+  }
+  .home-hero .btn--ghost { border-color: var(--white); color: var(--white); }
+  .home-hero .btn--ghost:hover { background: var(--white); color: var(--surface-dark); }
+
+  /* — Shared section heads ——————————————————————————————————— */
+  .home-section__head { max-width: var(--maxw-prose); margin-bottom: var(--space-lg); }
+  .home-section__label {
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    font-size: var(--fs-tiny);
+    font-weight: var(--fw-semibold);
+    color: var(--accent);
+    margin: 0 0 var(--space-sm);
+  }
+  .home-section__title { font-size: var(--fs-title); line-height: var(--lh-tight); margin: 0; }
+  .home-section__intro {
+    font-size: var(--fs-lead);
+    line-height: var(--lh-base);
+    color: var(--text-muted);
+    margin: var(--space-sm) 0 0;
+  }
+  .home-section__more {
+    display: inline-block;
+    margin-top: var(--space-lg);
+    color: var(--accent);
+    font-weight: var(--fw-semibold);
+  }
+  .home-section__more:hover { color: var(--medium-grey-1); }
+
+  /* — Programs / pillars ————————————————————————————————————— */
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--space-md);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .pillar {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: var(--space-md);
+    transition: box-shadow var(--transition), transform var(--transition);
+  }
+  a.pillar { display: block; text-decoration: none; color: inherit; }
+  a.pillar:hover,
+  a.pillar:focus-visible { box-shadow: var(--shadow-sm); transform: translateY(-2px); }
+  .pillar__title { font-size: var(--fs-h3); margin: 0 0 var(--space-2xs); }
+  .pillar__copy { color: var(--text-muted); margin: 0; line-height: var(--lh-base); }
+
+  /* — Songs grid ————————————————————————————————————————————— */
+  .home-songs {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: var(--space-md);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .home-song__link {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: box-shadow var(--transition), transform var(--transition);
+  }
+  .home-song__link:hover,
+  .home-song__link:focus-visible { box-shadow: var(--shadow-sm); transform: translateY(-2px); }
+  .home-song__media {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background: var(--bg-alt);
+    overflow: hidden;
+  }
+  .home-song__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .home-song__play {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    color: var(--white);
+  }
+  .home-song__play svg {
+    width: 48px;
+    height: 48px;
+    filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.5));
+    opacity: 0.92;
+  }
+  .home-song__body { padding: var(--space-sm) var(--space-md) var(--space-md); }
+  .home-song__artist { font-weight: var(--fw-semibold); font-size: var(--fs-base); line-height: 1.3; margin: 0; }
+  .home-song__title { color: var(--text-muted); font-size: var(--fs-small); margin: var(--space-3xs) 0 0; }
+
+  /* — Community teaser ——————————————————————————————————————— */
+  .home-community__inner { max-width: var(--maxw-prose); }
+  .home-community__copy { font-size: var(--fs-lead); line-height: var(--lh-base); color: var(--text-muted); margin: var(--space-sm) 0 var(--space-lg); }
+
+  /* — News ——————————————————————————————————————————————————— */
+  .home-news {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: var(--space-md);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .home-news__link {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: box-shadow var(--transition), transform var(--transition);
+  }
+  .home-news__link:hover,
+  .home-news__link:focus-visible { box-shadow: var(--shadow-sm); transform: translateY(-2px); }
+  .home-news__media {
+    aspect-ratio: 16 / 10;
+    background: var(--bg-alt);
+    overflow: hidden;
+  }
+  .home-news__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .home-news__body { padding: var(--space-sm) var(--space-md) var(--space-md); }
+  .home-news__date {
+    color: var(--text-faint);
+    font-size: var(--fs-small);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    margin: 0 0 var(--space-3xs);
+  }
+  .home-news__title { font-size: var(--fs-h3); margin: 0; line-height: 1.3; }
+</style>
+
+{# 1. HERO ——————————————————————————————————————————————————————— #}
+<section class="home-hero">
+  <div class="container home-hero__inner">
+    <img class="home-hero__logo" src="/assets/img/site/logo-animated.gif"
+         alt="{{ settings.site_title }}" width="420" />
+    <h1 class="home-hero__tagline">{{ settings.hero_heading or settings.tagline }}</h1>
+    <p class="home-hero__mission">{{ settings.hero_subheading }}</p>
+    <div class="home-hero__actions">
+      <a class="btn btn--primary" href="{{ settings.donate_url }}" target="_blank" rel="noopener">{{ settings.donate_label or 'Donate Now' }}</a>
+      <a class="btn btn--ghost" href="{{ settings.get_help_url or '/resources/' }}">Get Help</a>
+    </div>
+  </div>
+</section>
+
+{# 2. PROGRAMS OVERVIEW (3 pillars) ————————————————————————————— #}
+<section class="section">
+  <div class="container">
+    <header class="home-section__head">
+      <p class="home-section__label">What We Do</p>
+      <h2 class="home-section__title">Music as a bridge to mental wellness</h2>
+      <p class="home-section__intro">We design tools, content, and curriculum that help young people, ages 14 to 24, discover and use music to support their mental health.</p>
+    </header>
+
+    <ul class="pillars">
+      <li>
+        <a class="pillar" href="/programs/">
+          <h3 class="pillar__title">Education and Engagement</h3>
+          <p class="pillar__copy">School programs that introduce music as a common language and a bridge to mental health.</p>
+        </a>
+      </li>
+      <li>
+        <a class="pillar" href="/programs/">
+          <h3 class="pillar__title">Artist Storytelling</h3>
+          <p class="pillar__copy">Spreading stories from artists and fans about mental wellbeing and the songs that carried them through.</p>
+        </a>
+      </li>
+      <li>
+        <a class="pillar" href="/programs/">
+          <h3 class="pillar__title">Connection</h3>
+          <p class="pillar__copy">Tools and culturally competent resources for fans through events and on-tour activations.</p>
+        </a>
+      </li>
+    </ul>
+
+    <a class="home-section__more" href="/programs/">Explore our programs &rarr;</a>
+  </div>
+</section>
+
+{# 3. SONGS THAT FOUND ME ——————————————————————————————————————— #}
+{% set featuredSongs = songs | selectattr("featured") | list %}
+{% set homeSongs = featuredSongs if featuredSongs.length else songs %}
+{% if homeSongs.length %}
+<section class="section section--alt">
+  <div class="container">
+    <header class="home-section__head">
+      <p class="home-section__label">Personal Stories</p>
+      <h2 class="home-section__title">Songs That Found Me at the Right Time</h2>
+      <p class="home-section__intro">Music has been clinically proven to have a positive impact on mental health. In this series, artists share the songs that helped them through difficult times.</p>
+    </header>
+
+    <ul class="home-songs">
+      {% for s in homeSongs %}
+      {% if loop.index <= 4 %}
+      <li>
+        <a class="home-song__link" href="{{ s.url }}">
+          <span class="home-song__media">
+            {% if s.thumbnail %}<img src="{{ s.thumbnail | img }}" alt="{{ s.title }}"{% if s.dims %} width="{{ s.dims.width }}" height="{{ s.dims.height }}"{% endif %} loading="lazy" decoding="async" />{% endif %}
+            <span class="home-song__play" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </span>
+          </span>
+          <span class="home-song__body">
+            <p class="home-song__artist">{{ s.artist }}</p>
+            {% if s.song_title %}<p class="home-song__title">{{ s.song_title }}</p>{% endif %}
+          </span>
+        </a>
+      </li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+
+    <a class="home-section__more" href="/songs/">Watch more videos &rarr;</a>
+  </div>
+</section>
+{% endif %}
+
+{# 4. COMMUNITY TEASER ——————————————————————————————————————————— #}
+<section class="section">
+  <div class="container">
+    <div class="home-community__inner">
+      <p class="home-section__label">Join the Conversation</p>
+      <h2 class="home-section__title">Share the songs that found you</h2>
+      <p class="home-community__copy">Our community exists to lift each other up. What music has changed your life for the better? Share your own Songs That Found Me card and see what others have shared.</p>
+      <a class="btn btn--ghost" href="/community/">Visit the community</a>
+    </div>
+  </div>
+</section>
+
+{# 5. RECENT NEWS ——————————————————————————————————————————————— #}
+{% set recentNews = news %}
+{% if recentNews.length %}
+<section class="section section--alt">
+  <div class="container">
+    <header class="home-section__head">
+      <p class="home-section__label">News</p>
+      <h2 class="home-section__title">Latest from Sounds of Saving</h2>
+    </header>
+
+    <ul class="home-news">
+      {% for post in recentNews %}
+      {% if loop.index <= 6 %}
+      <li>
+        <a class="home-news__link" href="{{ post.url }}">
+          {% if post.image %}
+          <span class="home-news__media">
+            <img src="{{ post.image | img }}" alt=""{% if post.dims %} width="{{ post.dims.width }}" height="{{ post.dims.height }}"{% endif %} loading="lazy" decoding="async" />
+          </span>
+          {% else %}
+          <span class="home-news__media" aria-hidden="true"></span>
+          {% endif %}
+          <span class="home-news__body">
+            <p class="home-news__date"><time datetime="{{ post.date }}">{{ post.date | postDate }}</time></p>
+            <h3 class="home-news__title">{{ post.title }}</h3>
+          </span>
+        </a>
+      </li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+
+    <a class="home-section__more" href="/news/">See all news &rarr;</a>
+  </div>
+</section>
+{% endif %}
