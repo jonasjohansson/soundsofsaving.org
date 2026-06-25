@@ -269,3 +269,31 @@ Note: `donor-thanks-email` is a fundraising thank-you letter rather than an edit
 
 All hero and inline images downloaded successfully.
 
+
+## Resources parse
+
+Source: the Webflow mirror's `categories/*.html` (16 topic pages) and
+`locations/*.html` (33 city pages). Each page renders the same `.resource-row`
+markup, and the same organization appears on multiple topic/city pages, so
+`scripts/parse-resources.js` extracts every row and dedupes into one record per
+`(url + name)`, aggregating the categories and locations it was found under.
+
+Result: real listing data (not a thin link hub), so `/resources` renders the
+full faceted directory.
+
+| Metric | Count |
+|---|---|
+| Categories (topics) | 16 |
+| Locations (cities) | 33 |
+| Raw resource rows parsed | 1545 (965 category + 580 location) |
+| Unique resources after dedupe | 504 |
+| Resources with a phone number | 402 |
+| Resources with a description | 503 |
+
+Skipped: `locations/orlando-fl.html` yielded no `.resource-row` items (empty
+collection page on the source site), so it contributes no resources and is
+dropped from the location facet list.
+
+Output: `content/resources.json` (`{ categories[], locations[], resources[] }`).
+Loaded by `src/_data/resources.js`, which exposes `all`, `byCategory`,
+`byLocation`, and the canonical facet lists with per-facet counts.

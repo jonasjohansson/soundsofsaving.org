@@ -1,0 +1,16 @@
+{
+  "title": "Get Help",
+  "meta_description": "A collection of mental health resources & help dealing with anxiety, stress, depression, grief, therapy and more.",
+  "crisis": {
+    "heading": "Get Help Now",
+    "intro": "If you or someone you know is struggling with depression or thoughts of suicide, speak with someone now:",
+    "phone": "988",
+    "phone_label": "Call 988 or text HOME to 741741",
+    "text_keyword": "HOME",
+    "text_number": "741741"
+  },
+  "directory": {
+    "heading": "Additional Help",
+    "intro": "Browse mental health resources by topic or by location. Each resource links out to the organization providing support."
+  }
+}

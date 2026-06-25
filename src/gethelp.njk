@@ -1,0 +1,159 @@
+---
+layout: base.njk
+current: resources
+permalink: /resources/
+title: Get Help
+description: "A collection of mental health resources & help dealing with anxiety, stress, depression, grief, therapy and more."
+ogType: website
+---
+{#
+  Get Help — the crisis 988 card first, then the resource directory built
+  from content/resources.json (parsed from the Webflow collection by
+  scripts/parse-resources.js). Browsable by topic and by city via a small
+  filter; each topic/city is an anchored section. Landing copy from
+  content/pages/get-help.json (CMS-editable).
+#}
+{% set g = pages["get-help"] %}
+
+<style>
+  .gethelp-page { padding-block: var(--space-xl); }
+
+  .crisis-card {
+    background: var(--surface-dark, var(--accent));
+    color: var(--white);
+    border-radius: var(--radius);
+    padding: var(--space-xl);
+    text-align: center;
+    margin-bottom: var(--space-2xl);
+  }
+  .crisis-card h1 { font-size: var(--fs-title); line-height: var(--lh-tight); margin: 0 0 var(--space-sm); }
+  .crisis-card__intro { font-size: var(--fs-lead); line-height: var(--lh-base); margin: 0 auto var(--space-md); max-width: 44ch; }
+  .crisis-card__line { font-size: var(--fs-h2); margin: 0; }
+  .crisis-card__line a { color: var(--white); text-decoration: underline; }
+
+  .directory__head { max-width: var(--maxw-prose); margin-bottom: var(--space-lg); }
+  .directory__head h2 { font-size: var(--fs-h2); line-height: var(--lh-tight); margin: 0 0 var(--space-xs); }
+  .directory__head p { color: var(--text-muted); line-height: var(--lh-base); margin: 0; }
+
+  .facet-tabs { display: flex; gap: var(--space-xs); margin-bottom: var(--space-md); flex-wrap: wrap; }
+  .facet-tabs button {
+    font: inherit;
+    font-weight: var(--fw-medium);
+    padding: var(--space-2xs) var(--space-md);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-pill);
+    background: var(--bg);
+    color: var(--text);
+    cursor: pointer;
+  }
+  .facet-tabs button[aria-selected="true"] { background: var(--accent); color: var(--white); border-color: var(--accent); }
+
+  .facet-nav { display: flex; flex-wrap: wrap; gap: var(--space-2xs) var(--space-sm); margin-bottom: var(--space-lg); }
+  .facet-nav a { font-size: var(--fs-small); color: var(--link); }
+  .facet-nav a .count { color: var(--text-muted); }
+
+  .facet-panel[hidden] { display: none; }
+
+  .facet-group { margin-top: var(--space-xl); scroll-margin-top: calc(var(--header-h, 64px) + var(--space-md)); }
+  .facet-group h3 { font-size: var(--fs-h3); margin: 0 0 var(--space-sm); padding-bottom: var(--space-2xs); border-bottom: 1px solid var(--border); }
+
+  .resource-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--space-md); list-style: none; margin: 0; padding: 0; }
+  .resource-card {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: var(--space-md);
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xs);
+  }
+  .resource-card h4 { font-size: var(--fs-base); margin: 0; }
+  .resource-card p { font-size: var(--fs-small); color: var(--text-muted); line-height: var(--lh-base); margin: 0; }
+  .resource-card__meta { font-size: var(--fs-small); margin-top: auto; padding-top: var(--space-2xs); display: flex; flex-wrap: wrap; gap: var(--space-sm); }
+  .resource-card__phone a { font-weight: var(--fw-medium); }
+</style>
+
+{% macro resourceCard(r) %}
+<li class="resource-card">
+  <h4>{% if r.url %}<a href="{{ r.url }}" target="_blank" rel="noopener">{{ r.name }}</a>{% else %}{{ r.name }}{% endif %}</h4>
+  {% if r.description %}<p>{{ r.description }}</p>{% endif %}
+  {% if r.phone or r.url %}
+  <div class="resource-card__meta">
+    {% if r.phone %}<span class="resource-card__phone">Call <a href="tel:{{ r.phone | replace(' ', '') | replace('(', '') | replace(')', '') | replace('-', '') }}">{{ r.phone }}</a></span>{% endif %}
+    {% if r.url %}<span class="resource-card__site"><a href="{{ r.url }}" target="_blank" rel="noopener">Visit site</a></span>{% endif %}
+  </div>
+  {% endif %}
+</li>
+{% endmacro %}
+
+<div class="container gethelp-page">
+
+  <section class="crisis-card" aria-label="Get help now">
+    <h1>{{ g.crisis.heading or "Get Help Now" }}</h1>
+    <p class="crisis-card__intro">{{ g.crisis.intro }}</p>
+    <p class="crisis-card__line">
+      Call <a href="tel:{{ g.crisis.phone or '988' }}">{{ g.crisis.phone or "988" }}</a>
+      or text <strong>{{ g.crisis.text_keyword or "HOME" }}</strong> to {{ g.crisis.text_number or "741741" }}
+    </p>
+  </section>
+
+  <div class="directory">
+    <div class="directory__head">
+      <h2>{{ g.directory.heading or "Additional Help" }}</h2>
+      {% if g.directory.intro %}<p>{{ g.directory.intro }}</p>{% endif %}
+    </div>
+
+    <div class="facet-tabs" role="tablist" aria-label="Browse resources by">
+      <button id="tab-topic" role="tab" aria-controls="panel-topic" aria-selected="true" data-panel="panel-topic">By Topic</button>
+      <button id="tab-location" role="tab" aria-controls="panel-location" aria-selected="false" data-panel="panel-location">By Location</button>
+    </div>
+
+    {# --- By Topic --- #}
+    <div id="panel-topic" class="facet-panel" role="tabpanel" aria-labelledby="tab-topic">
+      <nav class="facet-nav" aria-label="Topics">
+        {% for c in resources.categories %}<a href="#topic-{{ c.slug }}">{{ c.label }} <span class="count">({{ c.count }})</span></a>{% endfor %}
+      </nav>
+      {% for c in resources.categories %}
+      <section class="facet-group" id="topic-{{ c.slug }}">
+        <h3>{{ c.label }}</h3>
+        <ul class="resource-list">
+          {% for r in resources.byCategory[c.slug] %}{{ resourceCard(r) }}{% endfor %}
+        </ul>
+      </section>
+      {% endfor %}
+    </div>
+
+    {# --- By Location --- #}
+    <div id="panel-location" class="facet-panel" role="tabpanel" aria-labelledby="tab-location" hidden>
+      <nav class="facet-nav" aria-label="Locations">
+        {% for l in resources.locations %}<a href="#location-{{ l.slug }}">{{ l.label }} <span class="count">({{ l.count }})</span></a>{% endfor %}
+      </nav>
+      {% for l in resources.locations %}
+      <section class="facet-group" id="location-{{ l.slug }}">
+        <h3>{{ l.label }}</h3>
+        <ul class="resource-list">
+          {% for r in resources.byLocation[l.slug] %}{{ resourceCard(r) }}{% endfor %}
+        </ul>
+      </section>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    var tabs = document.querySelectorAll(".facet-tabs [role=tab]");
+    function show(panelId) {
+      tabs.forEach(function (t) {
+        var sel = t.dataset.panel === panelId;
+        t.setAttribute("aria-selected", sel ? "true" : "false");
+        document.getElementById(t.dataset.panel).hidden = !sel;
+      });
+    }
+    tabs.forEach(function (t) {
+      t.addEventListener("click", function () { show(t.dataset.panel); });
+    });
+    // If the page loads with a #location-* hash, open that panel.
+    if (location.hash.indexOf("#location-") === 0) show("panel-location");
+  })();
+</script>
