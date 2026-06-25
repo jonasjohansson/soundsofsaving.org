@@ -4,6 +4,8 @@ date: 2023-03-13
 author: Madaleine Cutone
 image: /assets/img/news/an-interview-with-rising-pop-artist-rosie-darling.png
 summary: "This month in the LA music scene, up and coming pop artist Rosie Darling released her new single “Lost On You” – her first drop following her 2022 EP, Golden Age. SoS spoke with Darling last week..."
+category: story
+cluster: interviews
 ---
 
 This month in the LA music scene, up and coming pop artist Rosie Darling released her new single “Lost On You” – her first drop following her 2022 EP, *Golden Age*. SoS spoke with Darling last week about the song and what it hints at regarding her next collection of work. Just coming off of a tour, there was a lot to discuss about her cross-country adventures, past and potential collaborations, and much, much more.

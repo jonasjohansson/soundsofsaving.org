@@ -4,6 +4,7 @@ date: 2022-06-01
 author: "2022/2023 SoS YAC"
 image: /assets/img/news/sounds-of-saving-announces-the-formation-of-its-youth-advisory-council.png
 summary: "We are excited to announce the formation of the Sound of Saving Youth Advisory Council – an inclusive cohort of college and high school students who will help guide the nonprofit’s core agenda of..."
+category: archive
 ---
 
 We are excited to announce the formation of the **Sound of Saving Youth Advisory Council** – an inclusive cohort of college and high school students who will help guide the nonprofit’s core agenda of using connection to music as a tool to inspire greater mental wellbeing and suicide prevention. At this crucial time for youth mental health in the U.S, including young voices is especially important.

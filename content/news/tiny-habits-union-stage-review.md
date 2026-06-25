@@ -4,6 +4,7 @@ date: 2024-04-22
 author: Saskia Jorgensen
 image: /assets/img/news/tiny-habits-union-stage-review.png
 summary: No amount of flashy production can fabricate the genuine feeling that the artists are as enthusiastic to share the night with the audience as its members are to attend. What truly set this...
+category: archive
 ---
 
 *No amount of flashy production can fabricate the genuine feeling that the artists are as enthusiastic to share the night with the audience as its members are to attend. What truly set this performance apart was the unmistakable camaraderie and affection between the trio onstage.*

@@ -4,6 +4,8 @@ date: 2024-03-23
 author: Interview by Katey Funderburgh
 image: /assets/img/news/maddie-zahm-interview.jpg
 summary: Sounds of Saving talks self-acceptance, artist-fan relationships, and self-care on the road with singer-songwriter Maddie Zahm, who teamed up with Propellor to support SOS on her recenttour.
+category: story
+cluster: interviews
 ---
 
 *Sounds of Saving talks self-acceptance, artist-fan relationships, and self-care on the road with singer-songwriter Maddie Zahm, who teamed up with Propellor to support SOS on her recenttour.*

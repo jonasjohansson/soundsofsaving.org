@@ -4,6 +4,8 @@ date: 2024-01-31
 author: Interview by Alyssa Goldberg
 image: /assets/img/news/greywind-interview.jpeg
 summary: "Brother and sister duo Greywind (Steph and Paul O’Sullivan) recently released their latest single, “Swing and Sway,” a song written by Paul about watching Steph struggle with her mental health..."
+category: story
+cluster: interviews
 ---
 
 Brother and sister duo Greywind (Steph and Paul O’Sullivan) recently released their latest single, “Swing and Sway,” a song written by Paul about watching Steph struggle with her mental health following the loss of their uncle. The band is bringing a fresh perspective to Ireland’s scarce emo scene, and touches on topics such as grief in an explicit, vulnerable way that is often strayed away from.

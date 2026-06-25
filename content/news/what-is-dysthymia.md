@@ -4,6 +4,7 @@ date: 2023-05-09
 author: Dana Dean
 image: /assets/img/news/what-is-dysthymia.png
 summary: In the fall of 2022, I received a diagnosis that would change the way I understood my mental health. My therapist suggested I may have Dysthymia, a form of clinical depression that lasts for at...
+category: learn
 ---
 
 In the fall of 2022, I received a diagnosis that would change the way I understood my mental health. My therapist suggested I may have **Dysthymia**, a form of clinical depression that lasts for at least two years, with fewer but persistent symptoms compared to major depression.

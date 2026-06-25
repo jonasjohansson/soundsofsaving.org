@@ -4,6 +4,7 @@ date: 2023-10-16
 author: Hudson Kennedy
 image: /assets/img/news/review-del-water-gap-atlanta.jpeg
 summary: "S. Holden Jaffe––the artist currently known as Del Water Gap––tore up the stage at Atlanta's Terminal West on Tuesday, October 12. His latest album, is named for his grandparents; In a note to his..."
+category: archive
 ---
 
 S. Holden Jaffe––the artist currently known as Del Water Gap––tore up the stage at Atlanta's Terminal West on Tuesday, October 12. His latest album, is named for his grandparents; In a note to his grandmother, with a poem by William Carlos Williams, his grandfather signed "Love David. I miss you already + I haven't left yet."

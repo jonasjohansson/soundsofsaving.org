@@ -4,6 +4,8 @@ date: 2023-06-23
 author: Interview by Alyssa Goldberg
 image: /assets/img/news/valley-lost-in-translation-interview.jpg
 summary: The Toronto-based alt-pop band Valley's sophomore album Lost in Translationwas released today after a celebratory evening at New York City's Mercury Lounge with the band's most dedicated fans. We...
+category: story
+cluster: interviews
 ---
 
 The Toronto-based alt-pop band Valley's sophomore album *Lost in Translation*was released today after a celebratory evening at New York City's Mercury Lounge with the band's most dedicated fans. We sat down with the band **–** comprised of Rob Laska, Mickey Brandolino, Alex Dimauro, and Karah James – to break down their creative process, the new record, and their experiences in "band therapy."

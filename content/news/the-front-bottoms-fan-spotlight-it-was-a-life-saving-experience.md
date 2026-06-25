@@ -4,6 +4,8 @@ date: 2022-05-24
 author: Alyssa Goldberg
 image: /assets/img/news/the-front-bottoms-fan-spotlight-it-was-a-life-saving-experience.jpg
 summary: "Night Two of The Front Bottoms’ 3-night residency at White Eagle Hall in Jersey City, NJ (5.19.2022)"
+category: story
+cluster: features
 ---
 
 *Night Two of The Front Bottoms’ 3-night residency at White Eagle Hall in Jersey City, NJ (5.19.2022)*

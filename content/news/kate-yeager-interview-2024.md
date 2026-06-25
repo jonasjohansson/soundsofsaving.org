@@ -4,6 +4,8 @@ date: 2024-03-03
 author: Interview by Alyssa Goldberg
 image: /assets/img/news/kate-yeager-interview-2024.png
 summary: "As Eating Disorders Awareness Week continues, we're uplifting artists who've spoken out on body image and disordered eating––whether in their career or music. Nashville-based independent..."
+category: story
+cluster: interviews
 ---
 
 As Eating Disorders Awareness Week continues, we're uplifting artists who've spoken out on body image and disordered eating––whether in their career or music. Nashville-based independent singer/songwriter Kate Yeager broke the internet with her 2023 single “Fat”––a candid track about her lifelong struggle with body image. We spoke with the artist on the responses to the track, and her upcoming EP *Before the Lights Go Out.*

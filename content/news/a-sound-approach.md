@@ -3,6 +3,7 @@ title: A Sound Approach
 date: 2025-05-20
 image: /assets/img/news/a-sound-approach.png
 summary: How Music Supports Mental Health
+category: whitepaper
 ---
 
 *How Music Supports Mental Health*

@@ -4,6 +4,8 @@ date: 2022-12-21
 author: Kelly Schwint
 image: /assets/img/news/4-lyrics-for-feeling-your-feelings.png
 summary: "Music is an art form that connects us all and helps get us through difficult situations. We all have that one song that makes us cry, that we love to listen to when we’re sad. The cry is..."
+category: story
+cluster: features
 ---
 
 Music is an art form that connects us all and helps get us through difficult situations. We all have that one song that makes us cry, that we love to listen to when we’re sad. The cry is therapeutic, and so is the song. Artists often write from their personal experiences, but no matter how particular the inspiration is, the artist still finds a way to make the music relatable. Check out these songs if you’re looking for a few lyrics to identify with and comfort you in your specific situation:

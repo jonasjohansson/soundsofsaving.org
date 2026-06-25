@@ -4,6 +4,7 @@ date: 2022-02-16
 author: Alyssa Goldberg
 image: /assets/img/news/a-night-in-the-marias-dreamland.jpg
 summary: "LA-based psychedelic pop band The Marías returned to Brooklyn Tuesday night with an entrancing set following a short mental health break from touring. Playing their first of two sold-out shows at..."
+category: archive
 ---
 
 LA-based psychedelic pop band **The Marías** returned to Brooklyn Tuesday night with an entrancing set following a short mental health break from touring. Playing their first of two sold-out shows at **Brooklyn Steel**, the room was packed and overflowing with excitement. When The Marías took the stage, the crowd was absorbed by lead singer María Zardoya silky vocals and sultry aura. The haze of red lights and smoke set the mood as the band kicked off their set with the harsh beats of “Calling U Back,” a song off their debut album *CINEMA* released last summer.

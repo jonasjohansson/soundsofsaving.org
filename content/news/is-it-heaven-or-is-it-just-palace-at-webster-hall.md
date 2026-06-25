@@ -4,6 +4,7 @@ date: 2022-05-08
 author: Palace Check-In, May 2022
 image: /assets/img/news/is-it-heaven-or-is-it-just-palace-at-webster-hall.jpg
 summary: Is It Heaven? Or Is It Just Palace at Webster Hall?
+category: archive
 ---
 
 **Is It Heaven? Or Is It Just Palace at Webster Hall?**

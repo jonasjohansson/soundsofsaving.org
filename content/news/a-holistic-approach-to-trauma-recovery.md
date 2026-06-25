@@ -4,6 +4,7 @@ date: 2025-06-04
 author: Francesca Namala
 image: /assets/img/news/a-holistic-approach-to-trauma-recovery.jpeg
 summary: The Holistic Healing Arts Retreat is a 5-day immersive experience designed for women survivors of chronic sexual trauma. The retreat recognizes the body as a critical site of healing, offering...
+category: learn
 ---
 
 The Holistic Healing Arts Retreat is a 5-day immersive experience designed for women survivors of chronic sexual trauma. The retreat recognizes the body as a critical site of healing, offering participants access to a range of trauma-informed and somatic-based practices to reconnect with the body, mind and heart. In addition to engaging participants in therapeutic exercises, the physical environment of the retreat is intentionally curated with shared living and eating spaces to nurture connection. Sound also plays a subtle yet powerful role in the healing process—from the ambient soundscapes that often accompany yoga sessions to the singing of birds in the early morning. The observable impact of the Holistic Healing Arts Retreat highlights the significance of psychosomatic therapy in trauma recovery.

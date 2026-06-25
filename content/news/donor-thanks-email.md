@@ -3,6 +3,7 @@ title: Donor Thanks Email
 date: 2024-06-24
 image: /assets/img/news/donor-thanks-email.jpg
 summary: We continue to be beyond thankful for your generosity towards SoS and wanted to reiterate our appreciation and keep you informed about the exciting things that have been happening lately for our...
+category: archive
 ---
 
 We continue to be beyond thankful for your generosity towards SoS and wanted to reiterate our appreciation and keep you informed about the exciting things that have been happening lately for our organization thanks to your early support. What we are achieving and the reach and impact of our work is succeeding beyond what we could have dreamed of a few short years ago. Our successes are directly in line with our mission of addressing the mental health crisis in the US, combatting the epidemic of loneliness and preventing suicide. Thank you for personally helping to move the needle in all these areas. Here are a few specific developments we wanted to let you know about:

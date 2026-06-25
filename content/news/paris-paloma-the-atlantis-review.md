@@ -4,6 +4,7 @@ date: 2024-06-25
 author: Review by Saskia Jorgensen
 image: /assets/img/news/paris-paloma-the-atlantis-review.jpg
 summary: "Singer-songwriter Paris Paloma’s “labour” recentlyblew up on social media as an outlet for female-identifying people to voice their frustrations and anger with living in our patriarchal society...."
+category: archive
 ---
 
 Singer-songwriter Paris Paloma’s “labour” recentlyblew up on social media as an outlet for female-identifying people to voice their frustrations and anger with living in our patriarchal society. Scrolling through TikTok, my feed has been flooded by [videos of women](https://www.tiktok.com/@pinepup/video/7208710631149604138?_r=1&_t=8nTaLxvsG4s) sharing how its lyrics are reflected in their lives, mothers, grandmothers, friends, and women all around the world:

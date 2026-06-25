@@ -4,6 +4,7 @@ date: 2023-03-23
 author: Madaleine Cutone
 image: /assets/img/news/review-mod-sun-live-at-irving-plaza.png
 summary: SOS Youth Advisory Council member Madaleine Cutone reviews Mod Sun live at Irving Plaza on March 15, 2023
+category: archive
 ---
 
 *SOS Youth Advisory Council member Madaleine Cutone reviews Mod Sun live at Irving Plaza on March 15, 2023*

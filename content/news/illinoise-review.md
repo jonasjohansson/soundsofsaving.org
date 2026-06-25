@@ -4,6 +4,7 @@ date: 2024-06-20
 author: Saskia Jorgensen and Isabella Mohr
 image: /assets/img/news/illinoise-review.jpg
 summary: "The new Broadway musical Illinoise is a jukebox musical featuring Sufjan Stevens’ 2005 indie concept album Illinois. Illinoise opened on Broadway in April 2024 after a short off-broadway run from..."
+category: archive
 ---
 
 ###### *Since seeing the show, we’ve often replayed its moments in our minds, accompanied by the cast recording, Stevens’ original album, or simply our own reflections. The beauty of so much of Sufjan Stevens’ work, including ‘Illinois,’ lies in its intricacies and subtlety. This performance only grew my appreciation of the album itself; hearing it performed by a full Broadway orchestra and sound almost just like the record made us realize just how big the album itself is.*

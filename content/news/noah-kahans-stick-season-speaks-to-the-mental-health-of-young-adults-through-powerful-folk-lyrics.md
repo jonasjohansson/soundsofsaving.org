@@ -4,6 +4,8 @@ date: 2024-12-09
 author: Myles Karna
 image: /assets/img/news/noah-kahans-stick-season-speaks-to-the-mental-health-of-young-adults-through-powerful-folk-lyrics.jpg
 summary: When thinking about how relatable songs are, and how this affects their commercial success, one may not believe that the lyrics of a man from a town with a population of 1,000 would strike a chord...
+category: story
+cluster: features
 ---
 
 When thinking about how relatable songs are, and how this affects their commercial success, one may not believe that the lyrics of a man from a town with a population of 1,000 would strike a chord with millions. However, Noah Kahan has proven the opposite. In his three albums to date, he has covered topicssuch as alcoholism, homesickness, and acceptance of personal growth and change. His first album, *Busyhead*, is a coming-of-age album about growing up with and overcoming anxiety and depression, and finding yourself. *I Was / I Am*, Kahan’s sophomore record, dives deeper into the more mature and adult forms of the topics he covers on *Busyhead,*except instead he looks at them from a more accepting lens of personal growth.

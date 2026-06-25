@@ -4,6 +4,7 @@ date: 2024-06-20
 author: Sounds of Saving Team
 image: /assets/img/news/winter-spring-2024-round-up.png
 summary: "Rick Maguire of PileThe Broadway |January 10, 2024"
+category: archive
 ---
 
 ###### *As the first summer heatwave reigns over the city, we're thinking about cooler days soundtracked by even cooler music. Come with us as we reflect on shows from snowy days in January through first blooms in May.*

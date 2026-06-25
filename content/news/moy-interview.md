@@ -4,6 +4,8 @@ date: 2023-05-22
 author: Interview by Alyssa Goldberg
 image: /assets/img/news/moy-interview.png
 summary: "Meet MOY – an emerging indie rock band from Glasgow who just wrapped up a UK and Ireland tour opening for Rainbow Kitten Surprise last month. SOS sat down with the band’s frontman Dominic Heneghan..."
+category: story
+cluster: interviews
 ---
 
 **Meet MOY – an emerging indie rock band from Glasgow who just wrapped up a UK and Ireland tour opening for Rainbow Kitten Surprise last month. SOS sat down with the band’s frontman Dominic Heneghan before their last gig in Dublin to talk about their recent single, “Thank God For Mental Illness,” songwriting processes, and life on the road.**

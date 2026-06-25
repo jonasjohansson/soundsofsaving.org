@@ -4,6 +4,7 @@ date: 2024-01-07
 author: Kelly Schwint
 image: /assets/img/news/boygenius-hit-the-road-so-i-did-too.png
 summary: "There’s no place like a boygenius show––so I went to 12, and queer joy and friendship were overflowing at each and every one."
+category: archive
 ---
 
 *There’s no place like a boygenius show––so I went to 12, and queer joy and friendship were overflowing at each and every one.*

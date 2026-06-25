@@ -4,6 +4,7 @@ date: 2023-10-17
 author: Alyssa Goldberg
 image: /assets/img/news/review-chappell-roan-house-of-blues-boston.png
 summary: "Pop-icon Chappell Roan broughtThe Midwest PrincessTourto the House of Blues in Boston Sunday night with a red & black theme for her song \"My Kink is Karma.\""
+category: archive
 ---
 
 *Pop-icon Chappell Roan brought*The Midwest PrincessTour*to the House of Blues in Boston Sunday night with a red & black theme for her song "My Kink is Karma."*

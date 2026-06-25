@@ -4,6 +4,7 @@ date: 2024-04-19
 author: Review by Alyssa Goldberg
 image: /assets/img/news/review-dean-lewis-at-td-garden.png
 summary: Dean Lewis delivered a captivating performance to a sold-out crowd at TD Garden in early April, proving himself to be an act meant for the big stage. Boston was a highly anticipated stop along...
+category: archive
 ---
 
 Dean Lewis delivered a captivating performance to a sold-out crowd at TD Garden in early April, proving himself to be an act meant for the big stage. Boston was a highly anticipated stop along AJR’s “The Maybe Man Tour,” with this being Lewis’ largest show in the city, greatly surpassing past venues like Royale and House of Blues.

@@ -4,6 +4,8 @@ date: 2021-11-07
 author: Alyssa Goldberg
 image: /assets/img/news/sounds-of-saving-check-in-series-field-medic-brings-emo-to-folk-music.jpg
 summary: "Around 11:30pm on a Friday night in Brooklyn, Kevin Patrick Sullivan – better known as Field Medic – is standing in a group of friends and fans, with a cigarette in his right hand and a small..."
+category: story
+cluster: interviews
 ---
 
 Around 11:30pm on a Friday night in Brooklyn, Kevin Patrick Sullivan – better known as [Field Medic](https://www.fieldmedic.net/) – is standing in a group of friends and fans, with a cigarette in his right hand and a small pizza box in his left. He’s just performed at the [Music Hall of Williamsburg](https://www.musichallofwilliamsburg.com/) with [Adam Melchor](https://www.adammelchor.com/), where he played solo with only a guitar, harmonica, and a cassette tape for his backtrack from a boombox onstage. Nonetheless, his music filled the room as the crowd sang along to his popular tracks, “camomile," “uuu," and “used 2 be a romantic," and raved when Rich joined him for “song i made up just now to stop myself from having a panic attack." Despite being a folk artist, Field Medic draws inspiration from other genres, such as metalcore, which is seen in his vulnerable and emotional lyrics.

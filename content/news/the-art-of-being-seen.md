@@ -4,6 +4,8 @@ date: 2025-03-03
 author: Francesca Namala
 image: /assets/img/news/the-art-of-being-seen.jpg
 summary: In a world that encourages us to adopt idealized personas, we grow accustomed to portraying ourselves as what we would consider to be appealing, admirable or socially acceptable. In the process,...
+category: story
+cluster: features
 ---
 
 In a world that encourages us to adopt idealized personas, we grow accustomed to portraying ourselves as what we would consider to be appealing, admirable or socially acceptable. In the process, our authenticity is often diminished, if not lost entirely. We grow scared to reveal our true selves, as though there are parts of us we should be ashamed of, parts of us we should hide or erase entirely. As a result, vulnerability becomes an act of resistance. Authentic self-expression requires the courage to be seen as we are — however non-normatively — without the need for perfection or external validation.

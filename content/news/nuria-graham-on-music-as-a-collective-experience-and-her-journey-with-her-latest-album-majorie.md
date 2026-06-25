@@ -4,6 +4,8 @@ date: 2022-10-04
 author: Photos and Interview By Alyssa Goldberg
 image: /assets/img/news/nuria-graham-on-music-as-a-collective-experience-and-her-journey-with-her-latest-album-majorie.jpeg
 summary: I arrived at the Bardot, a local nightclub off Hollywood Boulevard in Los Angeles, on a Monday evening, which despite being surrounded by chain restaurants and tourist attractions, has maintained...
+category: story
+cluster: interviews
 ---
 
 I arrived at the Bardot, a local nightclub off Hollywood Boulevard in Los Angeles, on a Monday evening, which despite being surrounded by chain restaurants and tourist attractions, has maintained a sense of authenticity and old-school Hollywood charm. The venue – decorated with Renaissance paintings and tiled mirrors and doused in dim gold lighting – is filled with the melodic sounds of **Núria Graham** on the piano. The Spanish singer-songwriter is just finishing sound check before a full night of music hosted by School Night, where she’ll be joined by a group of artists from all over the world – including acts from New York, London, Armenia, Spain, and Canada. The relaxed nature and small size of the venue promises a much more intimate set than her performance on the main stage at Primavera Sound LA the previous day, where strong afternoon winds set the soundtrack for the show with a consequently self-playing harp.

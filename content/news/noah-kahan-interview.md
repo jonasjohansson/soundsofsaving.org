@@ -4,6 +4,8 @@ date: 2023-01-27
 author: Alyssa Goldberg
 image: /assets/img/news/noah-kahan-interview.jpeg
 summary: Sounds of Saving interviews Noah Kahan on his experiences with depression and rural therapy, and learning to accept success as it comes following the release of Stick Season.
+category: story
+cluster: interviews
 ---
 
 “If you're unhappy inside then you're gonna be unhappy with everything,” Kahan tells *SoS.*Fresh off the immensely successful release of his third studio album, *Stick Season*, Kahan is ready to embark on a completely sold-out North American tour. We spoke to the singer-songwriter on his experiences with depression and rural therapy, and learning to accept success as it comes.

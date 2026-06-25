@@ -4,6 +4,7 @@ date: 2023-08-29
 author: Kelly Schwint
 image: /assets/img/news/what-is-dbt.png
 summary: Dialectical behavior therapy (DBT) is a type of cognitive behavioral and talk-based therapy that targets emotional stabilization and overall healthy living. DBT focuses on accepting your current...
+category: learn
 ---
 
 **Dialectical behavior therapy (DBT)** is a type of cognitive behavioral and talk-based therapy that targets emotional stabilization and overall healthy living. DBT focuses on accepting your current situation while incorporating skills to change harmful behaviors and regulate intense emotions. DBT is especially beneficial for those struggling with mood disorders, PTSD, self-harm, eating disorders, and personality disorders. But, **it can also help people dealing with all different situations to change their lives.**

@@ -4,6 +4,7 @@ date: 2023-05-25
 author: Review by Alyssa Goldberg
 image: /assets/img/news/taylor-swift-philly-review.jpeg
 summary: "Amid a bejeweled mob of teenage girls in bedazzling dresses and their wispy frills glistening in the wind, there’s me – coming in at 22-years-old – and my mom. Mom is gaping at the outfits and..."
+category: archive
 ---
 
 Amid a bejeweled mob of teenage girls in bedazzling dresses and their wispy frills glistening in the wind, there’s me – coming in at 22-years-old – and my mom. Mom is gaping at the outfits and looking down at her own, telling me I should have helped her plan a more dramatic outfit. *Mom*, I tell her, *I told you it’s like a fashion show here. That’s why I asked you to dig the hair gems out from under the bathroom sink.*

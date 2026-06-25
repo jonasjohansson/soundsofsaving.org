@@ -4,6 +4,8 @@ date: 2024-06-12
 author: Interview by Alyssa Goldberg
 image: /assets/img/news/govball2024-claire-rosinkranz-interview.jpg
 summary: Sounds of Saving checked-in with the 20-year-old singer-songwriter after her midday set at Governor's Ball 2024 todiscusses how songwriting helps with mental health, collaborating musically with...
+category: story
+cluster: interviews
 ---
 
 ***Sounds of Saving checked-in with the 20-year-old singer-songwriter after her midday set at Governor's Ball 2024 todiscusses how songwriting helps with mental health, collaborating musically with her father, the challenges of touring and how she is learning to be more open-minded through practices like breathwork, prayer, and radical meditation.***

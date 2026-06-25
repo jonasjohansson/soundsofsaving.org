@@ -4,6 +4,8 @@ date: 2023-12-22
 author: Interview by Alyssa Goldberg
 image: /assets/img/news/olive-klug-interview.png
 summary: "“I’m gonna plant both feet on the ground / I’m taking up space / I’m taking it in / I’m letting it go,” Olive Klug sings on the emboldened closing track of their debut album Don’t You Dare Make Me..."
+category: story
+cluster: interviews
 ---
 
 “I’m gonna plant both feet on the ground / I’m taking up space / I’m taking it in / I’m letting it go,” Olive Klug sings on the emboldened closing track of their debut album *Don’t You Dare Make Me Jaded.*The album explores what the 25-year-old singer-songwriter describes as the “second coming-of-age” that occurs in your mid-20s. On the ironically cheerful song “Coming of Age,” they encapsulate the feelings of post-grad life, singing: “I'm a toddler running through the bank / They told me I'd grow out of all this adolescent angst / Why do I still relate to Lady Bird? / And Taylor Swift makes me feel heard / It's like my pen is stuck to the page / And I can't finish my damn coming of age.”

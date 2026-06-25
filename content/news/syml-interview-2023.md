@@ -4,6 +4,8 @@ date: 2023-07-20
 author: Interview and Photos by Alyssa Goldberg
 image: /assets/img/news/syml-interview-2023.jpg
 summary: syml interview with sounds of saving
+category: story
+cluster: interviews
 ---
 
 Brian Fennell – better known by his artist name SYML – recently released his third solo album *The Day My Father Died* – an honest and introspective exploration of grief and love, driven by the loss of his adoptive father to cancer in 2021. His melodic tracks are driven by piano backings and echoing vocals, often stripped down to unveil the barest of emotions. He's recently collaborated with the likes of Lana Del Rey, who used his composition for the song "Paris, Texas" off her latest record.

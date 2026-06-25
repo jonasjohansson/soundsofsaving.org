@@ -4,6 +4,8 @@ date: 2023-02-03
 author: Alyssa Goldberg
 image: /assets/img/news/a-conversation-with-up-and-coming-hyperpop-artist-wsteaway.jpg
 summary: Sounds of Saving interviews up-and-coming 21-year-old nonbinary hyperpop artist wsteaway
+category: story
+cluster: interviews
 ---
 
 Sounds of Saving spoke with the 21-year-old hyperpop artist wsteaway on Friday, January 13. Ahead of our interview, we ramble on about our shared love for Friday the 13th, and they show me a the flash tattoo they're planning to get after our call: a grown-out tooth with an eyeball to pair with their 'XIII' tattoo from Friday the 13th's past.

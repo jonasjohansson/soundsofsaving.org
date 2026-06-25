@@ -4,6 +4,7 @@ date: 2023-09-28
 author: Mary Connolly
 image: /assets/img/news/coping-with-suicidal-ideation-in-college-tips-from-a-college-student.png
 summary: Suicide is the second leading cause of death for college students, and youth and young adults have the highest rates of emergency room visits for self-harm.
+category: learn
 ---
 
 Suicide is the [second](https://caps.umich.edu/article/facts-and-statistics-0) leading cause of death for college students, and youth and young adults have the [highest](https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2807435#:~:text=Rates%20of%20emergency%20department%20(ED,doubled%20from%202008%20to%202015.) rates of emergency room visits for self-harm.

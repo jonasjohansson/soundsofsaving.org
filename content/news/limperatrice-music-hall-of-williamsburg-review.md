@@ -4,6 +4,7 @@ date: 2024-04-19
 author: Review by Dana Dean
 image: /assets/img/news/limperatrice-music-hall-of-williamsburg-review.jpeg
 summary: "In the intimate and cozy Music Hall at Williamsburg in Brooklyn on Wednesday, April 10, L'Impératrice reigned supreme, their Double Trouble mini-tour wrapping up in a euphoric dance party. The..."
+category: archive
 ---
 
 In the intimate and cozy Music Hall at Williamsburg in Brooklyn on Wednesday, April 10, L'Impératrice reigned supreme, their Double Trouble mini-tour wrapping up in a euphoric dance party. The show was akin to being swept into a vortex of sonic ecstasy, leaving no room for anything but sheer joy.

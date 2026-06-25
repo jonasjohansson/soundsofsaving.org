@@ -4,6 +4,8 @@ date: 2024-06-13
 author: Interview by Alyssa Goldberg
 image: /assets/img/news/govball2024-hotlinetnt-interview.jpg
 summary: Shoegaze band Hotline TNT is local to New York City, but Governor's Ball wasn't just any show for the four-piece. Their typical sets are more intimate, so we took a few moments away from the...
+category: story
+cluster: interviews
 ---
 
 ***Shoegaze band Hotline TNT is local to New York City, but Governor's Ball wasn't just any show for the four-piece. Their typical sets are more intimate, so we took a few moments away from the hustle and bustle of the festival to sit at a picnic table and chat about the band's journey, creative process, and open communication on tour. The band shared their tradition of "check-in Thursdays," where the band takes time each week to openly discuss both positive and challenging aspects of life on the road. This practice has helped foster communication and support between bandmates when stresses arise, and despite the name, does not only occur on Thursday's.***

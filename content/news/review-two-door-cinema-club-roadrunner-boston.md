@@ -4,6 +4,7 @@ date: 2024-02-28
 author: Alyssa Goldberg
 image: /assets/img/news/review-two-door-cinema-club-roadrunner-boston.png
 summary: "Ireland’s Two Door Cinema Club visited Roadrunner in Boston on February 27 and proved once again why they’ve remained a formidable force in the indie rock scene."
+category: archive
 ---
 
 Ireland’s Two Door Cinema Club visited Roadrunner in Boston on February 27 and proved once again why they’ve remained a formidable force in the indie rock scene.

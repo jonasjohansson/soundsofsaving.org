@@ -4,6 +4,8 @@ date: 2024-03-04
 author: Interview by Lyssa Sartori
 image: /assets/img/news/rock-singer-songwriter-ally-nicholas-is-being-true-to-herself.jpg
 summary: Drawing influences from grunge and metal, LA-based rock singer-songwriter Ally Nicholas' songs are painfully raw and honest. In a string of singles released in 2023, Nicholas captures the longing...
+category: story
+cluster: interviews
 ---
 
 Drawing influences from grunge and metal, LA-based rock singer-songwriter **Ally Nicholas'** songs are painfully raw and honest. In a string of singles released in 2023, Nicholas captures the longing for *something* and the intoxicating nature of her past relationships. She touches on the sentiment in “I know You Too Well” when she sings,*"*It's just another endless night of choking on your pride / The sunrise on tired eyes, but we're still going blind," and in “All Summer Long” with the lyrics, "I'll walk around with you / until we move from this rut / a pact forever built on blood / I'll fill your cup / Just hold my head up.” On these tracks, lovers are no longer people to worship, and things are clearer than ever before.

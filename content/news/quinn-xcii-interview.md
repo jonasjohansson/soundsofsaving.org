@@ -4,6 +4,8 @@ date: 2023-07-28
 author: Interview by Alyssa Goldberg
 image: /assets/img/news/quinn-xcii-interview.png
 summary: Sounds of Saving interviews Quinn XCII on meditation, mental health, and The People's Champ tour
+category: story
+cluster: interviews
 ---
 
 From a cottage in Northern Michigan, platinum singer and songwriter Mikael Temrowski – better known as Quinn XCII – pops into our Zoom call repping a yellow “it’s pronounced 92” hat that contrasts against the lining of green trees outside the window behind him. The scenery is a welcomed change for the Detroit native, who just wrapped up the North American leg of “The People’s Tour” – a 27-show run in just under two months.

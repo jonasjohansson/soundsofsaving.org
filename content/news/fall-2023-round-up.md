@@ -4,6 +4,7 @@ date: 2023-12-30
 author: Sounds of Saving Team
 image: /assets/img/news/fall-2023-round-up.png
 summary: "As we head into 2024 and pass official first day of winter, we're reflecting on some of the standout shows from the fall––from the months of September and October when leaves were first starting..."
+category: archive
 ---
 
 As we head into 2024 and pass official first day of winter, we're reflecting on some of the standout shows from the fall––from the months of September and October when leaves were first starting to fall, November as we looked forward to holiday festivities, and even early December, when we embraced the warm days in between shielding our faces from the cold New York City wind. Here's a list of shows our team and Youth Advisory Council just can't stop thinking about.

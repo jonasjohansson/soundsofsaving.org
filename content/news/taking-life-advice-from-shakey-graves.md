@@ -4,6 +4,8 @@ date: 2021-12-14
 author: Review by Alyssa Goldberg
 image: /assets/img/news/taking-life-advice-from-shakey-graves.jpg
 summary: "Shakey Graves knows how to put on a show, that’s for sure. We caught the Austin, TX singer-songwriter, a.k.a. Alejandro Rose-Garcia, for two back-to-back shows at Webster Hall this week. A wicked..."
+category: story
+cluster: features
 ---
 
 Shakey Graves knows how to put on a show, that’s for sure. We caught the Austin, TX singer-songwriter, a.k.a. Alejandro Rose-Garcia, for two back-to-back shows at Webster Hall this week. A wicked guitar player and true performer, he could entertain a crowd without even singing.

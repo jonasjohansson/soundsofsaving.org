@@ -3,6 +3,8 @@ title: Marina Herlop finds the balance between danger, discomfort, and stillness
 date: 2022-09-28
 image: /assets/img/news/marina-herlop-finds-the-balance-between-danger-discomfort-and-stillness.jpg
 summary: "Listening to Marina Herlop’s music is like entering an alternate universe – one filled with immersive drum patterns, occasional electronic embellishments, and chilling vocal manipulation, all..."
+category: story
+cluster: interviews
 ---
 
 September 28, 2022

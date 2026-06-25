@@ -4,6 +4,7 @@ date: 2023-10-31
 author: Ryan Hall, LISW
 image: /assets/img/news/what-is-emdr.png
 summary: Eye Movement Desensitization and Reprocessing (EMDR) is a therapy that has shown significant promise in helping individuals recover from trauma and PTSD symptoms. Recent studies have show EMDR to...
+category: learn
 ---
 
 Eye Movement Desensitization and Reprocessing (EMDR) is a therapy that has shown significant promise in helping individuals recover from trauma and PTSD symptoms. Recent studies have show EMDR to be effective in treating anxiety, depression, OCD and other mental health and substance use disorders.

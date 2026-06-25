@@ -4,6 +4,7 @@ date: 2021-12-01
 author: Mt. Joy at Terminal 5 Review By Alyssa Goldberg
 image: /assets/img/news/wherever-mt-joy-is-thats-where-we-wanna-go.jpg
 summary: "When my sister and I saw Mt. Joy at Pier 17 in early October, we heard the lyrics, “Would you wander forever with me? / And drive way up over Mt. Joy / Where everyone's free now to move how they..."
+category: archive
 ---
 
 When my sister and I saw [Mt. Joy](http://www.mtjoyband.com/) at Pier 17 in early October, we heard the lyrics, “Would you wander forever with me? / And drive way up over Mt. Joy / Where everyone's free now to move how they feel now.” She turned to me and said, “I wanna go to Mt. Joy.” Later, we learned that Mt. Joy is a real place in between singer and lead songwriter Matt Quinn and guitarist Sam Cooper’s hometowns in Pennsylvania, not a dreamland that exists only in the band’s music. Though we’re not far off, Mt. Joy delivers a performance that transcends listeners into another world, one in which your burdens are lighter and your worries are left behind.

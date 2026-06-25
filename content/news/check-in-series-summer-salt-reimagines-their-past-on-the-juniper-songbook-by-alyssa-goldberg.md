@@ -4,6 +4,8 @@ date: 2022-03-17
 author: Alyssa Goldberg
 image: /assets/img/news/check-in-series-summer-salt-reimagines-their-past-on-the-juniper-songbook-by-alyssa-goldberg.jpg
 summary: "Trop-pop duo Summer Salt – singer/guitarist Matthew Terry and drummer Eugene Chung – released The Jupiter Songbookon March 11, a 10-track album that revisits eight previously released songs, along..."
+category: story
+cluster: interviews
 ---
 
 Trop-pop duo **Summer Salt** – singer/guitarist **Matthew Terry** and drummer **Eugene Chung** – released *The Jupiter Songbook*on March 11, a 10-track album that revisits eight previously released songs, along with a new song, “Hideaway,” written by Chung and a slow pop cover of Bob Marley’s “One Cup of Coffee.” Currently, the band is hitting venues across the country with support from Reneta Zeiger and Kate Stephenson. On “The Soft Serve Tour,” Summer Salt has been performing special, stripped-down sets, similar in nature to *The Jupiter Songbook*’s intimacy. We spoke with Chung on the inspiration behind reimagining their past and keeping up with mental health on the road.

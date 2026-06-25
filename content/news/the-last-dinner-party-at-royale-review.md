@@ -4,6 +4,7 @@ date: 2024-03-27
 author: Alyssa Goldberg
 image: /assets/img/news/the-last-dinner-party-at-royale-review.jpg
 summary: "Boston entered the mystical world of The Last Dinner Party Sunday evening––a feast ripe with lyrical decadence and debaucherous musicality. Following the February release of their debut album,..."
+category: archive
 ---
 
 Boston entered the mystical world of The Last Dinner Party Sunday evening––a feast ripe with lyrical decadence and debaucherous musicality. Following the February release of their debut album, *Prelude to Ecstasy*, the femme five-piece––composed of singer Abigail Morris, guitarists Emily Roberts and Lizzie Mayland, keyboardist Aurora Nishevci and bassist Georgia Davies––have taken the music world by a storm. Fans were cordially invited to their sold-out show at Royale and arrived adorned with lush frills, lace corsets, and white bows, ready to get lost in the charmingly gothic spectacle that is The Last Dinner Party.

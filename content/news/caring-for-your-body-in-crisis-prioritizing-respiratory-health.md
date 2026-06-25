@@ -4,6 +4,7 @@ date: 2025-02-03
 author: Francesca Namala
 image: /assets/img/news/caring-for-your-body-in-crisis-prioritizing-respiratory-health.jpeg
 summary: Taking care of yourself physically plays a pivotal role in nurturing mental wellness. Acts of physical self-
+category: resource-sheet
 ---
 
 ## **The Link Between Physical and Mental Health**

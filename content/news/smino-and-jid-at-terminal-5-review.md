@@ -4,6 +4,7 @@ date: 2023-03-07
 author: Madaleine Cutone
 image: /assets/img/news/smino-and-jid-at-terminal-5-review.jpeg
 summary: SOS Youth Advisory Council member Madaleine Cutone attended Smino and JID's gig at Terminal 5 NYC on Friday, March 3 and had only rave reviews for the night.
+category: archive
 ---
 
 *SOS Youth Advisory Council member Madaleine Cutone attended Smino and JID's gig at Terminal 5 NYC on Friday, March 3 and had only rave reviews for the night.*

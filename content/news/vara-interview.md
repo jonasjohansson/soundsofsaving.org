@@ -4,6 +4,8 @@ date: 2022-12-12
 author: Interview by Alyssa Goldberg
 image: /assets/img/news/vara-interview.webp
 summary: "vara, the 19-year-old singer, songwriter, and influencer released the confessional and contemplative track\"paranoia\"under their own independent label Kefe Records last month. vara entered the..."
+category: story
+cluster: interviews
 ---
 
 Photo by Vara Gianna

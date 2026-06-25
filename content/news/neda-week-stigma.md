@@ -4,6 +4,7 @@ date: 2024-02-28
 author: Saskia Jorgensen, Lauren Davis, and Valerie Wong
 image: /assets/img/news/neda-week-stigma.jpg
 summary: National Eating Disorders Week is February 26th to March 3rd. The goal of this week is to engage in important conversations about food, weight, body image, exercise, and other behaviors related to...
+category: resource-sheet
 ---
 
 National Eating Disorders Week is February 26th to March 3rd. The goal of this week is to engage in important conversations about food, weight, body image, exercise, and other behaviors related to disordered eating. In this article, Clinical Psychology PhD students Saskia Jorgensen, Lauren Davis, and Valerie Wong dissect societal sitgma, fatphobia, and racism's role in the etiology of eating disorders.

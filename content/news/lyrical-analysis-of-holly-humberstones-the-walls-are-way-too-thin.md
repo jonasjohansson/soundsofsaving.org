@@ -4,6 +4,8 @@ date: 2023-04-14
 author: Kelly Schwint
 image: /assets/img/news/lyrical-analysis-of-holly-humberstones-the-walls-are-way-too-thin.jpg
 summary: "Originally released as a single, the title track on Holly Humberstone’s 2021 EP, The Walls Are Way Too Thin, shows a different side of moving to a city. Like many of us, the singer-songwriter..."
+category: story
+cluster: features
 ---
 
 Originally released as a single, the title track on Holly Humberstone’s 2021 EP, *The Walls Are Way Too Thin*, shows a different side of moving to a city. Like many of us, the singer-songwriter idolized leaving her rural hometown for a bigger, more exciting place to live. The song shows the relatable experience of plans not working out exactly how you hoped — and the loneliness and isolation that comes with it.

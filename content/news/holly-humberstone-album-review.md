@@ -4,6 +4,7 @@ date: 2023-11-03
 author: Kelly Schwint
 image: /assets/img/news/holly-humberstone-album-review.jpg
 summary: "Holly Humberstone’s Paint My Bedroom Black is simultaneously a love letter—to herself, her friends, and her family—and a scarce plea to fulfill the commitment of relationships with the ones she..."
+category: archive
 ---
 
 Holly Humberstone’s *Paint My Bedroom Black* is simultaneously a love letter—to herself, her friends, and her family—and a scarce plea to fulfill the commitment of relationships with the ones she loves. While a turn from previous EPs, Humberstone’s themes remain the same in her debut record—cherishing friendships, experiencing growing pains, and learning to value yourself. She utilizes the same resources: a soft, melancholy voice and instruments that stand out but also supplement her vocals.

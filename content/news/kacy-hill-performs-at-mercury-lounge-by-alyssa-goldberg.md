@@ -4,6 +4,7 @@ date: 2021-11-22
 author: Alyssa Goldberg
 image: /assets/img/news/kacy-hill-performs-at-mercury-lounge-by-alyssa-goldberg.jpeg
 summary: We caught dream-pop singer Kacy Hill at Mercury Lounge in the Lower East Side on Sunday evening for a sold out show, where she played songs from her new album Simple, Sweet, and Smiling, as well...
+category: archive
 ---
 
 We caught dream-pop singer Kacy Hill at Mercury Lounge in the Lower East Side on Sunday evening for a sold out show, where she played songs from her new album *Simple, Sweet, and Smiling*, as well as some fan favorites off her 2020 record *Is It Selfish If We Talk About Me Again?*. Her songs blend together minimalism and electronica to create a unique, magical sound that listeners can dance, cry, and sing along to.

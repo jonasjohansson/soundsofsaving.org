@@ -4,6 +4,8 @@ date: 2023-09-20
 author: Alyssa Goldberg
 image: /assets/img/news/tim-atlas-kicks-off-north-american-tour-at-bostons-cafe-939-q-a.png
 summary: New York-based R&B artist Tim Atlas kicked off his tour at the Red Room at Cafe 939 in Boston last Thursday. The tour follows the release of his recent EP Le Soirthat dropped August 25. We caught...
+category: story
+cluster: interviews
 ---
 
 New York-based R&B artist Tim Atlas kicked off his tour at the Red Room at Cafe 939 in Boston last Thursday. The tour follows the release of his recent EP *Le Soir*that dropped August 25. We caught up with Atlas before the show to talk imposter syndrome, songwriting, and beating the first-night jitters.

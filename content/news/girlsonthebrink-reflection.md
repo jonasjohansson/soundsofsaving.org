@@ -4,6 +4,7 @@ date: 2024-03-29
 author: Saskia Jorgensen
 image: /assets/img/news/girlsonthebrink-reflection.jpg
 summary: Donna Jackson Nakazawa's Girls on the Brinkshares 15 strategies for raising emotionally healthful girls admist the concerning state of adolescent mental health. After her talk at UCLA's Open Mind...
+category: learn
 ---
 
 Donna Jackson Nakazawa's *Girls on the Brink*shares 15 strategies for raising emotionally healthful girls admist the concerning state of adolescent mental health. After her talk at UCLA's Open Mind series, we reflected on how music can be harbored to positively influence the lives of today's teens.

@@ -4,6 +4,7 @@ date: 2023-07-26
 author: Madaleine Cutone
 image: /assets/img/news/review-mac-demarco-at-webster-hall-7-19-23.png
 summary: "If there is one thing that is true in this life, it’s that the people love Mac DeMarco— myself included. He’s everyone and their mother’s favorite indie rock weirdo in music, and I feel certain..."
+category: archive
 ---
 
 If there is one thing that is true in this life, it’s that the people love Mac DeMarco— myself included. He’s everyone and their mother’s favorite indie rock weirdo in music, and I feel certain that he’d take that as a compliment. It seems as though he’s constantly asking himself, *how weird can I take this?* He furthered that narrative this year when he dropped *Five Easy Hot Dogs*, an LP made up of strictly instrumental, psychedelic, low-fi tracks. Mac recently took the show on the road, and wrapped up a sold out, three night stint at New York City’s Webster Hall this past week.

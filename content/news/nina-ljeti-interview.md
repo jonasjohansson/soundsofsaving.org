@@ -4,6 +4,8 @@ date: 2023-06-13
 author: Lyssa Sartori
 image: /assets/img/news/nina-ljeti-interview.jpg
 summary: I left New York and went back home for the weekend. After having a cup of black coffee, I sat nervously in my childhood bedroom and prepared myself for the interview with Nina Ljeti.
+category: story
+cluster: interviews
 ---
 
 I left New York and went back home for the weekend. After having a cup of black coffee, I sat nervously in my childhood bedroom and prepared myself for the interview with Nina Ljeti.

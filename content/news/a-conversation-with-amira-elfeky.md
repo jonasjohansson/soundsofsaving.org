@@ -4,6 +4,8 @@ date: 2024-10-04
 author: Lyssa Sartori
 image: /assets/img/news/a-conversation-with-amira-elfeky.jpg
 summary: Amira Elfeky is an LA-based singer and songwriter who is bringing a fresh new sound to the heavy rock scene. Drawing inspiration from nu-metal and grunge, her debut EP, Skin to Skin, has a...
+category: story
+cluster: interviews
 ---
 
 Amira Elfeky is an LA-based singer and songwriter who is bringing a fresh new sound to the heavy rock scene. Drawing inspiration from nu-metal and grunge, her debut EP, *Skin to Skin,* has a powerful, raw and haunting atmosphere. With entrancing vocals and heart-wrenching lyrics, Amira lures the listener to delve into deep desire such as to love and to be loved.

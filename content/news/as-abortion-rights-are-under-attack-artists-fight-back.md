@@ -4,6 +4,8 @@ date: 2022-05-20
 author: Alyssa Goldberg
 image: /assets/img/news/as-abortion-rights-are-under-attack-artists-fight-back.jpg
 summary: Earlier this month, a leaked draft opinion written by Justice Samuel Alito was released by Politico and showed that the Supreme Court has preliminarily voted to strike down Roe v. Wade. If Roe v....
+category: story
+cluster: features
 ---
 
 Earlier this month, a leaked draft opinion written by Justice Samuel Alito was [released](https://www.politico.com/news/2022/05/02/supreme-court-abortion-draft-opinion-00029473) by Politico and showed that the Supreme Court has preliminarily voted to strike down Roe v. Wade. If Roe v. Wade is overturned, one-third of all people of childbearing age in the U.S. could lose access to abortion care and other reporoductive rights, based on existent and [“trigger” laws](https://www.nytimes.com/interactive/2021/05/18/upshot/abortion-laws-roe-wade-states.html) in their states. Yesterday, Oklahoma legislature [passed](https://www.nytimes.com/2022/05/19/us/oklahoma-ban-abortions.html) a bill banning almost all abortions starting at fertilization, which would make it the nation’s strictest abortion law. The bill subjects abortion providers and those who “aids or abets” an abortion to civil suits from private indivudals, and would take effect immediately if signed by Republican Governer Kevin Stitt.

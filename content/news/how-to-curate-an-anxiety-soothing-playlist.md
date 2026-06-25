@@ -4,6 +4,8 @@ date: 2023-01-17
 author: Kelly Schwint
 image: /assets/img/news/how-to-curate-an-anxiety-soothing-playlist.png
 summary: While music can certainly help us through anxiety, it can still be challenging to know what to play when dealing with difficult emotions. With so many songs to choose from, which will help us most...
+category: story
+cluster: features
 ---
 
 While music [can](https://www.medicalnewstoday.com/articles/music-therapy#for-anxiety) certainly help us through anxiety, it can still be challenging to know what to play when dealing with difficult emotions. With so many songs to choose from, which will help us most during a panic attack?

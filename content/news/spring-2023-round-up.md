@@ -3,6 +3,7 @@ title: "Spring 2023 Round-Up: The concerts we haven't been able to stop thinking
 date: 2023-07-14
 author: Sounds of Saving Team
 summary: "As we trudge our way through a remarkably hot New York City summer, we find ourself reflecting on shows from the spring – the months of May and early June, when the sun was just starting to shine..."
+category: archive
 ---
 
 As we trudge our way through a remarkably hot New York City summer, we find ourself reflecting on shows from the spring – the months of May and early June, when the sun was just starting to shine and worries melted away in its embrace. Here's a list of shows our team and Youth Advisory Council just can't stop thinking about, and how we connected to the music.

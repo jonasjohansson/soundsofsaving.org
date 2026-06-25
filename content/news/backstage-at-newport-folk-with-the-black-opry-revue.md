@@ -4,6 +4,7 @@ date: 2023-09-06
 author: Interview and Photos by Alyssa Goldberg
 image: /assets/img/news/backstage-at-newport-folk-with-the-black-opry-revue.png
 summary: "“[The Black Opry] moves mountains to make sure that we can do what we want to do and be who we are all in the same.”"
+category: archive
 ---
 
 *“[The Black Opry] moves mountains to make sure that we can do what we want to do and be who we are all in the same.”*

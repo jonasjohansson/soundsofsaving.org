@@ -4,6 +4,8 @@ date: 2024-03-18
 author: Interview by Kelly Schwint
 image: /assets/img/news/comfort-club-interview.jpg
 summary: "Comfort Club is done holding back. The Los Angeles based indie pop artist recently released his new single, “If You’re Not Next to Me,” which boldly confronts his fear of abandonment by using..."
+category: story
+cluster: interviews
 ---
 
 Comfort Club is done holding back. The Los Angeles based indie pop artist recently released his new single, “If You’re Not Next to Me,” which boldly confronts his fear of abandonment by using subtle humor to explore the fallout of a relationship. Sounds of Saving sat down with Comfort Club to talk about musical inspirations, diving into your most vulnerable self, and his upcoming album.

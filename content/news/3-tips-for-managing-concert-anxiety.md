@@ -4,6 +4,8 @@ date: 2022-10-01
 author: Kelly Schwint
 image: /assets/img/news/3-tips-for-managing-concert-anxiety.png
 summary: If you feel an unsettling twist in your stomach around crowds, you might also experience anxiety
+category: story
+cluster: features
 ---
 
 If you feel an unsettling twist in your stomach around crowds, you might also experience anxiety
