@@ -10,7 +10,8 @@
     "clean": "rm -rf _site"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^2.0.1"
+    "@11ty/eleventy": "^2.0.1",
+    "cheerio": "^1.2.0"
   },
   "dependencies": {
     "@11ty/eleventy-img": "^4.0.2",
