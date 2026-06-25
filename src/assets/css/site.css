@@ -1,11 +1,13 @@
 /* ==================================================================== *
- *  SOUNDS OF SAVING — global styles
+ *  SOUNDS OF SAVING — global styles — "Liner Notes" design system
  *
- *  Clean, light, Inter-based look matching the original. Tokens live in
- *  tokens.css; this file only consumes them. Sections: Reset · Base ·
- *  Layout · Header / nav · Buttons · Footer · Utilities · Responsive.
+ *  Warm paper + ink, dusk-violet accent, a serif body and a grotesque
+ *  display. Tokens live in tokens.css; fonts in fonts.css; this file only
+ *  consumes them. Sections: Reset · Base · Type roles · Layout · Header /
+ *  nav · Buttons · Footer · Imagery treatment · Utilities · Responsive.
  * ==================================================================== */
 
+@import "fonts.css";
 @import "tokens.css";
 
 /* — Reset ——————————————————————————————————————————————————— */
@@ -37,10 +39,12 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
   font-weight: var(--fw-semibold);
   line-height: var(--lh-tight);
-  color: var(--black);
+  letter-spacing: var(--tracking-tight);
+  color: var(--ink);
 }
 
 h1 { font-size: var(--fs-title); }
@@ -48,6 +52,20 @@ h2 { font-size: var(--fs-h2); }
 h3 { font-size: var(--fs-h3); }
 
 p { max-width: var(--maxw-prose); }
+
+/* Eyebrows / labels / tracklist tags — Space Mono, uppercase, wide tracking.
+   Reusable class; inline-styled eyebrows in templates still pick up
+   --font-mono via their own rules once they switch to this token. */
+.eyebrow,
+.label,
+.mono {
+  font-family: var(--font-mono);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-tiny);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--accent);
+}
 
 a {
   color: var(--link);
@@ -187,11 +205,11 @@ main { min-height: 50vh; }
 }
 .btn--primary {
   background: var(--accent);
-  color: var(--white);
+  color: var(--paper);
 }
 .btn--primary:hover {
-  background: var(--medium-grey-1);
-  color: var(--white);
+  background: var(--accent-deep);
+  color: var(--paper);
 }
 .btn--ghost {
   border-color: var(--accent);
@@ -272,6 +290,110 @@ main { min-height: 50vh; }
 }
 .footer-fine a { color: var(--text-faint); text-decoration: underline; }
 .footer-fine a:hover { color: var(--accent); }
+
+/* — Imagery treatment system ("Liner Notes") ————————————————————————— *
+ *
+ *  Full color is the DEFAULT. Real faces carry the humanity, so good images
+ *  stay untouched. The salvage treatment is OPT-IN, for genuinely low-res
+ *  assets only — never apply a global tint to all images.
+ *
+ *  HOW TO USE
+ *  ----------
+ *  Good image (default — full color, just a frame/aspect helper):
+ *    <figure class="media media--full">
+ *      <img src="..." alt="...">
+ *      <figcaption class="caption">Artist — Song, 2019</figcaption>
+ *    </figure>
+ *
+ *  Low-quality image to rescue (dusk-violet duotone + film grain at rest,
+ *  BLOOMS to full color on hover/focus; caption framed like a liner note):
+ *    <figure class="media media--salvage">
+ *      <img src="grainy-old-photo.jpg" alt="...">
+ *      <figcaption class="caption">Salvaged still, c. 2010</figcaption>
+ *    </figure>
+ *
+ *  --salvage-shadow / --salvage-light / --grain-opacity are tokens; the grain
+ *  is an inline data-URI SVG (fractal noise), so no extra asset request.
+ * ------------------------------------------------------------------------ */
+.media {
+  display: block;
+  margin: 0;
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--paper-3);
+}
+.media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Full color — the default for good assets. No tint, ever. */
+.media--full img { filter: none; }
+
+/* Salvage — duotone + grain at rest, full color on hover/focus.
+   The duotone is a soft multiply of the dusk-violet over the desaturated
+   image; the grain overlay sits above via ::after. */
+.media--salvage img {
+  filter: grayscale(1) contrast(1.05) brightness(1.02);
+  transition: filter 320ms ease;
+}
+.media--salvage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  background: linear-gradient(
+    160deg,
+    var(--salvage-light) 0%,
+    var(--salvage-shadow) 100%
+  );
+  opacity: 0.55;
+  transition: opacity 320ms ease;
+}
+/* Film grain — inline SVG fractal noise, low opacity, repeats cheaply. */
+.media--salvage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: var(--grain-opacity);
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 160px 160px;
+}
+/* Bloom to full color on hover / keyboard focus within the figure. */
+.media--salvage:hover img,
+.media--salvage:focus-within img {
+  filter: none;
+}
+.media--salvage:hover::before,
+.media--salvage:focus-within::before { opacity: 0; }
+.media--salvage:hover::after,
+.media--salvage:focus-within::after { opacity: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .media--salvage img,
+  .media--salvage::before,
+  .media--salvage::after { transition: none; }
+}
+
+/* Liner-note caption frame — Space Mono, small, muted. */
+.caption {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--fs-tiny);
+  letter-spacing: var(--tracking-wide);
+  color: var(--ink-muted);
+  padding: var(--space-2xs) 0 0;
+}
+.media .caption {
+  padding: var(--space-2xs) var(--space-xs) var(--space-xs);
+}
 
 /* — Utilities ————————————————————————————————————————————————— */
 .visually-hidden {
