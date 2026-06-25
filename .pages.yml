@@ -99,6 +99,16 @@ content:
               - { name: heading, label: Heading, type: string }
               - { name: body, label: Body, type: text }
 
+  - name: page_educators
+    label: "Page: Educators"
+    type: file
+    path: content/pages/educators.json
+    fields:
+      - { name: title, label: Title, type: string }
+      - { name: meta_description, label: "SEO description", type: text }
+      - { name: heading, label: Heading, type: string }
+      - { name: lead, label: Lead paragraph, type: text }
+
   - name: page_about
     label: "Page: About Us"
     type: file
