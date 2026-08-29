@@ -57,22 +57,19 @@
   },
   "photos": [
     {
-      "src": "/assets/img/site/photo-power-of-music.jpg",
-      "alt": "Living Colour performing at the Power of Music benefit",
-      "caption": "Power of Music benefit with We Are All Music, City Winery, 2025",
-      "source": "https://www.instagram.com/p/DQb1QZ2joO2/"
+      "src": "/assets/img/site/lockers-2.jpg",
+      "alt": "Two students by school lockers",
+      "caption": "SoS HS in school"
     },
     {
-      "src": "/assets/img/site/photo-card-music-listened.jpg",
-      "alt": "A handwritten card: music has listened to me when no one else would",
-      "caption": "A fan's card, 2023",
-      "source": "https://www.instagram.com/p/CxDdoUpOMyE/"
+      "src": "/assets/img/site/kitchen-guitar.jpg",
+      "alt": "A musician playing guitar in a kitchen",
+      "caption": "An artist playing"
     },
     {
-      "src": "/assets/img/site/photo-cameron-winter.jpg",
-      "alt": "Cameron Winter of Geese",
-      "caption": "Cameron Winter, New York, 2026",
-      "source": "https://www.instagram.com/p/DVeKw35CRO4/"
+      "src": "/assets/img/site/assembly.jpg",
+      "alt": "A school assembly watching a panel of artists and staff",
+      "caption": "A school assembly"
     }
   ]
 }

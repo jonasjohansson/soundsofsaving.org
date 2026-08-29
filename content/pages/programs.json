@@ -22,10 +22,9 @@
         }
       ],
       "photo": {
-        "src": "/assets/img/site/photo-geese.jpg",
-        "alt": "Geese performing a Nick Drake cover for Sounds of Saving",
-        "caption": "Geese covering Nick Drake, 2022",
-        "source": "https://www.instagram.com/p/DRXz_hlieek/"
+        "src": "/assets/img/site/guitar-bw.jpg",
+        "alt": "A musician playing an acoustic guitar, black and white",
+        "caption": "An artist playing"
       }
     },
     {
@@ -56,10 +55,9 @@
         }
       ],
       "photo": {
-        "src": "/assets/img/site/photo-bartees-hs.jpg",
-        "alt": "Bartees Strange in a high-school hallway",
-        "caption": "Bartees Strange at SoS HS, fall 2025",
-        "source": "https://www.instagram.com/p/DUKAuBgCfhl/"
+        "src": "/assets/img/site/school-stage.jpg",
+        "alt": "An artist performing on a school stage with a pianist",
+        "caption": "An artist visit"
       }
     },
     {
@@ -90,10 +88,9 @@
         }
       ],
       "photo": {
-        "src": "/assets/img/site/photo-nick-cave-card.jpg",
-        "alt": "Nick Cave filling in a Songs That Found Me card",
-        "caption": "Nick Cave, Strand Books, 2023",
-        "source": "https://www.instagram.com/p/CyBtrHEOo95/"
+        "src": "/assets/img/site/cards-table.jpg",
+        "alt": "Songs That Found Me cards laid out on a table at a show",
+        "caption": "Cards collected at a show"
       }
     }
   ],

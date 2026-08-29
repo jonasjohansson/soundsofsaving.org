@@ -6,23 +6,20 @@
     {
       "title": "A classroom",
       "body": "SoS HS in a new school: five sessions, materials, facilitator time, and an artist visit, at no cost to the school.",
-      "image": "/assets/img/site/home-schools.jpg",
-      "alt": "Musicians visiting a high school for SoS HS",
-      "source": "https://www.instagram.com/p/DXHQGQEjfNl/"
+      "image": "/assets/img/site/podium.jpg",
+      "alt": "A student reading aloud at a school podium beside a visiting artist"
     },
     {
       "title": "A film",
       "body": "A Song That Found Me at the Right Time session: a crew, a room, and an afternoon with an artist ready to talk honestly. Produced with the 988 Lifeline.",
-      "image": "/assets/img/site/home-artists.jpg",
-      "alt": "An artist filming a Song That Found Me at the Right Time session",
-      "source": "https://www.instagram.com/p/Da59gc-CcxY/"
+      "image": "/assets/img/site/living-room.jpg",
+      "alt": "An artist playing guitar in a living room during a filmed session"
     },
     {
       "title": "A tour stop",
       "body": "A mental-health professional and a 988 counselor at the table at a show, and wallet cards with a QR code to local resources.",
-      "image": "/assets/img/site/home-community.jpg",
-      "alt": "Fans at a festival holding Songs That Found Me cards",
-      "source": "https://www.instagram.com/p/DbrUceuCRQ2/"
+      "image": "/assets/img/site/cards-table.jpg",
+      "alt": "Songs That Found Me cards laid out on a table at a show"
     }
   ],
   "donate": {
