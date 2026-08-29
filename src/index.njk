@@ -12,8 +12,8 @@ eleventyComputed:
   1. Hero — positioning line over a full-color artist still + three doors
   2. What we do (Artists / Schools / Community) + proof strip
   3. Featured session (randomized client-side)
-  4. Where your gift goes
-  5. Featured interview (randomized client-side)
+  4. Featured interview (randomized client-side)
+  5. Where your gift goes — the closing ask, on the dark band
   Hero + featured session/interview re-personalize on each load via the pools below.
 #}
 {% set featured = sessions | selectattr("featured") | first %}
@@ -60,7 +60,7 @@ eleventyComputed:
      make the hero full-height and keep its content at the bottom, clear of it. */
   @media (max-width: 860px) {
     .home-hero { min-height: 100svh; }
-    .home-hero__inner { padding-bottom: var(--space-lg); }
+    .home-hero__inner { padding-bottom: var(--space-xl); }
   }
   .home-hero__eyebrow { color: var(--paper); margin: 0 0 var(--space-sm); }
   .home-hero__title {
@@ -83,10 +83,18 @@ eleventyComputed:
   .home-hero__ctas { display: flex; flex-wrap: wrap; gap: var(--space-sm); margin-top: var(--space-lg); }
   .home-hero__ghost { border-color: var(--paper); color: var(--paper); }
   .home-hero__ghost:hover { background: var(--paper); color: var(--ink); }
+  /* Photo credit sits in the corner of the image, not in the copy column. */
   .home-hero__credit {
-    margin: var(--space-md) 0 0;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    margin: 0;
+    padding: var(--space-xs) var(--space-md);
+    font-size: 0.625rem;
+    letter-spacing: 0.08em;
     color: var(--paper);
-    opacity: 0.78;
+    opacity: 0.55;
   }
 
   /* — Shared section heads ——————————————————————————————————————— */
@@ -134,7 +142,19 @@ eleventyComputed:
   .home-proof li { font-size: var(--fs-small); color: var(--text-muted); }
   .home-proof li strong { color: var(--ink); font-weight: var(--fw-semibold); }
 
-  /* — Where your gift goes ————————————————————————————————————— */
+  /* — Where your gift goes: the one ask on the page, so it gets the dark
+     band the site uses elsewhere for a change of register. ——————————— */
+  .home-gift-band { background: var(--dusk); color: var(--on-dark); }
+  .home-gift-band .home-head__title { color: var(--on-dark); }
+  .home-gift-band .home-head__intro { color: var(--paper-2); }
+  .home-gift-band .home-gift__use { border-top-color: var(--dusk-2); }
+  .home-gift-band .home-gift__use b { color: var(--accent-bright); }
+  .home-gift-band .home-gift__use p { color: var(--paper-2); }
+  .home-gift-band .btn--primary { background: var(--paper); color: var(--dusk); }
+  .home-gift-band .btn--primary:hover { background: var(--accent-bright); color: var(--dusk); }
+  .home-gift-band .btn--ghost { border-color: var(--paper); color: var(--paper); }
+  .home-gift-band .btn--ghost:hover { background: var(--paper); color: var(--dusk); }
+
   .home-gift { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: var(--space-xl); align-items: start; }
   .home-gift__uses { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-sm); }
   .home-gift__use { display: grid; grid-template-columns: 7rem 1fr; gap: var(--space-sm); padding-top: var(--space-sm); border-top: 1px solid var(--line); }
@@ -210,9 +230,9 @@ eleventyComputed:
         <li><a class="home-door" href="/educators/"><span class="home-door__q">I work at a school</span><span class="home-door__a">Bring SoS HS, our five-session program, to your students &rarr;</span></a></li>
         <li><a class="home-door" href="/resources/"><span class="home-door__q">I need help</span><span class="home-door__a">Resources and the 988 Lifeline, right now &rarr;</span></a></li>
       </ul>
-      <p class="home-hero__credit">{% if hero.artist %}Pictured: {{ hero.artist }}{% if hero.song_title %}, &ldquo;{{ hero.song_title }}&rdquo;{% endif %}{% endif %}</p>
     </div>
   </div>
+  <p class="home-hero__credit">{% if hero.artist %}Pictured: {{ hero.artist }}{% if hero.song_title %}, &ldquo;{{ hero.song_title }}&rdquo;{% endif %}{% endif %}</p>
 </section>
 
 {# 2. WHAT WE DO — Artists / Schools / Community + proof strip ———— #}
@@ -285,25 +305,6 @@ eleventyComputed:
 </section>
 {% endif %}
 
-{# WHERE YOUR GIFT GOES ————————————————————————————————————————— #}
-<section class="section section--alt">
-  <div class="container home-gift">
-    <header class="home-head">
-      <h2 class="home-head__title">Where your gift goes</h2>
-      <p class="home-head__intro">Sounds of Saving is a 501(c)(3). Every dollar funds a classroom, a film, or a tour stop.</p>
-      <div class="home-gift__ctas">
-        <a class="btn btn--primary" href="{{ settings.donate_url }}" target="_blank" rel="noopener">{{ settings.donate_label }}</a>
-        <a class="btn btn--ghost" href="/support/">Other ways to help</a>
-      </div>
-    </header>
-    <ul class="home-gift__uses">
-      <li class="home-gift__use"><b>A classroom</b><p>SoS HS in a new school: five sessions, materials, and an artist visit, at no cost to the school.</p></li>
-      <li class="home-gift__use"><b>A film</b><p>A Song That Found Me at the Right Time session with an artist, produced with 988 and published where young people already are.</p></li>
-      <li class="home-gift__use"><b>A tour stop</b><p>A clinician and a 988 counselor at the table, and wallet crisis cards pointing to local help where care is hard to find.</p></li>
-    </ul>
-  </div>
-</section>
-
 {# FEATURED INTERVIEW ——————————————————————————————————————————— #}
 {% set interviewCluster = (news.storyClusters | selectattr("slug", "equalto", "interviews") | first) %}
 {% if interviewCluster and interviewCluster.posts.length %}
@@ -329,6 +330,25 @@ eleventyComputed:
   </div>
 </section>
 {% endif %}
+
+{# WHERE YOUR GIFT GOES ————————————————————————————————————————— #}
+<section class="section home-gift-band">
+  <div class="container home-gift">
+    <header class="home-head">
+      <h2 class="home-head__title">Where your gift goes</h2>
+      <p class="home-head__intro">Sounds of Saving is a 501(c)(3). Every dollar funds a classroom, a film, or a tour stop.</p>
+      <div class="home-gift__ctas">
+        <a class="btn btn--primary" href="{{ settings.donate_url }}" target="_blank" rel="noopener">{{ settings.donate_label }}</a>
+        <a class="btn btn--ghost" href="/support/">Other ways to help</a>
+      </div>
+    </header>
+    <ul class="home-gift__uses">
+      <li class="home-gift__use"><b>A classroom</b><p>SoS HS in a new school: five sessions, materials, and an artist visit, at no cost to the school.</p></li>
+      <li class="home-gift__use"><b>A film</b><p>A Song That Found Me at the Right Time session with an artist, produced with 988 and published where young people already are.</p></li>
+      <li class="home-gift__use"><b>A tour stop</b><p>A clinician and a 988 counselor at the table, and wallet crisis cards pointing to local help where care is hard to find.</p></li>
+    </ul>
+  </div>
+</section>
 
 {# Randomize the hero + featured session on each page load (client-side). #}
 <script id="session-pool" type="application/json">
