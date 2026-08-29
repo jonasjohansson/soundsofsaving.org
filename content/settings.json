@@ -51,5 +51,10 @@
     "programs": "Music is already a mental health tool. Sounds of Saving helps young people use it intentionally, through artist storytelling, a high-school program, and mental-health resources at concerts, festivals, and campuses.",
     "about": "Sounds of Saving was founded by a music person and a clinician on one question: if music is so central to coping and to being young, why isn't it part of how we look after young people's mental health?",
     "resources": "Get help now. Mental health resources, crisis support, and local services curated by Sounds of Saving."
+  },
+  "footer_image": {
+    "src": "/assets/img/site/footer-cards.jpg",
+    "alt": "Songs That Found Me cards laid out on a table at a show",
+    "caption": "Songs That Found Me cards, collected at a show"
   }
 }

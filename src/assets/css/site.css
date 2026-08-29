@@ -321,6 +321,24 @@ main { min-height: 50vh; }
 }
 .socials a:hover { color: var(--accent-deep); }
 
+.site-footer__figure { margin: var(--space-xl) 0 0; }
+.site-footer__img {
+  display: block;
+  width: 100%;
+  height: clamp(160px, 20vw, 300px);
+  object-fit: cover;
+  object-position: center;
+}
+.site-footer__figure figcaption {
+  font-family: var(--font-mono);
+  font-size: var(--fs-tiny);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--text-faint);
+  padding-top: var(--space-2xs);
+  padding-bottom: var(--space-sm);
+}
+
 .footer-fine {
   color: var(--text-faint);
   font-size: var(--fs-tiny);
