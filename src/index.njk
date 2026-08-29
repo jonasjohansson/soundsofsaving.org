@@ -171,8 +171,8 @@ eleventyComputed:
   }
   .featured__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
   /* Story/interview images vary in aspect ratio, so show them in full (uncropped). */
-  .featured--story .featured__media { aspect-ratio: auto; }
-  .featured--story .featured__media img { height: auto; object-fit: contain; }
+  .featured--story .featured__media { aspect-ratio: 16 / 9; }
+  .featured--story .featured__media img { height: 100%; object-fit: cover; }
   .featured__play {
     position: absolute;
     inset: 0;
@@ -219,30 +219,26 @@ eleventyComputed:
 <section class="section">
   <div class="container">
     <header class="home-head">
-      <p class="eyebrow">What we do</p>
-      <h2 class="home-head__title">Three ways in</h2>
-      <p class="home-head__intro">We start with something young people already do every day: listen. Then we work with the artists they trust, the schools they're in, and the shows they go to.</p>
+      <h2 class="home-head__title">What we do</h2>
+      <p class="home-head__intro">Young people already use music to cope. We work with the artists they trust, the schools they're in, and the shows they go to, so they can use it on purpose.</p>
     </header>
     <ul class="home-what">
       <li class="home-what--artists">
-        <a class="home-what__media" href="/sessions/" aria-label="Sessions"><img src="/assets/img/site/home-artists.jpg" alt="An artist filming a Song That Found Me at the Right Time session" width="1400" height="1750" loading="lazy" decoding="async" /></a>
-        <p class="eyebrow">Artists</p>
-        <h3 class="home-what__title">Artists tell the truth about a hard time</h3>
-        <p class="home-what__copy">Song That Found Me at the Right Time, made with the 988 Lifeline: an artist covers the song that got them through, and talks about what else helped.</p>
+        <a class="home-what__media" href="/sessions/" aria-label="Sessions"><img src="/assets/img/site/home-artists.jpg" alt="An artist filming a Song That Found Me at the Right Time session" width="1400" height="1750" decoding="async" /></a>
+        <h3 class="home-what__title">Artists</h3>
+        <p class="home-what__copy">Song That Found Me at the Right Time: an artist covers the song that got them through a hard time and talks about what else helped. Made with the 988 Lifeline.</p>
         <a class="home-more" href="/sessions/">Watch a Session &rarr;</a>
       </li>
       <li class="home-what--schools">
-        <a class="home-what__media" href="/educators/" aria-label="For educators"><img src="/assets/img/site/home-schools.jpg" alt="Musicians visiting a high school for SoS HS" width="1400" height="1750" loading="lazy" decoding="async" /></a>
-        <p class="eyebrow">Schools</p>
-        <h3 class="home-what__title">Students learn to use music on purpose</h3>
-        <p class="home-what__copy">SoS HS is a five-session program built on the music students already love. Not therapy; a preventative tool a school can run now.</p>
+        <a class="home-what__media" href="/educators/" aria-label="For educators"><img src="/assets/img/site/home-schools.jpg" alt="Musicians visiting a high school for SoS HS" width="1400" height="1750" decoding="async" /></a>
+        <h3 class="home-what__title">Schools</h3>
+        <p class="home-what__copy">SoS HS: five sessions on coping, identity, and connection, built on the music students already listen to. Run by school staff or by us.</p>
         <a class="home-more" href="/educators/">Bring it to your school &rarr;</a>
       </li>
       <li class="home-what--community">
-        <a class="home-what__media" href="/programs/#community" aria-label="Community programs"><img src="/assets/img/site/home-community.jpg" alt="Fans at a festival holding Songs That Found Me cards" width="1400" height="1750" loading="lazy" decoding="async" /></a>
-        <p class="eyebrow">Community</p>
-        <h3 class="home-what__title">We show up where music already is</h3>
-        <p class="home-what__copy">At tours and festivals we ask people for the song that found them at the right time, with a clinician at the table and a QR code to local help.</p>
+        <a class="home-what__media" href="/programs/#community" aria-label="Community programs"><img src="/assets/img/site/home-community.jpg" alt="Fans at a festival holding Songs That Found Me cards" width="1400" height="1750" decoding="async" /></a>
+        <h3 class="home-what__title">Community</h3>
+        <p class="home-what__copy">At tours and festivals we collect the songs that found people at the right time, with a clinician at the table and a QR code to local help.</p>
         <a class="home-more" href="/programs/#community">See the programs &rarr;</a>
       </li>
     </ul>
@@ -261,8 +257,7 @@ eleventyComputed:
 <section class="section section--alt">
   <div class="container">
     <header class="home-head">
-      <p class="eyebrow">Featured Session</p>
-      <h2 class="home-head__title">Songs that found them<br>at the right time</h2>
+      <h2 class="home-head__title">Song That Found Me at the Right Time</h2>
     </header>
     <div class="featured">
       <a class="featured__media" href="{{ featured.url }}" aria-label="Watch {{ featured.artist }}{% if featured.song_title %}, {{ featured.song_title }}{% endif %}">
@@ -297,9 +292,8 @@ eleventyComputed:
 <section class="section section--alt">
   <div class="container home-gift">
     <header class="home-head">
-      <p class="eyebrow">Support</p>
       <h2 class="home-head__title">Where your gift goes</h2>
-      <p class="home-head__intro">Sounds of Saving is a 501(c)(3). Every dollar funds one of three things.</p>
+      <p class="home-head__intro">Sounds of Saving is a 501(c)(3). Every dollar funds a classroom, a film, or a tour stop.</p>
       <div class="home-gift__ctas">
         <a class="btn btn--primary" href="{{ settings.donate_url }}" target="_blank" rel="noopener">{{ settings.donate_label }}</a>
         <a class="btn btn--ghost" href="/support/">Other ways to help</a>
@@ -320,8 +314,7 @@ eleventyComputed:
 <section class="section">
   <div class="container" data-section="stories">
     <header class="home-head">
-      <p class="eyebrow">Featured interview</p>
-      <h2 class="home-head__title">Voices on music<br>and mental health</h2>
+      <h2 class="home-head__title">Stories</h2>
     </header>
     <div class="featured featured--story">
       <a class="featured__media" href="{{ fStory.url }}" aria-label="Read {{ fStory.title }}">

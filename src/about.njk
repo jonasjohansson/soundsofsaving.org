@@ -114,14 +114,13 @@ ogType: website
   {% if a.photos %}
   <ul class="photo-row" aria-label="Photos">
     {% for ph in a.photos %}
-    <li><figure><span class="photo"><img src="{{ ph.src }}" alt="{{ ph.alt }}" loading="lazy" decoding="async" /></span>{% if ph.caption %}<figcaption>{{ ph.caption }}</figcaption>{% endif %}</figure></li>
+    <li><figure><span class="photo"><img src="{{ ph.src }}" alt="{{ ph.alt }}" decoding="async" /></span>{% if ph.caption %}<figcaption>{{ ph.caption }}</figcaption>{% endif %}</figure></li>
     {% endfor %}
   </ul>
   {% endif %}
 
   {% if a.approach %}
   <section class="approach" aria-label="{{ a.approach.heading }}">
-    <p class="eyebrow approach__eyebrow">{{ a.approach.eyebrow }}</p>
     <h2>{{ a.approach.heading }}</h2>
     {% if a.approach.intro %}<p class="approach__intro">{{ a.approach.intro }}</p>{% endif %}
     <ul class="principles">

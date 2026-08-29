@@ -1,7 +1,7 @@
 {
   "title": "About Us",
   "meta_description": "Sounds of Saving was founded by a music person and a clinician on one question: if music is so central to coping and to being young, why isn't it part of how we look after young people's mental health?",
-  "intro": "Sounds of Saving is a youth mental health nonprofit and a creative organization rooted in music culture. We started with a question: if music is so central to coping, and such a core part of being young, why isn't it more integrated into how we look after young people's mental health? Music is a powerful tool hiding in plain sight. We help young people use it intentionally, through films and stories with the artists they trust, a five-session program in high schools, and mental-health resources at the concerts, festivals, and campuses where they already connect.",
+  "intro": "Sounds of Saving is a youth mental health nonprofit rooted in music culture. We started with a question: if music is so central to coping and to being young, why isn't it part of how we look after young people's mental health? We help young people use it intentionally, through films with the artists they trust, a five-session program in high schools, and mental-health resources at concerts, festivals, and campuses.",
   "photos": [
     {
       "src": "/assets/img/site/photo-focus-group-la.jpg",
@@ -20,8 +20,8 @@
     }
   ],
   "approach": {
-    "eyebrow": "Our approach",
-    "heading": "Seven things we believe",
+    "eyebrow": null,
+    "heading": "How we work",
     "intro": "We don't use music as a wrapper for a mental-health message. We start with music, creativity, and culture, and let the conversations emerge from inside them.",
     "principles": [
       {
@@ -55,7 +55,7 @@
     ]
   },
   "why_now": {
-    "heading": "Why Now",
+    "heading": "Why now",
     "body": "The youth mental health crisis is defined by isolation, loneliness, stigma, stress, anxiety, depression, suicidality, and digital overload. Music has a role in addressing every one of them. It is nearly universally accessible, it is central to youth culture across every taste and genre, and it is where young people already are: listening, sharing, forming friendships, and shaping who they are.",
     "stats": [
       "“The mortality impact of being socially disconnected is similar to that caused by smoking up to 15 cigarettes a day”*",

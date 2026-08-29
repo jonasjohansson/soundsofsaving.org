@@ -21,6 +21,7 @@ ogType: website
     line-height: var(--lh-tight);
     margin: 0 0 var(--space-md);
   }
+  .programs-ctas { display: flex; flex-wrap: wrap; gap: var(--space-sm); margin: calc(-1 * var(--space-md)) 0 var(--space-xl); }
   .programs-lead {
     font-size: var(--fs-lead);
     line-height: var(--lh-base);
@@ -102,7 +103,9 @@ ogType: website
   .pcard__dt:first-child { margin-top: 0; }
   .pcard__dd { margin: var(--space-3xs) 0 0; font-size: var(--fs-small); line-height: var(--lh-base); max-width: none; }
 
-  .pcard__cta { margin-top: auto; }
+  .pcard__cta--top { margin: 0 0 var(--space-md); }
+  .pcard__dd + .pcard__dd { margin-top: var(--space-xs); }
+  .pcard__proof { color: var(--text-muted); }
 
   /* educators pointer band */
   .edu-pointer {
@@ -134,25 +137,14 @@ ogType: website
   <h1>{{ p.heading or "Programs" }}</h1>
   {% if p.lead %}<p class="programs-lead">{{ p.lead }}</p>{% endif %}
 
-  {% if p.how_it_works %}
-  <section class="howto" aria-label="How it works">
-    {% if p.how_it_works.eyebrow %}<p class="howto__label">{{ p.how_it_works.eyebrow }}</p>{% endif %}
-    <ol class="howto__steps">
-      {% for step in p.how_it_works.steps %}
-      <li class="howto__step">
-        <p class="howto__label">{{ step.label }}</p>
-        <p>{{ step.body }}</p>
-      </li>
-      {% endfor %}
-    </ol>
-  </section>
+  {% if p.ctas %}
+  <p class="programs-ctas">{% for c in p.ctas %}<a class="btn {% if loop.first %}btn--primary{% else %}btn--ghost{% endif %}" href="{{ c.href }}">{{ c.label }}</a>{% endfor %}</p>
   {% endif %}
 
   {% for group in p.groups %}
   <section class="pgroup" id="{{ group.id }}" aria-label="{{ group.label }}">
     <div class="pgroup__top">
       <div class="pgroup__head">
-        <p class="pgroup__label">{{ group.label }}</p>
         <h2 class="pgroup__heading">{{ group.heading }}</h2>
         {% if group.intro %}<p class="pgroup__intro">{{ group.intro }}</p>{% endif %}
       </div>
@@ -164,19 +156,13 @@ ogType: website
     <ul class="pcards">
       {% for card in group.cards %}
       <li class="pcard{% if card.featured %} pcard--featured{% endif %}">
-        {% if card.eyebrow %}<p class="pcard__eyebrow">{{ card.eyebrow }}</p>{% endif %}
         <h3 class="pcard__title">{{ card.title }}</h3>
-        <dl class="pcard__spec">
-          {% if card.what %}<dt class="pcard__dt">What it is</dt><dd class="pcard__dd">{{ card.what }}</dd>{% endif %}
-          {% if card.who %}<dt class="pcard__dt">Who it's for</dt><dd class="pcard__dd">{{ card.who }}</dd>{% endif %}
-          {% if card.happens %}<dt class="pcard__dt">What happens</dt><dd class="pcard__dd">{{ card.happens }}</dd>{% endif %}
-          {% if card.proof %}<dt class="pcard__dt">Proof</dt><dd class="pcard__dd">{{ card.proof }}</dd>{% endif %}
-        </dl>
-        {% if card.cta %}
-        <p class="pcard__cta">
-          <a class="btn {% if card.featured %}btn--stroke{% else %}btn--ghost{% endif %}" href="{{ card.cta.href }}">{{ card.cta.label }}</a>
-        </p>
-        {% endif %}
+        {% if card.cta %}<p class="pcard__cta pcard__cta--top"><a class="btn {% if card.featured %}btn--stroke{% else %}btn--ghost{% endif %}" href="{{ card.cta.href }}">{{ card.cta.label }}</a></p>{% endif %}
+        <div class="pcard__spec">
+          <p class="pcard__dd">{{ card.body }}</p>
+          {% if card.for %}<p class="pcard__dd"><strong>For:</strong> {{ card.for }}</p>{% endif %}
+          {% if card.proof %}<p class="pcard__dd pcard__proof">{{ card.proof }}</p>{% endif %}
+        </div>
       </li>
       {% endfor %}
     </ul>
@@ -186,7 +172,6 @@ ogType: website
   {% if p.educators_pointer %}
   <aside class="edu-pointer" aria-label="For educators">
     <div class="edu-pointer__copy">
-      {% if p.educators_pointer.eyebrow %}<p class="edu-pointer__eyebrow">{{ p.educators_pointer.eyebrow }}</p>{% endif %}
       <h2>{{ p.educators_pointer.title }}</h2>
       <p>{{ p.educators_pointer.body }}</p>
     </div>

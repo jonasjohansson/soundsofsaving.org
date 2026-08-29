@@ -31,6 +31,7 @@ ogType: website
   }
   .edu-lead { font-size: var(--fs-lead); line-height: var(--lh-base); max-width: var(--maxw-prose); margin: 0 0 var(--space-lg); }
 
+  .edu-ctas { display: flex; flex-wrap: wrap; gap: var(--space-sm); margin: calc(-1 * var(--space-sm)) 0 var(--space-lg); }
   .edu-pullquote {
     margin: var(--space-xl) 0;
     max-width: var(--maxw-prose);
@@ -72,8 +73,7 @@ ogType: website
   }
   .track__spec { margin: 0 0 var(--space-md); padding-left: var(--space-md); }
   .track__spec li { font-size: var(--fs-small); line-height: var(--lh-base); margin-bottom: var(--space-2xs); }
-  .track__cta { margin-top: auto; }
-  .track__cta .btn { width: 100%; min-height: 3.4rem; text-align: center; }
+  .track__cta--top { margin: 0 0 var(--space-md); }
 
   /* proof band */
   .proof-band {
@@ -152,20 +152,15 @@ ogType: website
 <div class="container edu-page">
   <h1>{{ e.heading }}</h1>
   {% if e.lead %}<p class="edu-lead">{{ e.lead }}</p>{% endif %}
+  {% if e.ctas %}<p class="edu-ctas">{% for c in e.ctas %}<a class="btn {% if loop.first %}btn--primary{% else %}btn--ghost{% endif %}" href="{{ c.href }}">{{ c.label }}</a>{% endfor %}</p>{% endif %}
   {% if e.photos %}
   <ul class="photo-row" aria-label="Photos">
     {% for ph in e.photos %}
-    <li><figure><span class="photo"><img src="{{ ph.src }}" alt="{{ ph.alt }}" loading="lazy" decoding="async" /></span>{% if ph.caption %}<figcaption>{{ ph.caption }}</figcaption>{% endif %}</figure></li>
+    <li><figure><span class="photo"><img src="{{ ph.src }}" alt="{{ ph.alt }}" decoding="async" /></span>{% if ph.caption %}<figcaption>{{ ph.caption }}</figcaption>{% endif %}</figure></li>
     {% endfor %}
   </ul>
   {% endif %}
 
-  {% if e.pullquote %}
-  <figure class="edu-pullquote">
-    <blockquote>{{ e.pullquote }}</blockquote>
-    {% if e.pullquote_attribution %}<cite>{{ e.pullquote_attribution }}</cite>{% endif %}
-  </figure>
-  {% endif %}
 
   {% if e.why_music %}<p class="edu-why">{{ e.why_music }}</p>{% endif %}
 
@@ -174,8 +169,8 @@ ogType: website
     <ul class="tracks__grid">
       {% for t in e.tracks %}
       <li class="track">
-        {% if t.eyebrow %}<p class="track__eyebrow">{{ t.eyebrow }}</p>{% endif %}
         <h2 class="track__title">{{ t.title }}</h2>
+        {% if t.cta %}<p class="track__cta track__cta--top"><a class="btn btn--primary" href="{{ t.cta.href }}">{{ t.cta.label }}</a></p>{% endif %}
         {% if t.summary %}<p class="track__summary">{{ t.summary }}</p>{% endif %}
         {% if t.audience %}<p class="track__audience"><strong>For:</strong> {{ t.audience }}</p>{% endif %}
         {% if t.spec.length %}
@@ -183,9 +178,6 @@ ogType: website
         <ul class="track__spec">
           {% for s in t.spec %}<li>{{ s }}</li>{% endfor %}
         </ul>
-        {% endif %}
-        {% if t.cta %}
-        <p class="track__cta"><a class="btn btn--primary" href="{{ t.cta.href }}">{{ t.cta.label }}</a></p>
         {% endif %}
       </li>
       {% endfor %}
@@ -195,7 +187,6 @@ ogType: website
   {# — Proof band ————————————————————————————————————————————————— #}
   {% if e.proof %}
   <section class="proof-band" aria-label="{{ e.proof.eyebrow or 'Why now' }}">
-    {% if e.proof.eyebrow %}<p class="edu-eyebrow">{{ e.proof.eyebrow }}</p>{% endif %}
     {% if e.proof.heading %}<h2>{{ e.proof.heading }}</h2>{% endif %}
     {% if e.proof.stats.length %}
     <ul class="proof-stats">
@@ -220,7 +211,6 @@ ogType: website
   {% if e.lead_magnet %}
   <aside class="lead-magnet" aria-label="{{ e.lead_magnet.title }}">
     <div class="lead-magnet__copy">
-      {% if e.lead_magnet.eyebrow %}<p class="edu-eyebrow">{{ e.lead_magnet.eyebrow }}</p>{% endif %}
       <h2>{{ e.lead_magnet.title }}</h2>
       <p>{{ e.lead_magnet.body }}</p>
     </div>

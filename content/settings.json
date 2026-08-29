@@ -3,7 +3,7 @@
   "tagline": "Music is already a mental health tool. We help young people use it intentionally.",
   "meta_description": "Sounds of Saving is a youth mental health nonprofit. Through artist storytelling, a high-school program, and resources at concerts and festivals, we help young people use music intentionally to cope, connect, and feel less alone.",
   "hero_heading": "Music is already a mental health tool. We help young people use it intentionally.",
-  "hero_subheading": "Sounds of Saving is a nonprofit that works with artists, schools, and the places where young people already connect through music.",
+  "hero_subheading": "A nonprofit working with artists, schools, and the shows where young people already connect through music.",
   "donate_url": "https://secure.givelively.org/donate/sounds-of-saving",
   "support_url": "/support/",
   "get_help_url": "/resources/",
@@ -19,10 +19,6 @@
     {
       "label": "Sessions",
       "url": "/sessions/"
-    },
-    {
-      "label": "Stories",
-      "url": "/stories/"
     },
     {
       "label": "About",
