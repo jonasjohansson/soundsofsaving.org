@@ -24,9 +24,9 @@
   "tracks": [
     {
       "title": "SoS HS",
-      "summary": "Five ready-to-run sessions for advisory, classroom, or after-school settings: music and the brain, coping, identity, connection, resilience. Students build playlists for stress, mood, and motivation, look at how lyrics shape identity, and talk in listening labs.",
+      "summary": "Five ready-to-run sessions for advisory, classroom, or after-school settings. Students build playlists for stress, mood, and motivation, look at how lyrics shape identity, and talk in listening labs.",
       "audience": "School counselors, SEL leads, advisory and health educators, and administrators.",
-      "spec_heading": "What your school gets",
+      "spec_heading": null,
       "spec": [
         "Five ready-to-run sessions: music, the brain, and emotion; mental health and intentional coping; identity and self-expression; social connection and belonging; resilience and the future self",
         "Minimal prep, no additional staffing, adaptable to any school environment",
@@ -44,7 +44,7 @@
       "title": "Artist Visit",
       "summary": "A single event where an artist performs, then co-facilitates small groups with a therapist about coping, identity, and connection. The format that proved the idea in 2023, and a good way to start.",
       "audience": "Schools that want one event rather than the full program.",
-      "spec_heading": "What you get",
+      "spec_heading": null,
       "spec": [
         "An artist-led session built around a mental-health theme",
         "Live performance, then small-group discussion with a therapist",

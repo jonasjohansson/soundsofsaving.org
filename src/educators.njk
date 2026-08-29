@@ -174,7 +174,7 @@ ogType: website
         {% if t.summary %}<p class="track__summary">{{ t.summary }}</p>{% endif %}
         {% if t.audience %}<p class="track__audience"><strong>For:</strong> {{ t.audience }}</p>{% endif %}
         {% if t.spec.length %}
-        <p class="track__spec-h">{{ t.spec_heading or "What you get" }}</p>
+        {% if t.spec_heading %}<p class="track__spec-h">{{ t.spec_heading }}</p>{% endif %}
         <ul class="track__spec">
           {% for s in t.spec %}<li>{{ s }}</li>{% endfor %}
         </ul>
