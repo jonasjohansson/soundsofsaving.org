@@ -133,7 +133,18 @@ Gaps to ask for: **portraits of Nick and Charlie**, **wide classroom shots with 
 
 Rights note: photos credited to other photographers (@alyssa.goldberg, @saslj_photo, @allisonmichaelorenstein…) need a yes before web use; SoS-shot ones (Charlie) are fine.
 
-## 8. Timeline and next steps
+## 8. Status (29 Aug 2026, evening)
+
+Done, on `main`:
+- Programs restructured Artists / Schools / Community; SoS Uni removed everywhere (`5321500`)
+- Educators rebuilt around SoS HS + Artist Visit, proof band with the 2023 pilots, principal quote, DC pilot
+- Home: one-sheet line, three doors, What we do with real photos, proof strip, "Where your gift goes"
+- New `/support/` and `/impact/`; About "Seven things we believe"; footer with 988 + site nav; nav with Support (`62e4d60`)
+- Learn post "For parents: be curious about the music your kid loves"
+
+Waiting on the archive / Nick: photography pass on About, Educators, Programs, Sessions (originals + rights); real "what a dollar buys" numbers; GoDaddy DNS access for launch.
+
+## 9. Timeline and next steps
 
 | When | What |
 |---|---|
