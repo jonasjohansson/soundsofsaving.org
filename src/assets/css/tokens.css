@@ -16,9 +16,9 @@
   /* — Pressing Plant palette — high-contrast light, standard primaries —— *
    *  Bone ground, near-black ink, electric-blue accent, vermilion highlight,
    *  teal reserved for the calm Get Help / crisis zone. */
-  --paper:        #f4f1ea;   /* bone — faintly warm, not beige */
-  --paper-2:      #eae6dc;   /* deeper bone surface */
-  --paper-3:      #e0dacb;   /* card / well surface */
+  --paper:        #eeeae0;   /* bone — faintly warm, not beige */
+  --paper-2:      #e4dfd2;   /* deeper bone surface */
+  --paper-3:      #dad3c1;   /* card / well surface */
   --ink:          #14110d;   /* near-true black text */
   --ink-muted:    #46413a;   /* secondary text (AA on bone) */
   --ink-faint:    #6a655c;   /* tertiary / fine print (AA on bone) */
@@ -75,6 +75,7 @@
   --fs-base:  1.0625rem;
   --fs-small: 0.85rem;
   --fs-tiny:  0.75rem;
+  --fs-micro: 0.625rem;                     /* photo credit over the hero */
 
   --lh-tight: 1.1;     /* tighter display tracking for the grotesque */
   --lh-base:  1.6;     /* relaxed long-form body */
@@ -103,12 +104,24 @@
   --gutter: clamp(1rem, 4vw, 2.5rem);
 
   /* — UI ————————————————————————————————————————————————————————— *
-   *  Tight 2px radius across the board (buttons, cards, media) for a
-   *  sharper, edgier feel. */
-  --radius: 2px;
-  --radius-pill: 2px;
+   *  One 4px radius across the board (buttons, cards, media). Nothing should
+   *  hardcode a radius — always var(--radius). */
+  --radius: 4px;
+  --radius-pill: 4px;
   --header-h: 72px;
   --transition: 150ms ease;
+  /* Hero scrim + the controls that sit on top of a photo. Channels are kept
+     separate so alpha can vary per layer. */
+  --scrim-rgb: 20 16 28;
+  --veil-on-dark: rgb(var(--scrim-rgb) / 0.28);
+  --hairline-on-dark: rgb(255 255 255 / 0.55);
+  /* Film grain. --grain-surface is overlay-blended into the light grounds, so the
+     texture lives in the paper itself rather than over the photographs;
+     --grain-overlay is the much lighter veil across everything else. */
+  --grain-surface: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='1'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --grain-overlay: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='1'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --grain-tile: 160px 160px;
+
   --shadow-play: 0 1px 6px rgba(33, 29, 46, 0.55);   /* play-button icon drop-shadow */
 }
 

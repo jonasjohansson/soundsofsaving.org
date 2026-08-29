@@ -38,24 +38,38 @@ body {
   line-height: var(--lh-base);
   letter-spacing: var(--tracking);
   color: var(--text);
-  background: var(--bg);
+  background-color: var(--bg);
+  background-image: var(--grain-surface);
+  background-size: var(--grain-tile);
+  background-blend-mode: overlay;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
-/* Subtle film grain over the whole site for a bit of analog texture (~10%). */
+/* Light grounds and cards carry their own grain, so the texture reads on
+   paper without dirtying photographs. */
+.section--alt,
+.pcard:not(.pcard--featured),
+.track,
+.way {
+  background-image: var(--grain-surface);
+  background-size: var(--grain-tile);
+  background-blend-mode: overlay;
+}
+
+/* A much lighter veil over everything else, images included. */
 body::after {
   content: "";
   position: fixed;
   inset: 0;
   z-index: 9999;
   pointer-events: none;
-  opacity: 0.2;
+  opacity: 0.1;
   mix-blend-mode: multiply;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-size: 160px 160px;
+  background-image: var(--grain-overlay);
+  background-size: var(--grain-tile);
 }
-@media (prefers-reduced-motion: reduce) { body::after { opacity: 0.12; } }
+@media (prefers-reduced-motion: reduce) { body::after { opacity: 0.06; } }
 
 h1, h2, h3, h4 {
   font-family: var(--font-display);
@@ -131,7 +145,7 @@ a {
 a:hover { color: var(--accent-deep); }
 
 /* Global keyboard focus ring (accessibility). */
-:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: var(--radius); }
 
 /* Per-section accent: re-points --accent for the whole page (eyebrows, links,
    buttons all follow). Get Help and Home keep the default blue. */

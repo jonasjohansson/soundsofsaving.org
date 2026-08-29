@@ -47,9 +47,9 @@ eleventyComputed:
     inset: 0;
     z-index: 1;
     background:
-      linear-gradient(rgba(20,16,28,0.24), rgba(20,16,28,0.24)),
-      linear-gradient(180deg, rgba(20,16,28,0.24) 0%, rgba(20,16,28,0) 24%),
-      linear-gradient(0deg, rgba(20,16,28,0.84) 0%, rgba(20,16,28,0.6) 34%, rgba(20,16,28,0.28) 58%, rgba(20,16,28,0) 82%);
+      linear-gradient(rgb(var(--scrim-rgb) / 0.24), rgb(var(--scrim-rgb) / 0.24)),
+      linear-gradient(180deg, rgb(var(--scrim-rgb) / 0.24) 0%, rgb(var(--scrim-rgb) / 0) 24%),
+      linear-gradient(0deg, rgb(var(--scrim-rgb) / 0.84) 0%, rgb(var(--scrim-rgb) / 0.6) 34%, rgb(var(--scrim-rgb) / 0.28) 58%, rgb(var(--scrim-rgb) / 0) 82%);
   }
   .home-hero__inner {
     position: relative;
@@ -92,8 +92,8 @@ eleventyComputed:
     z-index: 2;
     margin: 0;
     padding: var(--space-xs) var(--space-md);
-    font-size: 0.625rem;
-    letter-spacing: 0.08em;
+    font-size: var(--fs-micro);
+    letter-spacing: var(--tracking-wide);
     color: var(--paper);
     opacity: 0.55;
     transition: opacity 400ms ease;
@@ -119,12 +119,12 @@ eleventyComputed:
   .home-door {
     flex: 1;
     display: block;
-    border: 1px solid rgba(255,255,255,0.55);
+    border: 1px solid var(--hairline-on-dark);
     border-radius: var(--radius);
     padding: var(--space-sm) var(--space-md);
     color: var(--paper);
     text-decoration: none;
-    background: rgba(20,16,28,0.28);
+    background: var(--veil-on-dark);
     transition: background var(--transition), border-color var(--transition);
   }
   .home-door:hover, .home-door:focus-visible { background: var(--paper); color: var(--ink); border-color: var(--paper); }
