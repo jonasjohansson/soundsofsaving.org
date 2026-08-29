@@ -59,7 +59,7 @@
           {% endfor %}
         </div>
         <div class="site-nav__cta">
-          <a class="site-nav__donate" href="{{ settings.donate_url }}" target="_blank" rel="noopener">Donate</a>
+          <a class="site-nav__donate" href="{{ settings.donate_url }}" target="_blank" rel="noopener">{{ settings.donate_label or "Donate" }}</a>
           <a class="btn btn--stroke" href="{{ settings.get_help_url or '/resources/' }}">Get Help</a>
         </div>
       </nav>
@@ -71,6 +71,19 @@
   </main>
 
   <footer class="site-footer">
+    <div class="container site-footer__top">
+      <p class="footer-crisis"><strong>{{ settings.crisis_line.name }}.</strong> {{ settings.crisis_line.intro }} <a href="{{ settings.crisis_line.url }}" target="_blank" rel="noopener">{{ settings.crisis_line.action }}</a></p>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="/programs/">Programs</a>
+        <a href="/educators/">Educators</a>
+        <a href="/sessions/">Sessions</a>
+        <a href="/resources/">Get Help</a>
+        <a href="/impact/">Impact</a>
+        <a href="/about-us/">About</a>
+        <a href="/support/">Support</a>
+        <a href="{{ settings.donate_url }}" target="_blank" rel="noopener">Donate</a>
+      </nav>
+    </div>
     <div class="container site-footer__inner">
 
       <p class="footer-fine">

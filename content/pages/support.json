@@ -1,0 +1,51 @@
+{
+  "title": "Support Sounds of Saving",
+  "meta_description": "Every gift to Sounds of Saving funds one of three things: a classroom, a film, or a tour stop. Donate, partner with us, or volunteer.",
+  "heading": "Where your gift goes",
+  "lead": "Sounds of Saving is a 501(c)(3) nonprofit with a small team and no overhead to speak of. Every dollar funds one of three things, and each of them puts music to work for a young person's mental health.",
+  "uses": [
+    {
+      "eyebrow": "A classroom",
+      "title": "SoS HS in a new school",
+      "body": "Five sessions, materials, facilitator time, and an artist visit. Your gift lets a school run the program with no cost to the school and no extra staffing.",
+      "image": "/assets/img/site/home-schools.jpg",
+      "alt": "Musicians visiting a high school for SoS HS"
+    },
+    {
+      "eyebrow": "A film",
+      "title": "A Song That Found Me at the Right Time session",
+      "body": "A crew, a room, and an afternoon with an artist who is ready to talk honestly. Produced with the 988 Lifeline and published where young people already are.",
+      "image": "/assets/img/site/home-artists.jpg",
+      "alt": "An artist filming a Song That Found Me at the Right Time session"
+    },
+    {
+      "eyebrow": "A tour stop",
+      "title": "Resources where care is hard to find",
+      "body": "A mental-health professional and a 988 counselor at the table, wallet crisis cards with a QR code to local resources, and the cards we collect from fans.",
+      "image": "/assets/img/site/home-community.jpg",
+      "alt": "Fans at a festival holding Songs That Found Me cards"
+    }
+  ],
+  "donate": {
+    "heading": "Donate",
+    "body": "One-time or monthly. Donations are tax-deductible to the extent allowed by law.",
+    "cta_label": "Donate now"
+  },
+  "other_ways": [
+    {
+      "title": "Partner with us",
+      "body": "Artists, labels, festivals, venues, and mission-aligned brands: we make films, live activations, and social content that don't feel like a PSA, and we bring resources to your shows.",
+      "cta": { "label": "Talk to us about a partnership", "href": "mailto:programs@soundsofsaving.org?subject=Partnership" }
+    },
+    {
+      "title": "Bring SoS HS to a school",
+      "body": "Counselors, SEL leads, and administrators can start a pilot conversation for the 2026 to 2027 school year.",
+      "cta": { "label": "Go to the Educators page", "href": "/educators/" }
+    },
+    {
+      "title": "Volunteer",
+      "body": "We need help at tables on tour and at festivals, with photography and film, and with research and writing. Tell us what you're good at and where you are.",
+      "cta": { "label": "Volunteer with us", "href": "mailto:programs@soundsofsaving.org?subject=Volunteering" }
+    }
+  ]
+}

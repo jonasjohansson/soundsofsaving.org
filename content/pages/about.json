@@ -1,10 +1,45 @@
 {
   "title": "About Us",
-  "meta_description": "Our approach: telling the stories of how music and mental health care can save and improve lives, in partnership with artists and young people.",
-  "intro": "Sounds of Saving is a music and mental health nonprofit. We help people use music to take care of their mental health, with young people at heart. We make films where artists share the song that carried them, bring a music-based curriculum into schools, and keep a directory of vetted mental-health support. Our work is built to be inclusive, with care for the people too often left out of it.",
+  "meta_description": "Sounds of Saving was founded by a music person and a clinician on one question: if music is so central to coping and to being young, why isn't it part of how we look after young people's mental health?",
+  "intro": "Sounds of Saving is a youth mental health nonprofit and a creative organization rooted in music culture. We started with a question: if music is so central to coping, and such a core part of being young, why isn't it more integrated into how we look after young people's mental health? Music is a powerful tool hiding in plain sight. We help young people use it intentionally, through films and stories with the artists they trust, a five-session program in high schools, and mental-health resources at the concerts, festivals, and campuses where they already connect.",
+  "approach": {
+    "eyebrow": "Our approach",
+    "heading": "Seven things we believe",
+    "intro": "We don't use music as a wrapper for a mental-health message. We start with music, creativity, and culture, and let the conversations emerge from inside them.",
+    "principles": [
+      {
+        "title": "Music as emotional language",
+        "body": "Music helps young people recognize, express, and regulate feelings that are hard to put into words."
+      },
+      {
+        "title": "Connection as prevention",
+        "body": "Connection to ourselves, other people, artists, and communities builds resilience and counters loneliness and isolation."
+      },
+      {
+        "title": "Artists as trusted messengers",
+        "body": "Artists reach people in ways institutions sometimes can't. We preserve their voice and creative integrity while making room for honest conversations."
+      },
+      {
+        "title": "Creativity creates engagement",
+        "body": "How a message is delivered matters. We make work people actually want to watch, hear, take part in, and share."
+      },
+      {
+        "title": "Participate, don't extract",
+        "body": "We go to shows, champion emerging artists, and collaborate with their teams. We aim to contribute to music culture, not borrow from it."
+      },
+      {
+        "title": "Meet young people where they are",
+        "body": "Instead of asking young people to enter another system, we bring mental health into their music, schools, concerts, and communities."
+      },
+      {
+        "title": "An adjunct, not a replacement",
+        "body": "Music isn't therapy. It doesn't replace great treatments like DBT, but it can be a bridge to them, and to school services, family support, and help-seeking."
+      }
+    ]
+  },
   "why_now": {
     "heading": "Why Now",
-    "body": "The mental health crisis amongst adolescents and young adults has reached a staggering and dangerous peak, worsened by the epidemic of loneliness. Young people are battling this crisis with very limited tools and resources being made available to them.",
+    "body": "The youth mental health crisis is defined by isolation, loneliness, stigma, stress, anxiety, depression, suicidality, and digital overload. Music has a role in addressing every one of them. It is nearly universally accessible, it is central to youth culture across every taste and genre, and it is where young people already are: listening, sharing, forming friendships, and shaping who they are.",
     "stats": [
       "“The mortality impact of being socially disconnected is similar to that caused by smoking up to 15 cigarettes a day”*",
       "Young adults are twice as likely to be lonely than seniors. 79% of [young] adults aged 18 to 24 report feeling lonely compared to 41% of seniors aged 66 and older. This is consistent with earlier research.**",
@@ -21,7 +56,7 @@
   "research": {
     "eyebrow": "Research and evidence",
     "heading": "A Sound Approach",
-    "body": "Our belief in music as a mental-health tool is grounded in research. A Sound Approach, our white paper co-authored with the <a href=\"https://weareallmusic.org\" target=\"_blank\" rel=\"noopener\">We Are All Music Foundation</a>, brings together work from neuroscientists, music therapists, psychologists, and cultural organizers on how music supports wellbeing, especially among youth and people underserved by traditional care. It is the canonical home for the evidence behind our programs.",
+    "body": "Our belief in music as a mental-health tool is grounded in research. A Sound Approach, our paper co-authored with researchers at NYU's Music and Audio Research Lab and the <a href=\"https://weareallmusic.org\" target=\"_blank\" rel=\"noopener\">We Are All Music Foundation</a>, brings together the neuroscience, music therapy, and psychology behind using music intentionally for wellbeing. Our high-school program is being evaluated in partnership with NYU's Ripollés Lab, so we keep learning from students and educators.",
     "cta": {
       "label": "Read A Sound Approach",
       "href": "https://drive.google.com/file/d/1fMIfsbp3okh9TT1phHb9hnZpu9_zCzTz/view?usp=sharing",

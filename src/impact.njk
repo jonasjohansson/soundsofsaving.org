@@ -1,0 +1,65 @@
+---
+layout: base.njk
+current: impact
+permalink: /impact/
+title: Impact
+eleventyComputed:
+  description: "{{ pages.impact.meta_description }}"
+ogType: website
+---
+{#
+  Impact — Phase 1 stub. Four numbers, one testimonial, a dated milestone
+  list. Copy in content/pages/impact.json; sessions/resources counts there are
+  hand-maintained on purpose so the page never claims more than the team has
+  checked.
+#}
+{% set i = pages.impact %}
+
+<style>
+  .impact-page { padding-block: var(--space-xl); }
+  .impact-page h1 { font-size: var(--fs-title); line-height: var(--lh-tight); margin: 0 0 var(--space-md); }
+  .impact-lead { font-size: var(--fs-lead); line-height: var(--lh-base); max-width: var(--maxw-prose); margin: 0 0 var(--space-xl); }
+  .impact-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--space-lg); list-style: none; padding: 0; margin: 0 0 var(--space-2xl); }
+  .impact-stat__num { font-family: var(--font-display); font-size: var(--fs-mega); line-height: 1; color: var(--accent); margin: 0 0 var(--space-2xs); font-variant-numeric: tabular-nums; }
+  .impact-stat__label { font-size: var(--fs-small); line-height: var(--lh-base); margin: 0; }
+
+  .impact-quote { background: var(--dusk); color: var(--on-dark); border-radius: var(--radius); padding: var(--space-xl); margin: 0 0 var(--space-2xl); }
+  .impact-quote blockquote { font-family: var(--font-display); font-size: var(--fs-title); line-height: var(--lh-tight); margin: 0 0 var(--space-sm); color: var(--on-dark); }
+  .impact-quote p { color: var(--paper-2); line-height: var(--lh-base); max-width: var(--maxw-prose); margin: 0 0 var(--space-xs); }
+  .impact-quote cite { font-style: normal; color: var(--ink-faint); font-family: var(--font-mono); font-size: var(--fs-tiny); }
+
+  .milestones { list-style: none; padding: 0; margin: var(--space-md) 0 0; max-width: var(--maxw-prose); }
+  .milestone { display: grid; grid-template-columns: 5rem 1fr; gap: var(--space-md); padding: var(--space-sm) 0; border-top: 1px solid var(--line); }
+  .milestone__year { font-family: var(--font-mono); color: var(--accent); font-variant-numeric: tabular-nums; }
+  .milestone p { margin: 0; line-height: var(--lh-base); }
+  .impact-page h2 { font-size: var(--fs-h2); margin: 0; }
+</style>
+
+<div class="container impact-page">
+  <h1>{{ i.heading }}</h1>
+  <p class="impact-lead">{{ i.lead }}</p>
+
+  <ul class="impact-stats">
+    {% for s in i.stats %}
+    <li class="impact-stat">
+      <p class="impact-stat__num">{{ s.stat }}</p>
+      <p class="impact-stat__label">{{ s.label }}</p>
+    </li>
+    {% endfor %}
+  </ul>
+
+  {% if i.testimonial %}
+  <figure class="impact-quote">
+    <blockquote>&ldquo;{{ i.testimonial.quote }}&rdquo;</blockquote>
+    <p>{{ i.testimonial.body }}</p>
+    <cite>{{ i.testimonial.attribution }}</cite>
+  </figure>
+  {% endif %}
+
+  <h2>Milestones</h2>
+  <ol class="milestones">
+    {% for m in i.milestones %}
+    <li class="milestone"><span class="milestone__year">{{ m.year }}</span><p>{{ m.body }}</p></li>
+    {% endfor %}
+  </ol>
+</div>

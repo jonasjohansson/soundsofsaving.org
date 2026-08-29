@@ -223,6 +223,24 @@ content:
       - { name: title, label: Title, type: string }
       - { name: meta_description, label: "SEO description", type: text }
       - { name: intro, label: Intro, type: text }
+      - name: approach
+        label: Our approach
+        type: object
+        fields:
+          - { name: eyebrow, label: Eyebrow, type: string }
+          - { name: heading, label: Heading, type: string }
+          - { name: intro, label: Intro, type: text }
+          - name: principles
+            label: Principles
+            type: object
+            list:
+              sortable: true
+              collapsible:
+                collapsed: true
+                summary: '{title}'
+            fields:
+              - { name: title, label: Title, type: string }
+              - { name: body, label: Body, type: text }
       - name: why_now
         label: Why Now
         type: object
@@ -330,6 +348,93 @@ content:
               - { name: alt, label: Alt text, type: string }
               - { name: src, label: Image source, type: string }
 
+  - name: page_support
+    label: "Page: Support"
+    type: file
+    path: content/pages/support.json
+    fields:
+      - { name: title, label: Title, type: string }
+      - { name: meta_description, label: "SEO description", type: text }
+      - { name: heading, label: Heading, type: string }
+      - { name: lead, label: Lead, type: text }
+      - name: uses
+        label: Where your gift goes
+        type: object
+        list:
+          sortable: true
+          collapsible:
+            collapsed: true
+            summary: '{title}'
+        fields:
+          - { name: eyebrow, label: Eyebrow, type: string }
+          - { name: title, label: Title, type: string }
+          - { name: body, label: Body, type: text }
+          - { name: image, label: Image, type: image, options: { media: site } }
+          - { name: alt, label: Image alt text, type: string }
+      - name: donate
+        label: Donate block
+        type: object
+        fields:
+          - { name: heading, label: Heading, type: string }
+          - { name: body, label: Body, type: text }
+          - { name: cta_label, label: Button label, type: string }
+      - name: other_ways
+        label: Other ways to help
+        type: object
+        list:
+          sortable: true
+          collapsible:
+            collapsed: true
+            summary: '{title}'
+        fields:
+          - { name: title, label: Title, type: string }
+          - { name: body, label: Body, type: text }
+          - name: cta
+            label: CTA
+            type: object
+            fields:
+              - { name: label, label: Label, type: string }
+              - { name: href, label: Link, type: string }
+
+  - name: page_impact
+    label: "Page: Impact"
+    type: file
+    path: content/pages/impact.json
+    fields:
+      - { name: title, label: Title, type: string }
+      - { name: meta_description, label: "SEO description", type: text }
+      - { name: heading, label: Heading, type: string }
+      - { name: lead, label: Lead, type: text }
+      - name: stats
+        label: Numbers
+        type: object
+        list:
+          sortable: true
+          collapsible:
+            collapsed: true
+            summary: '{stat}'
+        fields:
+          - { name: stat, label: Number, type: string }
+          - { name: label, label: Label, type: text }
+      - name: milestones
+        label: Milestones
+        type: object
+        list:
+          sortable: true
+          collapsible:
+            collapsed: true
+            summary: '{year}'
+        fields:
+          - { name: year, label: Year, type: string }
+          - { name: body, label: What happened, type: text }
+      - name: testimonial
+        label: Testimonial
+        type: object
+        fields:
+          - { name: quote, label: Quote, type: string }
+          - { name: body, label: Context, type: text }
+          - { name: attribution, label: Attribution, type: string }
+
   - name: page_get_help
     label: "Page: Get Help"
     type: file
@@ -410,6 +515,7 @@ content:
       - { name: hero_subheading, label: Hero subheading, type: text }
       - { name: donate_url, label: Donate URL, type: string, pattern: '^$|^https?://' }
       - { name: donate_label, label: Donate button label, type: string }
+      - { name: support_url, label: Support page URL, type: string }
       - { name: get_help_url, label: Get Help URL, type: string }
       - { name: copyright, label: Copyright, type: string }
       - { name: privacy_url, label: Privacy URL, type: string }

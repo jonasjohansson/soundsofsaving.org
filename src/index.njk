@@ -9,10 +9,11 @@ eleventyComputed:
 ---
 {#
   Home — message-first. Section order:
-  1. Hero — positioning line over a full-color artist still + two CTAs
-  2. Programs + Educators blurbs
+  1. Hero — positioning line over a full-color artist still + three doors
+  2. What we do (Artists / Schools / Community) + proof strip
   3. Featured session (randomized client-side)
-  4. Featured interview (randomized client-side)
+  4. Where your gift goes
+  5. Featured interview (randomized client-side)
   Hero + featured session/interview re-personalize on each load via the pools below.
 #}
 {% set featured = sessions | selectattr("featured") | first %}
@@ -64,11 +65,11 @@ eleventyComputed:
   .home-hero__eyebrow { color: var(--paper); margin: 0 0 var(--space-sm); }
   .home-hero__title {
     font-family: var(--font-display);
-    font-size: var(--fs-mega);
+    font-size: var(--fs-title);
     line-height: var(--lh-tight);
     font-weight: var(--fw-semibold);
     margin: 0;
-    max-width: 16ch;
+    max-width: 22ch;
     color: var(--paper);
     text-wrap: balance;
   }
@@ -99,13 +100,48 @@ eleventyComputed:
     font-weight: var(--fw-regular);
   }
   .home-more:hover { text-decoration: underline; }
-  .home-features { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-xl); }
-  .home-feature--programs { --accent: var(--accent-programs); }
-  .home-feature--educators { --accent: var(--accent-educators); }
-  .home-feature__title { font-family: var(--font-display); font-size: var(--fs-h2); line-height: var(--lh-tight); margin: var(--space-2xs) 0 var(--space-sm); max-width: 18ch; }
-  .home-feature__copy { color: var(--text-muted); line-height: var(--lh-base); margin: 0; max-width: 44ch; }
-  .home-feature .home-more { margin-top: var(--space-md); }
-  @media (max-width: 760px) { .home-features { grid-template-columns: 1fr; gap: var(--space-lg); } }
+  /* — Three doors (in the hero) ———————————————————————————————— */
+  .home-doors { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-xs); margin-top: var(--space-lg); list-style: none; padding: 0; max-width: 60rem; }
+  .home-door {
+    display: block;
+    border: 1px solid rgba(255,255,255,0.55);
+    border-radius: var(--radius);
+    padding: var(--space-sm) var(--space-md);
+    color: var(--paper);
+    text-decoration: none;
+    background: rgba(20,16,28,0.28);
+    transition: background var(--transition), border-color var(--transition);
+  }
+  .home-door:hover, .home-door:focus-visible { background: var(--paper); color: var(--ink); border-color: var(--paper); }
+  .home-door__q { display: block; font-family: var(--font-display); font-weight: var(--fw-semibold); font-size: var(--fs-h3); line-height: var(--lh-tight); }
+  .home-door__a { display: block; font-size: var(--fs-small); margin-top: var(--space-3xs); opacity: 0.85; }
+  @media (max-width: 760px) { .home-doors { grid-template-columns: 1fr; } }
+
+  /* — What we do: Artists / Schools / Community ———————————————— */
+  .home-what { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-lg); }
+  .home-what__media { display: block; aspect-ratio: 4 / 5; overflow: hidden; border-radius: var(--radius); background: var(--bg-alt); margin-bottom: var(--space-sm); }
+  .home-what__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .home-what--artists { --accent: var(--accent-sessions); }
+  .home-what--schools { --accent: var(--accent-educators); }
+  .home-what--community { --accent: var(--accent-programs); }
+  .home-what__title { font-family: var(--font-display); font-size: var(--fs-h3); line-height: var(--lh-tight); margin: var(--space-2xs) 0 var(--space-xs); }
+  .home-what__copy { color: var(--text-muted); line-height: var(--lh-base); margin: 0; font-size: var(--fs-small); }
+  .home-what .home-more { margin-top: var(--space-sm); }
+  @media (max-width: 760px) { .home-what { grid-template-columns: 1fr; } }
+
+  /* — Proof strip ——————————————————————————————————————————————— */
+  .home-proof { display: flex; flex-wrap: wrap; gap: var(--space-xs) var(--space-lg); list-style: none; margin: var(--space-lg) 0 0; padding: var(--space-md) 0 0; border-top: 1px solid var(--line); }
+  .home-proof li { font-size: var(--fs-small); color: var(--text-muted); }
+  .home-proof li strong { color: var(--ink); font-weight: var(--fw-semibold); }
+
+  /* — Where your gift goes ————————————————————————————————————— */
+  .home-gift { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: var(--space-xl); align-items: start; }
+  .home-gift__uses { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-sm); }
+  .home-gift__use { display: grid; grid-template-columns: 7rem 1fr; gap: var(--space-sm); padding-top: var(--space-sm); border-top: 1px solid var(--line); }
+  .home-gift__use b { font-family: var(--font-display); font-weight: var(--fw-semibold); color: var(--accent); }
+  .home-gift__use p { margin: 0; font-size: var(--fs-small); line-height: var(--lh-base); color: var(--text-muted); }
+  .home-gift__ctas { display: flex; flex-wrap: wrap; gap: var(--space-sm); margin-top: var(--space-md); }
+  @media (max-width: 760px) { .home-gift { grid-template-columns: 1fr; } }
 
   /* — Featured session / interview ——————————————————————————————— */
   .featured {
@@ -167,33 +203,55 @@ eleventyComputed:
   <div class="home-hero__scrim" aria-hidden="true"></div>
   <div class="home-hero__inner">
     <div class="container">
-      <h1 class="home-hero__title">Find hope in music.</h1>
-      <p class="home-hero__sub">Sounds of Saving is a music and mental health nonprofit.<br>For everyone, with young people at heart.</p>
-      <div class="home-hero__ctas">
-        <a class="btn btn--primary" href="/sessions/">Watch a Session</a>
-        <a class="btn btn--stroke home-hero__ghost" href="/about-us/">About Sounds of Saving</a>
-      </div>
+      <h1 class="home-hero__title">{{ settings.hero_heading }}</h1>
+      <p class="home-hero__sub">{{ settings.hero_subheading }}</p>
+      <ul class="home-doors" aria-label="Where do you want to go?">
+        <li><a class="home-door" href="/sessions/"><span class="home-door__q">I love music</span><span class="home-door__a">Watch artists share the song that got them through &rarr;</span></a></li>
+        <li><a class="home-door" href="/educators/"><span class="home-door__q">I work at a school</span><span class="home-door__a">Bring SoS HS, our five-session program, to your students &rarr;</span></a></li>
+        <li><a class="home-door" href="/resources/"><span class="home-door__q">I need help</span><span class="home-door__a">Resources and the 988 Lifeline, right now &rarr;</span></a></li>
+      </ul>
       <p class="home-hero__credit">{% if hero.artist %}Pictured: {{ hero.artist }}{% if hero.song_title %}, &ldquo;{{ hero.song_title }}&rdquo;{% endif %}{% endif %}</p>
     </div>
   </div>
 </section>
 
-{# 2. SUPPORT LINE + FOUR DOORS ————————————————————————————————— #}
+{# 2. WHAT WE DO — Artists / Schools / Community + proof strip ———— #}
 <section class="section">
   <div class="container">
-    <ul class="home-features">
-      <li class="home-feature home-feature--programs">
-        <p class="eyebrow">Programs</p>
-        <h2 class="home-feature__title">Music, where young people already are</h2>
-        <p class="home-feature__copy">Artist storytelling, a five-session high-school program, and resources at concerts, festivals, and campuses: three ways to help young people use music intentionally for their mental health.</p>
-        <a class="home-more" href="/programs/">Explore the programs &rarr;</a>
+    <header class="home-head">
+      <p class="eyebrow">What we do</p>
+      <h2 class="home-head__title">Three ways in</h2>
+      <p class="home-head__intro">We start with something young people already do every day: listen. Then we work with the artists they trust, the schools they're in, and the shows they go to.</p>
+    </header>
+    <ul class="home-what">
+      <li class="home-what--artists">
+        <a class="home-what__media" href="/sessions/" aria-label="Sessions"><img src="/assets/img/site/home-artists.jpg" alt="An artist filming a Song That Found Me at the Right Time session" width="1400" height="1750" loading="lazy" decoding="async" /></a>
+        <p class="eyebrow">Artists</p>
+        <h3 class="home-what__title">Artists tell the truth about a hard time</h3>
+        <p class="home-what__copy">Song That Found Me at the Right Time, made with the 988 Lifeline: an artist covers the song that got them through, and talks about what else helped.</p>
+        <a class="home-more" href="/sessions/">Watch a Session &rarr;</a>
       </li>
-      <li class="home-feature home-feature--educators">
-        <p class="eyebrow">For educators</p>
-        <h2 class="home-feature__title">A classroom built on music</h2>
-        <p class="home-feature__copy">Students will tell an artist something they won't tell an adult in an office. Our music-based, SEL-rooted curriculum turns that into a classroom, with a clear handoff to support.</p>
+      <li class="home-what--schools">
+        <a class="home-what__media" href="/educators/" aria-label="For educators"><img src="/assets/img/site/home-schools.jpg" alt="Musicians visiting a high school for SoS HS" width="1400" height="1750" loading="lazy" decoding="async" /></a>
+        <p class="eyebrow">Schools</p>
+        <h3 class="home-what__title">Students learn to use music on purpose</h3>
+        <p class="home-what__copy">SoS HS is a five-session program built on the music students already love. Not therapy; a preventative tool a school can run now.</p>
         <a class="home-more" href="/educators/">Bring it to your school &rarr;</a>
       </li>
+      <li class="home-what--community">
+        <a class="home-what__media" href="/programs/#community" aria-label="Community programs"><img src="/assets/img/site/home-community.jpg" alt="Fans at a festival holding Songs That Found Me cards" width="1400" height="1750" loading="lazy" decoding="async" /></a>
+        <p class="eyebrow">Community</p>
+        <h3 class="home-what__title">We show up where music already is</h3>
+        <p class="home-what__copy">At tours and festivals we ask people for the song that found them at the right time, with a clinician at the table and a QR code to local help.</p>
+        <a class="home-more" href="/programs/#community">See the programs &rarr;</a>
+      </li>
+    </ul>
+    <ul class="home-proof" aria-label="Partners and recognition">
+      <li><strong>988 Lifeline</strong> partner since 2022</li>
+      <li>Evaluated with <strong>NYU's Ripollés Lab</strong></li>
+      <li>City &amp; State <strong>Responsible 100</strong>, 2025</li>
+      <li>Featured in <strong>Pitchfork, Rolling Stone, MTV</strong></li>
+      <li>Funded by <strong>MTV Mental Health Action Day</strong></li>
     </ul>
   </div>
 </section>
@@ -234,6 +292,26 @@ eleventyComputed:
   </div>
 </section>
 {% endif %}
+
+{# WHERE YOUR GIFT GOES ————————————————————————————————————————— #}
+<section class="section section--alt">
+  <div class="container home-gift">
+    <header class="home-head">
+      <p class="eyebrow">Support</p>
+      <h2 class="home-head__title">Where your gift goes</h2>
+      <p class="home-head__intro">Sounds of Saving is a 501(c)(3). Every dollar funds one of three things.</p>
+      <div class="home-gift__ctas">
+        <a class="btn btn--primary" href="{{ settings.donate_url }}" target="_blank" rel="noopener">{{ settings.donate_label }}</a>
+        <a class="btn btn--ghost" href="/support/">Other ways to help</a>
+      </div>
+    </header>
+    <ul class="home-gift__uses">
+      <li class="home-gift__use"><b>A classroom</b><p>SoS HS in a new school: five sessions, materials, and an artist visit, at no cost to the school.</p></li>
+      <li class="home-gift__use"><b>A film</b><p>A Song That Found Me at the Right Time session with an artist, produced with 988 and published where young people already are.</p></li>
+      <li class="home-gift__use"><b>A tour stop</b><p>A clinician and a 988 counselor at the table, and wallet crisis cards pointing to local help where care is hard to find.</p></li>
+    </ul>
+  </div>
+</section>
 
 {# FEATURED INTERVIEW ——————————————————————————————————————————— #}
 {% set interviewCluster = (news.storyClusters | selectattr("slug", "equalto", "interviews") | first) %}

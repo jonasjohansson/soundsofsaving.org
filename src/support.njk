@@ -1,0 +1,87 @@
+---
+layout: base.njk
+current: support
+permalink: /support/
+title: Support
+eleventyComputed:
+  description: "{{ pages.support.meta_description }}"
+ogType: website
+---
+{#
+  Support — the page the Donate button explains. Three "where your gift goes"
+  uses (classroom / film / tour stop), a donate block that hands off to
+  GiveLively, and three other ways to help. Copy in content/pages/support.json.
+#}
+{% set s = pages.support %}
+
+<style>
+  .support-page { padding-block: var(--space-xl); }
+  .support-page h1 { font-size: var(--fs-title); line-height: var(--lh-tight); margin: 0 0 var(--space-md); max-width: 16ch; }
+  .support-lead { font-size: var(--fs-lead); line-height: var(--lh-base); max-width: var(--maxw-prose); margin: 0 0 var(--space-xl); }
+
+  .uses { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-lg); list-style: none; padding: 0; margin: 0 0 var(--space-2xl); }
+  .use__media { display: block; aspect-ratio: 4 / 3; overflow: hidden; border-radius: var(--radius); background: var(--bg-alt); margin-bottom: var(--space-sm); }
+  .use__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .use__eyebrow { color: var(--accent); margin: 0 0 var(--space-3xs); }
+  .use h2 { font-size: var(--fs-h3); line-height: var(--lh-tight); margin: 0 0 var(--space-2xs); }
+  .use p { font-size: var(--fs-small); line-height: var(--lh-base); margin: 0; }
+  @media (max-width: 760px) { .uses { grid-template-columns: 1fr; } }
+
+  .donate-band {
+    background: var(--dusk);
+    color: var(--on-dark);
+    border-radius: var(--radius);
+    padding: var(--space-xl);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+    margin-bottom: var(--space-2xl);
+  }
+  .donate-band h2 { color: var(--on-dark); font-size: var(--fs-h2); margin: 0 0 var(--space-2xs); }
+  .donate-band p { color: var(--paper-2); margin: 0; line-height: var(--lh-base); max-width: 48ch; }
+  .donate-band .btn--stroke { border-color: var(--paper); color: var(--paper); }
+  .donate-band .btn--stroke:hover { background: var(--paper); color: var(--dusk); }
+
+  .ways { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-lg); list-style: none; padding: 0; margin: 0; }
+  .way { display: flex; flex-direction: column; padding: var(--space-lg); border: 1px solid var(--line); border-radius: var(--radius); }
+  .way h2 { font-size: var(--fs-h3); margin: 0 0 var(--space-xs); }
+  .way p { font-size: var(--fs-small); line-height: var(--lh-base); margin: 0 0 var(--space-md); }
+  .way .btn { margin-top: auto; align-self: flex-start; }
+  @media (max-width: 760px) { .ways { grid-template-columns: 1fr; } }
+</style>
+
+<div class="container support-page">
+  <h1>{{ s.heading }}</h1>
+  <p class="support-lead">{{ s.lead }}</p>
+
+  <ul class="uses">
+    {% for u in s.uses %}
+    <li class="use">
+      {% if u.image %}<span class="use__media"><img src="{{ u.image }}" alt="{{ u.alt }}" loading="lazy" decoding="async" /></span>{% endif %}
+      <p class="eyebrow use__eyebrow">{{ u.eyebrow }}</p>
+      <h2>{{ u.title }}</h2>
+      <p>{{ u.body }}</p>
+    </li>
+    {% endfor %}
+  </ul>
+
+  <section class="donate-band" aria-label="Donate">
+    <div>
+      <h2>{{ s.donate.heading }}</h2>
+      <p>{{ s.donate.body }}</p>
+    </div>
+    <a class="btn btn--stroke" href="{{ settings.donate_url }}" target="_blank" rel="noopener">{{ s.donate.cta_label }}</a>
+  </section>
+
+  <ul class="ways">
+    {% for w in s.other_ways %}
+    <li class="way">
+      <h2>{{ w.title }}</h2>
+      <p>{{ w.body }}</p>
+      {% if w.cta %}<a class="btn btn--ghost" href="{{ w.cta.href }}">{{ w.cta.label }}</a>{% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</div>
