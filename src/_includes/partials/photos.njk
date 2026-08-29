@@ -4,9 +4,17 @@
 
   Each photo is { src, alt, caption, source }. `source` is the URL the image
   came from (an Instagram post, for the ones pulled from the SoS account); when
-  it is set the caption becomes the credit link. Styling lives in site.css
+  it is set both the image and the caption link back to it. Styling lives in site.css
   (.photo-row) so both shapes look the same.
 #}
+
+{% macro media(ph, eager) %}
+  {%- if ph.source -%}
+    <a class="photo" href="{{ ph.source }}" target="_blank" rel="noopener"><img src="{{ ph.src }}" alt="{{ ph.alt }}"{% if not eager %} loading="lazy"{% endif %} decoding="async" /></a>
+  {%- else -%}
+    <span class="photo"><img src="{{ ph.src }}" alt="{{ ph.alt }}"{% if not eager %} loading="lazy"{% endif %} decoding="async" /></span>
+  {%- endif -%}
+{% endmacro %}
 
 {% macro caption(ph) %}
   {%- if ph.caption -%}
@@ -27,7 +35,7 @@
     {%- for ph in photos %}
     <li>
       <figure>
-        <span class="photo"><img src="{{ ph.src }}" alt="{{ ph.alt }}"{% if not eager %} loading="lazy"{% endif %} decoding="async" /></span>
+        {{ media(ph, eager) }}
         {{ caption(ph) }}
       </figure>
     </li>
@@ -40,7 +48,7 @@
 {% macro figure(ph, className) %}
   {%- if ph -%}
   <figure class="{{ className or 'photo-figure' }}">
-    <span class="photo"><img src="{{ ph.src }}" alt="{{ ph.alt }}" loading="lazy" decoding="async" /></span>
+    {{ media(ph) }}
     {{ caption(ph) }}
   </figure>
   {%- endif -%}

@@ -23,14 +23,16 @@ ogType: website
 
 <style>
   .edu-page { padding-block: var(--space-xl); }
-  .edu-page h1 {
-    font-size: var(--fs-title);
-    line-height: var(--lh-tight);
-    letter-spacing: var(--tracking-tight);
-    max-width: 16ch;
-    margin: 0 0 var(--space-md);
+  /* No page heading: the opening sentence names the program and is the h1. */
+  .edu-lead {
+    font-family: var(--font-body);
+    font-weight: var(--fw-regular);
+    font-size: var(--fs-lead);
+    line-height: var(--lh-base);
+    max-width: var(--maxw-prose);
+    margin: 0 0 var(--space-lg);
   }
-  .edu-lead { font-size: var(--fs-lead); line-height: var(--lh-base); max-width: var(--maxw-prose); margin: 0 0 var(--space-lg); }
+  .edu-lead strong { font-weight: var(--fw-semibold); }
 
   .edu-ctas { display: flex; flex-wrap: wrap; gap: var(--space-sm); margin: calc(-1 * var(--space-sm)) 0 var(--space-lg); }
   .edu-pullquote {
@@ -158,8 +160,7 @@ ogType: website
 </style>
 
 <div class="container edu-page">
-  <h1>{{ e.heading }}</h1>
-  {% if e.lead %}<p class="edu-lead">{{ e.lead }}</p>{% endif %}
+  <h1 class="edu-lead">{{ e.lead | safe }}</h1>
   {% if e.ctas %}<p class="edu-ctas">{% for c in e.ctas %}<a class="btn {% if loop.first %}btn--primary{% else %}btn--ghost{% endif %}" href="{{ c.href }}">{{ c.label }}</a>{% endfor %}</p>{% endif %}
   {{ photoRow(e.photos, true) }}
 

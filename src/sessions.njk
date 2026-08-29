@@ -2,7 +2,7 @@
 layout: base.njk
 current: sessions
 permalink: /sessions/
-title: Songs That Found Me at the Right Time
+title: Song That Found Me at the Right Time
 description: "Intimate films where artists share the one song that found them at the right time, and carried them through. A co-production of Sounds of Saving and the 988 Suicide and Crisis Lifeline."
 ogType: website
 ---
@@ -12,13 +12,16 @@ ogType: website
   /* — Editorial header — */
   .sessions-head { max-width: var(--maxw-prose); margin-bottom: var(--space-lg); }
   .sessions-head .eyebrow { display: block; margin: 0 0 var(--space-2xs); }
+  /* No page heading: the opening sentence names the series and is the h1. */
   .sessions-head h1 {
-    font-family: var(--font-display);
-    font-size: var(--fs-title);
-    line-height: var(--lh-tight);
-    letter-spacing: var(--tracking-tight);
+    font-family: var(--font-body);
+    font-weight: var(--fw-regular);
+    font-size: var(--fs-lead);
+    line-height: var(--lh-base);
+    letter-spacing: normal;
     margin: 0 0 var(--space-sm);
   }
+  .sessions-head h1 strong { font-weight: var(--fw-semibold); }
   .sessions-intro {
     font-family: var(--font-body);
     font-size: var(--fs-lead);
@@ -132,12 +135,8 @@ ogType: website
 
 <div class="container sessions-page">
   <header class="sessions-head">
-    <h1>Songs that found me at the right time</h1>
-    <p class="sessions-intro">
-      Intimate films where artists share the one song that found them at the right time, the song
-      that got them through a hard stretch, and tell the story of why it mattered. Music can be a
-      lifeline. This is what that sounds like, in their own voices.
-    </p>
+    <h1><strong>Song That Found Me at the Right Time</strong> is our film series: an artist plays
+      the song that carried them through a hard stretch, and tells the story of why it mattered.</h1>
     <p class="sessions-cobrand">A co-production of <strong>988 Suicide and Crisis Lifeline</strong> &times; <strong>Sounds of Saving</strong></p>
   </header>
 

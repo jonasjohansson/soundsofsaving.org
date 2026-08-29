@@ -70,7 +70,7 @@ ogType: website
   <ul class="uses">
     {% for u in s.uses %}
     <li class="use">
-      {% if u.image %}<span class="use__media"><img src="{{ u.image }}" alt="{{ u.alt }}" decoding="async" /></span>{% endif %}
+      {% if u.image %}{% if u.source %}<a class="use__media" href="{{ u.source }}" target="_blank" rel="noopener">{% else %}<span class="use__media">{% endif %}<img src="{{ u.image }}" alt="{{ u.alt }}" decoding="async" />{% if u.source %}</a>{% else %}</span>{% endif %}{% endif %}
       <h2>{{ u.title }}</h2>
       <p>{{ u.body }}</p>
     </li>

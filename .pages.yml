@@ -75,7 +75,7 @@ content:
     fields:
       - { name: title, label: Title, type: string }
       - { name: meta_description, label: "SEO description", type: text }
-      - { name: lead, label: Lead paragraph, type: text }
+      - { name: lead, label: Lead paragraph, type: text, description: "Opens the page. Basic HTML allowed, e.g. <strong>SoS High School</strong>." }
       - name: groups
         label: Program groups
         type: object
@@ -138,7 +138,6 @@ content:
     fields:
       - { name: title, label: Title, type: string }
       - { name: meta_description, label: "SEO description", type: text }
-      - { name: heading, label: Heading, type: string }
       - { name: lead, label: Lead paragraph, type: text }
       - name: photos
         label: Photos
@@ -378,6 +377,7 @@ content:
           - { name: body, label: Body, type: text }
           - { name: image, label: Image, type: image, options: { media: site } }
           - { name: alt, label: Image alt text, type: string }
+          - { name: source, label: "Source URL (e.g. the Instagram post)", type: string, pattern: '^$|^https?://' }
       - name: donate
         label: Donate button
         type: object
