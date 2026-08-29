@@ -106,6 +106,13 @@ content:
           - { name: label, label: Label, type: string }
           - { name: heading, label: Heading, type: string }
           - { name: intro, label: Intro, type: text }
+          - name: photo
+            label: Photo
+            type: object
+            fields:
+              - { name: src, label: Image, type: image, options: { media: site } }
+              - { name: alt, label: Alt text, type: string }
+              - { name: caption, label: Caption, type: string }
           - name: cards
             label: Cards
             type: object
@@ -151,6 +158,18 @@ content:
       - { name: meta_description, label: "SEO description", type: text }
       - { name: heading, label: Heading, type: string }
       - { name: lead, label: Lead paragraph, type: text }
+      - name: photos
+        label: Photos
+        type: object
+        list:
+          sortable: true
+          collapsible:
+            collapsed: true
+            summary: '{caption}'
+        fields:
+          - { name: src, label: Image, type: image, options: { media: site } }
+          - { name: alt, label: Alt text, type: string }
+          - { name: caption, label: Caption, type: string }
       - { name: pullquote, label: Pull quote, type: text }
       - { name: pullquote_attribution, label: Pull quote attribution, type: string }
       - { name: why_music, label: Why music, type: text }
@@ -223,6 +242,18 @@ content:
       - { name: title, label: Title, type: string }
       - { name: meta_description, label: "SEO description", type: text }
       - { name: intro, label: Intro, type: text }
+      - name: photos
+        label: Photos
+        type: object
+        list:
+          sortable: true
+          collapsible:
+            collapsed: true
+            summary: '{caption}'
+        fields:
+          - { name: src, label: Image, type: image, options: { media: site } }
+          - { name: alt, label: Alt text, type: string }
+          - { name: caption, label: Caption, type: string }
       - name: approach
         label: Our approach
         type: object
@@ -405,6 +436,18 @@ content:
       - { name: meta_description, label: "SEO description", type: text }
       - { name: heading, label: Heading, type: string }
       - { name: lead, label: Lead, type: text }
+      - name: photos
+        label: Photos
+        type: object
+        list:
+          sortable: true
+          collapsible:
+            collapsed: true
+            summary: '{caption}'
+        fields:
+          - { name: src, label: Image, type: image, options: { media: site } }
+          - { name: alt, label: Alt text, type: string }
+          - { name: caption, label: Caption, type: string }
       - name: stats
         label: Numbers
         type: object

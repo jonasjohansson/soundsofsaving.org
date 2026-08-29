@@ -2,6 +2,23 @@
   "title": "About Us",
   "meta_description": "Sounds of Saving was founded by a music person and a clinician on one question: if music is so central to coping and to being young, why isn't it part of how we look after young people's mental health?",
   "intro": "Sounds of Saving is a youth mental health nonprofit and a creative organization rooted in music culture. We started with a question: if music is so central to coping, and such a core part of being young, why isn't it more integrated into how we look after young people's mental health? Music is a powerful tool hiding in plain sight. We help young people use it intentionally, through films and stories with the artists they trust, a five-session program in high schools, and mental-health resources at the concerts, festivals, and campuses where they already connect.",
+  "photos": [
+    {
+      "src": "/assets/img/site/photo-focus-group-la.jpg",
+      "alt": "Charlie Gross running a curriculum focus group with teens in Los Angeles",
+      "caption": "SoS HS focus group, Los Angeles, 2024"
+    },
+    {
+      "src": "/assets/img/site/photo-card-life-is-hard.jpg",
+      "alt": "A handwritten Songs That Found Me card: life is hard, but there is a lot of good music out there to stay around for",
+      "caption": "A card from the Re:SET tour, 2023"
+    },
+    {
+      "src": "/assets/img/site/photo-6lack-tour.jpg",
+      "alt": "6LACK on stage during the Since I Have a Lover tour",
+      "caption": "On tour with 6LACK, 2023"
+    }
+  ],
   "approach": {
     "eyebrow": "Our approach",
     "heading": "Seven things we believe",

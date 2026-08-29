@@ -50,6 +50,13 @@ ogType: website
   /* group sections */
   .pgroup { margin-top: var(--space-2xl); }
   .pgroup__head { max-width: var(--maxw-prose); margin-bottom: var(--space-lg); }
+  .pgroup__top { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: var(--space-xl); align-items: end; margin-bottom: var(--space-lg); }
+  .pgroup__top .pgroup__head { margin-bottom: 0; }
+  .pgroup__photo { margin: 0; }
+  .pgroup__photo .photo { display: block; aspect-ratio: 4 / 5; overflow: hidden; border-radius: var(--radius); background: var(--bg-alt); }
+  .pgroup__photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .pgroup__photo figcaption { margin-top: var(--space-2xs); font-size: var(--fs-tiny); color: var(--text-faint); font-family: var(--font-mono); }
+  @media (max-width: 760px) { .pgroup__top { grid-template-columns: 1fr; } }
   .pgroup__label {
     color: var(--accent);
     margin: 0 0 var(--space-2xs);
@@ -143,10 +150,15 @@ ogType: website
 
   {% for group in p.groups %}
   <section class="pgroup" id="{{ group.id }}" aria-label="{{ group.label }}">
-    <div class="pgroup__head">
-      <p class="pgroup__label">{{ group.label }}</p>
-      <h2 class="pgroup__heading">{{ group.heading }}</h2>
-      {% if group.intro %}<p class="pgroup__intro">{{ group.intro }}</p>{% endif %}
+    <div class="pgroup__top">
+      <div class="pgroup__head">
+        <p class="pgroup__label">{{ group.label }}</p>
+        <h2 class="pgroup__heading">{{ group.heading }}</h2>
+        {% if group.intro %}<p class="pgroup__intro">{{ group.intro }}</p>{% endif %}
+      </div>
+      {% if group.photo %}
+      <figure class="pgroup__photo"><span class="photo"><img src="{{ group.photo.src }}" alt="{{ group.photo.alt }}" loading="lazy" decoding="async" /></span>{% if group.photo.caption %}<figcaption>{{ group.photo.caption }}</figcaption>{% endif %}</figure>
+      {% endif %}
     </div>
 
     <ul class="pcards">

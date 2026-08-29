@@ -3,6 +3,23 @@
   "meta_description": "SoS HS is a five-session, music-driven mental wellness program for high schools. Built on Social and Emotional Learning, ready to run, evaluated with NYU. Now accepting pilot partners for the 2026 to 2027 school year.",
   "heading": "A mental wellness program that speaks the language students already speak.",
   "lead": "SoS HS is a five-session, music-driven program that builds emotional literacy and connection through an entry point students already trust: music. It is not therapy and not crisis response. It is a preventative approach a school can run now, with minimal prep and no additional staffing. Now accepting pilot partners for the 2026 to 2027 school year.",
+  "photos": [
+    {
+      "src": "/assets/img/site/photo-bartees-hs.jpg",
+      "alt": "Bartees Strange with a guitar case in a high-school hallway",
+      "caption": "Bartees Strange at SoS HS, fall 2025"
+    },
+    {
+      "src": "/assets/img/site/photo-hollywood-high.jpg",
+      "alt": "Hollywood High School auditorium during a Mitski residency",
+      "caption": "Hollywood High School, Los Angeles, 2026"
+    },
+    {
+      "src": "/assets/img/site/photo-focus-group-la.jpg",
+      "alt": "Students and Charlie Gross in a focus group",
+      "caption": "Curriculum focus group, Los Angeles, 2024"
+    }
+  ],
   "pullquote": "The challenges today's generation of young people face are unprecedented and uniquely hard to navigate. And the effect these challenges have had on their mental health is devastating.",
   "pullquote_attribution": "U.S. Surgeon General",
   "why_music": "Most schools want to support student mental health but face limited staff capacity, crowded schedules, stigma around traditional outreach, and few turnkey options that fit the school day. Music is already how students regulate stress, explore identity, feel understood, and connect with others. SoS HS helps them do it with intention. It feels more like a listening lab than a lecture.",
@@ -21,7 +38,10 @@
         "For the school: safer spaces for conversation, stronger peer relationships, a shared language around mental health",
         "A clear handoff to local mental-health resources and 988"
       ],
-      "cta": { "label": "Start a pilot", "href": "#intake" }
+      "cta": {
+        "label": "Start a pilot",
+        "href": "#intake"
+      }
     },
     {
       "eyebrow": "One-off",
@@ -35,16 +55,31 @@
         "A connection to local mental-health professionals and pathways to care",
         "Past artists include Erick the Architect, Pink Siifu, Cleo Reed, Bryndon Cook, deem spencer, and Maassai"
       ],
-      "cta": { "label": "Ask about a visit", "href": "#intake" }
+      "cta": {
+        "label": "Ask about a visit",
+        "href": "#intake"
+      }
     }
   ],
   "proof": {
     "eyebrow": "What we've learned",
     "heading": "Music-based programming reaches students who are falling through the cracks.",
     "stats": [
-      { "stat": "2 schools, 2023", "body": "Our first programs, in two NYC public high schools, funded by MTV's Mental Health Action Day: artists performed, then co-facilitated small groups with therapists. Students who had refused traditional support opened up.", "source": "Sounds of Saving" },
-      { "stat": "“Pretty cool.”", "body": "A principal told us a high-risk student who had rejected every counseling outreach said that about the program. For us, that was the whole thesis proven.", "source": "NYC public high school principal, 2023" },
-      { "stat": "42%", "body": "of high-school students felt persistently sad or hopeless in 2021, and 22% seriously considered suicide. Students are more likely to seek support at school than in a clinic.", "source": "CDC Youth Risk Behavior Survey, 2011 to 2021" }
+      {
+        "stat": "2 schools, 2023",
+        "body": "Our first programs, in two NYC public high schools, funded by MTV's Mental Health Action Day: artists performed, then co-facilitated small groups with therapists. Students who had refused traditional support opened up.",
+        "source": "Sounds of Saving"
+      },
+      {
+        "stat": "“Pretty cool.”",
+        "body": "A principal told us a high-risk student who had rejected every counseling outreach said that about the program. For us, that was the whole thesis proven.",
+        "source": "NYC public high school principal, 2023"
+      },
+      {
+        "stat": "42%",
+        "body": "of high-school students felt persistently sad or hopeless in 2021, and 22% seriously considered suicide. Students are more likely to seek support at school than in a clinic.",
+        "source": "CDC Youth Risk Behavior Survey, 2011 to 2021"
+      }
     ],
     "credibility": [
       "Now piloting in Washington, DC; early pilots show strong engagement, especially in group listening and discussion",
@@ -57,7 +92,10 @@
     "eyebrow": "Read first",
     "title": "Why music for mental health",
     "body": "A Sound Approach, our white paper co-authored with NYU researchers and the We Are All Music Foundation, brings together the neuroscience, music therapy, and psychology behind using music intentionally for wellbeing, especially among youth underserved by traditional care.",
-    "cta": { "label": "Read A Sound Approach", "href": "https://drive.google.com/file/d/1fMIfsbp3okh9TT1phHb9hnZpu9_zCzTz/view" }
+    "cta": {
+      "label": "Read A Sound Approach",
+      "href": "https://drive.google.com/file/d/1fMIfsbp3okh9TT1phHb9hnZpu9_zCzTz/view"
+    }
   },
   "intake": {
     "eyebrow": "Now accepting pilot partners",

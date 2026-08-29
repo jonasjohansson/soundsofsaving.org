@@ -6,9 +6,18 @@
   "how_it_works": {
     "eyebrow": "Three ways in",
     "steps": [
-      { "label": "Artists", "body": "Films and stories where artists speak candidly about mental health, made with the same care as the music itself." },
-      { "label": "Schools", "body": "SoS High School gives students practical tools to explore emotions, identity, coping, and connection through the music they already listen to." },
-      { "label": "Community", "body": "Mental-health conversations and resources at concerts, festivals, and campuses, where young people already connect through music." }
+      {
+        "label": "Artists",
+        "body": "Films and stories where artists speak candidly about mental health, made with the same care as the music itself."
+      },
+      {
+        "label": "Schools",
+        "body": "SoS High School gives students practical tools to explore emotions, identity, coping, and connection through the music they already listen to."
+      },
+      {
+        "label": "Community",
+        "body": "Mental-health conversations and resources at concerts, festivals, and campuses, where young people already connect through music."
+      }
     ]
   },
   "groups": [
@@ -26,7 +35,10 @@
           "who": "Young people who find it easier to hear a hard truth from an artist they trust than from a pamphlet.",
           "happens": "We record an intimate cover and conversation with each artist and publish it across YouTube and social. The series is produced in partnership with the 988 Suicide and Crisis Lifeline and Vibrant Emotional Health. It draws on the Papageno effect: hearing real stories of getting through a crisis can spark hope and encourage help-seeking.",
           "proof": "Featured in Pitchfork, Rolling Stone, AfroPunk, and MTV. Artists include Sharon Van Etten, Meshell Ndegeocello, Bartees Strange, SASAMI, CHAI, Geese, and Skullcrusher.",
-          "cta": { "label": "Watch the series", "href": "/sessions/" }
+          "cta": {
+            "label": "Watch the series",
+            "href": "/sessions/"
+          }
         },
         {
           "eyebrow": "Original films and content",
@@ -35,9 +47,17 @@
           "who": "Artists, labels, festivals, and mission-aligned organizations who want mental-health content that does not feel like a PSA.",
           "happens": "Long-form films (5 to 7 minutes), cross-platform social cuts, short PSAs (30 to 90 seconds), and live activations, often tied to Mental Health Awareness Month, Suicide Prevention Month, and World Mental Health Day.",
           "proof": "Built on the same storytelling craft as the 988 series.",
-          "cta": { "label": "Get in touch", "href": "mailto:programs@soundsofsaving.org" }
+          "cta": {
+            "label": "Get in touch",
+            "href": "mailto:programs@soundsofsaving.org"
+          }
         }
-      ]
+      ],
+      "photo": {
+        "src": "/assets/img/site/photo-geese.jpg",
+        "alt": "Geese performing a Nick Drake cover for Sounds of Saving",
+        "caption": "Geese covering Nick Drake, 2022"
+      }
     },
     {
       "id": "schools",
@@ -52,7 +72,10 @@
           "who": "School counselors, SEL leads, advisory and health educators, and any school that needs a preventative approach it can run now.",
           "happens": "Across five sessions students learn how music affects the brain and nervous system, build playlists tied to emotional states, explore how lyrics shape identity, take part in listening labs that spark peer dialogue, and reflect through guided journaling and discussion. Facilitated by school staff or SoS personnel, with minimal prep and no extra staffing.",
           "proof": "Grew out of 2023 programs in two NYC public high schools, funded by MTV's Mental Health Action Day. Now piloting in Washington, DC, and being evaluated with NYU's Ripollés Lab. Partners include 988, Save The Music Foundation, Loveland Foundation, TikTok, SoundCloud, and the U.S. Department of Education.",
-          "cta": { "label": "Bring SoS HS to your school", "href": "/educators/" }
+          "cta": {
+            "label": "Bring SoS HS to your school",
+            "href": "/educators/"
+          }
         },
         {
           "eyebrow": "One-off",
@@ -61,9 +84,17 @@
           "who": "Schools that want one event rather than the full program, or a way to start.",
           "happens": "An artist-led session built around a mental-health theme, with a clear handoff to local care. This is the format that proved the idea in 2023: students who had turned down every other kind of support opened up.",
           "proof": "Past artists include Erick the Architect, Pink Siifu, Cleo Reed, Bryndon Cook, deem spencer, and Maassai.",
-          "cta": { "label": "Ask about a visit", "href": "/educators/#intake" }
+          "cta": {
+            "label": "Ask about a visit",
+            "href": "/educators/#intake"
+          }
         }
-      ]
+      ],
+      "photo": {
+        "src": "/assets/img/site/photo-bartees-hs.jpg",
+        "alt": "Bartees Strange in a high-school hallway",
+        "caption": "Bartees Strange at SoS HS, fall 2025"
+      }
     },
     {
       "id": "community",
@@ -78,7 +109,10 @@
           "who": "Fans at tour stops and festivals, especially in places where local care is hard to find.",
           "happens": "We partner with a local mental-health professional and a member of the 988 Lifeline, who demystify getting help. We hand out wallet crisis cards with a QR code to affordable, culturally informed local and national resources, and collect the cards and stories.",
           "proof": "Tours and festivals joined include 6LACK's Since I Have a Lover, Courtney Barnett's Here and There, Re:SET, The National's Homecoming, Newport Folk, Governors Ball, and Hinterland.",
-          "cta": { "label": "Find resources", "href": "/resources/" }
+          "cta": {
+            "label": "Find resources",
+            "href": "/resources/"
+          }
         },
         {
           "eyebrow": "Live events",
@@ -87,15 +121,26 @@
           "who": "Music fans, students, and the artists, writers, and mental-health professionals who take part.",
           "happens": "Past themes include getting un-stuck, gender identity, working through childhood trauma, and coping with depression and anxiety. Sessions stay conversational, moving from naming a problem to ways of coping with it. On campuses we run the same format with student groups and wellness staff.",
           "proof": "Produced with partners including OFFAIR, Republic Records, National Sawdust, UCLA's Semel Institute, and Columbia School of the Arts.",
-          "cta": { "label": "Get in touch", "href": "mailto:programs@soundsofsaving.org" }
+          "cta": {
+            "label": "Get in touch",
+            "href": "mailto:programs@soundsofsaving.org"
+          }
         }
-      ]
+      ],
+      "photo": {
+        "src": "/assets/img/site/photo-nick-cave-card.jpg",
+        "alt": "Nick Cave filling in a Songs That Found Me card",
+        "caption": "Nick Cave, Strand Books, 2023"
+      }
     }
   ],
   "educators_pointer": {
     "eyebrow": "For educators",
     "title": "Bringing SoS HS into your school?",
     "body": "We have a dedicated page for counselors, SEL leads, and administrators: what the five sessions cover, what your school gets, what we've learned from pilots, and how to start.",
-    "cta": { "label": "Go to the Educators page", "href": "/educators/" }
+    "cta": {
+      "label": "Go to the Educators page",
+      "href": "/educators/"
+    }
   }
 }

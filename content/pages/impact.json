@@ -55,5 +55,22 @@
     "quote": "Pretty cool.",
     "body": "A principal told us that a high-risk student who had rejected every counseling outreach said this about the program. For us it was the whole thesis proven: music-based programming reaches students who are falling through the cracks.",
     "attribution": "NYC public high school, 2023"
-  }
+  },
+  "photos": [
+    {
+      "src": "/assets/img/site/photo-power-of-music.jpg",
+      "alt": "Living Colour performing at the Power of Music benefit",
+      "caption": "Power of Music benefit with We Are All Music, City Winery, 2025"
+    },
+    {
+      "src": "/assets/img/site/photo-card-music-listened.jpg",
+      "alt": "A handwritten card: music has listened to me when no one else would",
+      "caption": "A fan's card, 2023"
+    },
+    {
+      "src": "/assets/img/site/photo-cameron-winter.jpg",
+      "alt": "Cameron Winter of Geese",
+      "caption": "Cameron Winter, New York, 2026"
+    }
+  ]
 }

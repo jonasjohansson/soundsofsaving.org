@@ -111,6 +111,13 @@ ogType: website
   <h1>About us</h1>
   {% if a.intro %}<p class="about-intro">{{ a.intro }}</p>{% endif %}
   <p class="about-follow">Follow along on <a href="{{ settings.socials.instagram }}" target="_blank" rel="noopener">Instagram</a> and <a href="{{ settings.socials.facebook }}" target="_blank" rel="noopener">Facebook</a>, where we share new work and post regularly.</p>
+  {% if a.photos %}
+  <ul class="photo-row" aria-label="Photos">
+    {% for ph in a.photos %}
+    <li><figure><span class="photo"><img src="{{ ph.src }}" alt="{{ ph.alt }}" loading="lazy" decoding="async" /></span>{% if ph.caption %}<figcaption>{{ ph.caption }}</figcaption>{% endif %}</figure></li>
+    {% endfor %}
+  </ul>
+  {% endif %}
 
   {% if a.approach %}
   <section class="approach" aria-label="{{ a.approach.heading }}">
