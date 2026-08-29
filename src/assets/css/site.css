@@ -247,6 +247,7 @@ main { min-height: 50vh; }
 
 /* — Buttons ————————————————————————————————————————————————— */
 .btn {
+  text-wrap: balance;
   display: inline-flex;
   align-items: center;
   justify-content: center;
