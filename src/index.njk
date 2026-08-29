@@ -110,7 +110,9 @@ eleventyComputed:
   .home-more:hover { text-decoration: underline; }
   /* — Three doors (in the hero) ———————————————————————————————— */
   .home-doors { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-xs); margin-top: var(--space-lg); list-style: none; padding: 0; max-width: 60rem; }
+  .home-doors > li { display: flex; }
   .home-door {
+    flex: 1;
     display: block;
     border: 1px solid rgba(255,255,255,0.55);
     border-radius: var(--radius);
@@ -135,10 +137,10 @@ eleventyComputed:
   .home-what__title { font-family: var(--font-display); font-size: var(--fs-h3); line-height: var(--lh-tight); margin: var(--space-2xs) 0 var(--space-xs); }
   .home-what__copy { color: var(--text-muted); line-height: var(--lh-base); margin: 0; font-size: var(--fs-small); }
   .home-what .home-more { margin-top: var(--space-sm); }
-  @media (max-width: 760px) { .home-what { grid-template-columns: 1fr; } }
+  @media (max-width: 760px) { .home-what, .home-proof { grid-template-columns: 1fr; } }
 
   /* — Proof strip ——————————————————————————————————————————————— */
-  .home-proof { display: flex; flex-wrap: wrap; gap: var(--space-xs) var(--space-lg); list-style: none; margin: var(--space-lg) 0 0; padding: var(--space-md) 0 0; border-top: 1px solid var(--line); }
+  .home-proof { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-xs) var(--space-lg); list-style: none; margin: var(--space-lg) 0 0; padding: var(--space-md) 0 0; border-top: 1px solid var(--line); }
   .home-proof li { font-size: var(--fs-small); color: var(--text-muted); }
   .home-proof li strong { color: var(--ink); font-weight: var(--fw-semibold); }
 
