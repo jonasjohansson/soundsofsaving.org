@@ -1,78 +1,67 @@
 {
   "title": "For Educators",
-  "meta_description": "Sounds of Saving brings a music-based, SEL-rooted mental health curriculum to high schools and college campuses. Now accepting pilot partners for the 2026 to 2027 school year.",
-  "heading": "Where students actually open up.",
-  "lead": "Young people will tell an artist they love something they will not tell an adult in an office. Sounds of Saving turns that into a classroom: a music-based, SEL-rooted curriculum that teaches students to use music intentionally for their mental health, and connects them to real pathways to care. Now accepting pilot partners for the 2026 to 2027 school year.",
-  "pullquote": "The school mental health workforce needs to be built out. Instead of relying only on clinicians with advanced degrees, the system needs a more expansive approach that uses the skills and training of a wide range of people. There needs to be something in the middle.",
-  "pullquote_attribution": "Sharon Hoover, professor of child and adolescent psychiatry and co-director of the National Center for School Mental Health, University of Maryland School of Medicine",
-  "why_music": "Music is the something in the middle. It is already in every student's pocket, already how they regulate, connect, and process. We give educators a structured, culturally relevant way to use it, built on Social and Emotional Learning and designed with clinicians on our board.",
+  "meta_description": "SoS HS is a five-session, music-driven mental wellness program for high schools. Built on Social and Emotional Learning, ready to run, evaluated with NYU. Now accepting pilot partners for the 2026 to 2027 school year.",
+  "heading": "A mental wellness program that speaks the language students already speak.",
+  "lead": "SoS HS is a five-session, music-driven program that builds emotional literacy and connection through an entry point students already trust: music. It is not therapy and not crisis response. It is a preventative approach a school can run now, with minimal prep and no additional staffing. Now accepting pilot partners for the 2026 to 2027 school year.",
+  "pullquote": "The challenges today's generation of young people face are unprecedented and uniquely hard to navigate. And the effect these challenges have had on their mental health is devastating.",
+  "pullquote_attribution": "U.S. Surgeon General",
+  "why_music": "Most schools want to support student mental health but face limited staff capacity, crowded schedules, stigma around traditional outreach, and few turnkey options that fit the school day. Music is already how students regulate stress, explore identity, feel understood, and connect with others. SoS HS helps them do it with intention. It feels more like a listening lab than a lecture.",
   "tracks": [
     {
-      "eyebrow": "High school",
+      "eyebrow": "The program",
       "title": "SoS HS",
-      "summary": "A limited high-school curriculum that teaches students to use music receptively and intentionally for their mental health and wellbeing.",
-      "audience": "School counselors, SEL leads, and health and wellness educators.",
-      "spec_heading": "What you get",
+      "summary": "Five ready-to-run sessions, facilitated by school staff or SoS personnel, that fit advisory, classroom, or after-school settings. Students learn how music affects the brain and nervous system, build playlists tied to emotional states, explore how lyrics shape identity, join listening labs that spark peer dialogue, and reflect through guided journaling.",
+      "audience": "School counselors, SEL leads, advisory and health educators, and administrators.",
+      "spec_heading": "What your school gets",
       "spec": [
-        "4 to 5 facilitated sessions across the school year",
-        "Rooted in Social and Emotional Learning (SEL)",
-        "Supplemental materials for student-led touchpoints between sessions",
-        "A clear handoff to local mental-health resources"
+        "Five ready-to-run sessions: music, the brain, and emotion; mental health and intentional coping; identity and self-expression; social connection and belonging; resilience and the future self",
+        "Minimal prep, no additional staffing, adaptable to any school environment",
+        "Co-designed with educators and mental-health professionals; activity-based and student-centered",
+        "For students: stronger coping skills, mental-health literacy, social connection, and earlier awareness before challenges escalate",
+        "For the school: safer spaces for conversation, stronger peer relationships, a shared language around mental health",
+        "A clear handoff to local mental-health resources and 988"
       ],
-      "cta": { "label": "Start a high-school pilot", "href": "#intake" }
+      "cta": { "label": "Start a pilot", "href": "#intake" }
     },
     {
-      "eyebrow": "College",
-      "title": "SoS Uni",
-      "summary": "A two-pronged campus initiative pairing awareness with music-based community building.",
-      "audience": "College wellness staff, campus radio, and student clubs.",
-      "spec_heading": "What you get",
-      "spec": [
-        "An annual College Campus Radio Campaign anchored by peer and artist storytelling",
-        "Music-based prompts students can run themselves",
-        "Live events and community-building experiences for campus clubs and groups",
-        "Support connecting students to on- and off-campus care"
-      ],
-      "cta": { "label": "Start a campus pilot", "href": "#intake" }
-    },
-    {
-      "eyebrow": "Workshops",
-      "title": "Bring an Artist Workshop",
-      "summary": "A single high-impact event built around live performance, discussion, and storytelling, with a path to care.",
-      "audience": "Schools and campuses that want one event rather than a full curriculum.",
+      "eyebrow": "One-off",
+      "title": "Artist Visit",
+      "summary": "A single event where an artist performs, then co-facilitates small groups with a therapist about coping, identity, and connection. The format that proved the idea in 2023, and a good way to start.",
+      "audience": "Schools that want one event rather than the full program.",
       "spec_heading": "What you get",
       "spec": [
         "An artist-led session built around a mental-health theme",
-        "Live performance, discussion, and storytelling",
+        "Live performance, then small-group discussion with a therapist",
         "A connection to local mental-health professionals and pathways to care",
         "Past artists include Erick the Architect, Pink Siifu, Cleo Reed, Bryndon Cook, deem spencer, and Maassai"
       ],
-      "cta": { "label": "Ask about a workshop", "href": "#intake" }
+      "cta": { "label": "Ask about a visit", "href": "#intake" }
     }
   ],
   "proof": {
-    "eyebrow": "Why now",
-    "heading": "The need is documented, and so is our credibility.",
+    "eyebrow": "What we've learned",
+    "heading": "Music-based programming reaches students who are falling through the cracks.",
     "stats": [
-      { "stat": "42%", "body": "of high-school students felt persistently sad or hopeless in 2021, and 22% seriously considered suicide.", "source": "CDC Youth Risk Behavior Survey, 2011 to 2021" },
-      { "stat": "15 cigarettes/day", "body": "the mortality impact of being socially disconnected, comparable to smoking that much.", "source": "U.S. Surgeon General's Advisory on Loneliness and Isolation, 2023" }
+      { "stat": "2 schools, 2023", "body": "Our first programs, in two NYC public high schools, funded by MTV's Mental Health Action Day: artists performed, then co-facilitated small groups with therapists. Students who had refused traditional support opened up.", "source": "Sounds of Saving" },
+      { "stat": "“Pretty cool.”", "body": "A principal told us a high-risk student who had rejected every counseling outreach said that about the program. For us, that was the whole thesis proven.", "source": "NYC public high school principal, 2023" },
+      { "stat": "42%", "body": "of high-school students felt persistently sad or hopeless in 2021, and 22% seriously considered suicide. Students are more likely to seek support at school than in a clinic.", "source": "CDC Youth Risk Behavior Survey, 2011 to 2021" }
     ],
     "credibility": [
-      "Produced in partnership with the 988 Suicide and Crisis Lifeline and Vibrant Emotional Support",
-      "Featured in Pitchfork, Rolling Stone, AfroPunk, and MTV",
-      "Co-founded by a licensed psychotherapist; clinicians and crisis experts on our board, including the founder of the National Suicide Prevention Lifeline",
-      "Artist roster includes Sharon Van Etten, Meshell Ndegeocello, and dozens more"
+      "Now piloting in Washington, DC; early pilots show strong engagement, especially in group listening and discussion",
+      "Evaluated in partnership with NYU's Ripollés Lab (Music and Audio Research Lab)",
+      "Co-founded by a clinician who has worked with adolescents; clinicians and crisis experts on our board",
+      "Trusted by partners including the 988 Suicide and Crisis Lifeline, Save The Music Foundation, Loveland Foundation, TikTok, SoundCloud, and the U.S. Department of Education"
     ]
   },
   "lead_magnet": {
     "eyebrow": "Read first",
     "title": "Why music for mental health",
-    "body": "A Sound Approach, our white paper co-authored with the We Are All Music Foundation, brings together research from neuroscientists, music therapists, and psychologists on how music supports wellbeing, especially among youth underserved by traditional care.",
+    "body": "A Sound Approach, our white paper co-authored with NYU researchers and the We Are All Music Foundation, brings together the neuroscience, music therapy, and psychology behind using music intentionally for wellbeing, especially among youth underserved by traditional care.",
     "cta": { "label": "Read A Sound Approach", "href": "https://drive.google.com/file/d/1fMIfsbp3okh9TT1phHb9hnZpu9_zCzTz/view" }
   },
   "intake": {
     "eyebrow": "Now accepting pilot partners",
-    "heading": "Bring Sounds of Saving to your school or campus",
-    "body": "Tell us a little about your school or institution and which track fits. We are accepting pilot partners for the 2026 to 2027 school year and will follow up personally."
+    "heading": "Bring SoS HS to your school",
+    "body": "Tell us a little about your school and whether you're thinking about the full program or an artist visit. We are accepting pilot partners for the 2026 to 2027 school year and will follow up personally."
   }
 }

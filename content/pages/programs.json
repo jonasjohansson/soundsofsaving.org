@@ -1,110 +1,101 @@
 {
   "title": "Programs",
-  "meta_description": "Sounds of Saving works with artists, schools, and live events to help young people use music to take care of their mental health. Explore our programs across film, education, and community.",
+  "meta_description": "Music is already a mental health tool. Sounds of Saving helps young people use it intentionally, through artist storytelling, a high-school program, and mental-health resources at concerts, festivals, and campuses.",
   "heading": "Programs",
-  "lead": "We help young people use music to take care of their mental health. That work runs on a simple loop: artists tell the truth about a hard time and the song that got them through it, we turn those stories into a music-based, SEL-rooted curriculum for schools, and we show up at live events with real resources and a way to get help. Every program below is one part of that loop.",
+  "lead": "Music is already a mental health tool. We help young people use it intentionally. Everything we do starts with something young people are already doing every day: listening. Artists tell the truth about a hard time and the song that got them through it. Schools get a five-session program built on the music students already love. And we show up where music and community already exist, with real resources and a way to get help.",
   "how_it_works": {
-    "eyebrow": "How it works",
+    "eyebrow": "Three ways in",
     "steps": [
-      { "label": "Listen", "body": "An artist shares the song that helped them through a hard time, on film and in person." },
-      { "label": "Learn", "body": "Those stories become a classroom curriculum that teaches students to use music for their wellbeing." },
-      { "label": "Connect", "body": "We bring it into the room at live events, with a mental-health professional and a path to care." }
+      { "label": "Artists", "body": "Films and stories where artists speak candidly about mental health, made with the same care as the music itself." },
+      { "label": "Schools", "body": "SoS High School gives students practical tools to explore emotions, identity, coping, and connection through the music they already listen to." },
+      { "label": "Community", "body": "Mental-health conversations and resources at concerts, festivals, and campuses, where young people already connect through music." }
     ]
   },
   "groups": [
     {
-      "id": "listen",
-      "label": "Listen",
-      "heading": "Artist storytelling and media",
-      "intro": "Intimate films and content where artists are honest about mental health, made to connect with the people who already love their music.",
+      "id": "artists",
+      "label": "Artists",
+      "heading": "Artist storytelling",
+      "intro": "Artists can be uniquely powerful trusted messengers. Their stories normalize difficult experiences, reduce stigma, model coping and help-seeking, and remind someone struggling that they are not alone. We don't ask artists to deliver mental-health messages; we make creative work with them that they are proud to share.",
       "cards": [
         {
           "featured": true,
           "eyebrow": "988 Lifeline x Sounds of Saving",
           "title": "Song That Found Me at the Right Time",
-          "what": "A film series where an artist covers a song that helped them through a difficult time and talks about what else helped: therapy, meditation, movement, community.",
+          "what": "A film series where an artist covers the song that helped them through a difficult time and talks about what else helped: therapy, meditation, movement, community.",
           "who": "Young people who find it easier to hear a hard truth from an artist they trust than from a pamphlet.",
-          "happens": "We record an intimate cover and conversation with each artist, then publish it across YouTube and social. The series is produced in partnership with the 988 Suicide and Crisis Lifeline and their sister organization Vibrant Emotional Support.",
-          "proof": "Featured in Pitchfork, Rolling Stone, AfroPunk, and MTV. Artists include Sharon Van Etten, Meshell Ndegeocello, Bartees Strange, SASAMI, and CHAI.",
+          "happens": "We record an intimate cover and conversation with each artist and publish it across YouTube and social. The series is produced in partnership with the 988 Suicide and Crisis Lifeline and Vibrant Emotional Health. It draws on the Papageno effect: hearing real stories of getting through a crisis can spark hope and encourage help-seeking.",
+          "proof": "Featured in Pitchfork, Rolling Stone, AfroPunk, and MTV. Artists include Sharon Van Etten, Meshell Ndegeocello, Bartees Strange, SASAMI, CHAI, Geese, and Skullcrusher.",
           "cta": { "label": "Watch the series", "href": "/sessions/" }
         },
         {
-          "eyebrow": "Partnerships",
+          "eyebrow": "Original films and content",
           "title": "Social Impact Media",
-          "what": "Personal, intimate content built with partners to connect with fan bases through relatable stories and a shared connection to music.",
-          "who": "Artists, labels, and mission-aligned organizations who want to make mental-health content that does not feel like a PSA.",
-          "happens": "Formats span long-form films (5 to 7 minutes), cross-platform social cuts for YouTube, Meta, TikTok, and Snap, short PSAs (30 to 90 seconds), and live activations, often tied to cultural moments like Mental Health Awareness Month, Suicide Prevention Month, and World Mental Health Day.",
+          "what": "Personal, intimate films, photography, and social content built with artists and partners to reach fan bases through relatable stories and a shared connection to music.",
+          "who": "Artists, labels, festivals, and mission-aligned organizations who want mental-health content that does not feel like a PSA.",
+          "happens": "Long-form films (5 to 7 minutes), cross-platform social cuts, short PSAs (30 to 90 seconds), and live activations, often tied to Mental Health Awareness Month, Suicide Prevention Month, and World Mental Health Day.",
           "proof": "Built on the same storytelling craft as the 988 series.",
           "cta": { "label": "Get in touch", "href": "mailto:programs@soundsofsaving.org" }
         }
       ]
     },
     {
-      "id": "learn",
-      "label": "Learn",
-      "heading": "Education and engagement",
-      "intro": "A music-based, SEL-rooted curriculum that teaches students to use music intentionally for their mental health, in high schools and on college campuses.",
+      "id": "schools",
+      "label": "Schools",
+      "heading": "SoS High School",
+      "intro": "We're not telling teenagers to listen to music. That would be absurd. We take advantage of the fact that they already do, and turn it into tools they can keep using long after the program ends.",
       "cards": [
         {
-          "eyebrow": "High school",
+          "eyebrow": "Five-session program",
           "title": "SoS HS",
-          "what": "A limited high-school curriculum, rooted in Social and Emotional Learning, that teaches students how to use music receptively and intentionally for their mental health and wellbeing.",
-          "who": "High-school counselors, SEL leads, and educators looking for an engaging, culturally relevant wellness curriculum.",
-          "happens": "4 to 5 sessions across the school year, plus supplemental material for student-led touchpoints between sessions.",
-          "proof": "Now accepting pilot partners for the 2026 to 2027 school year.",
-          "cta": { "label": "For educators", "href": "/educators/" }
+          "what": "A structured, music-driven mental wellness program for high schools, rooted in Social and Emotional Learning. It is not therapy and not crisis response. It builds emotional literacy and connection through an entry point students already trust.",
+          "who": "School counselors, SEL leads, advisory and health educators, and any school that needs a preventative approach it can run now.",
+          "happens": "Across five sessions students learn how music affects the brain and nervous system, build playlists tied to emotional states, explore how lyrics shape identity, take part in listening labs that spark peer dialogue, and reflect through guided journaling and discussion. Facilitated by school staff or SoS personnel, with minimal prep and no extra staffing.",
+          "proof": "Grew out of 2023 programs in two NYC public high schools, funded by MTV's Mental Health Action Day. Now piloting in Washington, DC, and being evaluated with NYU's Ripollés Lab. Partners include 988, Save The Music Foundation, Loveland Foundation, TikTok, SoundCloud, and the U.S. Department of Education.",
+          "cta": { "label": "Bring SoS HS to your school", "href": "/educators/" }
         },
         {
-          "eyebrow": "College",
-          "title": "SoS Uni",
-          "what": "A two-pronged campus initiative that pairs awareness with community building.",
-          "who": "College wellness staff, campus radio, and student clubs.",
-          "happens": "An annual College Campus Radio Campaign anchored by peer and artist storytelling and music-based prompts, plus live events and music-based community-building experiences for campus clubs and groups.",
-          "proof": "Now accepting pilot partners for the 2026 to 2027 school year.",
-          "cta": { "label": "For educators", "href": "/educators/" }
-        },
-        {
-          "eyebrow": "Workshops",
-          "title": "Bring an Artist Workshop",
-          "what": "One-off workshops that use live performance, discussion, and storytelling to connect students to local mental-health professionals and pathways to care.",
-          "who": "Schools and campuses that want a single high-impact event rather than a full curriculum.",
-          "happens": "An artist-led session built around a mental-health theme, with a clear handoff to local care.",
+          "eyebrow": "One-off",
+          "title": "Artist Visit",
+          "what": "A single high-impact event where an artist performs, then co-facilitates small groups with a therapist about coping, identity, and connection.",
+          "who": "Schools that want one event rather than the full program, or a way to start.",
+          "happens": "An artist-led session built around a mental-health theme, with a clear handoff to local care. This is the format that proved the idea in 2023: students who had turned down every other kind of support opened up.",
           "proof": "Past artists include Erick the Architect, Pink Siifu, Cleo Reed, Bryndon Cook, deem spencer, and Maassai.",
-          "cta": { "label": "For educators", "href": "/educators/" }
+          "cta": { "label": "Ask about a visit", "href": "/educators/#intake" }
         }
       ]
     },
     {
-      "id": "connect",
-      "label": "Connect",
-      "heading": "Events and live work",
-      "intro": "We show up where young people already are, at shows, on tours, and at live conversations, with real resources and a way to get help.",
+      "id": "community",
+      "label": "Community",
+      "heading": "Music and community",
+      "intro": "Rather than waiting for someone to seek out a mental-health organization, we bring resources, conversations, and opportunities for connection into the spaces people already trust: concerts, festivals, campuses, and cultural events.",
       "cards": [
         {
-          "eyebrow": "Live events",
-          "title": "Events and Feedback Sessions",
-          "what": "A suite of events, from showing up on-site with mental-health resources to leading our live Feedback Sessions, where music meets a guided conversation about a mental-health theme.",
-          "who": "Music fans at the events, plus artists, writers, and mental-health professionals who take part.",
-          "happens": "Feedback Sessions bring together musicians, artists or writers, and mental-health professionals around a theme. Past themes have included getting un-stuck from inertia, gender identity, working through childhood trauma, and coping with pandemic-related depression and anxiety. They stay intimate and conversational, moving from naming a problem to ways of coping with it.",
-          "proof": "Produced with ongoing partners including OFFAIR, Republic Records, and National Sawdust.",
-          "cta": { "label": "Get in touch", "href": "mailto:programs@soundsofsaving.org" }
+          "eyebrow": "On tour and at festivals",
+          "title": "The Song That Found Me table",
+          "what": "Instead of handing out pamphlets, we invite people to write down the song that found them at the right time and the story behind it. People tell us about grief, anxiety, friendship, breakups, and identity, all through music.",
+          "who": "Fans at tour stops and festivals, especially in places where local care is hard to find.",
+          "happens": "We partner with a local mental-health professional and a member of the 988 Lifeline, who demystify getting help. We hand out wallet crisis cards with a QR code to affordable, culturally informed local and national resources, and collect the cards and stories.",
+          "proof": "Tours and festivals joined include 6LACK's Since I Have a Lover, Courtney Barnett's Here and There, Re:SET, The National's Homecoming, Newport Folk, Governors Ball, and Hinterland.",
+          "cta": { "label": "Find resources", "href": "/resources/" }
         },
         {
-          "eyebrow": "On the road",
-          "title": "SoS On Tour",
-          "what": "We join tours to bring education and resources to places where mental healthcare is scarce and hard to navigate.",
-          "who": "Fans at tour stops, especially in areas where local care is hard to find.",
-          "happens": "At each stop we partner with a local mental-health professional and a member of the 988 Suicide and Crisis Lifeline, who help fans navigate local resources and demystify getting help. We hand out wallet crisis cards with a QR code to local resources, and collect Songs That Found Me cards with fans' own stories.",
-          "proof": "Tours joined include Courtney Barnett's Here and There Festival, Re:SET, and 6LACK's Since I Have a Lover.",
-          "cta": { "label": "Get help", "href": "/resources/" }
+          "eyebrow": "Live events",
+          "title": "Listening parties, panels, and Feedback Sessions",
+          "what": "Events where music meets a guided conversation about a mental-health theme, from intimate listening parties to our Feedback Sessions with musicians, writers, and clinicians.",
+          "who": "Music fans, students, and the artists, writers, and mental-health professionals who take part.",
+          "happens": "Past themes include getting un-stuck, gender identity, working through childhood trauma, and coping with depression and anxiety. Sessions stay conversational, moving from naming a problem to ways of coping with it. On campuses we run the same format with student groups and wellness staff.",
+          "proof": "Produced with partners including OFFAIR, Republic Records, National Sawdust, UCLA's Semel Institute, and Columbia School of the Arts.",
+          "cta": { "label": "Get in touch", "href": "mailto:programs@soundsofsaving.org" }
         }
       ]
     }
   ],
   "educators_pointer": {
     "eyebrow": "For educators",
-    "title": "Bringing SoS into a school or campus?",
-    "body": "We have a dedicated space for school counselors, SEL leads, and college wellness staff: the two tracks, what you get, the proof, and an intake form.",
+    "title": "Bringing SoS HS into your school?",
+    "body": "We have a dedicated page for counselors, SEL leads, and administrators: what the five sessions cover, what your school gets, what we've learned from pilots, and how to start.",
     "cta": { "label": "Go to the Educators page", "href": "/educators/" }
   }
 }
