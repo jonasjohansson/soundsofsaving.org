@@ -90,13 +90,6 @@
       </nav>
 
     </div>
-
-    {% if settings.footer_image.src %}
-    <figure class="site-footer__figure">
-      <img class="site-footer__img" src="{{ settings.footer_image.src }}" alt="{{ settings.footer_image.alt }}" loading="lazy" decoding="async" />
-      {% if settings.footer_image.caption %}<figcaption class="container">{{ settings.footer_image.caption }}</figcaption>{% endif %}
-    </figure>
-    {% endif %}
   </footer>
 
   <script>
