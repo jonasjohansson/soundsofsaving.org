@@ -35,6 +35,8 @@ jobs:
         with:
           path: _site/assets/img/opt
           key: img-opt-${{ hashFiles('src/assets/img/**') }}
+          restore-keys: |
+            img-opt-
       - run: npm run build
       - uses: actions/upload-pages-artifact@v5
         with:
