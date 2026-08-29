@@ -1,0 +1,47 @@
+{#
+  Photo macros — shared by About, Educators, Impact (rows) and Programs (a
+  single figure beside a group head).
+
+  Each photo is { src, alt, caption, source }. `source` is the URL the image
+  came from (an Instagram post, for the ones pulled from the SoS account); when
+  it is set the caption becomes the credit link. Styling lives in site.css
+  (.photo-row) so both shapes look the same.
+#}
+
+{% macro caption(ph) %}
+  {%- if ph.caption -%}
+    <figcaption>
+      {%- if ph.source -%}
+        <a href="{{ ph.source }}" target="_blank" rel="noopener">{{ ph.caption }}</a>
+      {%- else -%}
+        {{ ph.caption }}
+      {%- endif -%}
+    </figcaption>
+  {%- endif -%}
+{% endmacro %}
+
+{# A row of photos. `eager` skips lazy-loading for rows above the fold. #}
+{% macro row(photos, eager) %}
+  {%- if photos.length -%}
+  <ul class="photo-row" aria-label="Photos">
+    {%- for ph in photos %}
+    <li>
+      <figure>
+        <span class="photo"><img src="{{ ph.src }}" alt="{{ ph.alt }}"{% if not eager %} loading="lazy"{% endif %} decoding="async" /></span>
+        {{ caption(ph) }}
+      </figure>
+    </li>
+    {%- endfor %}
+  </ul>
+  {%- endif -%}
+{% endmacro %}
+
+{# One photo, used beside a section head. #}
+{% macro figure(ph, className) %}
+  {%- if ph -%}
+  <figure class="{{ className or 'photo-figure' }}">
+    <span class="photo"><img src="{{ ph.src }}" alt="{{ ph.alt }}" loading="lazy" decoding="async" /></span>
+    {{ caption(ph) }}
+  </figure>
+  {%- endif -%}
+{% endmacro %}

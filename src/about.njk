@@ -12,6 +12,7 @@ ogType: website
   Founding Story, Team, Board of Directors, Advisory Board. All copy from
   content/pages/about.json (CMS-editable). Section order mirrors the live site.
 #}
+{% from "partials/photos.njk" import row as photoRow, figure as photoFigure %}
 {% set a = pages.about %}
 
 <style>
@@ -121,13 +122,7 @@ ogType: website
     {% endfor %}
     <p class="about-intro">Follow along on <a href="{{ settings.socials.instagram }}" target="_blank" rel="noopener">Instagram</a> and <a href="{{ settings.socials.facebook }}" target="_blank" rel="noopener">Facebook</a>, where we share new work and post regularly.</p>
   </div>
-  {% if a.photos %}
-  <ul class="photo-row" aria-label="Photos">
-    {% for ph in a.photos %}
-    <li><figure><span class="photo"><img src="{{ ph.src }}" alt="{{ ph.alt }}" decoding="async" /></span>{% if ph.caption %}<figcaption>{{ ph.caption }}</figcaption>{% endif %}</figure></li>
-    {% endfor %}
-  </ul>
-  {% endif %}
+  {{ photoRow(a.photos, true) }}
 
   {% if a.approach %}
   <section class="approach" aria-label="{{ a.approach.heading }}">

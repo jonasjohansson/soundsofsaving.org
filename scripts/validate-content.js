@@ -123,6 +123,24 @@ if (fs.existsSync(newsDir)) {
   }
 }
 
+// --- .pages.yml (Pages CMS config) ------------------------------------
+// It never breaks the build, so a malformed one only shows up when an editor
+// opens the CMS. Parse it here instead.
+{
+  const cfgPath = path.join(root, ".pages.yml");
+  if (fs.existsSync(cfgPath)) {
+    try {
+      const cfg = yaml.load(fs.readFileSync(cfgPath, "utf8"));
+      for (const entry of (cfg && cfg.content) || []) {
+        if (entry.type === "file" && entry.path && !fs.existsSync(path.join(root, entry.path)))
+          fail(".pages.yml", `${entry.name} points at a missing file: ${entry.path}`);
+      }
+    } catch (err) {
+      fail(".pages.yml", `does not parse: ${err.reason || err.message}`);
+    }
+  }
+}
+
 // --- report -------------------------------------------------------------
 if (errors.length) {
   console.error(`\nx Content validation failed (${errors.length}):\n`);

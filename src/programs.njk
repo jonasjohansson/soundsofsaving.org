@@ -12,6 +12,7 @@ ogType: website
   what happens / proof / one CTA. Content from content/pages/programs.json
   (CMS-editable). The 988-co-branded Sessions series leads, marked featured.
 #}
+{% from "partials/photos.njk" import row as photoRow, figure as photoFigure %}
 {% set p = pages.programs %}
 
 <style>
@@ -49,7 +50,7 @@ ogType: website
   /* group sections */
   .pgroup { margin-top: var(--space-2xl); }
   .pgroup__head { max-width: var(--maxw-prose); margin-bottom: var(--space-lg); }
-  .pgroup__top { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: var(--space-xl); align-items: start; margin-bottom: var(--space-lg); }
+  .pgroup__top { display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: var(--space-xl); align-items: center; margin-bottom: var(--space-lg); }
   .pgroup__top .pgroup__head { margin-bottom: 0; }
   .pgroup__photo { margin: 0; }
   .pgroup__photo .photo { display: block; aspect-ratio: 1; overflow: hidden; border-radius: var(--radius); background: var(--bg-alt); }
@@ -71,17 +72,25 @@ ogType: website
     list-style: none;
     padding: 0;
   }
+  .pcards > li { display: flex; }
+  .pcards > li.is-featured { grid-column: 1 / -1; }
+  /* The whole card is the link, so there is no button inside it. */
   .pcard {
+    flex: 1;
     display: flex;
     flex-direction: column;
     padding: var(--space-lg);
+    color: inherit;
+    text-decoration: none;
+    transition: border-color var(--transition), background var(--transition);
   }
+  .pcard:hover, .pcard:focus-visible { border-color: var(--accent); background: var(--paper-3); }
   .pcard--featured {
-    grid-column: 1 / -1;
     background: var(--dusk);
     border-color: var(--dusk-2);
     color: var(--on-dark);
   }
+  .pcard--featured:hover, .pcard--featured:focus-visible { border-color: var(--accent-bright); background: var(--dusk); }
   .pcard--featured .pcard__title,
   .pcard--featured .pcard__dt { color: var(--on-dark); }
   .pcard--featured .pcard__dd { color: var(--paper-2); }
@@ -101,7 +110,8 @@ ogType: website
   .pcard__dt:first-child { margin-top: 0; }
   .pcard__dd { margin: var(--space-3xs) 0 0; font-size: var(--fs-small); line-height: var(--lh-base); max-width: none; }
 
-  .pcard__cta--top { margin: 0 0 var(--space-md); }
+  .pcard__go { color: var(--accent); margin: 0 0 var(--space-md); }
+  .pcard--featured .pcard__go { color: var(--accent-bright); }
   .pcard__dd + .pcard__dd { margin-top: var(--space-xs); }
   .pcard__proof { color: var(--text-muted); }
 
@@ -149,21 +159,21 @@ ogType: website
         <h2 class="pgroup__heading">{{ group.heading }}</h2>
         {% if group.intro %}<p class="pgroup__intro">{{ group.intro }}</p>{% endif %}
       </div>
-      {% if group.photo %}
-      <figure class="pgroup__photo"><span class="photo"><img src="{{ group.photo.src }}" alt="{{ group.photo.alt }}" loading="lazy" decoding="async" /></span>{% if group.photo.caption %}<figcaption>{{ group.photo.caption }}</figcaption>{% endif %}</figure>
-      {% endif %}
+      {{ photoFigure(group.photo, "pgroup__photo") }}
     </div>
 
     <ul class="pcards">
       {% for card in group.cards %}
-      <li class="pcard{% if card.featured %} pcard--featured{% endif %}">
+      <li{% if card.featured %} class="is-featured"{% endif %}>
+        <a class="pcard{% if card.featured %} pcard--featured{% endif %}"{% if card.cta %} href="{{ card.cta.href }}"{% endif %}>
         <h3 class="pcard__title">{{ card.title }}</h3>
-        {% if card.cta %}<p class="pcard__cta pcard__cta--top"><a class="btn {% if card.featured %}btn--stroke{% else %}btn--ghost{% endif %}" href="{{ card.cta.href }}">{{ card.cta.label }}</a></p>{% endif %}
+        {% if card.cta %}<span class="pcard__go">{{ card.cta.label }} &rarr;</span>{% endif %}
         <div class="pcard__spec">
           <p class="pcard__dd">{{ card.body }}</p>
           {% if card.for %}<p class="pcard__dd"><strong>For:</strong> {{ card.for }}</p>{% endif %}
           {% if card.proof %}<p class="pcard__dd pcard__proof">{{ card.proof }}</p>{% endif %}
         </div>
+        </a>
       </li>
       {% endfor %}
     </ul>

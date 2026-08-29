@@ -96,6 +96,8 @@ content:
               - { name: src, label: Image, type: image, options: { media: site } }
               - { name: alt, label: Alt text, type: string }
               - { name: caption, label: Caption, type: string }
+              - { name: source, label: "Source URL (e.g. the Instagram post)", type: string, pattern: '^$|^https?://' }
+          - { name: source, label: "Source URL (e.g. the Instagram post)", type: string, pattern: '^$|^https?://' }
           - name: cards
             label: Cards
             type: object
@@ -150,6 +152,7 @@ content:
           - { name: src, label: Image, type: image, options: { media: site } }
           - { name: alt, label: Alt text, type: string }
           - { name: caption, label: Caption, type: string }
+          - { name: source, label: "Source URL (e.g. the Instagram post)", type: string, pattern: '^$|^https?://' }
       - { name: why_music, label: Why music, type: text }
       - name: tracks
         label: Tracks
@@ -228,6 +231,7 @@ content:
           - { name: src, label: Image, type: image, options: { media: site } }
           - { name: alt, label: Alt text, type: string }
           - { name: caption, label: Caption, type: string }
+          - { name: source, label: "Source URL (e.g. the Instagram post)", type: string, pattern: '^$|^https?://' }
       - name: approach
         label: Our approach
         type: object
@@ -417,6 +421,7 @@ content:
           - { name: src, label: Image, type: image, options: { media: site } }
           - { name: alt, label: Alt text, type: string }
           - { name: caption, label: Caption, type: string }
+          - { name: source, label: "Source URL (e.g. the Instagram post)", type: string, pattern: '^$|^https?://' }
       - name: stats
         label: Numbers
         type: object

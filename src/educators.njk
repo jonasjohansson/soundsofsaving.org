@@ -18,6 +18,7 @@ ogType: website
   /forms POST) with the submission routed to a shared programs@ alias, never a
   personal inbox. See the comment block on the <form> below.
 #}
+{% from "partials/photos.njk" import row as photoRow, figure as photoFigure %}
 {% set e = pages.educators %}
 
 <style>
@@ -54,11 +55,18 @@ ogType: website
     list-style: none;
     padding: 0;
   }
+  .tracks__grid > li { display: flex; }
+  /* The whole card is the link, so there is no button inside it. */
   .track {
+    flex: 1;
     display: flex;
     flex-direction: column;
     padding: var(--space-lg);
+    color: inherit;
+    text-decoration: none;
+    transition: border-color var(--transition), background var(--transition);
   }
+  .track:hover, .track:focus-visible { border-color: var(--accent); background: var(--paper-3); }
   .track__eyebrow {
     color: var(--accent);
     margin: 0 0 var(--space-2xs);
@@ -73,7 +81,7 @@ ogType: website
   }
   .track__spec { margin: 0 0 var(--space-md); padding-left: var(--space-md); }
   .track__spec li { font-size: var(--fs-small); line-height: var(--lh-base); margin-bottom: var(--space-2xs); }
-  .track__cta--top { margin: 0 0 var(--space-md); }
+  .track__go { color: var(--accent); margin: 0 0 var(--space-md); }
 
   /* proof band */
   .proof-band {
@@ -153,13 +161,7 @@ ogType: website
   <h1>{{ e.heading }}</h1>
   {% if e.lead %}<p class="edu-lead">{{ e.lead }}</p>{% endif %}
   {% if e.ctas %}<p class="edu-ctas">{% for c in e.ctas %}<a class="btn {% if loop.first %}btn--primary{% else %}btn--ghost{% endif %}" href="{{ c.href }}">{{ c.label }}</a>{% endfor %}</p>{% endif %}
-  {% if e.photos %}
-  <ul class="photo-row" aria-label="Photos">
-    {% for ph in e.photos %}
-    <li><figure><span class="photo"><img src="{{ ph.src }}" alt="{{ ph.alt }}" decoding="async" /></span>{% if ph.caption %}<figcaption>{{ ph.caption }}</figcaption>{% endif %}</figure></li>
-    {% endfor %}
-  </ul>
-  {% endif %}
+  {{ photoRow(e.photos, true) }}
 
 
   {% if e.why_music %}<p class="edu-why">{{ e.why_music }}</p>{% endif %}
@@ -168,9 +170,10 @@ ogType: website
   <section class="tracks" aria-label="Programs for educators">
     <ul class="tracks__grid">
       {% for t in e.tracks %}
-      <li class="track">
+      <li>
+        <a class="track"{% if t.cta %} href="{{ t.cta.href }}"{% endif %}>
         <h2 class="track__title">{{ t.title }}</h2>
-        {% if t.cta %}<p class="track__cta track__cta--top"><a class="btn btn--primary" href="{{ t.cta.href }}">{{ t.cta.label }}</a></p>{% endif %}
+        {% if t.cta %}<span class="track__go">{{ t.cta.label }} &rarr;</span>{% endif %}
         {% if t.summary %}<p class="track__summary">{{ t.summary }}</p>{% endif %}
         {% if t.audience %}<p class="track__audience"><strong>For:</strong> {{ t.audience }}</p>{% endif %}
         {% if t.spec.length %}
@@ -179,6 +182,7 @@ ogType: website
           {% for s in t.spec %}<li>{{ s }}</li>{% endfor %}
         </ul>
         {% endif %}
+        </a>
       </li>
       {% endfor %}
     </ul>

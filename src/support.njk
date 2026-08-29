@@ -54,8 +54,8 @@ ogType: website
   }
   .way:hover, .way:focus-visible { border-color: var(--accent); background: var(--paper-3); }
   .way h2 { font-size: var(--fs-h3); margin: 0 0 var(--space-xs); }
-  .way p { font-size: var(--fs-small); line-height: var(--lh-base); margin: 0 0 var(--space-md); }
-  .way__go { margin-top: auto; color: var(--accent); }
+  .way p { font-size: var(--fs-small); line-height: var(--lh-base); margin: 0; }
+  .way__go { color: var(--accent); margin: 0 0 var(--space-md); }
   @media (max-width: 760px) { .ways { grid-template-columns: 1fr; } }
 </style>
 
@@ -81,10 +81,10 @@ ogType: website
   <ul class="ways" id="ways">
     {% for w in s.other_ways %}
     <li>
-      <a class="way" href="{{ w.cta.href }}"{% if "mailto:" not in w.cta.href %}{% endif %}>
+      <a class="way"{% if w.cta %} href="{{ w.cta.href }}"{% endif %}>
         <h2>{{ w.title }}</h2>
-        <p>{{ w.body }}</p>
         <span class="way__go">{{ w.cta.label }} &rarr;</span>
+        <p>{{ w.body }}</p>
       </a>
     </li>
     {% endfor %}

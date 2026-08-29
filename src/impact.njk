@@ -13,6 +13,7 @@ ogType: website
   hand-maintained on purpose so the page never claims more than the team has
   checked.
 #}
+{% from "partials/photos.njk" import row as photoRow, figure as photoFigure %}
 {% set i = pages.impact %}
 
 <style>
@@ -54,13 +55,7 @@ ogType: website
     {% endfor %}
   </ul>
 
-  {% if i.photos %}
-  <ul class="photo-row" aria-label="Photos">
-    {% for ph in i.photos %}
-    <li><figure><span class="photo"><img src="{{ ph.src }}" alt="{{ ph.alt }}" loading="lazy" decoding="async" /></span>{% if ph.caption %}<figcaption>{{ ph.caption }}</figcaption>{% endif %}</figure></li>
-    {% endfor %}
-  </ul>
-  {% endif %}
+  {{ photoRow(i.photos) }}
 
   {% if i.testimonial %}
   <figure class="impact-quote">
