@@ -303,9 +303,6 @@ main { min-height: 50vh; }
 .footer-crisis { margin: 0; max-width: 52ch; font-size: var(--fs-small); line-height: var(--lh-base); color: var(--text-muted); }
 .footer-crisis strong { color: var(--text); }
 .footer-crisis a { color: var(--accent); text-decoration: underline; }
-.footer-nav { display: flex; flex-wrap: wrap; gap: var(--space-2xs) var(--space-md); font-family: var(--font-display); font-size: var(--fs-small); }
-.footer-nav a { color: var(--text); }
-.footer-nav a:hover { color: var(--accent-deep); }
 .site-footer__inner {
   display: flex;
   flex-wrap: wrap;
