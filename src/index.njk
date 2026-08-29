@@ -10,7 +10,7 @@ eleventyComputed:
 {#
   Home — message-first. Section order:
   1. Hero — positioning line over a full-color artist still + three doors
-  2. What we do (Artists / Schools / Community) + proof strip
+  2. What we do (Artists / Schools / Community)
   3. Featured session (randomized client-side)
   4. Featured interview (randomized client-side)
   5. Where your gift goes — the closing ask, on the dark band
@@ -137,12 +137,8 @@ eleventyComputed:
   .home-what__title { font-family: var(--font-display); font-size: var(--fs-h3); line-height: var(--lh-tight); margin: var(--space-2xs) 0 var(--space-xs); }
   .home-what__copy { color: var(--text-muted); line-height: var(--lh-base); margin: 0; font-size: var(--fs-small); }
   .home-what .home-more { margin-top: var(--space-sm); }
-  @media (max-width: 760px) { .home-what, .home-proof { grid-template-columns: 1fr; } }
+  @media (max-width: 760px) { .home-what { grid-template-columns: 1fr; } }
 
-  /* — Proof strip ——————————————————————————————————————————————— */
-  .home-proof { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-xs) var(--space-lg); list-style: none; margin: var(--space-lg) 0 0; padding: var(--space-md) 0 0; border-top: 1px solid var(--line); }
-  .home-proof li { font-size: var(--fs-small); color: var(--text-muted); }
-  .home-proof li strong { color: var(--ink); font-weight: var(--fw-semibold); }
 
   /* — Where your gift goes: the one ask on the page, so it gets the dark
      band the site uses elsewhere for a change of register. ——————————— */
@@ -230,7 +226,7 @@ eleventyComputed:
       <ul class="home-doors" aria-label="Where do you want to go?">
         <li><a class="home-door" href="/sessions/"><span class="home-door__q">I love music</span><span class="home-door__a">Watch artists share the song that got them through &rarr;</span></a></li>
         <li><a class="home-door" href="/educators/"><span class="home-door__q">I work at a school</span><span class="home-door__a">Bring SoS HS, our five-session program, to your students &rarr;</span></a></li>
-        <li><a class="home-door" href="/resources/"><span class="home-door__q">I need help</span><span class="home-door__a">Resources and the 988 Lifeline, right now &rarr;</span></a></li>
+        <li><a class="home-door" href="/resources/"><span class="home-door__q">I need help</span><span class="home-door__a">Resources and the 988 Lifeline &rarr;</span></a></li>
       </ul>
     </div>
   </div>
@@ -263,10 +259,6 @@ eleventyComputed:
         <p class="home-what__copy">At tours and festivals we collect the songs that found people at the right time, with a clinician at the table and a QR code to local help.</p>
         <a class="home-more" href="/programs/#community">See the programs &rarr;</a>
       </li>
-    </ul>
-    <ul class="home-proof" aria-label="Partners">
-      <li>Produced with the <strong>988 Suicide &amp; Crisis Lifeline</strong></li>
-      <li>Evaluated with <strong>NYU's Ripollés Lab</strong></li>
     </ul>
   </div>
 </section>
