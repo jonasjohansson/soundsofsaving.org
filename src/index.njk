@@ -168,12 +168,26 @@ eleventyComputed:
   @media (max-width: 760px) { .home-gift { grid-template-columns: 1fr; } }
 
   /* — Featured session / interview ——————————————————————————————— */
-  /* Title first, then the film full width, then the links. Order keeps the
-     DOM (and the randomiser's selectors) unchanged. */
-  .featured { display: flex; flex-direction: column; }
-  .featured__meta  { order: 1; margin-bottom: var(--space-md); }
-  .featured__media { order: 2; }
-  .featured__links { order: 3; }
+  /* Text column left (title, then the links under it), image right. The media
+     spans both rows so the left column reads top-down against it. */
+  .featured {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+    grid-template-rows: auto 1fr;
+    grid-template-areas: "meta media" "links media";
+    gap: var(--space-md) var(--space-xl);
+    align-items: start;
+  }
+  .featured__meta  { grid-area: meta; }
+  .featured__media { grid-area: media; }
+  .featured__links { grid-area: links; align-self: start; }
+  @media (max-width: 720px) {
+    .featured {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto auto;
+      grid-template-areas: "meta" "media" "links";
+    }
+  }
   .featured__media {
     position: relative;
     display: block;
@@ -196,7 +210,7 @@ eleventyComputed:
   .featured__play svg { width: 64px; height: 64px; filter: drop-shadow(var(--shadow-play)); opacity: 0.95; }
   .featured__artist { font-family: var(--font-display); font-size: var(--fs-h2); line-height: var(--lh-tight); margin: 0; }
   .featured__song { font-size: var(--fs-lead); color: var(--text-muted); margin: var(--space-3xs) 0 0; }
-  .featured__links { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--space-xs) var(--space-lg); margin-top: var(--space-md); }
+  .featured__links { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-2xs); margin: 0; }
   .featured__links .home-more { margin-top: 0; }
 
 </style>
