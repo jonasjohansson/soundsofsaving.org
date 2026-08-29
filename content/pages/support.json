@@ -1,8 +1,7 @@
 {
   "title": "Support Sounds of Saving",
   "meta_description": "Every gift to Sounds of Saving funds one of three things: a classroom, a film, or a tour stop. Donate, partner with us, or volunteer.",
-  "heading": "Support Sounds of Saving",
-  "lead": "Sounds of Saving is a 501(c)(3) with a small team. Every dollar funds a classroom, a film, or a tour stop.",
+  "lead": "Sounds of Saving is a 501(c)(3) with a small team. Every dollar funds a classroom, a film, or a tour stop.\n\nDonations are one-time or monthly, and tax-deductible to the extent allowed by law.",
   "uses": [
     {
       "title": "A classroom",
@@ -24,8 +23,6 @@
     }
   ],
   "donate": {
-    "heading": "Donate",
-    "body": "One-time or monthly. Donations are tax-deductible to the extent allowed by law.",
     "cta_label": "Donate now"
   },
   "other_ways": [
@@ -41,7 +38,7 @@
       "title": "Bring SoS HS to a school",
       "body": "Counselors, SEL leads, and administrators can start a pilot conversation for the 2026 to 2027 school year.",
       "cta": {
-        "label": "Educators page",
+        "label": "See the Educators page",
         "href": "/educators/"
       }
     },

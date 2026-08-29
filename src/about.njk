@@ -16,9 +16,18 @@ ogType: website
 
 <style>
   .about-page { padding-block: var(--space-xl); }
-  .about-page h1 { font-size: var(--fs-title); line-height: var(--lh-tight); margin: 0 0 var(--space-md); }
   .about-page h2 { font-size: var(--fs-h2); line-height: var(--lh-tight); margin: 0 0 var(--space-sm); }
-  .about-intro { font-size: var(--fs-lead); line-height: var(--lh-base); max-width: var(--maxw-prose); margin: 0 0 var(--space-2xl); }
+  /* No page heading: the nav already said "About". The opening sentence is the
+     h1, and the intro runs as one block down to the social line. */
+  .about-lede { max-width: var(--maxw-prose); margin: 0 0 var(--space-2xl); display: grid; gap: var(--space-sm); }
+  .about-intro {
+    font-family: var(--font-body);
+    font-weight: var(--fw-regular);
+    font-size: var(--fs-lead);
+    line-height: var(--lh-base);
+    margin: 0;
+  }
+  .about-intro a { text-decoration: underline; }
   .about-section { margin-top: var(--space-2xl); padding-top: var(--space-xl); border-top: 1px solid var(--border); }
   .about-section p { line-height: var(--lh-base); max-width: var(--maxw-prose); }
   .about-section p + p { margin-top: var(--space-sm); }
@@ -72,8 +81,6 @@ ogType: website
   /* Accent links on the dark band use the brighter shade for legibility. */
   .research p a { color: var(--accent-bright); text-decoration: underline; }
   .research p a:hover { color: var(--paper); }
-  .about-follow { margin-top: var(--space-md); color: var(--text-muted); max-width: var(--maxw-prose); }
-  .about-follow a { text-decoration: underline; }
   .research .btn--stroke { border-color: var(--paper); color: var(--paper); }
   .research .btn--stroke:hover { background: var(--paper); color: var(--dusk); }
 
@@ -108,9 +115,12 @@ ogType: website
 </style>
 
 <div class="container about-page">
-  <h1>About us</h1>
-  {% if a.intro %}<p class="about-intro">{{ a.intro }}</p>{% endif %}
-  <p class="about-follow">Follow along on <a href="{{ settings.socials.instagram }}" target="_blank" rel="noopener">Instagram</a> and <a href="{{ settings.socials.facebook }}" target="_blank" rel="noopener">Facebook</a>, where we share new work and post regularly.</p>
+  <div class="about-lede">
+    {% for para in a.intro.split("\n\n") %}
+      {% if loop.first %}<h1 class="about-intro">{{ para }}</h1>{% else %}<p class="about-intro">{{ para }}</p>{% endif %}
+    {% endfor %}
+    <p class="about-intro">Follow along on <a href="{{ settings.socials.instagram }}" target="_blank" rel="noopener">Instagram</a> and <a href="{{ settings.socials.facebook }}" target="_blank" rel="noopener">Facebook</a>, where we share new work and post regularly.</p>
+  </div>
   {% if a.photos %}
   <ul class="photo-row" aria-label="Photos">
     {% for ph in a.photos %}

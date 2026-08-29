@@ -16,17 +16,15 @@ ogType: website
 
 <style>
   .programs-page { padding-block: var(--space-xl); }
-  .programs-page h1 {
-    font-size: var(--fs-title);
-    line-height: var(--lh-tight);
-    margin: 0 0 var(--space-md);
-  }
-  .programs-ctas { display: flex; flex-wrap: wrap; gap: var(--space-sm); margin: calc(-1 * var(--space-md)) 0 var(--space-xl); }
+  .programs-ctas { display: flex; flex-wrap: wrap; gap: var(--space-sm); margin: 0 0 var(--space-2xl); }
+  /* No page heading: the nav already said "Programs". */
+  .programs-lede { max-width: var(--maxw-prose); margin: 0 0 var(--space-lg); display: grid; gap: var(--space-sm); }
   .programs-lead {
+    font-family: var(--font-body);
+    font-weight: var(--fw-regular);
     font-size: var(--fs-lead);
     line-height: var(--lh-base);
-    max-width: var(--maxw-prose);
-    margin: 0 0 var(--space-xl);
+    margin: 0;
   }
 
   /* how-it-works loop */
@@ -134,8 +132,11 @@ ogType: website
 </style>
 
 <div class="container programs-page">
-  <h1>{{ p.heading or "Programs" }}</h1>
-  {% if p.lead %}<p class="programs-lead">{{ p.lead }}</p>{% endif %}
+  <div class="programs-lede">
+    {% for para in p.lead.split("\n\n") %}
+      {% if loop.first %}<h1 class="programs-lead">{{ para }}</h1>{% else %}<p class="programs-lead">{{ para }}</p>{% endif %}
+    {% endfor %}
+  </div>
 
   {% if p.ctas %}
   <p class="programs-ctas">{% for c in p.ctas %}<a class="btn {% if loop.first %}btn--primary{% else %}btn--ghost{% endif %}" href="{{ c.href }}">{{ c.label }}</a>{% endfor %}</p>
