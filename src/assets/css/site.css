@@ -69,7 +69,10 @@ body::after {
   background-image: var(--grain-overlay);
   background-size: var(--grain-tile);
 }
-@media (prefers-reduced-motion: reduce) { body::after { opacity: 0.06; } }
+@media (prefers-reduced-motion: reduce) {
+  body::after { opacity: 0.06; }
+  .site-header__logo { animation: none; }
+}
 
 h1, h2, h3, h4 {
   font-family: var(--font-display);
@@ -211,7 +214,9 @@ main { min-height: 50vh; }
   align-items: center;
   flex: 0 0 auto;
 }
+@keyframes sos-spin { to { transform: rotate(360deg); } }
 .site-header__logo {
+  animation: sos-spin 40s linear infinite;
   height: 44px;
   width: auto;
   /* Brand mark art is white; render it as ink on the light header. */

@@ -51,5 +51,42 @@
     "programs": "Music is already a mental health tool. Sounds of Saving helps young people use it intentionally, through artist storytelling, a high-school program, and mental-health resources at concerts, festivals, and campuses.",
     "about": "Sounds of Saving was founded by a music person and a clinician on one question: if music is so central to coping and to being young, why isn't it part of how we look after young people's mental health?",
     "resources": "Get help now. Mental health resources, crisis support, and local services curated by Sounds of Saving."
-  }
+  },
+  "hero_images": [
+    {
+      "src": "/assets/img/site/hero-backlit.jpg",
+      "alt": "A musician singing into a microphone, lit from behind",
+      "credit": ""
+    },
+    {
+      "src": "/assets/img/site/hero-green-duo.jpg",
+      "alt": "Two people in a green-lit corridor",
+      "credit": ""
+    },
+    {
+      "src": "/assets/img/site/hero-misty.jpg",
+      "alt": "Performers in a misty room",
+      "credit": ""
+    },
+    {
+      "src": "/assets/img/site/hero-corridor.jpg",
+      "alt": "A singer standing in a dim room under a single bulb",
+      "credit": ""
+    },
+    {
+      "src": "/assets/img/site/hero-living-room.jpg",
+      "alt": "A musician playing guitar in a living room, a dog walking past",
+      "credit": ""
+    },
+    {
+      "src": "/assets/img/site/hero-stage.jpg",
+      "alt": "An artist performing on stage beside a grand piano",
+      "credit": ""
+    },
+    {
+      "src": "/assets/img/site/hero-band.jpg",
+      "alt": "Young musicians playing keyboards under blue light",
+      "credit": ""
+    }
+  ]
 }

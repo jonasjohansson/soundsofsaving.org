@@ -530,6 +530,18 @@ content:
       - { name: meta_description, label: "SEO: default description", type: text, description: "Fallback search / link-preview text (~150 chars)." }
       - { name: hero_heading, label: Hero heading, type: string }
       - { name: hero_subheading, label: Hero subheading, type: text }
+      - name: hero_images
+        label: Hero images
+        type: object
+        list:
+          sortable: true
+          collapsible:
+            collapsed: true
+            summary: '{alt}'
+        fields:
+          - { name: src, label: Image, type: image, options: { media: site } }
+          - { name: alt, label: Alt text, type: string }
+          - { name: credit, label: "Credit (e.g. Pictured: name)", type: string }
       - { name: donate_url, label: Donate URL, type: string, pattern: '^$|^https?://' }
       - { name: donate_label, label: Donate button label, type: string }
       - { name: support_url, label: Support page URL, type: string }

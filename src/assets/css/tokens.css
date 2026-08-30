@@ -109,7 +109,7 @@
   --radius: 4px;
   --radius-pill: 4px;
   --header-h: 72px;
-  --transition: 150ms ease;
+  --transition: 0s;            /* hover states change instantly, by design */
   /* Hero scrim + the controls that sit on top of a photo. Channels are kept
      separate so alpha can vary per layer. */
   --scrim-rgb: 20 16 28;
