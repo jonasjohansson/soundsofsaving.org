@@ -81,7 +81,8 @@
         "alt": "Hi, How Are You Project",
         "src": "/assets/img/partners/hi-how-are-you-project.png",
         "w": 77,
-        "h": 83
+        "h": 83,
+        "url": "https://www.hihowareyou.org"
       },
       {
         "alt": "American Association of Suicidology",
@@ -94,13 +95,15 @@
         "alt": "The Loveland Foundation",
         "src": "/assets/img/partners/the-loveland-foundation.png",
         "w": 97,
-        "h": 81
+        "h": 81,
+        "url": "https://thelovelandfoundation.org"
       },
       {
         "alt": "William Alanson White Institute",
         "src": "/assets/img/partners/william-alanson-white-institute.png",
         "w": 102,
-        "h": 81
+        "h": 81,
+        "url": "https://wawhite.org"
       },
       {
         "alt": "National Sawdust",
@@ -113,7 +116,8 @@
         "alt": "Neal Casal Music Foundation",
         "src": "/assets/img/partners/neal-casal-music-foundation.png",
         "w": 101,
-        "h": 78
+        "h": 78,
+        "url": "https://nealcasalmusicfoundation.org"
       },
       {
         "alt": "Partner",
