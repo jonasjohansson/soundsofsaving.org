@@ -12,8 +12,12 @@
   /* Every SURFACE is the bone paper carrying a trace of the section's accent,
      so each part of the site reads as its own colour without leaving the
      palette. Kept low enough that --ink-faint still clears AA on the deepest.
-     --bg is deliberately not among them: the page ground stays the header's
-     white, and the colour lives on the surfaces that sit on it. */
+     --bg included: the page ground itself carries the faintest trace, which
+     is what makes a section feel like its own room rather than the same white
+     page with different labels on it. The header and footer bands stay
+     --paper-0 white, so there is a soft step where the tinted ground meets
+     them; that is the accepted cost of the tint. */
+  --bg:      color-mix(in srgb, var(--accent) 4%, var(--paper));
   --bg-alt:  color-mix(in srgb, var(--accent) 8%, var(--paper));
   --paper-3: color-mix(in srgb, var(--accent) 12%, var(--paper));
   --line:    color-mix(in srgb, var(--accent) 14%, #cfc8b8);
