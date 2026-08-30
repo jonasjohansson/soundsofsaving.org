@@ -61,25 +61,3 @@
    values beside it rather than the mono of a standalone link. */
 .session-meta .session-watch { color: var(--accent); text-decoration: none; }
 .session-meta .session-watch:hover { text-decoration: underline; }
-
-/* — prev / next — */
-.session-nav {
-  display: flex;
-  justify-content: space-between;
-  gap: var(--space-md);
-  margin-top: var(--space-xl);
-  padding-top: var(--space-md);
-  border-top: 1px solid var(--line);
-}
-.session-nav a {
-  display: grid;
-  gap: var(--space-3xs);
-  max-width: 45%;
-  text-decoration: none;
-}
-.session-nav a.next { text-align: right; margin-left: auto; }
-.session-nav .dir {
-  color: var(--ink-faint);
-}
-.session-nav .name { font-family: var(--font-display); font-weight: var(--fw-semibold); color: var(--text); }
-.session-nav a:hover .name { color: var(--accent); }

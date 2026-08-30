@@ -29,8 +29,20 @@ ogImageAlt: "A student performing at a school assembly under the Sounds of Savin
   {% if e.ctas %}<p class="edu-ctas">{% for c in e.ctas %}<a class="btn {% if loop.first %}btn--primary{% else %}btn--ghost{% endif %}" href="{{ c.href }}">{{ c.label }}</a>{% endfor %}</p>{% endif %}
   {% photoRow e.photos, true %}
 
-
   {% if e.why_music %}<p class="edu-why">{{ e.why_music }}</p>{% endif %}
+
+  {# — Lead magnet (white paper) ——————————————————————————————————— #}
+  {% if e.lead_magnet %}
+  <aside class="lead-magnet" aria-label="{{ e.lead_magnet.title }}">
+    <div class="lead-magnet__copy">
+      <h2>{{ e.lead_magnet.title }}</h2>
+      <p>{{ e.lead_magnet.body }}</p>
+    </div>
+    {% if e.lead_magnet.cta %}
+    <a class="btn btn--ghost" href="{{ e.lead_magnet.cta.href }}">{{ e.lead_magnet.cta.label }}</a>
+    {% endif %}
+  </aside>
+  {% endif %}
 
   {# — Two tracks + workshop band ————————————————————————————————— #}
   <section class="tracks" aria-label="Programs for educators">
@@ -75,19 +87,6 @@ ogImageAlt: "A student performing at a school assembly under the Sounds of Savin
     </ul>
     {% endif %}
   </section>
-  {% endif %}
-
-  {# — Lead magnet (white paper) ——————————————————————————————————— #}
-  {% if e.lead_magnet %}
-  <aside class="lead-magnet" aria-label="{{ e.lead_magnet.title }}">
-    <div class="lead-magnet__copy">
-      <h2>{{ e.lead_magnet.title }}</h2>
-      <p>{{ e.lead_magnet.body }}</p>
-    </div>
-    {% if e.lead_magnet.cta %}
-    <a class="btn btn--ghost" href="{{ e.lead_magnet.cta.href }}">{{ e.lead_magnet.cta.label }}</a>
-    {% endif %}
-  </aside>
   {% endif %}
 
   {# — Intake form (STUB) ————————————————————————————————————————— #}
