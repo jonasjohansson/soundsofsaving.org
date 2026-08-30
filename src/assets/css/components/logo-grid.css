@@ -7,9 +7,11 @@
  *  trimmed of their surrounding whitespace at build time, and every mark then
  *  gets an identical cell to sit in, contained rather than cropped.
  *
- *  The hairlines come from each cell's own right/bottom border rather than a
- *  1px grid gap over a coloured container — with a gap, a final row that
- *  doesn't fill leaves the container colour showing as a stray block.
+ *  No rules between the cells. Eighteen marks in a four-column grid means the
+ *  last row is always partial, and a ruled grid draws attention to exactly
+ *  that — an open-ended table missing its last two cells. Unruled, the marks
+ *  read as a wall and the short row is unremarkable. The cells stay equal all
+ *  the same, so the marks still align on an invisible grid.
  *
  *  Marks are multiply-blended so the white boxes baked into the JPEG sources
  *  disappear into the ground instead of sitting on it as pale rectangles.
@@ -17,10 +19,9 @@
 .logo-grid {
   display: grid;
   grid-template-columns: repeat(var(--logo-cols, 4), 1fr);
-  border-top: 1px solid var(--line);
-  border-left: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
+  /* With no rules to separate them, the marks need air of their own or the
+     wide ones read as one continuous lockup. */
+  gap: var(--space-sm);
   list-style: none;
   margin: 0;
   padding: 0;
@@ -29,8 +30,6 @@
   display: grid;
   aspect-ratio: 3 / 2;
   min-width: 0;
-  border-right: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
 }
 /* Every cell holds exactly one child — an <a> when the partner has a URL, a
    <span> when it doesn't — so both centre their mark the same way. An <img>
@@ -55,7 +54,9 @@
   min-width: 0;
   min-height: 0;
 }
-.logo-grid > li > a { transition: background-color var(--transition); }
+/* The hover ground is the only box the grid draws, so it needs its own corner
+   radius now that no cell border defines one. */
+.logo-grid > li > a { border-radius: var(--radius); transition: background-color var(--transition); }
 .logo-grid > li > a:hover,
 .logo-grid > li > a:focus-visible { background-color: var(--paper-3); }
 /* Each mark carries width/height attributes computed at build time so that
@@ -64,7 +65,7 @@
    attributes are a ceiling, not a floor: below about a 228px cell the tallest
    mark plus its padding no longer fits the 3:2 box, and without the min-height
    zeroes here that mark would push its whole ROW taller than the others and
-   the grid would stop lining up. */
+   the marks would stop lining up across rows. */
 .logo-grid img {
   max-width: 100%;
   max-height: 100%;

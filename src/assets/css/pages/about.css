@@ -128,12 +128,14 @@
 }
 .roster__name--btn:hover { color: var(--accent-deep); text-decoration: underline; text-underline-offset: 3px; }
 .roster__name--btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-.roster__name--btn:hover { color: var(--accent-deep); }
-.roster__name--btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
 /* The bio itself. In the top layer, so nothing on the page can clip it and
    the columns underneath never reflow. */
 .roster__bio {
+  /* The popover is in the top layer but still INHERITS from its DOM parent —
+     and that parent is a nowrap .roster__item, which would set the whole bio
+     as one unbreakable line running off the side of the panel. */
+  white-space: normal;
   width: min(46ch, calc(100vw - 2 * var(--gutter)));
   max-height: 80vh;
   overflow-y: auto;
