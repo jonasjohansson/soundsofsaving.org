@@ -122,3 +122,9 @@
 @media (max-width: 600px) {
   .intake-form { grid-template-columns: 1fr; }
 }
+
+/* Four photos, so the row completes on both shapes: 4 across on desktop and a
+   clean 2x2 once the shared breakpoint drops it to two columns. At the default
+   three the fourth would orphan on desktop; at three photos the third orphaned
+   on mobile. */
+.edu-page .photo-row { --cols: 4; }

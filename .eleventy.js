@@ -265,15 +265,19 @@ module.exports = function (eleventyConfig) {
   // "Read the story" -> "Read the <span class=nowrap>story &rarr;</span>", so
   // the arrow can never be orphaned onto a line of its own. The last word and
   // the arrow wrap together or not at all.
-  eleventyConfig.addFilter("arrow", (text) => {
+  const glyphed = (glyph) => (text) => {
     const t = String(text == null ? "" : text).trim();
     const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-    if (!t) return "&rarr;";
+    if (!t) return glyph;
     const m = t.match(/^([\s\S]*?)(\S+)$/);
     const head = m ? esc(m[1]) : "";
     const last = m ? esc(m[2]) : esc(t);
-    return `${head}<span class="nowrap">${last} &rarr;</span>`;
-  });
+    return `${head}<span class="nowrap">${last} ${glyph}</span>`;
+  };
+  eleventyConfig.addFilter("arrow", glyphed("&rarr;"));
+  // Same, with the north-east arrow that conventionally means "leaves this
+  // site". Used where a link opens somewhere that is not ours.
+  eleventyConfig.addFilter("arrowOut", glyphed("&nearr;"));
 
   // --- Page CSS ---------------------------------------------------------
   // Each template's styles live in src/assets/css/pages/<name>.css and are
