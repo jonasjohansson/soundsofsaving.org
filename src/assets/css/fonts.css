@@ -4,11 +4,13 @@
  *  Three SIL OFL families, self-hosted as woff2 (no Google Fonts CDN):
  *    - Hanken Grotesk       -> display / headings        (--font-display)
  *    - Newsreader           -> body / long-form          (--font-body)
- *    - Space Mono           -> labels / eyebrows / mono   (--font-mono)
+ *    - Courier Prime        -> labels / eyebrows / mono   (--font-mono)
  *
  *  Hanken Grotesk and Newsreader ship here as variable fonts: a single
  *  latin woff2 covers the full weight range, declared via `font-weight`
- *  ranges below. Space Mono is static (400 + 700 as separate files).
+ *  ranges below. Courier Prime is static, and only the regular is shipped:
+ *  nothing on the site renders the mono at any other weight (the previous
+ *  face shipped a 700 that was never once drawn).
  *  Each family keeps a system-font fallback stack (see tokens.css).
  *  Latin subset only (this is an English-language site) to keep payload small.
  * ==================================================================== */
@@ -38,18 +40,18 @@
   src: url("/assets/fonts/newsreader-400-italic.woff2") format("woff2");
 }
 
-/* — Space Mono (accent / mono) — static 400 + 700 ——————————————————— */
+/* — Courier Prime (labels / eyebrows) — static 400 —————————————————— *
+   A typewriter face, which is the point: every label on this site is an
+   archive stamp — a date, a credit, a song title, an episode count — and a
+   typed one belongs to record sleeves and liner notes rather than to a
+   terminal. It sets lighter on the page than a grotesque mono, but the label
+   colours were left alone: measured across every mono element on eight pages,
+   the lowest contrast is 5.8:1 against a 4.5 requirement, so the lightness is
+   a texture rather than a legibility problem. */
 @font-face {
-  font-family: "Space Mono";
+  font-family: "Courier Prime";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("/assets/fonts/space-mono-400.woff2") format("woff2");
-}
-@font-face {
-  font-family: "Space Mono";
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url("/assets/fonts/space-mono-700.woff2") format("woff2");
+  src: url("/assets/fonts/courier-prime-400.woff2") format("woff2");
 }

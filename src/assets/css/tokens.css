@@ -71,7 +71,7 @@
   /* — Typography ————————————————————————————————————————————————— */
   --font-display: "Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
   --font-body:    "Newsreader", Georgia, "Times New Roman", serif;
-  --font-mono:    "Space Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --font-mono:    "Courier Prime", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
 
   /* legacy alias — old --font-body name now points at the body serif */
 
