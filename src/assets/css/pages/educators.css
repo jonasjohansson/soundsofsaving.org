@@ -11,8 +11,10 @@
 .edu-lead strong { font-weight: var(--fw-semibold); }
 
 .edu-ctas { display: flex; flex-wrap: wrap; gap: var(--space-sm); margin: calc(-1 * var(--space-sm)) 0 var(--space-lg); }
+/* Same treatment as .pullquote on About: indented, not ruled. */
 .edu-pullquote {
   margin: var(--space-xl) 0;
+  padding-left: var(--space-lg);
   max-width: var(--maxw-prose);
 }
 .edu-pullquote blockquote { font-family: var(--font-body); font-style: italic; font-size: var(--fs-lead); line-height: var(--lh-base); margin: 0 0 var(--space-xs); max-width: none; }

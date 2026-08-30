@@ -24,8 +24,14 @@
    beaten — otherwise every footnote after the first keeps a 16px top margin. */
 .about-sources p,
 .about-sources p + p { margin: 0; }
+/* Indented rather than ruled. The quote sets in italic at lead size, which is
+   not by itself enough to separate it from the prose above — stepping it in
+   off the measure is. An indent does the same job the left rule used to do
+   without drawing a line, and matches the article blockquotes, which already
+   step in by this amount. */
 .pullquote {
   margin: var(--space-lg) 0;
+  padding-left: var(--space-lg);
   max-width: var(--maxw-prose);
 }
 .pullquote blockquote { font-size: var(--fs-lead); line-height: var(--lh-base); margin: 0 0 var(--space-xs); font-style: italic; }
