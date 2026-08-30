@@ -120,23 +120,25 @@ ogImageAlt: "A still from a filmed session, captioned with the 988 call, text an
        weight saving: full HTML for 491 cards was ~930 KB. #}
     <ul class="resource-list" id="finder-results" data-batch="{{ initialCount }}" data-src="/assets/data/resources.json">
       {% for r in resources.all.slice(0, initialCount) %}
-      <li class="resource-card">
-        <p class="resource-card__name">
-          {% if r.url %}<a href="{{ r.url }}" target="_blank" rel="noopener">{{ r.name }}</a>{% else %}{{ r.name }}{% endif %}
-        </p>
-        {% if r.national %}<span class="resource-card__badge">National</span>{% endif %}
-        {% if r.description %}<p>{{ r.description }}</p>{% endif %}
-        {% if r.categories | length %}
-        <div class="resource-card__tags" aria-label="Topics">
-          {% for c in r.categories %}{% set cat = (resources.categories | selectattr('slug', 'equalto', c) | first) %}<span class="tag">{{ cat.label if cat else c }}</span>{% endfor %}
-        </div>
-        {% endif %}
-        {% if r.phone or r.url %}
-        <div class="resource-card__meta">
-          {% if r.phone %}<span class="resource-card__phone">Call <a href="tel:{{ r.phone | replace(' ', '') | replace('(', '') | replace(')', '') | replace('-', '') | replace('.', '') }}">{{ r.phone }}</a></span>{% endif %}
-          {% if r.url %}<span class="resource-card__site"><a href="{{ r.url }}" target="_blank" rel="noopener">Visit site</a></span>{% endif %}
-        </div>
-        {% endif %}
+      {# The whole card is the link out. We deliberately do NOT print the phone
+         number when the organization has a site: numbers go stale in a static
+         list, and theirs is the copy that stays current. The six entries with
+         no site at all keep their number, since it is the only way to reach
+         them. #}
+      <li>
+        {% if r.url %}<a class="resource-card" href="{{ r.url }}" target="_blank" rel="noopener">{% else %}<div class="resource-card">{% endif %}
+          <p class="resource-card__name">{{ r.name }}</p>
+          {% if r.national %}<span class="resource-card__badge">National</span>{% endif %}
+          {% if r.description %}<p>{{ r.description }}</p>{% endif %}
+          {% if r.categories | length %}
+          <div class="resource-card__tags" aria-label="Topics">
+            {% for c in r.categories %}{% set cat = (resources.categories | selectattr('slug', 'equalto', c) | first) %}<span class="tag">{{ cat.label if cat else c }}</span>{% endfor %}
+          </div>
+          {% endif %}
+          {# No "visit site" line: the card IS the link. Only the handful with
+             no website at all show a number, because that is all they have. #}
+          {% if not r.url and r.phone %}<span class="resource-card__go">Call <a href="tel:{{ r.phone | replace(' ', '') | replace('(', '') | replace(')', '') | replace('-', '') | replace('.', '') }}">{{ r.phone }}</a></span>{% endif %}
+        {% if r.url %}</a>{% else %}</div>{% endif %}
       </li>
       {% endfor %}
     </ul>

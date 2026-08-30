@@ -1,7 +1,7 @@
 {
   "title": "About Us",
   "meta_description": "Sounds of Saving was founded by a music person and a clinician on one question: if music is so central to coping and to being young, why isn't it part of how we look after young people's mental health?",
-  "intro": "Sounds of Saving is a youth mental health nonprofit rooted in music culture.\n\nWe started with a question: if music is so central to coping and to being young, why isn't it part of how we look after young people's mental health? We help young people use it intentionally, through films with the artists they trust, a five-session program in high schools, and mental-health resources at concerts, festivals, and campuses.",
+  "intro": "<strong>Sounds of Saving</strong> is a youth mental health nonprofit rooted in music culture.\n\nWe started with a question: if music is so central to coping and to being young, why isn't it part of how we look after young people's mental health? We help young people use it intentionally, through films with the artists they trust, a five-session program in high schools, and mental-health resources at concerts, festivals, and campuses.",
   "photos": [
     {
       "src": "/assets/img/ig/panel-talk.jpg",
@@ -10,10 +10,28 @@
       "source": "https://www.instagram.com/p/DVt9JHuiVQL/"
     },
     {
+      "src": "/assets/img/ig/couch-polaroid.jpg",
+      "alt": "A polaroid of two people sitting together on a sofa, resting on a wooden table",
+      "caption": "Between takes",
+      "source": "https://www.instagram.com/p/C3oA2rWOUou/"
+    },
+    {
       "src": "/assets/img/ig/two-cards.jpg",
       "alt": "Two people holding up completed Songs That Found Me cards",
       "caption": "Cards filled in at a show",
       "source": "https://www.instagram.com/p/C_doWOVuvNi/"
+    },
+    {
+      "src": "/assets/img/ig/card-handwritten.jpg",
+      "alt": "A Songs That Found Me card filled in by hand under the heading Your story",
+      "caption": "Someone's own handwriting",
+      "source": "https://www.instagram.com/p/CxDdoUpOMyE/"
+    },
+    {
+      "src": "/assets/img/ig/string-lights.jpg",
+      "alt": "A young man smiling in a room strung with warm lights",
+      "caption": "At a session",
+      "source": "https://www.instagram.com/p/DVeKw35CRO4/"
     },
     {
       "src": "/assets/img/ig/govball-trio.jpg",

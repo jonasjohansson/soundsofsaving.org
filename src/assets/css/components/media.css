@@ -42,3 +42,5 @@
 /* Films and session stills are 16:9; story images are a shade squarer. */
 .featured__media, .session-card .media { --ratio: 16 / 9; }
 .story-card__media { --ratio: 16 / 10; }
+/* These two carry Instagram photography, which is square or taller. */
+.pgroup__photo .photo, .use__media { --ratio: 1 / 1; }

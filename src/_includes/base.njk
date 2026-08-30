@@ -93,6 +93,7 @@
 
       <p class="footer-fine">
         &copy; 2026 {{ settings.copyright }}
+        {% if settings.press_kit_url %}<a href="{{ settings.press_kit_url }}" target="_blank" rel="noopener">Press kit</a>{% endif %}
         {% if settings.privacy_url %}<a href="{{ settings.privacy_url }}">Privacy Policy</a>{% endif %}
       </p>
 

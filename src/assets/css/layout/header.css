@@ -20,7 +20,8 @@
 }
 @keyframes sos-spin { to { transform: rotate(360deg); } }
 .site-header__logo {
-  animation: sos-spin 40s linear infinite;
+  /* Keep in step with SPIN_PERIOD in assets/js/site.js. */
+  animation: sos-spin 90s linear infinite;
   height: 44px;
   width: auto;
   /* Brand mark art is white; render it as ink on the light header. */

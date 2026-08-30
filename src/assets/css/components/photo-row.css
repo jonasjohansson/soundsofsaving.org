@@ -2,6 +2,10 @@
  *  Real photography between copy blocks (CMS field: `photos`). When a photo
  *  came from an Instagram post its `source` is set, and both the image and
  *  the caption link back to it.
+ *
+ *  The default well is SQUARE, because that is what the source frames are:
+ *  Instagram posts are square or taller, and cutting them to a 3:2 landscape
+ *  throws away most of the picture.
  * ————————————————————————————————————————————————————————————————— */
 .photo-row {
   display: grid;
@@ -14,7 +18,7 @@
 .photo-row figure { margin: 0; }
 .photo-row .photo {
   display: block;
-  aspect-ratio: var(--ratio, 3 / 2);
+  aspect-ratio: var(--ratio, 1 / 1);
   overflow: hidden;
   border-radius: var(--radius);
   background: var(--bg-alt);

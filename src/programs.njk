@@ -21,7 +21,7 @@ ogImageAlt: "Completed Songs That Found Me cards pinned to a wall"
 <div class="container programs-page">
   <div class="programs-lede">
     {% for para in p.lead.split("\n\n") %}
-      {% if loop.first %}<h1 class="programs-lead">{{ para }}</h1>{% else %}<p class="programs-lead">{{ para }}</p>{% endif %}
+      {% if loop.first %}<h1 class="programs-lead">{{ para | safe }}</h1>{% else %}<p class="programs-lead">{{ para | safe }}</p>{% endif %}
     {% endfor %}
   </div>
 

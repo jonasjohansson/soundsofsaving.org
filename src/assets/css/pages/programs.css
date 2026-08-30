@@ -19,7 +19,9 @@
 .pgroup__top {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-xl);
+  /* Same gutter as .pcards below, so the photo's left edge lands on the same
+     line as the second card when a group has two of them. */
+  gap: var(--space-lg);
   align-items: start;
   margin-bottom: var(--space-lg);
 }

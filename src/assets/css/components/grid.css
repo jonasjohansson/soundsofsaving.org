@@ -4,7 +4,7 @@
  *  so a page module sets --grid-min / --grid-gap and inherits the rest.
  * ————————————————————————————————————————————————————————————————— */
 .resource-list, .learn-grid, .sessions-grid, .artists-list, .principles,
-.story-grid, .people-grid, .roster, .tracks__grid, .pcards,
+.story-grid, .people-grid, .tracks__grid, .pcards,
 .proof-stats, .impact-stats {
   display: grid;
   /* auto-FIT, not auto-fill: when a group has fewer cards than the row has

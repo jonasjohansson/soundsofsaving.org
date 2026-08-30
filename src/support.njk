@@ -22,7 +22,7 @@ ogImageAlt: "Two people embracing in an auditorium"
 <div class="container support-page">
   <div class="support-lede">
     {% for para in s.lead.split("\n\n") %}
-      {% if loop.first %}<h1 class="support-lead">{{ para }}</h1>{% else %}<p class="support-lead">{{ para }}</p>{% endif %}
+      {% if loop.first %}<h1 class="support-lead">{{ para | safe }}</h1>{% else %}<p class="support-lead">{{ para | safe }}</p>{% endif %}
     {% endfor %}
   </div>
   <p class="support-ctas"><a class="btn btn--primary" href="{{ settings.donate_url }}" target="_blank" rel="noopener">{{ s.donate.cta_label }}</a><a class="btn btn--ghost" href="#ways">Other ways to help</a></p>

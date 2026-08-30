@@ -73,14 +73,23 @@
 .research .btn--stroke:hover { background: var(--paper); color: var(--dusk); }
 
 /* Advisory roster — a consistent name index (no toggles). */
+/* Columns, not a grid. Advisory bios run from eight characters to fourteen
+   hundred, and in a grid every row would be as tall as its longest bio,
+   leaving holes beside the short ones. Columns let each entry take exactly
+   the height it needs and flow on. */
 .roster {
-  --grid-min: 280px;
-  gap: var(--space-md) var(--space-lg);
+  column-count: 3;
+  column-gap: var(--space-lg);
   margin-top: var(--space-lg);
   list-style: none;
   padding: 0;
 }
+@media (max-width: 900px) { .roster { column-count: 2; } }
+@media (max-width: 600px) { .roster { column-count: 1; } }
 .roster__item {
+  /* Never let an entry split across a column break. */
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
   padding: var(--space-sm) 0;
   border-bottom: 1px solid var(--line);
 }
@@ -90,15 +99,10 @@
   .roster__item { padding: var(--space-2xs) 0; }
 }
 .roster__name { display: block; font-family: var(--font-display); font-weight: var(--fw-semibold); color: var(--ink); }
-/* Clamped in CSS rather than truncated in the template: the cut then lands
-   on a line boundary at whatever width the column happens to be, instead of
-   at a fixed 96 characters that stopped some bios mid-second-line. */
+/* Bios run in full — no clamp, no truncation. Rows are therefore as tall as
+   their longest bio, which is the trade for not cutting anyone off. */
 .roster__role {
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  line-clamp: 4;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  display: block;
   margin-top: var(--space-3xs);
   font-size: var(--fs-small);
   line-height: var(--lh-base);

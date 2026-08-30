@@ -11,7 +11,7 @@
   (function spinContinuity() {
     var logo = document.querySelector(".site-header__logo");
     if (!logo) return;
-    var period = 40000;
+    var period = 90000;   // must match the sos-spin duration in layout/header.css
     var start;
     try { start = parseInt(sessionStorage.getItem("sos-spin-start"), 10); } catch (e) {}
     if (!start || isNaN(start)) {

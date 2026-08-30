@@ -135,12 +135,20 @@
 
 /* ---- Cards ---- */
 .resource-list { --grid-min: 280px; --grid-gap: var(--space-md); }
+/* The whole card is the link (or a plain div for the few with no site). */
 .resource-card {
   padding: var(--space-md);
   display: flex;
   flex-direction: column;
   gap: var(--space-2xs);
+  color: inherit;
+  text-decoration: none;
 }
+a.resource-card:hover, a.resource-card:focus-visible {
+  border-color: var(--accent);
+  background-color: var(--paper-3);
+}
+a.resource-card:hover .resource-card__name { color: var(--accent-deep); }
 .resource-card[hidden] { display: none; }
 .resource-card__name {
   font-family: var(--font-display);
@@ -148,19 +156,10 @@
   line-height: var(--lh-tight);
   margin: 0;
 }
-.resource-card__name a { color: var(--text); }
-.resource-card__name a:hover { color: var(--accent-deep); }
 .resource-card__badge {
   color: var(--accent-deep);
 }
 .resource-card p { font-size: var(--fs-small); color: var(--text-muted); line-height: var(--lh-base); margin: 0; }
-.resource-card > p:not(.resource-card__name) {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
 .resource-card__tags { display: flex; flex-wrap: wrap; gap: var(--space-3xs); margin-top: var(--space-2xs); }
 .resource-card__tags .tag {
   color: var(--accent-deep);
@@ -169,15 +168,14 @@
   padding: 2px var(--space-2xs);
   font-size: var(--fs-micro);
 }
-.resource-card__meta {
+.resource-card__go {
   font-size: var(--fs-small);
   margin-top: auto;
   padding-top: var(--space-xs);
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-sm);
+  color: var(--accent-deep);
+  font-weight: var(--fw-medium);
 }
-.resource-card__meta a { color: var(--accent-deep); font-weight: var(--fw-medium); text-decoration: underline; text-underline-offset: 2px; }
+.resource-card__go a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
 
 .finder__empty {
   text-align: center;

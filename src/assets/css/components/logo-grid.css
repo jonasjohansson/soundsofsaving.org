@@ -27,14 +27,22 @@
 }
 .logo-grid > li {
   display: grid;
-  place-items: center;
   aspect-ratio: 3 / 2;
-  padding: var(--space-md);
   min-width: 0;
   border-right: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
-.logo-grid > li > a { display: grid; place-items: center; width: 100%; height: 100%; }
+/* The padding lives on the child, not the cell, so a linked mark's hit area
+   is the whole cell rather than just the artwork in the middle of it. */
+.logo-grid > li > * {
+  display: grid;
+  place-items: center;
+  padding: var(--space-md);
+  min-width: 0;
+}
+.logo-grid > li > a { transition: background-color var(--transition); }
+.logo-grid > li > a:hover,
+.logo-grid > li > a:focus-visible { background-color: var(--paper-3); }
 /* Each mark carries width/height attributes computed at build time so that
    every logo covers roughly the SAME AREA, not the same height — a wide
    wordmark set to a square emblem's height reads three times larger. */
@@ -48,6 +56,8 @@
 }
 .logo-grid a:hover img,
 .logo-grid a:focus-visible img { filter: grayscale(0); opacity: 1; }
+/* An unlinked mark still needs the cell padding but no hover affordance. */
+.logo-grid > li > img { padding: var(--space-md); }
 
 @media (max-width: 860px) { .logo-grid { --logo-cols: 3; } }
 @media (max-width: 520px) { .logo-grid { --logo-cols: 2; } }

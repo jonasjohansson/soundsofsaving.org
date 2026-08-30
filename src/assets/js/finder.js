@@ -57,16 +57,19 @@
     });
   }
 
+  /* The whole card is the link out. We deliberately do NOT print the phone
+     number when the organization has a site: numbers go stale in a static
+     list, and theirs is the copy that stays current. The handful with no site
+     keep their number, since it is the only way to reach them. */
   function cardHTML(r) {
-    var html = '<li class="resource-card">';
     var isNational = (" " + r.l + " ").indexOf(" national ") !== -1;
+    var html = "<li>";
 
-    html += '<p class="resource-card__name">';
     html += r.u
-      ? '<a href="' + esc(r.u) + '" target="_blank" rel="noopener">' + esc(r.n) + "</a>"
-      : esc(r.n);
-    html += "</p>";
+      ? '<a class="resource-card" href="' + esc(r.u) + '" target="_blank" rel="noopener">'
+      : '<div class="resource-card">';
 
+    html += '<p class="resource-card__name">' + esc(r.n) + "</p>";
     if (isNational) html += '<span class="resource-card__badge">National</span>';
     if (r.d) html += "<p>" + esc(r.d) + "</p>";
 
@@ -79,13 +82,13 @@
       html += "</div>";
     }
 
-    if (r.p || r.u) {
-      html += '<div class="resource-card__meta">';
-      if (r.p) html += '<span class="resource-card__phone">Call <a href="tel:' + esc(tel(r.p)) + '">' + esc(r.p) + "</a></span>";
-      if (r.u) html += '<span class="resource-card__site"><a href="' + esc(r.u) + '" target="_blank" rel="noopener">Visit site</a></span>';
-      html += "</div>";
+    // No "visit site" line: the card IS the link. Only the handful with no
+    // website at all show a number, because that is all they have.
+    if (!r.u && r.p) {
+      html += '<span class="resource-card__go">Call <a href="tel:' + esc(tel(r.p)) + '">' + esc(r.p) + "</a></span>";
     }
 
+    html += r.u ? "</a>" : "</div>";
     return html + "</li>";
   }
 
