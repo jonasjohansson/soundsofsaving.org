@@ -132,11 +132,24 @@ ogImageAlt: "Four young people laughing together in a school gym"
   <section class="about-section" aria-label="{{ a.advisory_board.heading }}">
     <h2>{{ a.advisory_board.heading }}</h2>
     {% if a.advisory_board.intro %}<p>{{ a.advisory_board.intro }}</p>{% endif %}
+    {# The roster is a name index; the bios open in a popover so thirty-five
+       of them don't turn the page into a wall of text. Native [popover], so
+       Esc and a click outside both close it with no script. A browser without
+       popover support ignores the attribute and renders the bio inline —
+       which is exactly the list as it read before. #}
     <ul class="roster">
       {% for m in a.advisory_board.members %}
       <li class="roster__item">
+        {% if m.bio %}
+        <button class="roster__name roster__name--btn" type="button" popovertarget="adv-{{ loop.index }}">{{ m.name }}</button>
+        <div class="roster__bio" id="adv-{{ loop.index }}" popover>
+          <p class="roster__bio-name">{{ m.name }}</p>
+          <p class="roster__bio-text">{{ m.bio }}</p>
+          <button class="roster__close" type="button" popovertarget="adv-{{ loop.index }}" popovertargetaction="hide" aria-label="Close">Close</button>
+        </div>
+        {% else %}
         <span class="roster__name">{{ m.name }}</span>
-        {% if m.bio %}<span class="roster__role">{{ m.bio }}</span>{% endif %}
+        {% endif %}
       </li>
       {% endfor %}
     </ul>

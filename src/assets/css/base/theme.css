@@ -9,10 +9,11 @@
   --accent-deep:   color-mix(in srgb, var(--accent), #000 24%);
   --accent-bright: color-mix(in srgb, var(--accent), #fff 32%);
 
-  /* Every ground is the bone paper carrying a trace of the section's accent, so
-     each part of the site reads as its own colour without leaving the palette.
-     Kept low enough that --ink-faint still clears AA on the deepest of them. */
-  --bg:      color-mix(in srgb, var(--accent) 4%, var(--paper));
+  /* Every SURFACE is the bone paper carrying a trace of the section's accent,
+     so each part of the site reads as its own colour without leaving the
+     palette. Kept low enough that --ink-faint still clears AA on the deepest.
+     --bg is deliberately not among them: the page ground stays the header's
+     white, and the colour lives on the surfaces that sit on it. */
   --bg-alt:  color-mix(in srgb, var(--accent) 8%, var(--paper));
   --paper-3: color-mix(in srgb, var(--accent) 12%, var(--paper));
   --line:    color-mix(in srgb, var(--accent) 14%, #cfc8b8);

@@ -91,6 +91,15 @@ content:
       - { name: title, label: Title, type: string }
       - { name: meta_description, label: "SEO description", type: text }
       - { name: lead, label: Lead paragraph, type: text, description: "Opens the page. Basic HTML allowed, e.g. <strong>SoS High School</strong>." }
+      - name: ctas
+        label: Buttons
+        type: object
+        list:
+          sortable: true
+          collapsible: { collapsed: true, summary: '{label}' }
+        fields:
+          - { name: label, label: Label, type: string }
+          - { name: href, label: Link, type: string }
       - name: groups
         label: Program groups
         type: object
@@ -112,7 +121,6 @@ content:
               - { name: alt, label: Alt text, type: string }
               - { name: caption, label: Caption, type: string }
               - { name: source, label: "Source URL (e.g. the Instagram post)", type: string, pattern: '^$|^https?://' }
-          - { name: source, label: "Source URL (e.g. the Instagram post)", type: string, pattern: '^$|^https?://' }
           - name: cards
             label: Cards
             type: object
@@ -154,6 +162,15 @@ content:
       - { name: title, label: Title, type: string }
       - { name: meta_description, label: "SEO description", type: text }
       - { name: lead, label: Lead paragraph, type: text }
+      - name: ctas
+        label: Buttons
+        type: object
+        list:
+          sortable: true
+          collapsible: { collapsed: true, summary: '{label}' }
+        fields:
+          - { name: label, label: Label, type: string }
+          - { name: href, label: Link, type: string }
       - name: photos
         label: Photos
         type: object
@@ -192,6 +209,7 @@ content:
         label: Proof band
         type: object
         fields:
+          - { name: eyebrow, label: Eyebrow, type: string }
           - { name: heading, label: Heading, type: string }
           - name: stats
             label: Stats
@@ -210,6 +228,7 @@ content:
         label: Lead magnet
         type: object
         fields:
+          - { name: eyebrow, label: Eyebrow, type: string }
           - { name: title, label: Title, type: string }
           - { name: body, label: Body, type: text }
           - name: cta
@@ -222,6 +241,7 @@ content:
         label: Intake form
         type: object
         fields:
+          - { name: eyebrow, label: Eyebrow, type: string }
           - { name: heading, label: Heading, type: string }
           - { name: body, label: Body, type: text }
 
@@ -326,6 +346,8 @@ content:
               - { name: role, label: Role, type: string }
               - { name: email, label: Email, type: string, pattern: '^$|^[^@\s]+@[^@\s]+\.[^@\s]+$' }
               - { name: bio, label: Bio, type: text }
+              - { name: photo, label: Photo, type: image, options: { media: site } }
+              - { name: photo_alt, label: Photo alt text, type: string }
       - name: board_of_directors
         label: Board of Directors
         type: object
@@ -384,6 +406,12 @@ content:
             fields:
               - { name: alt, label: Alt text, type: string }
               - { name: src, label: Image source, type: string }
+              - { name: url, label: "Partner website (optional)", type: string, pattern: '^$|^https?://' }
+              # Written by scripts/size-logos.js so every mark covers the same
+              # optical area. Declared here only so an editor save preserves
+              # them — re-run that script rather than typing values in.
+              - { name: w, label: "Display width (generated)", type: number }
+              - { name: h, label: "Display height (generated)", type: number }
 
   - name: page_support
     label: "Page: Support"
@@ -443,10 +471,10 @@ content:
         fields:
           - { name: heading, label: Heading, type: string }
           - { name: intro, label: Intro, type: text }
-          - { name: phone, label: Phone, type: string }
-          - { name: phone_label, label: Phone label, type: string }
-          - { name: text_keyword, label: Text keyword, type: string }
-          - { name: text_number, label: Text number, type: string }
+          - { name: not_us_before, label: "\"Not us\" line — before the link", type: string }
+          - { name: not_us_link_text, label: "\"Not us\" line — link text", type: string }
+          - { name: not_us_link_url, label: "\"Not us\" line — link URL", type: string, pattern: '^$|^https?://' }
+          - { name: not_us_after, label: "\"Not us\" line — after the link", type: string }
       - name: directory
         label: Directory
         type: object
@@ -497,6 +525,8 @@ content:
           - { name: phone, label: Phone, type: string }
           - { name: categories, label: Categories, type: string, list: true }
           - { name: locations, label: Locations, type: string, list: true }
+          - { name: languages, label: Languages, type: string, list: true }
+          - { name: national, label: "National (not location-specific)", type: boolean }
 
   - name: settings
     label: Site settings

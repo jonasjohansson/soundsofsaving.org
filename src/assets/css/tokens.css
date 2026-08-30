@@ -55,7 +55,11 @@
   --white-smoke:    var(--paper-2);
 
   /* — Semantic roles ————————————————————————————————————————————— */
-  --bg:           var(--paper);
+  /* The page ground is white, the same white as the header and the footer,
+     so the overscroll canvas beyond either end of the document matches them
+     instead of showing a band of bone. The warm paper is still the palette:
+     it survives as the alt sections, the cards and the hairlines below. */
+  --bg:           var(--paper-0);
   --bg-alt:       var(--paper-2);
   --text:         var(--ink);
   --text-muted:   var(--ink-muted);

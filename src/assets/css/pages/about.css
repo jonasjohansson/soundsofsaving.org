@@ -11,13 +11,19 @@
   margin: 0;
 }
 .about-intro a { text-decoration: underline; }
-.about-section { margin-top: var(--space-2xl); padding-top: var(--space-xl); border-top: 1px solid var(--border); }
+.about-section { margin-top: var(--space-2xl); }
 .about-section p { line-height: var(--lh-base); max-width: var(--maxw-prose); }
 .about-section p + p { margin-top: var(--space-sm); }
 .stat-list { max-width: var(--maxw-prose); margin: var(--space-md) 0; padding-left: var(--space-md); }
 .stat-list li { margin-bottom: var(--space-sm); line-height: var(--lh-base); }
-.about-sources { font-size: var(--fs-small); color: var(--text-muted); max-width: var(--maxw-prose); }
-.about-sources p { margin: 0 0 var(--space-2xs); }
+/* Footnotes read as one block of small print, so the lines sit close: the
+   only separation they need is the leading they already have. */
+.about-sources { font-size: var(--fs-small); color: var(--text-muted); max-width: var(--maxw-prose); display: grid; gap: var(--space-3xs); }
+/* The `p + p` rule above is more specific than a bare `.about-sources p`, and
+   these sit inside an .about-section, so the adjacency has to be matched to be
+   beaten — otherwise every footnote after the first keeps a 16px top margin. */
+.about-sources p,
+.about-sources p + p { margin: 0; }
 .pullquote {
   margin: var(--space-lg) 0;
   max-width: var(--maxw-prose);
@@ -44,7 +50,7 @@
 .person p { line-height: var(--lh-base); font-size: var(--fs-small); margin: 0; }
 .person p + p { margin-top: var(--space-xs); }
 
-.approach { margin-top: var(--space-2xl); padding-top: var(--space-xl); border-top: 1px solid var(--border); }
+.approach { margin-top: var(--space-2xl); }
 .approach__intro { line-height: var(--lh-base); max-width: var(--maxw-prose); margin: 0 0 var(--space-lg); }
 .principles { --grid-min: 260px; --grid-gap: var(--space-md) var(--space-lg); }
 .principle h3 { font-size: var(--fs-h3); margin: 0 0 var(--space-3xs); }
@@ -99,19 +105,81 @@
   .roster__item { padding: var(--space-2xs) 0; }
 }
 .roster__name { display: block; font-family: var(--font-display); font-weight: var(--fw-semibold); color: var(--ink); }
-/* Bios run in full — no clamp, no truncation. Rows are therefore as tall as
-   their longest bio, which is the trade for not cutting anyone off. */
-.roster__role {
-  display: block;
-  margin-top: var(--space-3xs);
-  font-size: var(--fs-small);
+/* A name with a bio behind it is a button, but it has to sit on the same
+   baseline as a name without one — so it keeps the roster's type and only
+   picks up the affordance. */
+.roster__name--btn {
+  font: inherit;
+  font-family: var(--font-display);
+  font-weight: var(--fw-semibold);
+  color: var(--ink);
+  background: none;
+  border: 0;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+  width: 100%;
+}
+.roster__name--btn::after { content: " \2192"; color: var(--accent); }
+.roster__name--btn:hover { color: var(--accent-deep); }
+.roster__name--btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* The bio itself. In the top layer, so nothing on the page can clip it and
+   the columns underneath never reflow. */
+.roster__bio {
+  width: min(46ch, calc(100vw - 2 * var(--gutter)));
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: var(--space-lg);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background-color: var(--paper-0);
+  background-image: var(--grain-card);
+  background-size: var(--grain-tile);
+  background-blend-mode: overlay;
+  color: var(--text);
+}
+.roster__bio::backdrop { background: rgb(var(--scrim-rgb) / 0.42); }
+.roster__bio-name {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  line-height: var(--lh-tight);
+  margin: 0 0 var(--space-xs);
+}
+.roster__bio-text {
+  font-size: var(--fs-base);
   line-height: var(--lh-base);
   color: var(--text-muted);
-  max-width: none;
+  margin: 0;
+}
+.roster__close {
+  font-family: var(--font-mono);
+  font-size: var(--fs-tiny);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--accent-deep);
+  background: none;
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  padding: var(--space-3xs) var(--space-sm);
+  margin-top: var(--space-md);
+  cursor: pointer;
+}
+.roster__close:hover { background: var(--accent); color: var(--on-dark); }
+
+/* Without [popover] the bio is not in the top layer and the attribute is
+   ignored, so it renders in the flow — the roster reads as it did before,
+   name then bio, and the buttons are inert rather than broken. */
+@supports not selector(:popover-open) {
+  .roster__name--btn::after { content: ""; }
+  .roster__bio { width: auto; padding: 0; border: 0; background: none; margin-top: var(--space-3xs); }
+  .roster__bio-name { display: none; }
+  .roster__bio-text { font-size: var(--fs-small); }
+  .roster__close { display: none; }
 }
 
 /* Partners and supporters — linked where known, desaturated, larger. */
-.about-partners { margin-top: var(--space-2xl); padding-top: var(--space-xl); border-top: 1px solid var(--line); }
+.about-partners { margin-top: var(--space-2xl); }
 .about-partners h2 { font-size: var(--fs-h2); margin: 0 0 var(--space-lg); }
 /* The marks use the shared .logo-grid component (components/logo-grid.css):
    supplied artwork varies far too much in aspect ratio and built-in padding

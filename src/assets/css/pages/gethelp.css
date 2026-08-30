@@ -219,11 +219,7 @@ a.resource-card:hover .resource-card__name { color: var(--accent-deep); }
 }
 
 /* ---- Learn layer ---- */
-.gethelp-learn {
-  margin-top: var(--space-2xl);
-  padding-top: var(--space-xl);
-  border-top: 1px solid var(--border);
-}
+.gethelp-learn { margin-top: var(--space-2xl); }
 .gethelp-learn h2 { font-family: var(--font-display); font-size: var(--fs-h2); margin: 0 0 var(--space-2xs); }
 .gethelp-learn > p { color: var(--text-muted); max-width: var(--maxw-prose); line-height: var(--lh-base); margin-bottom: var(--space-lg); }
 .learn-grid { --grid-min: 240px; --grid-gap: var(--space-md); }

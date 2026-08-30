@@ -16,11 +16,9 @@
   padding: var(--space-xl) var(--space-lg);
 }
 
-/* Pull-quote left rule; per-quote margin and type stay local. */
-.pullquote, .edu-pullquote, .session-pull {
-  border-left: 3px solid var(--accent);
-  padding-left: var(--space-md);
-}
+/* Pull-quotes carry no rule and no indent: the italic serif at lead size is
+   already the signal that this is a quotation, and per-quote margin and type
+   stay local. */
 
 /* — Link card ————————————————————————————————————————————————————— *
  *  Educators' tracks, Programs' cards and Support's ways are the same

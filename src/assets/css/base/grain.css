@@ -3,6 +3,12 @@
  *  cards blend a noise tile into their own background; a much lighter veil
  *  sits over everything else, images included.
  * ————————————————————————————————————————————————————————————————— */
+/* The canvas outside the document — what an overscroll rubber-band reveals —
+   takes its colour from <html>. Without this it would inherit body's, which is
+   correct today but silently wrong the moment body's ground is anything but
+   the page ground. */
+html { background-color: var(--bg); }
+
 body {
   background-color: var(--bg);
   background-image: var(--grain-surface);

@@ -25,8 +25,6 @@
   gap: var(--space-md);
   align-items: baseline;
   margin: var(--space-md) 0 var(--space-lg);
-  padding-top: var(--space-md);
-  border-top: 1px solid var(--line);
 }
 .sessions-count {
   color: var(--ink-faint);
