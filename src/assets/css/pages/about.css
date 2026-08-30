@@ -116,3 +116,11 @@
 /* The marks use the shared .logo-grid component (components/logo-grid.css):
    supplied artwork varies far too much in aspect ratio and built-in padding
    for height-normalising alone to look like anything but a ragged wall. */
+
+/* Milestones — the dated list that used to be the Impact page. A two-column
+   grid rather than a list marker, so every year sits on one baseline; the
+   hairline is each row's own top border, so the run reads as one table. */
+.milestones { list-style: none; padding: 0; margin: var(--space-md) 0 0; max-width: var(--maxw-prose); }
+.milestone { display: grid; grid-template-columns: 5rem 1fr; gap: var(--space-md); padding: var(--space-sm) 0; border-top: 1px solid var(--line); }
+.milestone__year { font-family: var(--font-mono); color: var(--accent); font-variant-numeric: tabular-nums; }
+.milestone p { margin: 0; line-height: var(--lh-base); }

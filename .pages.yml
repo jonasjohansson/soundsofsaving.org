@@ -294,6 +294,20 @@ content:
         fields:
           - { name: heading, label: Heading, type: string }
           - { name: body, label: Body, type: text }
+      - name: milestones
+        label: Milestones
+        type: object
+        fields:
+          - { name: heading, label: Heading, type: string }
+          - name: entries
+            label: Entries
+            type: object
+            list:
+              sortable: true
+              collapsible: { collapsed: true, summary: '{year}' }
+            fields:
+              - { name: year, label: Year, type: string }
+              - { name: body, label: Body, type: text }
       - name: team
         label: Team
         type: object
@@ -415,57 +429,6 @@ content:
             fields:
               - { name: label, label: Label, type: string }
               - { name: href, label: Link, type: string }
-
-  - name: page_impact
-    label: "Page: Impact"
-    type: file
-    path: content/pages/impact.json
-    fields:
-      - { name: title, label: Title, type: string }
-      - { name: meta_description, label: "SEO description", type: text }
-      - { name: lead, label: Lead, type: text }
-      - name: photos
-        label: Photos
-        type: object
-        list:
-          sortable: true
-          collapsible:
-            collapsed: true
-            summary: '{caption}'
-        fields:
-          - { name: src, label: Image, type: image, options: { media: site } }
-          - { name: alt, label: Alt text, type: string }
-          - { name: caption, label: Caption, type: string }
-          - { name: source, label: "Source URL (e.g. the Instagram post)", type: string, pattern: '^$|^https?://' }
-      - name: stats
-        label: Numbers
-        type: object
-        list:
-          sortable: true
-          collapsible:
-            collapsed: true
-            summary: '{stat}'
-        fields:
-          - { name: stat, label: Number, type: string }
-          - { name: label, label: Label, type: text }
-      - name: milestones
-        label: Milestones
-        type: object
-        list:
-          sortable: true
-          collapsible:
-            collapsed: true
-            summary: '{year}'
-        fields:
-          - { name: year, label: Year, type: string }
-          - { name: body, label: What happened, type: text }
-      - name: testimonial
-        label: Testimonial
-        type: object
-        fields:
-          - { name: quote, label: Quote, type: string }
-          - { name: body, label: Context, type: text }
-          - { name: attribution, label: Attribution, type: string }
 
   - name: page_get_help
     label: "Page: Get Help"

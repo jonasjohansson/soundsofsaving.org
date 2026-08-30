@@ -91,22 +91,10 @@
   ],
   "instagram_photos": [
     {
-      "src": "/assets/img/ig/banner-rooftop.jpg",
-      "alt": "A banner high above the city reading: what song found you at the right time?",
-      "caption": "The question, hung above the city",
-      "source": "https://www.instagram.com/p/DaTV16PJP5T/"
-    },
-    {
       "src": "/assets/img/ig/card-handwritten.jpg",
       "alt": "A handwritten card reading: music has listened to me when no one else would",
       "caption": "“Music has listened to me when no one else would”",
       "source": "https://www.instagram.com/p/CxDdoUpOMyE/"
-    },
-    {
-      "src": "/assets/img/ig/assembly-screen.jpg",
-      "alt": "A packed school assembly, hands in the air, an artist playing guitar on the screen behind",
-      "caption": "An assembly, hands up for the artist on screen",
-      "source": "https://www.instagram.com/p/C7W05oYO7xO/"
     },
     {
       "src": "/assets/img/ig/crowd-stage.jpg",
@@ -115,16 +103,22 @@
       "source": "https://www.instagram.com/p/DQb1QZ2joO2/"
     },
     {
+      "src": "/assets/img/ig/lockers-instruments.jpg",
+      "alt": "Three students at school lockers carrying a snare drum and a keyboard",
+      "caption": "SoS HS at Montclair Kimberley Academy, New Jersey",
+      "source": "https://www.instagram.com/p/DXHQGQEjfNl/"
+    },
+    {
+      "src": "/assets/img/ig/stage-amp.jpg",
+      "alt": "A musician kneeling beside an orange amplifier on stage",
+      "caption": "Geese, from the 2022 session covering Nick Drake",
+      "source": "https://www.instagram.com/p/DRXz_hlieek/"
+    },
+    {
       "src": "/assets/img/ig/artist-card-brick.jpg",
       "alt": "Someone holding up a filled-in Songs That Found Me card against a brick wall",
       "caption": "At the first United Sounds festival, Red Hook",
       "source": "https://www.instagram.com/p/DCNEC0DSVHm/"
-    },
-    {
-      "src": "/assets/img/ig/corridor-guitar.jpg",
-      "alt": "An artist playing guitar at a table in a school space, students seated around",
-      "caption": "A guitar, a table, and the whole room sitting in",
-      "source": "https://www.instagram.com/p/DSk0RUsCZ4D/"
     },
     {
       "src": "/assets/img/ig/festival-cards.jpg",
@@ -139,28 +133,34 @@
       "source": "https://www.instagram.com/p/DXt--SeDRL-/"
     },
     {
-      "src": "/assets/img/ig/stage-amp.jpg",
-      "alt": "A musician kneeling beside an orange amplifier on stage",
-      "caption": "Geese, from the 2022 session covering Nick Drake",
-      "source": "https://www.instagram.com/p/DRXz_hlieek/"
-    },
-    {
-      "src": "/assets/img/ig/lockers-instruments.jpg",
-      "alt": "Three students at school lockers carrying a snare drum and a keyboard",
-      "caption": "SoS HS at Montclair Kimberley Academy, New Jersey",
-      "source": "https://www.instagram.com/p/DXHQGQEjfNl/"
-    },
-    {
-      "src": "/assets/img/ig/singer-teal.jpg",
-      "alt": "A singer lit in teal, mid-song",
-      "caption": "Mid-song, under teal light",
-      "source": "https://www.instagram.com/p/DcMKUz8JBoV/"
-    },
-    {
       "src": "/assets/img/ig/cards-wall.jpg",
       "alt": "Filled-in cards and polaroid photographs pinned across a green wall",
       "caption": "Cards collected on day two of Newport Folk",
       "source": "https://www.instagram.com/p/DbR6VOnDfoM/"
+    },
+    {
+      "src": "/assets/img/ig/panel-talk.jpg",
+      "alt": "Two people in conversation on stools with microphones",
+      "caption": "From the conversation with Ocean Vuong",
+      "source": "https://www.instagram.com/p/DVt9JHuiVQL/"
+    },
+    {
+      "src": "/assets/img/ig/govball-trio.jpg",
+      "alt": "The band Chanpan in front of a Governors Ball backdrop",
+      "caption": "Chanpan shared their song with us at Gov Ball",
+      "source": "https://www.instagram.com/p/DZfwnG0CXDr/"
+    },
+    {
+      "src": "/assets/img/ig/two-cards.jpg",
+      "alt": "Two people holding up completed Songs That Found Me cards",
+      "caption": "Elia Einhorn and Miki of Lush, holding their cards",
+      "source": "https://www.instagram.com/p/C_doWOVuvNi/"
+    },
+    {
+      "src": "/assets/img/ig/couch-polaroid.jpg",
+      "alt": "A polaroid lying on a wooden table showing two people on a couch",
+      "caption": "A polaroid from the afternoon with This Is The Kit",
+      "source": "https://www.instagram.com/p/C3oA2rWOUou/"
     }
   ],
   "press_kit_url": "https://drive.google.com/drive/folders/1XPC0fTdCgqViqv5vKjPgc4NgXZPDiOiy"

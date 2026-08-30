@@ -84,6 +84,19 @@ ogImageAlt: "Four young people laughing together in a school gym"
   </section>
   {% endif %}
 
+  {# The dated list that used to be the Impact page. The founding story says
+     how it began; this carries it forward. #}
+  {% if a.milestones.entries.length %}
+  <section class="about-section" aria-label="{{ a.milestones.heading }}">
+    <h2>{{ a.milestones.heading }}</h2>
+    <ol class="milestones">
+      {% for m in a.milestones.entries %}
+      <li class="milestone"><span class="milestone__year">{{ m.year }}</span><p>{{ m.body }}</p></li>
+      {% endfor %}
+    </ol>
+  </section>
+  {% endif %}
+
   {% if a.team %}
   <section class="about-section" aria-label="{{ a.team.heading }}">
     <h2>{{ a.team.heading }}</h2>
