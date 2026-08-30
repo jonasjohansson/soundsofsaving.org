@@ -43,14 +43,6 @@
 }
 .session-meta dd { margin: 0; font-family: var(--font-body); color: var(--text); }
 
-.session-pull {
-  font-family: var(--font-body);
-  font-size: var(--fs-lead);
-  line-height: 1.5;
-  font-style: italic;
-  color: var(--text);
-  margin: 0 0 var(--space-lg);
-}
 .session-story { font-family: var(--font-body); font-size: var(--fs-base); line-height: var(--lh-base); color: var(--text); }
 .session-story p { margin: 0 0 var(--space-sm); }
 /* "Watch" is the fourth meta column now, so it takes the body face of the

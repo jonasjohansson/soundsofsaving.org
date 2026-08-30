@@ -6,7 +6,6 @@ youtube_url: 'https://youtu.be/XycBLF6kWuY'
 youtube_id: XycBLF6kWuY
 thumbnail: /assets/img/songs/XycBLF6kWuY.jpg
 featured: false
-pull_quote: ''
 ---
 
 

@@ -42,9 +42,8 @@ eleventyComputed:
   </div>
   {% endif %}
 
-  {% if session.pull_quote or session.storyHtml %}
+  {% if session.storyHtml %}
   <div class="session-body">
-    {% if session.pull_quote %}<blockquote class="session-pull">{{ session.pull_quote }}</blockquote>{% endif %}
     {% if session.storyHtml %}<div class="session-story prose">{{ session.storyHtml | safe }}</div>{% endif %}
   </div>
   {% endif %}

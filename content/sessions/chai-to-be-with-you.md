@@ -7,7 +7,6 @@ youtube_url: 'https://youtu.be/XC7GRIRqNW8'
 youtube_id: XC7GRIRqNW8
 thumbnail: /assets/img/sessions/XC7GRIRqNW8.jpg
 featured: true
-pull_quote: ''
 ---
 
 

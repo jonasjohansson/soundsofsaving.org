@@ -12,8 +12,8 @@
  *    3. run yt-dlp ourselves     (needs network + yt-dlp on PATH)
  *
  *  Re-runnable: only writes a .md if it does not already exist, so the
- *  CMS-editable story/pull_quote fields are never clobbered. Pass
- *  --force to rewrite frontmatter (keeps any existing story/pull_quote).
+ *  A CMS-editable story is never clobbered. Pass --force to rewrite
+ *  frontmatter (keeps any existing story).
  * ------------------------------------------------------------------ */
 
 const fs = require("fs");
@@ -239,14 +239,12 @@ async function main() {
       }
     }
 
-    // content file — never clobber CMS-authored story/pull_quote
+    // content file — never clobber a CMS-authored story
     const mdPath = path.join(SONGS_DIR, `${slug}.md`);
     let existingStory = "";
-    let existingPull = "";
     if (fs.existsSync(mdPath)) {
       const g = matter(fs.readFileSync(mdPath, "utf8"));
       existingStory = (g.content || "").trim();
-      existingPull = g.data.pull_quote || "";
       if (!FORCE) {
         written.push({ slug, id, artist, song_title, skipped: true });
         continue;
@@ -260,7 +258,6 @@ async function main() {
       youtube_id: id,
       thumbnail: thumbWeb,
       featured,
-      pull_quote: existingPull,
     };
     if (date) data.date = date;
 
@@ -273,7 +270,6 @@ async function main() {
       youtube_id: data.youtube_id,
       thumbnail: data.thumbnail,
       featured: data.featured,
-      pull_quote: data.pull_quote,
     };
     const md = matter.stringify("\n" + existingStory + "\n", ordered);
     fs.writeFileSync(mdPath, md);

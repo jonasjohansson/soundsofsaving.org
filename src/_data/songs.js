@@ -4,7 +4,7 @@
  *  The series lives as a YouTube playlist, not as site pages, so the
  *  collection is built FROM the playlist by scripts/parse-songs.js, which
  *  writes one Markdown file per episode into content/songs/. Editors then
- *  enrich pull_quote / story via Pages CMS (each save commits the file and
+ *  enrich the story via Pages CMS (each save commits the file and
  *  triggers a rebuild). This data file reads those files and hands a clean
  *  array to the templates. No external service at build time.
  *
@@ -33,7 +33,6 @@ module.exports = function () {
       const slug = f.replace(/\.md$/, "") || slugify(`${d.artist} ${d.song_title}`);
       const id = youtubeId(d.youtube_id || d.youtube_url || "");
       const story = (g.content || "").trim();
-      const pull_quote = (d.pull_quote || "").trim();
       const thumbnail = d.thumbnail || (id ? `/assets/img/songs/${id}.jpg` : "");
       const artist = (d.artist || "").trim();
       const song_title = (d.song_title || "").trim();
@@ -51,10 +50,9 @@ module.exports = function () {
         thumbnail,
         dims: dimsOf(thumbnail),
         featured: d.featured === true || d.featured === "true",
-        pull_quote,
         story,
         storyHtml: story ? md.render(story) : "",
-        excerpt: excerptOf(pull_quote || story || (song_title ? `${artist} performs ${song_title}.` : artist)),
+        excerpt: excerptOf(story || (song_title ? `${artist} performs ${song_title}.` : artist)),
       };
     })
     .filter((s) => s.artist || s.song_title);
