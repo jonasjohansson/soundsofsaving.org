@@ -21,7 +21,7 @@
   --paper-3:      #dad3c1;   /* card / well surface */
   --ink:          #14110d;   /* near-true black text */
   --ink-muted:    #46413a;   /* secondary text (AA on bone) */
-  --ink-faint:    #6a655c;   /* tertiary / fine print (AA on bone) */
+  --ink-faint:    #655f57;   /* tertiary / fine print (AA on every tinted ground) */
 
   --accent:       #1e3ae6;   /* electric blue — default (home + Get Help) */
   --accent-deep:  color-mix(in srgb, var(--accent), #000 24%);  /* auto hover/pressed shade */

@@ -114,7 +114,8 @@ eleventyComputed:
   }
   .home-more:hover { text-decoration: underline; }
   /* — Three doors (in the hero) ———————————————————————————————— */
-  .home-doors { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-xs); margin-top: var(--space-lg); list-style: none; padding: 0; max-width: 60rem; }
+  /* Same three tracks and gutter as .home-what, so the doors sit on the grid. */
+  .home-doors { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-lg); margin-top: var(--space-lg); list-style: none; padding: 0; }
   .home-doors > li { display: flex; }
   .home-door {
     flex: 1;
@@ -170,12 +171,14 @@ eleventyComputed:
   /* — Featured session / interview ——————————————————————————————— */
   /* Text column left (title, then the links under it), image right. The media
      spans both rows so the left column reads top-down against it. */
+  /* Same three tracks and gutter as .home-what: the film spans the first two
+     columns, the title and links sit in the third. */
   .featured {
     display: grid;
-    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto 1fr;
-    grid-template-areas: "media meta" "media links";
-    gap: var(--space-md) var(--space-xl);
+    grid-template-areas: "media media meta" "media media links";
+    gap: var(--space-md) var(--space-lg);
     align-items: start;
   }
   .featured__meta  { grid-area: meta; }
@@ -199,7 +202,7 @@ eleventyComputed:
   .featured__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
   /* Story/interview images vary in aspect ratio, so show them in full (uncropped). */
   .featured--story .featured__media { aspect-ratio: 16 / 9; }
-  .featured--story .featured__media img { height: 100%; object-fit: cover; object-position: center top; }
+  .featured--story .featured__media img { height: 100%; object-fit: cover; }
   .featured__play {
     position: absolute;
     inset: 0;

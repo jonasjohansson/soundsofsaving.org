@@ -93,6 +93,21 @@
   </footer>
 
   <script>
+    // The mark turns continuously across page loads: remember when the spin
+    // started for this tab and offset the animation by however long ago that was.
+    (function () {
+      var logo = document.querySelector(".site-header__logo");
+      if (!logo) return;
+      var period = 40000;
+      var start;
+      try { start = parseInt(sessionStorage.getItem("sos-spin-start"), 10); } catch (e) {}
+      if (!start || isNaN(start)) {
+        start = Date.now();
+        try { sessionStorage.setItem("sos-spin-start", String(start)); } catch (e) {}
+      }
+      logo.style.animationDelay = "-" + (((Date.now() - start) % period) / 1000) + "s";
+    })();
+
     // Show the logo only when the nav still fits beside it; otherwise hide it.
     (function () {
       var header = document.getElementById("site-header");
