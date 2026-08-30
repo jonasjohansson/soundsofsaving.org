@@ -33,7 +33,7 @@
 }
 
 /* — Section labels — */
-.sessions-section + .sessions-section { margin-top: var(--space-xl); }
+.sessions-section + .sessions-section { margin-top: var(--space-2xl); }
 .sessions-section__label {
   color: var(--accent);
   margin: 0 0 var(--space-md);

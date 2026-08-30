@@ -92,27 +92,75 @@
   "instagram_photos": [
     {
       "src": "/assets/img/ig/banner-rooftop.jpg",
-      "alt": "A banner on a rooftop reading: what song found you at the right time?",
-      "caption": "On a rooftop",
+      "alt": "A banner high above the city reading: what song found you at the right time?",
+      "caption": "The question, hung above the city",
       "source": "https://www.instagram.com/p/DaTV16PJP5T/"
     },
     {
-      "src": "/assets/img/ig/festival-cards.jpg",
-      "alt": "A crowd at a festival, several people holding Songs That Found Me cards",
-      "caption": "At a festival",
-      "source": "https://www.instagram.com/p/DMLFFm5OxCV/"
+      "src": "/assets/img/ig/card-handwritten.jpg",
+      "alt": "A handwritten card reading: music has listened to me when no one else would",
+      "caption": "“Music has listened to me when no one else would”",
+      "source": "https://www.instagram.com/p/CxDdoUpOMyE/"
     },
     {
-      "src": "/assets/img/ig/stage-amp.jpg",
-      "alt": "A young musician standing beside an amplifier on stage",
-      "caption": "Before a set",
-      "source": "https://www.instagram.com/p/DRXz_hlieek/"
+      "src": "/assets/img/ig/assembly-screen.jpg",
+      "alt": "A packed school assembly, hands in the air, an artist playing guitar on the screen behind",
+      "caption": "An assembly, hands up for the artist on screen",
+      "source": "https://www.instagram.com/p/C7W05oYO7xO/"
+    },
+    {
+      "src": "/assets/img/ig/crowd-stage.jpg",
+      "alt": "A band on stage under a screen reading Living Colour, the crowd's hands raised",
+      "caption": "Living Colour, and every hand in the air",
+      "source": "https://www.instagram.com/p/DQb1QZ2joO2/"
     },
     {
       "src": "/assets/img/ig/artist-card-brick.jpg",
-      "alt": "An artist holding up a completed Songs That Found Me card",
-      "caption": "A card, filled in",
+      "alt": "An artist against a brick wall holding up a filled-in Songs That Found Me card",
+      "caption": "Three songs, written down and held up",
       "source": "https://www.instagram.com/p/DCNEC0DSVHm/"
+    },
+    {
+      "src": "/assets/img/ig/corridor-guitar.jpg",
+      "alt": "An artist playing guitar at a table in a school space, students seated around",
+      "caption": "A guitar, a table, and the whole room sitting in",
+      "source": "https://www.instagram.com/p/DSk0RUsCZ4D/"
+    },
+    {
+      "src": "/assets/img/ig/festival-cards.jpg",
+      "alt": "A dense festival crowd, several people holding Songs That Found Me cards",
+      "caption": "Cards going round a festival crowd",
+      "source": "https://www.instagram.com/p/DMLFFm5OxCV/"
+    },
+    {
+      "src": "/assets/img/ig/988-frame.jpg",
+      "alt": "A still from a session film, a 988 chat prompt across the lower third",
+      "caption": "A session film, with the 988 line on screen",
+      "source": "https://www.instagram.com/p/DXt--SeDRL-/"
+    },
+    {
+      "src": "/assets/img/ig/stage-amp.jpg",
+      "alt": "A young musician kneeling beside an orange amplifier on stage",
+      "caption": "Down beside the amp, mid-set",
+      "source": "https://www.instagram.com/p/DRXz_hlieek/"
+    },
+    {
+      "src": "/assets/img/ig/lockers-instruments.jpg",
+      "alt": "Three students at school lockers carrying a snare drum and a keyboard",
+      "caption": "Instruments carried past the lockers",
+      "source": "https://www.instagram.com/p/DXHQGQEjfNl/"
+    },
+    {
+      "src": "/assets/img/ig/singer-teal.jpg",
+      "alt": "A singer lit in teal, mid-song",
+      "caption": "Mid-song, under teal light",
+      "source": "https://www.instagram.com/p/DcMKUz8JBoV/"
+    },
+    {
+      "src": "/assets/img/ig/cards-wall.jpg",
+      "alt": "Filled-in cards and polaroid photographs pinned across a green wall",
+      "caption": "Cards and polaroids, pinned up after a show",
+      "source": "https://www.instagram.com/p/DbR6VOnDfoM/"
     }
   ],
   "press_kit_url": "https://drive.google.com/drive/folders/1XPC0fTdCgqViqv5vKjPgc4NgXZPDiOiy"

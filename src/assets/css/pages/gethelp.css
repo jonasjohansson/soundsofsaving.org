@@ -7,7 +7,7 @@
   color: var(--on-dark);
   border-radius: var(--radius);
   padding: var(--space-lg);
-  margin-bottom: var(--space-xl);
+  margin-bottom: var(--space-2xl);
 }
 .crisis-band .eyebrow { color: var(--on-dark); }
 .crisis-band h1 {

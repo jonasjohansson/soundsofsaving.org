@@ -101,7 +101,7 @@
 .lead-magnet p { font-size: var(--fs-small); line-height: var(--lh-base); margin: 0; }
 
 /* intake form */
-.intake { padding-top: var(--space-xl); }
+.intake { padding-top: 0; }
 .intake__head { max-width: var(--maxw-prose); margin-bottom: var(--space-lg); }
 .intake h2 { font-size: var(--fs-h2); margin: 0 0 var(--space-xs); }
 .intake__head p { line-height: var(--lh-base); margin: 0; }

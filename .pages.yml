@@ -558,7 +558,7 @@ content:
           - { name: alt, label: Alt text, type: string }
           - { name: credit, label: "Credit (e.g. Pictured: name)", type: string }
       - name: instagram_photos
-        label: "Instagram strip (home page)"
+        label: "Gallery (home page)"
         type: object
         list:
           sortable: true
