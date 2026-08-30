@@ -160,10 +160,11 @@ eleventyComputed:
   .home-gift-band .btn--ghost { border-color: var(--paper); color: var(--paper); }
   .home-gift-band .btn--ghost:hover { background: var(--paper); color: var(--dusk); }
 
-  .home-gift { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: var(--space-xl); align-items: start; }
+  /* Two even halves: the ask on the left, what it funds on the right. */
+  .home-gift { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); align-items: start; }
   .home-gift__uses { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-sm); }
-  .home-gift__use { display: grid; grid-template-columns: 7rem 1fr; gap: var(--space-sm); padding-top: var(--space-sm); border-top: 1px solid var(--line); }
-  .home-gift__use b { font-family: var(--font-display); font-weight: var(--fw-semibold); color: var(--accent); }
+  .home-gift__use { padding-top: var(--space-sm); border-top: 1px solid var(--line); }
+  .home-gift__use b { display: block; margin-bottom: var(--space-2xs); font-family: var(--font-display); font-weight: var(--fw-semibold); color: var(--accent); }
   .home-gift__use p { margin: 0; font-size: var(--fs-small); line-height: var(--lh-base); color: var(--text-muted); }
   .home-gift__ctas { display: flex; flex-wrap: wrap; gap: var(--space-sm); margin-top: var(--space-md); }
   @media (max-width: 760px) { .home-gift { grid-template-columns: 1fr; } }
