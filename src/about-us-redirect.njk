@@ -1,0 +1,23 @@
+---
+layout: base.njk
+permalink: /about-us/
+title: About has moved
+description: "The About page is now at /about/. Redirecting you there."
+canonicalOverride: /about/
+robots: "noindex, follow"
+eleventyExcludeFromCollections: true
+---
+{#
+  /about-us/ -> /about/. The page is unchanged; only the URL is shorter. This
+  stub exists because /about-us/ was the address on the development site and
+  may also have been the one on the Webflow site, so it will have been shared
+  and possibly indexed. Same static-host redirect as the other retired URLs:
+  meta-refresh + canonical + noindex + a visible fallback link.
+#}
+<meta http-equiv="refresh" content="0; url=/about/">
+<script>location.replace("/about/");</script>
+{% pageCss "community-redirect" %}
+<div class="container moved">
+  <h1>About has moved</h1>
+  <p>This page is now at <a href="/about/">About Us</a>. If you are not redirected automatically, follow that link.</p>
+</div>

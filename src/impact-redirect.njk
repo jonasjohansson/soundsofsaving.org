@@ -3,20 +3,20 @@ layout: base.njk
 permalink: /impact/
 title: Impact has moved
 description: "The Impact milestones are now part of About Us. Redirecting you there."
-canonicalOverride: /about-us/
+canonicalOverride: /about/
 robots: "noindex, follow"
 eleventyExcludeFromCollections: true
 ---
 {#
-  /impact/ retired -> /about-us/. The milestones moved onto About, beside the
+  /impact/ retired -> /about/. The milestones moved onto About, beside the
   founding story; the stats, the principal testimonial and the photo row were
   dropped rather than moved. Same static-host redirect as the other retired
   URLs: meta-refresh + canonical + noindex + a visible fallback link.
 #}
-<meta http-equiv="refresh" content="0; url=/about-us/">
-<script>location.replace("/about-us/");</script>
+<meta http-equiv="refresh" content="0; url=/about/">
+<script>location.replace("/about/");</script>
 {% pageCss "community-redirect" %}
 <div class="container moved">
   <h1>Impact has moved</h1>
-  <p>The milestones are now part of <a href="/about-us/">About Us</a>. If you are not redirected automatically, follow that link.</p>
+  <p>The milestones are now part of <a href="/about/">About Us</a>. If you are not redirected automatically, follow that link.</p>
 </div>

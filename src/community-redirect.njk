@@ -3,22 +3,22 @@ layout: base.njk
 permalink: /community/
 title: Community has moved
 description: "The Community page is now part of About Us. Redirecting you there."
-canonicalOverride: /about-us/
+canonicalOverride: /about/
 robots: "noindex, follow"
 eleventyExcludeFromCollections: true
 ---
 {#
-  /community/ retired -> /about-us/ as part of the redesign. The partner wall
+  /community/ retired -> /about/ as part of the redesign. The partner wall
   and org context now live on About. GitHub Pages is a static host (no
   server-side 301), so this is the SEO-equivalent: a meta-refresh + canonical
   pointing at the new home, noindex so the stub itself isn't indexed, and a
   visible fallback link. This page owns /community/ now (the old community.njk
   was removed), so the URL resolves to exactly one page.
 #}
-<meta http-equiv="refresh" content="0; url=/about-us/">
-<script>location.replace("/about-us/");</script>
+<meta http-equiv="refresh" content="0; url=/about/">
+<script>location.replace("/about/");</script>
 {% pageCss "community-redirect" %}
 <div class="container moved">
   <h1>Community has moved</h1>
-  <p>This page is now part of <a href="/about-us/">About Us</a>. If you are not redirected automatically, follow that link.</p>
+  <p>This page is now part of <a href="/about/">About Us</a>. If you are not redirected automatically, follow that link.</p>
 </div>

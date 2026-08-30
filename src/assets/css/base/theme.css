@@ -23,5 +23,5 @@
 [data-section="programs"]  { --accent: var(--accent-programs); }
 [data-section="educators"] { --accent: var(--accent-educators); }
 [data-section="stories"]   { --accent: var(--accent-stories); }
-[data-section="about-us"]  { --accent: var(--accent-about); }
+[data-section="about"]     { --accent: var(--accent-about); }
 [data-section="resources"] { --accent: var(--accent-resources); }
