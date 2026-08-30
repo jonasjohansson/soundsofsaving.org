@@ -83,16 +83,6 @@
       "credit": ""
     }
   ],
-  "hero_mattes": [
-    "/assets/video/matte/cauliflower-bloom.mp4",
-    "/assets/video/matte/ink-in-water.mp4",
-    "/assets/video/matte/migration.mp4",
-    "/assets/video/matte/paper-grain.mp4",
-    "/assets/video/matte/pigment-run.mp4",
-    "/assets/video/matte/smooth.mp4",
-    "/assets/video/matte/wet-bleed.mp4",
-    "/assets/video/matte/backrun-blooms.mp4"
-  ],
   "instagram_photos": [
     {
       "src": "/assets/img/ig/card-handwritten.jpg",

@@ -10,17 +10,6 @@
 (function () {
   "use strict";
 
-  var HERO_INTERVAL = 13000;   // time one hero photo holds
-  var HERO_FADE     = 1700;    // must outlast the CSS opacity transition
-  var CREDIT_FADE   = 600;
-  /* The matte clips are 2.2s. At 0.55 a cut takes about four seconds, which
-     reads as a picture arriving rather than a picture being swapped. The hold
-     above grew with it so the hero is still mostly still. */
-  var WIPE_RATE     = 0.55;
-  /* Half-width of the smoothstep window on the matte. Narrow is a travelling
-     edge; wide is a soft crossfade wearing a matte's clothes. */
-  var WIPE_EDGE     = 0.13;
-
   /** Read and parse a <script type="application/json"> island by id. */
   function pool(id) {
     var el = document.getElementById(id);
@@ -44,161 +33,35 @@
     return next === current ? null : next;
   }
 
-  function prefersReducedMotion() {
-    return !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
-  }
-
   /* — Hero ————————————————————————————————————————————————————————— *
-   *  Photographs from the archive. Two stacked <img> layers so a swap never
-   *  flashes the background: the incoming frame is only revealed once it has
-   *  decoded.
+   *  One photograph from the archive, chosen per page load. The server
+   *  renders the first of the pool so the picture is in the HTML and is the
+   *  LCP; this only swaps which one, and does nothing at all if JS never runs.
    *
-   *  The cut itself is composited in WebGL through a greyscale film matte
-   *  (assets/js/wipe.js), so the picture arrives in patches from the middle
-   *  outward rather than on a flat opacity ramp. Every failure path — reduced
-   *  motion, no WebGL, a matte that never buffered, a refused play() — lands
-   *  back on the CSS crossfade, which is what the two layers already do. */
-  function heroRotator() {
+   *  It does not rotate. A hero that changes while you are reading it is a
+   *  second thing moving on a page whose job is to hold still, and the
+   *  crossfade it needed brought a compositing layer whose drawing buffer had
+   *  to be kept in step with every resize. One picture, picked at random, is
+   *  the whole feature. */
+  function heroPhoto() {
     var photos = pool("hero-pool").filter(function (h) { return h && h.src; });
     var img = document.querySelector(".home-hero__img");
     if (!img || !photos.length) return;
 
-    var credit = document.querySelector(".home-hero__credit");
-    var current = pick(photos);
-
-    function setCredit(h) {
-      if (!credit) return;
-      credit.textContent = h.credit || "";
-      credit.hidden = !h.credit;
-    }
+    var h = pick(photos);
     /* The pool carries a resolved srcset per photo (built by the {% heroPool %}
        shortcode), so the browser still picks a width-appropriate file even
        though this is a plain <img> rather than a <picture>. */
-    function apply(el, h) {
-      if (h.srcset) el.srcset = h.srcset;
-      else el.removeAttribute("srcset");
-      el.src = h.src;
-      el.alt = h.alt || "";
+    if (h.srcset) img.srcset = h.srcset;
+    else img.removeAttribute("srcset");
+    img.src = h.src;
+    img.alt = h.alt || "";
+
+    var credit = document.querySelector(".home-hero__credit");
+    if (credit) {
+      credit.textContent = h.credit || "";
+      credit.hidden = !h.credit;
     }
-
-    apply(img, current);
-    setCredit(current);
-
-    if (photos.length < 2 || prefersReducedMotion()) return;
-
-    var back = img;                     // the visible layer
-    var front = img.cloneNode(false);   // the incoming layer
-    front.style.opacity = "0";
-    front.removeAttribute("fetchpriority");
-    front.loading = "lazy";
-    back.parentNode.insertBefore(front, back.nextSibling);
-
-    /* -- the matte, one clip at a time ------------------------------------
-     * The set comes from the hero's data-mattes (settings.hero_mattes), so it
-     * can be swapped or extended without touching code. Nothing is fetched on
-     * page load: a clip is armed only once the hero is on screen and the page
-     * has settled, because the hero photograph is the LCP and the matte must
-     * not compete with it. Two <video> elements take turns — while one plays
-     * a cut the next clip loads into the other — so a cut always has a
-     * buffered matte to draw with. */
-    var hero    = document.querySelector("[data-hero]");
-    var canvas  = hero && hero.querySelector("[data-wipe]");
-    var videos  = hero ? [].slice.call(hero.querySelectorAll("[data-matte]")) : [];
-    var mattes  = hero ? (hero.getAttribute("data-mattes") || "").split(/\s+/).filter(Boolean) : [];
-    var wipe    = (window.SoSWipe && canvas && videos.length && mattes.length)
-                    ? window.SoSWipe.make(canvas) : null;
-    var armed   = -1;   // which clip in the set is loaded
-    var slot    = 0;    // which of the two <video> elements holds it
-    var active  = null; // the cut that is running, if any
-
-    function armInto(which) {
-      if (!wipe || !window.SoSWipe.motionAllowed()) return;
-      var n = mattes.length;
-      var i = n === 1 ? 0 : (armed + 1 + Math.floor(Math.random() * (n - 1))) % n;
-      armed = i;
-      var v = videos[which];
-      // preload="none" in the markup keeps the clip off the page load. Once
-      // the hero is on screen the clip has to be buffered rather than merely
-      // addressed: without load() it never reaches readyState 2 and every cut
-      // falls back to the crossfade.
-      v.preload = "auto";
-      v.src = mattes[i];
-      v.load();
-    }
-
-    if (wipe && "IntersectionObserver" in window) {
-      var io = new IntersectionObserver(function (entries) {
-        if (!entries.some(function (e) { return e.isIntersecting; })) return;
-        io.disconnect();
-        var go = function () {
-          if (window.requestIdleCallback) window.requestIdleCallback(function () { armInto(slot); }, { timeout: 2000 });
-          else setTimeout(function () { armInto(slot); }, 500);
-        };
-        if (document.readyState === "complete") go();
-        else window.addEventListener("load", go, { once: true });
-      }, { rootMargin: "0px" });
-      io.observe(hero);
-    }
-
-    /** Hand the layers over: front becomes the visible one. */
-    function settle(next) {
-      var tmp = back; back = front; front = tmp;
-      front.style.opacity = "0";
-      current = next;
-    }
-
-    function rollCredit(next) {
-      if (!credit) return;
-      credit.style.opacity = "0";
-      setTimeout(function () {
-        setCredit(next);
-        credit.style.opacity = "";
-      }, CREDIT_FADE);
-    }
-
-    function rotate() {
-      if (document.hidden) return;      // don't burn bandwidth on a hidden tab
-      var next = pickOther(photos, current);
-      if (!next) return;
-
-      apply(front, next);
-
-      function reveal() {
-        rollCredit(next);
-
-        var v = videos[slot];
-        if (wipe && wipe.available() && v && v.readyState >= 2) {
-          // A cut still running is photographed and dissolved from, so an
-          // interrupt is continuous rather than a jump.
-          var fromImg = back;
-          if (active) {
-            if (wipe.capture()) fromImg = null;
-            active.stop();
-            active = null;
-          }
-          // Both layers opaque underneath: the canvas is what is seen during
-          // the cut, and when it hides the incoming frame is already there.
-          front.style.opacity = "1";
-          slot = 1 - slot;                       // next cut draws from the other <video>
-          active = wipe.run(v, fromImg, front, function () {
-            active = null;
-            settle(next);
-            armInto(1 - slot);                   // re-arm the one just used
-          }, { rate: WIPE_RATE, edge: WIPE_EDGE });
-          if (active) return;
-          // run() bailed before starting (no size, upload failed): fall through.
-        }
-
-        // No matte: the CSS opacity transition on .home-hero__img does it.
-        front.style.opacity = "1";
-        setTimeout(function () { settle(next); }, HERO_FADE);
-      }
-
-      if (front.complete) reveal();
-      else front.addEventListener("load", reveal, { once: true });
-    }
-
-    setInterval(rotate, HERO_INTERVAL);
   }
 
   /* — Featured session ————————————————————————————————————————————— *
@@ -270,7 +133,7 @@
     if (read && st.url) read.setAttribute("href", st.url);
   }
 
-  heroRotator();
+  heroPhoto();
   featuredSession();
   featuredStory();
 })();
