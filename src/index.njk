@@ -83,7 +83,11 @@ ogImageAlt: "A rooftop banner reading: what song found you at the right time?"
 <section class="section section--alt">
   <div class="container">
     <header class="home-head">
-      <h2 class="home-head__title">Song That Found Me at the Right Time</h2>
+      {# Same as Stories: the heading is the route to the archive, and the
+         session below already links to itself from its image and its title. #}
+      <h2 class="home-head__title">
+        <a href="/sessions/" aria-label="Song That Found Me at the Right Time — watch all {{ sessions.length }} sessions">{{ "Song That Found Me at the Right Time" | arrow | safe }}</a>
+      </h2>
       <p class="home-head__intro">An artist plays the song that carried them through a hard time, then talks about what else helped. With Sharon Van Etten, Meshell Ndegeocello, Bartees Strange, SASAMI and dozens more.</p>
     </header>
     <div class="featured">
@@ -108,10 +112,6 @@ ogImageAlt: "A rooftop banner reading: what song found you at the right time?"
           {% if featured.song_title %}<p class="featured__song">{{ featured.song_title }} by {{ featured.covers or featured.artist }}</p>{% endif %}
         </a>
       </div>
-      <p class="featured__links">
-        <a class="home-more" href="/sessions/">{{ ("See all " + sessions.length + " sessions") | arrow | safe }}</a>
-        <a class="home-more" href="/sessions/artists/">{{ "Browse every artist" | arrow | safe }}</a>
-      </p>
     </div>
   </div>
 </section>
@@ -124,7 +124,13 @@ ogImageAlt: "A rooftop banner reading: what song found you at the right time?"
 <section class="section section--paper">
   <div class="container" data-section="stories">
     <header class="home-head">
-      <h2 class="home-head__title">Stories</h2>
+      {# The heading is the way through to the archive, as on the Gallery — the
+         article beneath it already links to itself from both its image and its
+         title, so a "Read this interview" under it was a third route to a page
+         you were already looking at. #}
+      <h2 class="home-head__title">
+        <a href="/stories/" aria-label="Stories — read every interview and feature">{{ "Stories" | arrow | safe }}</a>
+      </h2>
       <p class="home-head__intro">Interviews and features on music, mental health, and what gets people through.</p>
     </header>
     <div class="featured featured--story">
@@ -137,10 +143,6 @@ ogImageAlt: "A rooftop banner reading: what song found you at the right time?"
           {% if fStory.author %}<p class="featured__song">{{ fStory.author }}</p>{% endif %}
         </a>
       </div>
-      <p class="featured__links">
-        <a class="home-more" href="{{ fStory.url }}">{{ "Read this interview" | arrow | safe }}</a>
-        <a class="home-more" href="/stories/">{{ "All stories" | arrow | safe }}</a>
-      </p>
     </div>
   </div>
 </section>

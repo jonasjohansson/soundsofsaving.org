@@ -114,7 +114,6 @@
     var titleLink = root.querySelector(".featured__titlelink");
     var title = root.querySelector(".featured__artist");
     var author = root.querySelector(".featured__song");
-    var read = root.querySelector(".featured__links a");
 
     if (img && st.img) {
       img.src = st.img;
@@ -130,7 +129,6 @@
       if (st.author) { author.textContent = st.author; author.hidden = false; }
       else { author.hidden = true; }
     }
-    if (read && st.url) read.setAttribute("href", st.url);
   }
 
   heroPhoto();
