@@ -16,6 +16,7 @@
   /* — Pressing Plant palette — high-contrast light, standard primaries —— *
    *  Bone ground, near-black ink, electric-blue accent, vermilion highlight,
    *  teal reserved for the calm Get Help / crisis zone. */
+  --paper-0:      #ffffff;   /* header + footer bands, clean against the bone */
   --paper:        #eeeae0;   /* bone — faintly warm, not beige */
   --paper-2:      #e4dfd2;   /* deeper bone surface */
   --paper-3:      #dad3c1;   /* card / well surface */
@@ -120,6 +121,7 @@
      --grain-overlay is the much lighter veil across everything else. */
   --grain-surface: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='1'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   --grain-overlay: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='1'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --grain-card: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.45'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");   /* cards are small surfaces: half strength */
   --grain-tile: 160px 160px;
 
   --shadow-play: 0 1px 6px rgba(33, 29, 46, 0.55);   /* play-button icon drop-shadow */

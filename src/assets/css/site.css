@@ -48,11 +48,15 @@ body {
 
 /* Light grounds and cards carry their own grain, so the texture reads on
    paper without dirtying photographs. */
-.section--alt,
+.section--alt {
+  background-image: var(--grain-surface);
+  background-size: var(--grain-tile);
+  background-blend-mode: overlay;
+}
 .pcard:not(.pcard--featured),
 .track,
 .way {
-  background-image: var(--grain-surface);
+  background-image: var(--grain-card);
   background-size: var(--grain-tile);
   background-blend-mode: overlay;
 }
@@ -206,7 +210,7 @@ main { min-height: 50vh; }
 .site-header {
   position: relative;
   z-index: 50;
-  background: var(--white);
+  background: var(--paper-0);
   border-bottom: 1px solid var(--border);
 }
 .site-header__inner {
@@ -270,7 +274,7 @@ main { min-height: 50vh; }
 .site-header--overlay .site-nav a,
 .site-header--overlay .site-nav__donate { color: var(--white); }
 .site-header--overlay .btn--stroke { border-color: var(--white); color: var(--white); }
-.site-header--overlay .btn--stroke:hover { background: var(--white); color: var(--text); }
+.site-header--overlay .btn--stroke:hover { background-color: var(--white); color: var(--text); }
 
 /* — Buttons ————————————————————————————————————————————————— */
 .btn {
@@ -318,7 +322,7 @@ main { min-height: 50vh; }
 
 /* — Footer ——————————————————————————————————————————————————— */
 .site-footer {
-  background: var(--white-smoke);
+  background: var(--paper-0);
   border-top: 1px solid var(--border);
   padding-block: var(--space-xl);
   font-size: var(--fs-small);

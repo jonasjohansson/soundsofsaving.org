@@ -99,7 +99,7 @@ ogType: website
     padding: var(--space-xs) var(--space-sm);
     border: 1px solid var(--line-strong);
     border-radius: var(--radius);
-    background: var(--paper);
+    background: var(--paper-0);
     color: var(--text);
   }
   .finder__search input:focus-visible {
@@ -119,7 +119,7 @@ ogType: website
     padding: var(--space-2xs) var(--space-xs);
     border: 1px solid var(--line-strong);
     border-radius: var(--radius);
-    background: var(--paper);
+    background: var(--paper-0);
     color: var(--text);
   }
   .finder__field select:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
@@ -191,12 +191,20 @@ ogType: website
     color: var(--accent-deep);
   }
   .resource-card p { font-size: var(--fs-small); color: var(--text-muted); line-height: var(--lh-base); margin: 0; }
+  .resource-card > p:not(.resource-card__name) {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
   .resource-card__tags { display: flex; flex-wrap: wrap; gap: var(--space-3xs); margin-top: var(--space-2xs); }
   .resource-card__tags .tag {
     color: var(--accent-deep);
     background: var(--paper-3);
     border-radius: var(--radius-pill);
     padding: 2px var(--space-2xs);
+    font-size: var(--fs-micro);
   }
   .resource-card__meta {
     font-size: var(--fs-small);
