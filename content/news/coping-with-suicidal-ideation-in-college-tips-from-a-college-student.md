@@ -25,11 +25,9 @@ For example, many colleges, including my own, have begun to offer mental health 
 
 [**NAMI**](https://www.nami.org/help)has on campus & online resources
 
-• NAMI Hotlines:
-
-• Call 800-950-NAMI
-
-• Text NAMI to 741741
+- NAMI Hotlines:
+- Call 800-950-NAMI
+- Text NAMI to 741741
 
 [**ADAA**](https://adaa.org/): Offers free peer support and online communities
 

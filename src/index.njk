@@ -172,9 +172,9 @@ eleventyComputed:
      spans both rows so the left column reads top-down against it. */
   .featured {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
     grid-template-rows: auto 1fr;
-    grid-template-areas: "meta media" "links media";
+    grid-template-areas: "media meta" "media links";
     gap: var(--space-md) var(--space-xl);
     align-items: start;
   }
@@ -208,6 +208,9 @@ eleventyComputed:
     color: var(--paper);
   }
   .featured__play svg { width: 64px; height: 64px; filter: drop-shadow(var(--shadow-play)); opacity: 0.95; }
+  .featured__titlelink { display: block; color: inherit; text-decoration: none; }
+  .featured__titlelink:hover .featured__artist,
+  .featured__titlelink:focus-visible .featured__artist { color: var(--accent); }
   .featured__artist { font-family: var(--font-display); font-size: var(--fs-h2); line-height: var(--lh-tight); margin: 0; }
   .featured__song { font-size: var(--fs-lead); color: var(--text-muted); margin: var(--space-3xs) 0 0; }
   .featured__links { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-2xs); margin: 0; }
@@ -297,8 +300,10 @@ eleventyComputed:
         </span>
       </a>
       <div class="featured__meta">
-        <p class="featured__artist">{{ featured.artist }}</p>
-        {% if featured.song_title %}<p class="featured__song">{{ featured.song_title }} by {{ featured.covers or featured.artist }}</p>{% endif %}
+        <a class="featured__titlelink" href="{{ featured.url }}">
+          <p class="featured__artist">{{ featured.artist }}</p>
+          {% if featured.song_title %}<p class="featured__song">{{ featured.song_title }} by {{ featured.covers or featured.artist }}</p>{% endif %}
+        </a>
       </div>
       <p class="featured__links">
         <a class="home-more" href="/sessions/">See all {{ sessions.length }} sessions &rarr;</a>
@@ -324,8 +329,10 @@ eleventyComputed:
         {% if fStory.image %}<img class="media media--full" src="{{ fStory.image | img }}" alt="{{ fStory.title }}"{% if fStory.dims %} width="{{ fStory.dims.width }}" height="{{ fStory.dims.height }}"{% endif %} loading="lazy" decoding="async" />{% endif %}
       </a>
       <div class="featured__meta">
-        <p class="featured__artist">{{ fStory.title }}</p>
-        {% if fStory.author %}<p class="featured__song">{{ fStory.author }}</p>{% endif %}
+        <a class="featured__titlelink" href="{{ fStory.url }}">
+          <p class="featured__artist">{{ fStory.title }}</p>
+          {% if fStory.author %}<p class="featured__song">{{ fStory.author }}</p>{% endif %}
+        </a>
       </div>
       <p class="featured__links">
         <a class="home-more" href="{{ fStory.url }}">Read this interview &rarr;</a>
@@ -447,7 +454,9 @@ eleventyComputed:
       fImg.src = f.base + "-800.webp";
       fImg.alt = f.artist;
     }
+    var fTitle = document.querySelector(".featured:not(.featured--story) .featured__titlelink");
     if (fLink && f.url) { fLink.setAttribute("href", f.url); }
+    if (fTitle && f.url) { fTitle.setAttribute("href", f.url); }
     if (fArtist) { fArtist.textContent = f.artist; }
     if (fSong) {
       if (f.song) { fSong.textContent = f.song + " by " + (f.covers || f.artist); fSong.style.display = ""; }
@@ -469,6 +478,8 @@ eleventyComputed:
       if (stMedia && st.url) { stMedia.setAttribute("href", st.url); stMedia.setAttribute("aria-label", "Read " + st.title); }
       if (stTitle) { stTitle.textContent = st.title; }
       if (stAuthor) { if (st.author) { stAuthor.textContent = st.author; stAuthor.style.display = ""; } else { stAuthor.style.display = "none"; } }
+      var stTitleLink = document.querySelector(".featured--story .featured__titlelink");
+      if (stTitleLink && st.url) { stTitleLink.setAttribute("href", st.url); }
       if (stRead && st.url) { stRead.setAttribute("href", st.url); }
     }
   })();

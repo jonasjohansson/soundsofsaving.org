@@ -80,9 +80,12 @@ ogType: website
 
   .finder__controls {
     position: sticky;
-    top: var(--header-h);
+    top: 0;
     z-index: 5;
-    background: var(--bg);
+    background-color: var(--bg);
+    background-image: var(--grain-surface);
+    background-size: var(--grain-tile);
+    background-blend-mode: overlay;
     padding-block: var(--space-sm);
     margin-bottom: var(--space-md);
     border-bottom: 1px solid var(--border);
@@ -106,10 +109,12 @@ ogType: website
   }
 
   .finder__filters { display: grid; gap: var(--space-sm); grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); align-items: end; }
-  .finder__field { display: grid; gap: var(--space-3xs); }
+  .finder__field { display: grid; gap: var(--space-3xs); min-width: 0; }
   .finder__field label { color: var(--accent-deep); }
   .finder__field select {
     font: inherit;
+    width: 100%;
+    min-width: 0;
     font-size: var(--fs-small);
     padding: var(--space-2xs) var(--space-xs);
     border: 1px solid var(--line-strong);

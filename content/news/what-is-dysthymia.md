@@ -11,19 +11,13 @@ In the fall of 2022, I received a diagnosis that would change the way I understo
 
 According to the American Psychological Association, one must experience a depressed mood for a majority of the time, along with at least two of the following symptoms:
 
-• Poor appetite or overeating
-
-• Insomnia or excessive sleep
-
-• Low energy or fatigue
-
-• Low self-esteem
-
-• Poor concentration
-
-• Indecisiveness
-
-• Hpelessness
+- Poor appetite or overeating
+- Insomnia or excessive sleep
+- Low energy or fatigue
+- Low self-esteem
+- Poor concentration
+- Indecisiveness
+- Hpelessness
 
 ![](/assets/img/news/what-is-dysthymia-1.png)
 

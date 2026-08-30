@@ -67,15 +67,11 @@ concentrations of individual pollutants to these standards.
 
 The National Ambient Air Quality Standards for the five major pollutants are as follows:
 
-• Ground-Level Ozone: 70 parts per billion (ppb) for an 8-hour average.
-
-• Carbon Monoxide: 35 parts per million (ppm) for a 1-hour average.
-
-• Sulfur Dioxide: 75 parts per billion (ppb) for a 1-hour average.
-
-• Nitrogen Dioxide: 0.053 parts per million (ppm) for an annual average.
-
-• Fine Particulate Matter (PM2.5): 9.0 micrograms per cubic meter (µg/m³).
+- Ground-Level Ozone: 70 parts per billion (ppb) for an 8-hour average.
+- Carbon Monoxide: 35 parts per million (ppm) for a 1-hour average.
+- Sulfur Dioxide: 75 parts per billion (ppb) for a 1-hour average.
+- Nitrogen Dioxide: 0.053 parts per million (ppm) for an annual average.
+- Fine Particulate Matter (PM2.5): 9.0 micrograms per cubic meter (µg/m³).
 
 It’s important to note that these standards represent the maximum levels of safe exposure. Health
 
