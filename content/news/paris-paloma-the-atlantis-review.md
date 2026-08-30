@@ -3,7 +3,7 @@ title: "Paris Paloma at The Atlantis: Feminine Rage and Feminine Joy"
 date: 2024-06-25
 author: Review by Saskia Jorgensen
 image: /assets/img/news/paris-paloma-the-atlantis-review.jpg
-summary: "Singer-songwriter Paris Paloma’s “labour” recentlyblew up on social media as an outlet for female-identifying people to voice their frustrations and anger with living in our patriarchal society...."
+summary: "Singer-songwriter Paris Paloma’s “labour” recently blew up on social media as an outlet for female-identifying people to voice their frustrations and anger with living in our patriarchal society...."
 category: archive
 ---
 

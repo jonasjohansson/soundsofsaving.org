@@ -88,11 +88,11 @@ I kind of always struggled with daydreaming and wanting to be more than what I a
 
 **SOS:** **Yep. Just anything.**
 
-**Amira:** I feel like I'm starting to overcome a lot of anxiety, which I'm very proud of. I recently started going to therapy again. That's something that's really been a step for me. Also, my confidence as a woman, getting older and just letting go. As a woman, there is so much pressure and expectations. I spent a lot of time being obsessed with how we [women] look and what we do and how we sing and how we sound. I just feel that I was able to let go of so much of that, just by being on stage every night and being able to be a voice for a lot of people. That's the most beautiful thing, so nothing else matters to me. I'm so *obsessed*with wanting to just be my authentic self.
+**Amira:** I feel like I'm starting to overcome a lot of anxiety, which I'm very proud of. I recently started going to therapy again. That's something that's really been a step for me. Also, my confidence as a woman, getting older and just letting go. As a woman, there is so much pressure and expectations. I spent a lot of time being obsessed with how we [women] look and what we do and how we sing and how we sound. I just feel that I was able to let go of so much of that, just by being on stage every night and being able to be a voice for a lot of people. That's the most beautiful thing, so nothing else matters to me. I'm so *obsessed* with wanting to just be my authentic self.
 
 **SOS: I love that you’re able to let go of so much of that weight. About perfectionism, that's such a good way to put it, especially because it’s so forgiving to be on stage. Is there anything that you'd like to do to take care of yourself and share with us?**
 
-**Amira:** I like to get my hair and my nails done, I like to get massages. I would say I'm very much of a homebody, so I like to take care of myself and do things that make me feel *good*about myself. Then I really enjoy just being at home and watching shitty reality TV shows and eating food.
+**Amira:** I like to get my hair and my nails done, I like to get massages. I would say I'm very much of a homebody, so I like to take care of myself and do things that make me feel *good* about myself. Then I really enjoy just being at home and watching shitty reality TV shows and eating food.
 
 **SOS: What are you watching right now?**
 
@@ -126,7 +126,7 @@ I kind of always struggled with daydreaming and wanting to be more than what I a
 
 **SOS: One of my favorites tracks of your EP as for now is *Save Yourself*. Can you talk a bit about the story of the song and what it means to you?**
 
-**I kept thinking about the juxtaposition of these two lines from*Save Yourself* and *Coming Dow*n:**
+**I kept thinking about the juxtaposition of these two lines from*Save Yourself* and *Coming Dow* n:**
 
 “***You only save yourself/ I'll come crashing through’’***
 
@@ -134,9 +134,9 @@ I kind of always struggled with daydreaming and wanting to be more than what I a
 
 “***I'm coming down, I'm crashing now.’’***
 
-**Amira:** You asked about song-writing earlier so I think, subconsciously the songs kind of form itself. Then, I'm able to relate to them afterwards and make a general consensus of what I think. *Save Yourself,*for me, is just about that toxic love — like in BPD, all you see is this person and in the end, you lose yourself so hard that you can't save yourself because *they're*saving themselves*.* It took a very long time for me to build the confidence to put myself above everyone else, and I still struggle with that a lot.
+**Amira:** You asked about song-writing earlier so I think, subconsciously the songs kind of form itself. Then, I'm able to relate to them afterwards and make a general consensus of what I think. *Save Yourself,*for me, is just about that toxic love — like in BPD, all you see is this person and in the end, you lose yourself so hard that you can't save yourself because *they're* saving themselves*.* It took a very long time for me to build the confidence to put myself above everyone else, and I still struggle with that a lot.
 
-*Coming Down*is about being high on intense emotions, the high highs and low lows is something that I deal with a lot. I feel like Coming Down is a more personal one and Save Yourself is more like like a *Fuck you* .
+*Coming Down* is about being high on intense emotions, the high highs and low lows is something that I deal with a lot. I feel like Coming Down is a more personal one and Save Yourself is more like like a *Fuck you* .
 
 **SOS: What song found you at the right time?**
 

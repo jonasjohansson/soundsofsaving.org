@@ -9,7 +9,7 @@ category: archive
 
 Ireland’s Two Door Cinema Club visited Roadrunner in Boston on February 27 and proved once again why they’ve remained a formidable force in the indie rock scene.
 
-The venue–filled with fans young & old–buzzed with anticipation during joywave’s eccentric opening set. Joywave kicked off with newer releases (“Brain Damage” & ‘The Mall’), but also revved up the crowd with their 2015 hit single “Dangerous.” TDCC took the stage just after nine, and sprinkled songs off their entire discography, with a majority from their iconic 2010 & 2012 albums, *Tourist History*and *Beacon*.
+The venue–filled with fans young & old–buzzed with anticipation during joywave’s eccentric opening set. Joywave kicked off with newer releases (“Brain Damage” & ‘The Mall’), but also revved up the crowd with their 2015 hit single “Dangerous.” TDCC took the stage just after nine, and sprinkled songs off their entire discography, with a majority from their iconic 2010 & 2012 albums, *Tourist History* and *Beacon*.
 
 TDCC has been open about how mental health, drug addiction, and playing in a band together for “more than half their lives” impacted the band. Just at the height of their career in 2014, the band announced its hiatus. In 2019, lead singer Alex Trimble told The Sun, “It was sex, drugs and rock ’n’ roll for years. Then it fell apart. It was never really about the job or the band. We were human beings and we’d been punishing ourselves.”
 

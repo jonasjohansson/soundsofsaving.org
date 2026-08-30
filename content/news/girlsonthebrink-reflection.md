@@ -3,15 +3,15 @@ title: Reflections on Donna Jackson Nakazawa's 'Girls on the Brink'
 date: 2024-03-29
 author: Saskia Jorgensen
 image: /assets/img/news/girlsonthebrink-reflection.jpg
-summary: Donna Jackson Nakazawa's Girls on the Brinkshares 15 strategies for raising emotionally healthful girls admist the concerning state of adolescent mental health. After her talk at UCLA's Open Mind...
+summary: Donna Jackson Nakazawa's Girls on the Brink shares 15 strategies for raising emotionally healthful girls admist the concerning state of adolescent mental health. After her talk at UCLA's Open Mind...
 category: learn
 ---
 
-Donna Jackson Nakazawa's *Girls on the Brink*shares 15 strategies for raising emotionally healthful girls admist the concerning state of adolescent mental health. After her talk at UCLA's Open Mind series, we reflected on how music can be harbored to positively influence the lives of today's teens.
+Donna Jackson Nakazawa's *Girls on the Brink* shares 15 strategies for raising emotionally healthful girls admist the concerning state of adolescent mental health. After her talk at UCLA's Open Mind series, we reflected on how music can be harbored to positively influence the lives of today's teens.
 
 We were thrilled to attend the recent conversation between *Girls on the Brink* author Donna Jackson Nakazawa and researcher and clinician Dr. Ada Gillis hosted as part of the insightful [Open Mind](https://www.friendsofsemelinstitute.org) series hosted by the UCLA Friends of the Semel Institute for Neuroscience and Human Behavior.
 
-*Girls on the Brink*highlights the concerning state of mental health among adolescent girls, specifically referencing 2019 findings that 1 in 3 adolescent girls experience symptoms of Major Depressive Disorder, compared to 1 in 10 adolescent boys. The conversation between Nakazawa and Dr. Gillis explored potential explanations for these discrepancies and the ways that parents can support their teens.
+*Girls on the Brink* highlights the concerning state of mental health among adolescent girls, specifically referencing 2019 findings that 1 in 3 adolescent girls experience symptoms of Major Depressive Disorder, compared to 1 in 10 adolescent boys. The conversation between Nakazawa and Dr. Gillis explored potential explanations for these discrepancies and the ways that parents can support their teens.
 
 As our own work at SoS aims to support adolescent mental health, Nakazawa's talk led us to reflect on the ways that music and art can positively influence the lives of today’s teens.
 

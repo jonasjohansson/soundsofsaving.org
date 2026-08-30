@@ -13,7 +13,7 @@ By Alyssa Goldberg
 
 ![](/assets/img/news/is-it-heaven-or-is-it-just-palace-at-webster-hall.jpeg)
 
-UK indie-rock band **Palace** made their long-awaited return to New York Thursday night, following the release of their third album *Shoals* earlier this year. The band headlined a sold-out show at Webster Hall, kicking off their set with the title-track from their new album. As soon as the set started, the crowd fell silent and lead-singer **Leo Wyndhan’s**crisp, mesmerizingvocals filled the venue.
+UK indie-rock band **Palace** made their long-awaited return to New York Thursday night, following the release of their third album *Shoals* earlier this year. The band headlined a sold-out show at Webster Hall, kicking off their set with the title-track from their new album. As soon as the set started, the crowd fell silent and lead-singer **Leo Wyndhan’s** crisp, mesmerizingvocals filled the venue.
 
 Palace continued with singles off the new album, playing “Shame on You” and “Lover (Don’t Let Me Down)” before moving into the title-track of their debut album *So Long Forever*(2016). Old favorites were welcomed with ecstatic cheers from fans, especially when they heard the first few chords of “Live Well” (which, personally was my #1 song on Spotify Wrapped last year).
 

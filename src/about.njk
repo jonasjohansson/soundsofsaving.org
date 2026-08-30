@@ -4,7 +4,7 @@ current: about
 permalink: /about/
 title: About Us
 eleventyComputed:
-  description: "{{ pages.about.meta_description }}"
+  description: "{{ pages.about.meta_description | safe }}"
 ogType: website
 ogImage: "/assets/img/site/group.jpg"
 ogImageAlt: "Four young people laughing together in a school gym"

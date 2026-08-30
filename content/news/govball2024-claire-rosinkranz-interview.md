@@ -3,7 +3,7 @@ title: "Governor's Ball 2024: Claire Rosinkranz shares self-care habits after ex
 date: 2024-06-12
 author: Interview by Alyssa Goldberg
 image: /assets/img/news/govball2024-claire-rosinkranz-interview.jpg
-summary: Sounds of Saving checked-in with the 20-year-old singer-songwriter after her midday set at Governor's Ball 2024 todiscusses how songwriting helps with mental health, collaborating musically with...
+summary: Sounds of Saving checked-in with the 20-year-old singer-songwriter after her midday set at Governor's Ball 2024 to discuss how songwriting helps with mental health, collaborating musically with...
 category: story
 cluster: interviews
 ---

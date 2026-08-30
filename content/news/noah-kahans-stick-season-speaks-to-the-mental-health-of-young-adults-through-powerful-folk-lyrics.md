@@ -32,7 +32,7 @@ While the topic of juxtaposition between nostalgia for home and wanting to leave
 
 With Kahan spotlighting mental health as much as he does, it’s not a surprise that he is gaining quite the following, particularly with young adults and college students. College years are some of the most stressful years in a person’s life. During these four or more years, one must decide what they want to do with what seems like the rest of their lives before they jump into the void of uncertainty that is life after college. This fact alone takes its toll. In a study by the Newport Institute, researchers found in 2021 that about 60% of college students suffer from depression, which is a 50% increase from ten years ago. Despite this massive number, students still feel incredibly isolated in their feelings and experiences. This is where Noah Kahan’s music particularly shines through.
 
-Kahan’s lyrics offer a beacon of light to those who feel as though no one else shares their feelings. And to these students who are far from home and the people they called their own, *Stick Season*proves that they are not alone, that they are heard, and they are seen. From the hometown-nostalgia songs of “Homesick” and “Come Over,” to the therapy-style “Growing Sideways,” Kahan has connected college students across the country.
+Kahan’s lyrics offer a beacon of light to those who feel as though no one else shares their feelings. And to these students who are far from home and the people they called their own, *Stick Season* proves that they are not alone, that they are heard, and they are seen. From the hometown-nostalgia songs of “Homesick” and “Come Over,” to the therapy-style “Growing Sideways,” Kahan has connected college students across the country.
 
 **Works Cited**
 

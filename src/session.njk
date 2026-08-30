@@ -7,13 +7,13 @@ pagination:
   alias: session
 permalink: "{{ session.url }}"
 eleventyComputed:
-  title: "{{ session.title }}"
-  description: "{{ session.excerpt }}"
+  title: "{{ session.title | safe }}"
+  description: "{{ session.excerpt | safe }}"
   ogType: "video.other"
   ogImage: "{{ session.thumbnail }}"
   ogImageW: "{{ session.dims.width if session.dims else '' }}"
   ogImageH: "{{ session.dims.height if session.dims else '' }}"
-  ogImageAlt: "{{ session.title }}"
+  ogImageAlt: "{{ session.title | safe }}"
 ---
 {% pageCss "session" %}
 

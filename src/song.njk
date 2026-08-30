@@ -6,7 +6,7 @@ pagination:
   alias: song
 permalink: "{{ song.url }}"
 eleventyComputed:
-  title: "{{ song.title }}"
+  title: "{{ song.title | safe }}"
   description: "This episode now lives under /sessions/."
   sitemap: false
   robots: "noindex, follow"

@@ -22,7 +22,7 @@ When I warn him that I’ll be asking some deeply personal questions, he doesn�
  **SoS:** Yeah, I tricked you into it.
  **Kahan:** No, it's great. I feel happier already.
 
-Kahan was born in the small town of Strafford, Vermont, and attended school across the river at Hanover High School in New Hampshire. In a town of just over 1000 people, *everybody*knew *everybody*. Nonetheless, Kahan’s never shied away from sharing his experiences with mental health, a theme that appears across *Stick Season*.
+Kahan was born in the small town of Strafford, Vermont, and attended school across the river at Hanover High School in New Hampshire. In a town of just over 1000 people, *everybody* knew *everybody*. Nonetheless, Kahan’s never shied away from sharing his experiences with mental health, a theme that appears across *Stick Season*.
 
 On the viral title track, he sings, “*So I thought that if I piled something good on all my bad / That I could cancel out the darkness I inherited from dad.*”
 

@@ -5,15 +5,21 @@ pagination:
   size: 1
   alias: post
 permalink: "{{ post.url }}"
+# `| safe` on every field that carries human text. An eleventyComputed value
+# is itself a Nunjucks template, so it autoescapes once here ("Nakazawa's" ->
+# "Nakazawa&#39;s") and base.njk then escapes the ampersand again, publishing
+# "Nakazawa&amp;#39;s" into <title>, description and og: tags — which is what
+# Google and every social card would show. `| safe` keeps this pass raw and
+# lets the final template do the single, correct escape.
 eleventyComputed:
   current: "{{ post.section }}"
-  title: "{{ post.title }}"
-  description: "{{ post.summary or post.excerpt }}"
+  title: "{{ post.title | safe }}"
+  description: "{{ (post.summary or post.excerpt) | safe }}"
   ogType: "article"
   ogImage: "{{ post.image }}"
   ogImageW: "{{ post.dims.width if post.image else '' }}"
   ogImageH: "{{ post.dims.height if post.image else '' }}"
-  ogImageAlt: "{{ post.title }}"
+  ogImageAlt: "{{ post.title | safe }}"
 ---
 {# Back-link + index label derived from the post's section. #}
 {% set backUrl = "/stories/" if post.section == "stories" else ("/archive/" if post.section == "archive" else "/resources/#understanding-mental-health") %}

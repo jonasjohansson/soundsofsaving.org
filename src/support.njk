@@ -4,7 +4,7 @@ current: support
 permalink: /support/
 title: Support
 eleventyComputed:
-  description: "{{ pages.support.meta_description }}"
+  description: "{{ pages.support.meta_description | safe }}"
 ogType: website
 ogImage: "/assets/img/site/hug.jpg"
 ogImageAlt: "Two people embracing in an auditorium"

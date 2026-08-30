@@ -56,7 +56,7 @@ If I’m going through something secretly and I’m on tour, I’m just me in th
 
 **SoS:** There’s something really cathartic about screaming.
 
-**Field Medic:** Yeah, you know what I’m saying. My music is not screaming, it’s more sensitive. I don’t know if it comes through in *my*music, but for me as a person it’s very helpful to have that.
+**Field Medic:** Yeah, you know what I’m saying. My music is not screaming, it’s more sensitive. I don’t know if it comes through in *my* music, but for me as a person it’s very helpful to have that.
 
 **SoS:** Do you ever want to just scream onstage?
 

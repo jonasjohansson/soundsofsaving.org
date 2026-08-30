@@ -8,7 +8,7 @@ category: story
 cluster: interviews
 ---
 
-Trop-pop duo **Summer Salt** – singer/guitarist **Matthew Terry** and drummer **Eugene Chung** – released *The Jupiter Songbook*on March 11, a 10-track album that revisits eight previously released songs, along with a new song, “Hideaway,” written by Chung and a slow pop cover of Bob Marley’s “One Cup of Coffee.” Currently, the band is hitting venues across the country with support from Reneta Zeiger and Kate Stephenson. On “The Soft Serve Tour,” Summer Salt has been performing special, stripped-down sets, similar in nature to *The Jupiter Songbook*’s intimacy. We spoke with Chung on the inspiration behind reimagining their past and keeping up with mental health on the road.
+Trop-pop duo **Summer Salt** – singer/guitarist **Matthew Terry** and drummer **Eugene Chung** – released *The Jupiter Songbook* on March 11, a 10-track album that revisits eight previously released songs, along with a new song, “Hideaway,” written by Chung and a slow pop cover of Bob Marley’s “One Cup of Coffee.” Currently, the band is hitting venues across the country with support from Reneta Zeiger and Kate Stephenson. On “The Soft Serve Tour,” Summer Salt has been performing special, stripped-down sets, similar in nature to *The Jupiter Songbook*’s intimacy. We spoke with Chung on the inspiration behind reimagining their past and keeping up with mental health on the road.
 
 **SOUNDS OF SAVING: The name “Summer Salt” has such a specific vibe to it. To me, it sounds like saltwater misting through the air as you ride a bike through an empty beach town. Where did the name come from, and does it have an underlying meaning?**
 

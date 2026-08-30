@@ -3,11 +3,11 @@ title: "Review: My Kink is Watching Chappell Roan Bring the House of Blues Down"
 date: 2023-10-17
 author: Alyssa Goldberg
 image: /assets/img/news/review-chappell-roan-house-of-blues-boston.png
-summary: "Pop-icon Chappell Roan broughtThe Midwest PrincessTourto the House of Blues in Boston Sunday night with a red & black theme for her song \"My Kink is Karma.\""
+summary: "Pop-icon Chappell Roan brought The Midwest Princess Tour to the House of Blues in Boston Sunday night with a red & black theme for her song \"My Kink is Karma.\""
 category: archive
 ---
 
-*Pop-icon Chappell Roan brought*The Midwest PrincessTour*to the House of Blues in Boston Sunday night with a red & black theme for her song "My Kink is Karma."*
+*Pop-icon Chappell Roan brought* The Midwest PrincessTour*to the House of Blues in Boston Sunday night with a red & black theme for her song "My Kink is Karma."*
 
 If you see a line formed around the block and over a bridge on your way into a venue, you get the feeling it's going to be a special show. Chappell Roan––the queer, emerging pop-star from Missouri––brought The Midwest Princess Tour to the House of Blues Boston on Sunday, October 15 along with three local drag queens for a spectacular performance.
 

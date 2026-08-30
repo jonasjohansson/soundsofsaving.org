@@ -21,4 +21,4 @@ The album ends with the beautiful, softly sung ballad “Room Service.” Humber
 
 –––
 
-**Holly Humberstone's debut album *Paint My Bedroom Black*was released Friday, October 13. Listen here:**
+**Holly Humberstone's debut album *Paint My Bedroom Black* was released Friday, October 13. Listen here:**

@@ -5,7 +5,7 @@ permalink: /
 title: ""
 heroOverlayNav: true
 eleventyComputed:
-  description: "{{ settings.seo.home or settings.meta_description }}"
+  description: "{{ (settings.seo.home or settings.meta_description) | safe }}"
 ogImage: "/assets/img/ig/banner-rooftop.jpg"
 ogImageAlt: "A rooftop banner reading: what song found you at the right time?"
 ---
