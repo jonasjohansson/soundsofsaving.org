@@ -10,21 +10,21 @@ cluster: interviews
 
 ***Shoegaze band Hotline TNT is local to New York City, but Governor's Ball wasn't just any show for the four-piece. Their typical sets are more intimate, so we took a few moments away from the hustle and bustle of the festival to sit at a picnic table and chat about the band's journey, creative process, and open communication on tour. The band shared their tradition of "check-in Thursdays," where the band takes time each week to openly discuss both positive and challenging aspects of life on the road. This practice has helped foster communication and support between bandmates when stresses arise, and despite the name, does not only occur on Thursday's.***
 
-**SOUNDS OF SAVING:**What is it like creating music together and how has that grown as the band develops?
+**SOUNDS OF SAVING:** What is it like creating music together and how has that grown as the band develops?
 
-**LUCKY:**Most of us are pretty new to the band. Well, Haylen and I are. Mike's been in the band for a while, but we're kind of just now getting a taste of making music together. Previously, Will was the mind behind everything. But at this point, Will will have an idea and bring it to us fairly complete, but we each have our input as to how we're going to do our part in the songs. It does feel collaborative to an extent that I'm really comfortable with, [it] feels good to me.
+**LUCKY:** Most of us are pretty new to the band. Well, Haylen and I are. Mike's been in the band for a while, but we're kind of just now getting a taste of making music together. Previously, Will was the mind behind everything. But at this point, Will will have an idea and bring it to us fairly complete, but we each have our input as to how we're going to do our part in the songs. It does feel collaborative to an extent that I'm really comfortable with, [it] feels good to me.
 
-**MIKE:**You said it, buddy.
+**MIKE:** You said it, buddy.
 
 **WILL**: I think the more time we spend together, the more I think we trust each other and feel comfortable. Our tastes are pretty similarly alligned and it just takes a while to kind of figure that out. And that's what we're doing. We're getting there.
 
 **SOS**: When you make music does it comes from a place of thinking about how it sounds or about the lyrics and the story that you're telling with your music?
 
-**WILL:**I would say neither. We're not too focused on like the tone. I mean, some of us more than others, but like, as the principal songwriter, I'm not thinking about the tone of the guitars or anything like that. But I also don't overthink the lyrics too much either. It's more just about like catchy kind of melodies.
+**WILL:** I would say neither. We're not too focused on like the tone. I mean, some of us more than others, but like, as the principal songwriter, I'm not thinking about the tone of the guitars or anything like that. But I also don't overthink the lyrics too much either. It's more just about like catchy kind of melodies.
 
 **LUCKY**: Will's goal is to get a Hotline TNT song stuck in your head so you won't forget it.
 
-**SOS:**How do you see community building as a part of your live show and your fan base?
+**SOS:** How do you see community building as a part of your live show and your fan base?
 
 **LUCKY**: I feel like it comes down to just having, like, we see a lot of the same people when we play. For me it's important because it makes me feel comfortable to see like familiar faces.
 
@@ -42,7 +42,7 @@ cluster: interviews
 
 **SOS**: What's Monday, Tuesday, Wednesday?
 
-**MIKE:**We were actually gonna try to do that.
+**MIKE:** We were actually gonna try to do that.
 
 **WILL**: We have our we have a meeting with our manager every Thursday and just felt like, after we meet with them, let's have our own internal meeting.
 
@@ -52,9 +52,9 @@ cluster: interviews
 
 **LUCKY**: That being said sometimes check in Thursday is not on Thursday, but we still do refer to it as "Check-In Thursday."
 
-**SOS:**How did that start? Was tour getting more stressful and you guys thought like, how can we communicate well with each other? Or did it just kind of come about on its own?
+**SOS:** How did that start? Was tour getting more stressful and you guys thought like, how can we communicate well with each other? Or did it just kind of come about on its own?
 
-**WILL:**I think it maybe it came out in a pretty light-hearted time. We were having a really great time and it like, everyone wanna say something about how you're feeling about the tour and stuff? It was like good time. I'm a 10 year advocate of therapy and I see the value in talking about stuff. Yeah, it started as a joke that became valuable quickly.
+**WILL:** I think it maybe it came out in a pretty light-hearted time. We were having a really great time and it like, everyone wanna say something about how you're feeling about the tour and stuff? It was like good time. I'm a 10 year advocate of therapy and I see the value in talking about stuff. Yeah, it started as a joke that became valuable quickly.
 
 **HAYLEN**: Yeah, we look forward to it honestly. Like, it's good for us. Lucky and I have played in bands in the past touring bands where we didn't do stuff like that, and so we see the positive effects of it. I look back and I think man if we had done this in the past,, maybe things will be different. But yeah, there's a lot of value in it for sure.
 

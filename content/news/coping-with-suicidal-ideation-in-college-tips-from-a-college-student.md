@@ -17,7 +17,7 @@ If you are struggling, utilize your college's resources. Many colleges and unive
 
 In my first month of college, I’ve already seen how easy it is to neglect self care and healthy coping mechanisms by isolating and overworking yourself. It can be difficult to put yourself out there, but finding community is key to taking care of your mental health.
 
-**If you see your friends struggling,**the first step is simply starting an open conversation with your friend, and helping them find support. Colleges have been changing the conversation around mental health by working to end the stigma and encouraging schools to provide support.
+**If you see your friends struggling,** the first step is simply starting an open conversation with your friend, and helping them find support. Colleges have been changing the conversation around mental health by working to end the stigma and encouraging schools to provide support.
 
 For example, many colleges, including my own, have begun to offer mental health workshops during orientation. Not only does mental health education reminds those who are struggling that they’re not alone, it teaches students how to see the signs of suicide and seek support for themselves or friends.
 

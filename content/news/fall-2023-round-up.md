@@ -27,13 +27,13 @@ SoS Youth Advisory member [Solomon](https://www.instagram.com/sxlvmon/) shares w
 
 Artists and tours like this - when we get to interact with y'all and see how much impact artists and fans can make together - are why we do what we do. Thank you again to LVRN and 6LACK, and thank you to all that made this tour so great. –– ***SOS Team***
 
-**Chappel Roan at House of Blues (Boston, MA)***October 15, 2023*
+**Chappel Roan at House of Blues (Boston, MA)** *October 15, 2023*
 
 ![](/assets/img/news/fall-2023-round-up.jpg)
 
 [Chappell Roan](https://www.instagram.com/chappellroan/)––the emerging pop-star from Missouri––brought The Midwest Princess Tour to along with Boston’s own drag performers [Chanel the Angel](https://www.instagram.com/chaneltheeangel/), [Tara Dikhof](https://www.instagram.com/taradikhof/), and [Kulfi Jaan](https://www.instagram.com/the.kulfi.jaan/).
 
-Growing up in a small, religious town, Roan suppressed her feelings for girls throughout her adolescence, writing it off as a phase that would soon dissipate. It wasn’t until she left her hometown for Los Angeles that she embraced her queer identity and found a community of other LGBTQ+ people in the big city. Her shows are a celebration of queer joy, bringing along local drag queens to uplift the queer community in each city. She went through countless hurdles with labels to release her debut albu, *The Rise and Fall of a Midwest Princess,* but it's since ranked in the Top Albums of 2023 among *Pop Buzz* (#1), *Pitchfork, TIME*(#4)*,*and *Rolling Stone*, among other accolades.
+Growing up in a small, religious town, Roan suppressed her feelings for girls throughout her adolescence, writing it off as a phase that would soon dissipate. It wasn’t until she left her hometown for Los Angeles that she embraced her queer identity and found a community of other LGBTQ+ people in the big city. Her shows are a celebration of queer joy, bringing along local drag queens to uplift the queer community in each city. She went through countless hurdles with labels to release her debut albu, *The Rise and Fall of a Midwest Princess,* but it's since ranked in the Top Albums of 2023 among *Pop Buzz* (#1), *Pitchfork, TIME*(#4)*,* and *Rolling Stone*, among other accolades.
 
 Roan sets a theme based on her songs for each night of the tour––assigning colors, costumes, and general vibes to cities across the country. Sunday night, fans were dressed in red and black for "My Kink is Karma," styled with lace, fishnets, cowboy hats, gems and statement jewelry. Barricade liners screamed and waved dollar bills, cheering on the drag queens’ exquisite routines. One lucky fan was brought onstage to be crowned queen of the night with a bedazzled stash––matching the pearls she had arranged in a heart-shape around her face.
 
@@ -43,7 +43,7 @@ We had a moment to chat with a fan on the barricade, [Orly](https://www.instagra
 
 I haven't been able to stop listening to her musicsince the show––namely "After Midnight," "HOT TO GO!" and "Pink Pony Club." If Roan's not on your radar already, it's about time you catch on. –– ***Alyssa Goldberg***
 
-**Tomberlin at Murmrr Theater (Brooklyn, NY)***December 2, 2023*
+**Tomberlin at Murmrr Theater (Brooklyn, NY)** *December 2, 2023*
 
 ![Photo of musician Tomberlin playing guitar and signing in a low-lot concert venue.](/assets/img/news/fall-2023-round-up-1.jpg)
 
@@ -55,7 +55,7 @@ Next to me was an older man, maybe 70 or so, vibrantly enjoying the music, and T
 
 I left the show in awe of the talented singer/songwriter and her band, but also thinking, “I hope in five decades I am still going to and enjoying shows.” –– ***Kelly Schwint***
 
-**Yeule at Webster Hall (New York, NY)***October 15, 2023*
+**Yeule at Webster Hall (New York, NY)** *October 15, 2023*
 
 ![](/assets/img/news/fall-2023-round-up-2.png)
 
@@ -69,7 +69,7 @@ In Yeule's own words: "I've learned a lot more about the person I am. I need to 
 
 I just try not to get so low to that point of total darkness because at that point, you can't even write music, or do anything creative. My teenage years were very much like that. And I think maybe that's also why I revisited the music I was listening to at the time — it's like how smells remind you of things, music reminds me of things too." –– ***Nick Greto***
 
-**Tomberlin at Blue Note (New York, NY)***October 22, 2023*
+**Tomberlin at Blue Note (New York, NY)** *October 22, 2023*
 
 ![](/assets/img/news/fall-2023-round-up-3.png)
 
@@ -81,15 +81,15 @@ And then she peered inside to see the name of the headliner: “Oh. Robert Glasp
 
 Through music, the group also exemplified what real community looks like—collaborative and honoring, joined at different points in the set by [Amber Navran](https://www.instagram.com/amber.jeanne/) of [Moonchild](https://www.instagram.com/thisismoonchild/) and [gallant](https://www.instagram.com/sogallant/). The stage, with these voices, felt as though it extended to every wall, enveloping the room.
 
-Their instruments were in constant conversation, sounds overlapping and then retreating. Listening to [Terrace Martin's](https://www.instagram.com/terracemartin/) sax solo was equally as delightful, for example, as watching [Kamasi Washington](https://www.instagram.com/kamasiwashington/) silently listen along, his head bowed. *––Cassie Archdeacon***
+Their instruments were in constant conversation, sounds overlapping and then retreating. Listening to [Terrace Martin's](https://www.instagram.com/terracemartin/) sax solo was equally as delightful, for example, as watching [Kamasi Washington](https://www.instagram.com/kamasiwashington/) silently listen along, his head bowed. ***––Cassie Archdeacon***
 
-**Shakey Graves at Roadrunner (Boston, MA)***November 14, 2023*
+**Shakey Graves at Roadrunner (Boston, MA)** *November 14, 2023*
 
 ![Photograph of singer-songwriter Shakey Graves playing guitar in a low-lit concert venue with purple backlighting.](/assets/img/news/fall-2023-round-up-4.png)
 
 One of the first shows I covered for *Sounds of Saving*was Shakey Graves at Webster Hall, just a few months after he headlined my first post-Covid show in Greenfield, MA. I [wrote](taking-life-advice-from-shakey-graves.html): “I think I’m going to keep taking life advice from Shakey Graves, because if doing dumb shit means I’m driving alone to Massachusetts to see one of my favorite artists perform and chatting with every stranger I meet, or that I’m covering his show by myself on a Monday night during my college finals week, I guess I love doing dumb shit.” I can proudly say I’ve continued to do dumb shit, like cover his show on a Tuesday night even though I’m newly in grad school and had class at 9am the next morning. Why do I keep doing this? Because Shakey Graves’ shows remind me why I love live music. I feel invigorated by his insane guitar strumming, the candor in the rasp of his voice––which somehow always sounds even better live than recorded, just because you know he’s having fun with it––and the freeing stomping and hollering that somehow overtakes my body. He released his newest album, *Movie of the Week*, in September, and according to last.fm, I’ve already streamed the album's six minute closer, “Heartstopper,” 22 times. If you take one thing from this blurb, just go see Shakey Graves. You won’t regret it. –– ***Alyssa Goldberg***
 
-**Nai Palm at Baby’s All Right (Brooklyn, NY)***October 28, 2023*
+**Nai Palm at Baby’s All Right (Brooklyn, NY)** *October 28, 2023*
 
 ![](/assets/img/news/fall-2023-round-up-5.png)
 
@@ -101,15 +101,15 @@ A favorite SoS artist, Nai Palm has openly discussed details of her childhood in
 
 She told *Guardian*that recently “I had lost a breast and then I lost my bird…[but] loss is not a new thing to me; I’m an orphan and I’ve experienced a lot of death in my life. It’s a blessing to have the arts as a vehicle to process it. Sometimes the only thing that can really heal you is music.” –– ***Charlie Gross***
 
-**Slaughter Beach, Dog at Roadrunner (Boston, MA)***November 16, 2023*
+**Slaughter Beach, Dog at Roadrunner (Boston, MA)** *November 16, 2023*
 
 ![](/assets/img/news/fall-2023-round-up-6.jpg)
 
-Stepping into a Slaughter Beach, Dog show––which I've now done twice in two different cities, feels *weird.*I never necessarily "found" the band––as a fan of Modern Baseball, it was the natural next step to support Jake Ewald's solo project after the band's hiatus. At their show at Racket (West Village, NYC) in January, I overheard some teenagers talking about how they found Modern Baseball through Slaughter Beach, Dog, and that they wanted to be in the front row to catch a kiss (thank you, Matty Healy). I realized these kids were from a totally different generation––not there for midwest emo nostalgia but for a night of indie folk music, and per their latest album, crying, laughing, waving, smiling, and maybe some singing and dancing too. Their shows are an oasis of peace, nonetheless, predictable but in a way that brings comfort, like visiting an old friend.
+Stepping into a Slaughter Beach, Dog show––which I've now done twice in two different cities, feels *weird.* I never necessarily "found" the band––as a fan of Modern Baseball, it was the natural next step to support Jake Ewald's solo project after the band's hiatus. At their show at Racket (West Village, NYC) in January, I overheard some teenagers talking about how they found Modern Baseball through Slaughter Beach, Dog, and that they wanted to be in the front row to catch a kiss (thank you, Matty Healy). I realized these kids were from a totally different generation––not there for midwest emo nostalgia but for a night of indie folk music, and per their latest album, crying, laughing, waving, smiling, and maybe some singing and dancing too. Their shows are an oasis of peace, nonetheless, predictable but in a way that brings comfort, like visiting an old friend.
 
-On writing their latest album, *Crying, Laughing, Waving, Smiling,*Ewald [told](https://www.pastemagazine.com/music/slaughter-beach-dog/slaughter-beach-dog-crying-laughing-waving-smiling-interview) *Paste Magazine*: “It used to feel like I was collecting these actual, almost tangible, artifacts of a specific type of person or a specific thing that a person said, or the way that somebody looked at somebody else. But now, it feels more like I’m logging these complicated emotions and nuanced feelings that I bump up against in daily life—whether they’re my own or my partner’s or my family’s or my neighbors or, even, somebody I’ve seen in movies."
+On writing their latest album, *Crying, Laughing, Waving, Smiling,* Ewald [told](https://www.pastemagazine.com/music/slaughter-beach-dog/slaughter-beach-dog-crying-laughing-waving-smiling-interview) *Paste Magazine*: “It used to feel like I was collecting these actual, almost tangible, artifacts of a specific type of person or a specific thing that a person said, or the way that somebody looked at somebody else. But now, it feels more like I’m logging these complicated emotions and nuanced feelings that I bump up against in daily life—whether they’re my own or my partner’s or my family’s or my neighbors or, even, somebody I’ve seen in movies."
 
-**Amyl and The Sniffers at Union Transfer (Philadelphia, PA)***November 3, 2023*
+**Amyl and The Sniffers at Union Transfer (Philadelphia, PA)** *November 3, 2023*
 
 ![](/assets/img/news/fall-2023-round-up-7.png)
 

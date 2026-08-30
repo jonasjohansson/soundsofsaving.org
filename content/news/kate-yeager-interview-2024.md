@@ -50,7 +50,7 @@ Opening those conversations in her own family helped her realize that her parent
 
 > **My parents tried taking me to dieticians when I was younger and it was all about losing weight. Who would have thought that there would have been an intuitive eating dietician?**
 
-Yeager’s upcoming EP, *Before the Lights Go Out,*continues to dive into that vulnerable space. Her soon-to-be-released track, “Edit,” is for “anyone who's ever been in the position of trying to mold and shape and change themselves for somebody else's benefit.”
+Yeager’s upcoming EP, *Before the Lights Go Out,* continues to dive into that vulnerable space. Her soon-to-be-released track, “Edit,” is for “anyone who's ever been in the position of trying to mold and shape and change themselves for somebody else's benefit.”
 
 “As a queer person, that’s a very real thing that you experience,” Yeager said. “But it’s beyond that, it’s really across all identities." Her favorite lyrics on the song touch on the impossibility of having your truest self shine through in any of your relationships or interactions with other people when you feel overly perceived or judged in your own body. She sings, “If I cut up the rough draft, will I get myself back? / Replace me till I hate me every time. / I try to regret it, won't give myself the credit. / I feel bad for them. / Because I know they'll regret it. / When they don't get me / They get the edit.”
 

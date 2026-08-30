@@ -12,7 +12,7 @@ Music is an art form that connects us all and helps get us through difficult sit
 
 ###### **1. “Colorado” by Reneé Rapp**
 
-**LISTEN TO WHEN:**Mental health feels overwhelming, and you want an escape.
+**LISTEN TO WHEN:** Mental health feels overwhelming, and you want an escape.
 
 *“I think my life might be better if I lived in Colorado / Cause maybe there I’d like myself.”*
 
@@ -20,7 +20,7 @@ Fantasizing about an imaginary new life can help you cope with your current stru
 
 ###### **2. “Haunted House” by Holly Humberstone**
 
-**LISTEN TO WHEN:**Growing up is scary, and you want to hold onto childhood.
+**LISTEN TO WHEN:** Growing up is scary, and you want to hold onto childhood.
 
 *“All these ghosts I’ve grown with / As it slips away from me / I still hold on hopelessly.”*
 
@@ -28,7 +28,7 @@ College and post-grad can be lonely, especially when you realize you are growing
 
 ###### **3. “Light Blue” by Snail Mail**
 
-**LISTEN TO WHEN:**Feeling head over heels infatuated with someone.
+**LISTEN TO WHEN:** Feeling head over heels infatuated with someone.
 
 *“First time I met you, I knew then / There would be no in-between.”*
 
@@ -36,7 +36,7 @@ We’ve all experienced a “love-at-first-sight” situation where we absolutel
 
 ###### **4. “Sorry” by beabadoobee**
 
-**LISTEN TO WHEN:**A friend is struggling with their mental health, but so are you.
+**LISTEN TO WHEN:** A friend is struggling with their mental health, but so are you.
 
 *“That you could be the one that deserved this, even more / But you stayed in the same dark place that I adore.”*
 

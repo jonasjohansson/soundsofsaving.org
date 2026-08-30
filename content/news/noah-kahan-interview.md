@@ -8,7 +8,7 @@ category: story
 cluster: interviews
 ---
 
-“If you're unhappy inside then you're gonna be unhappy with everything,” Kahan tells *SoS.*Fresh off the immensely successful release of his third studio album, *Stick Season*, Kahan is ready to embark on a completely sold-out North American tour. We spoke to the singer-songwriter on his experiences with depression and rural therapy, and learning to accept success as it comes.
+“If you're unhappy inside then you're gonna be unhappy with everything,” Kahan tells *SoS.* Fresh off the immensely successful release of his third studio album, *Stick Season*, Kahan is ready to embark on a completely sold-out North American tour. We spoke to the singer-songwriter on his experiences with depression and rural therapy, and learning to accept success as it comes.
 
 We meet on Zoom, myself in New York City and Noah Kahan in his new house in Massachusetts, just north of Boston. Even through the screen, his poised demeanor is palpable, matched perfectly with a plaid button-down shirt and a guitar hanging on the back wall.
 
@@ -18,9 +18,9 @@ I’d originally intended on titling this interview “From One New Englander to
 
 When I warn him that I’ll be asking some deeply personal questions, he doesn’t hesitate to dive in. I’m nervous at first, Kahan being adored by my family back in Connecticut, but these worries melt away as the conversation falls into a natural rapport. Only 15 minutes into our interview, we’ve already unpacked so much of Kahan’s adolescence that I accidentally refer to our conversation as a therapy session:
 
-**Kahan:**Yeah, is this therapy?
- **SoS:**Yeah, I tricked you into it.
- **Kahan:**No, it's great. I feel happier already.
+**Kahan:** Yeah, is this therapy?
+ **SoS:** Yeah, I tricked you into it.
+ **Kahan:** No, it's great. I feel happier already.
 
 Kahan was born in the small town of Strafford, Vermont, and attended school across the river at Hanover High School in New Hampshire. In a town of just over 1000 people, *everybody*knew *everybody*. Nonetheless, Kahan’s never shied away from sharing his experiences with mental health, a theme that appears across *Stick Season*.
 

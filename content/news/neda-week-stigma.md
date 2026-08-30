@@ -39,8 +39,8 @@ Addressing the pervasive stigma surrounding eating disorders requires a multifac
 
 ***–––***
 
-***Saskia Jorgensenis a Clinical Psychology PhD student at George Washington University and an intern with*Sounds of Saving*.*
+**Saskia Jorgensen** is a Clinical Psychology PhD student at George Washington University and an intern with *Sounds of Saving*.
 
-***Lauren Davisis a Clinical Psychology PhD student at Rutgers University whose research and clinical work focuses on disordered eating.*
+**Lauren Davis** is a Clinical Psychology PhD student at Rutgers University whose research and clinical work focuses on disordered eating.
 
-***Valerie Wongis a Clinical Psychology PhD student at Rutgers University whose research focuses on disordered eating.*
+**Valerie Wong** is a Clinical Psychology PhD student at Rutgers University whose research focuses on disordered eating.

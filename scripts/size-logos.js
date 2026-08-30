@@ -28,15 +28,15 @@ const sharp = require("sharp");
 const ROOT = path.join(__dirname, "..");
 const JSON_PATH = path.join(ROOT, "content/pages/community.json");
 
-/* The cell is 3:2 and 265x177 at the widest desktop column, with --space-md
-   (24px) of padding on every side. Leave a little air inside that so no mark
-   ever touches the hairline. */
-const MAX_W = 190;
-const MAX_H = 104;
-/* Target optical area. Set so a typical 2.6:1 wordmark lands near 85% of the
-   usable width — the previous value (~4200) left every mark stranded in the
-   middle of its cell. */
-const TARGET_AREA = 11000;
+/* The cell is 3:2 and 265x177 at the widest desktop column. The clamps leave
+   air inside that so no mark ever fills its cell edge to edge. */
+const MAX_W = 152;
+const MAX_H = 83;
+/* Target optical AREA, not height or width — see above. Every value here was
+   scaled down 20% linearly from the first pass, which is 0.8^2 = 0.64 on the
+   area: the marks had grown confident enough to read as the subject of the
+   section rather than as credits under it. */
+const TARGET_AREA = 7040;
 
 /* Marks whose ink is spread over several small lines rather than one word.
    They read small at equal area, so they get a boost — still clamped by the
