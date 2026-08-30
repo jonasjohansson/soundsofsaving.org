@@ -32,7 +32,13 @@
   border-right: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
-/* The padding lives on the child, not the cell, so a linked mark's hit area
+/* Every cell holds exactly one child — an <a> when the partner has a URL, a
+   <span> when it doesn't — so both centre their mark the same way. An <img>
+   placed directly in the cell would be a grid item at the default
+   `align-items: stretch`, which grew its box to the full cell height and left
+   the artwork pinned to the top edge.
+
+   The padding lives on that child, not the cell, so a linked mark's hit area
    is the whole cell rather than just the artwork in the middle of it. */
 .logo-grid > li > * {
   display: grid;
@@ -48,6 +54,7 @@
    wordmark set to a square emblem's height reads three times larger. */
 .logo-grid img {
   max-width: 100%;
+  max-height: 100%;
   height: auto;
   mix-blend-mode: multiply;
   filter: grayscale(1);
@@ -56,8 +63,6 @@
 }
 .logo-grid a:hover img,
 .logo-grid a:focus-visible img { filter: grayscale(0); opacity: 1; }
-/* An unlinked mark still needs the cell padding but no hover affordance. */
-.logo-grid > li > img { padding: var(--space-md); }
 
 @media (max-width: 860px) { .logo-grid { --logo-cols: 3; } }
 @media (max-width: 520px) { .logo-grid { --logo-cols: 2; } }

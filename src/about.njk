@@ -150,7 +150,7 @@ ogImageAlt: "Four young people laughing together in a school gym"
       {% for logo in pages.community.partners.logos %}
       <li>
         {% set mark %}<img src="{{ logo.src }}" alt="{{ logo.alt }}"{% if logo.w %} width="{{ logo.w }}" height="{{ logo.h }}"{% endif %} loading="lazy" decoding="async" />{% endset %}
-        {% if logo.url %}<a href="{{ logo.url }}" target="_blank" rel="noopener">{{ mark | safe }}</a>{% else %}{{ mark | safe }}{% endif %}
+        {% if logo.url %}<a href="{{ logo.url }}" target="_blank" rel="noopener">{{ mark | safe }}</a>{% else %}<span>{{ mark | safe }}</span>{% endif %}
       </li>
       {% endfor %}
     </ul>
