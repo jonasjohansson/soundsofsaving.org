@@ -148,16 +148,16 @@ ogImageAlt: "A rooftop banner reading: what song found you at the right time?"
 
 {# GALLERY ————————————————————————————————————————————————————— #}
 {# Real photographs from the account, each linking back to its own post. The
-   work is ongoing and public; this is the cheapest honest proof of that. #}
+   heading itself is the way through to Instagram, so the section needs no
+   standing copy and no trailing follow link. #}
 {% if settings.instagram_photos | length %}
 <section class="section home-ig">
   <div class="container">
-    <header class="home-head">
-      <h2 class="home-head__title">Gallery</h2>
-      <p class="home-head__intro">Sessions, school visits, and the cards people fill in at shows. Every photo links back to the Instagram post it came from.</p>
-    </header>
+    <h2 class="home-head__title home-ig__title">
+      <a href="{{ settings.socials.instagram }}" target="_blank" rel="noopener"
+         aria-label="Gallery — follow Sounds of Saving on Instagram">{{ "Gallery" | arrow | safe }}</a>
+    </h2>
     {% photoRow settings.instagram_photos %}
-    <a class="home-more" href="{{ settings.socials.instagram }}" target="_blank" rel="noopener">{{ "Follow on Instagram" | arrow | safe }}</a>
   </div>
 </section>
 {% endif %}

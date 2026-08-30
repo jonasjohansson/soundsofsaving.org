@@ -182,11 +182,12 @@
 .featured__links { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-2xs); margin: 0; }
 .featured__links .home-more { margin-top: 0; }
 
-/* — From Instagram ———————————————————————————————————————————————— */
+/* — Gallery ——————————————————————————————————————————————————————— */
 /* Four across rather than the photo-row default of three: these are wide
    shots meant to be scanned, not studied. */
-.home-ig .photo-row { --cols: 4; margin-block: 0; }
-/* The row already ends on the captions; .home-more's own top margin is the
-   only separation this needs. */
-.home-ig .home-more { margin-top: var(--space-md); }
+.home-ig .photo-row { --cols: 4; margin-block: var(--space-lg) 0; }
+/* The heading is the only link out of the section, so it has to read as one:
+   ink like any other heading, the arrow doing the signalling, accent on hover. */
+.home-ig__title a { color: inherit; text-decoration: none; }
+.home-ig__title a:hover { color: var(--accent); }
 @media (max-width: 860px) { .home-ig .photo-row { --cols: 2; } }
