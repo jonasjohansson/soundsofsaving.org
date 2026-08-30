@@ -133,16 +133,45 @@ Gaps to ask for: **portraits of Nick and Charlie**, **wide classroom shots with 
 
 Rights note: photos credited to other photographers (@alyssa.goldberg, @saslj_photo, @allisonmichaelorenstein…) need a yes before web use; SoS-shot ones (Charlie) are fine.
 
-## 8. Status (29 Aug 2026, evening)
+## 8. Status (30 Aug 2026)
 
-Done, on `main`:
-- Programs restructured Artists / Schools / Community; SoS Uni removed everywhere (`5321500`)
-- Educators rebuilt around SoS HS + Artist Visit, proof band with the 2023 pilots, principal quote, DC pilot
-- Home: one-sheet line, three doors, What we do with real photos, proof strip, "Where your gift goes"
-- New `/support/` and `/impact/`; About "Seven things we believe"; footer with 988 + site nav; nav with Support (`62e4d60`)
-- Learn post "For parents: be curious about the music your kid loves"
+Measured against the seven Phase 1 lines in the 28 Jun scope email.
 
-Waiting on the archive / Nick: photography pass on About, Educators, Programs, Sessions (originals + rights); real "what a dollar buys" numbers; GoDaddy DNS access for launch.
+| Phase 1 line | State |
+|---|---|
+| IA + navigation around the five pillars | Done, with one gap: **`/impact/` has zero inbound links** — it is not in the nav, the footer, or any page body. Reachable only by typing the URL. |
+| Homepage + mission clarity, STFM prominent | Done. Three doors, one-sheet line, featured session, "Where your gift goes". |
+| Design system reworked | Done. Tokens, self-hosted serif/sans, grain, shared component bases (card shell, section head, grid, eyebrow, media well), AA contrast across all seven section accents, one vertical rhythm (3 gap values per breakpoint). |
+| Content integration | Done for what has been supplied. Dropbox frames still carry descriptive placeholder captions — no dates, names or schools, because none are verifiable from the files. |
+| Responsive, accessible, SEO-sound | Done. Full Lighthouse desktop, near-full mobile; per-page OG cards; canonical + noindex on the retired URLs. |
+| **Domain connected, Webflow disconnected** | **Not done. Blocked on GoDaddy DNS access.** This is the last hard Phase 1 deliverable. |
+| Pages CMS | Done. `.pages.yml` kept in sync with the content shapes. |
+
+Logo integration (the eighth, softer line) is partly addressed — spinning mark,
+split favicon/touch icon, black and white marks in the press kit — but the
+conversation about the logo and the landing's visual tonality has not happened.
+
+Phase 2 items already built inside Phase 1, at no extra fee:
+- **Impact** — planned as a shell, built as a real page.
+- **"Keep it alive"** — the home Gallery: twelve curated frames, each linking
+  back to its Instagram post. Static and hand-picked rather than API-driven,
+  so there is nothing to maintain and nothing to break.
+
+Still Phase 2: the STFM radio-dial discovery experience.
+
+Outside both phases: the press kit (proposed to Nick 30 Aug, folder already
+built). It currently holds a statement Doc and twelve unwatermarked photos —
+the 30 Aug email proposed a PDF manifesto and watermarked images.
+
+Open asks, none answered yet:
+1. **GoDaddy DNS access** — blocks launch.
+2. A general contact route (asked 30 Aug). There is no contact address on the
+   old site or the new one.
+3. Real "what a dollar buys" numbers; the three lines are qualitative now.
+4. OK to quote the principal and name the DC pilot.
+5. Captions/credits for the Dropbox photography.
+6. Press-kit folder sharing — deliberately left untouched; a journalist outside
+   the shared drive may not be able to open it.
 
 ## 9. Timeline and next steps
 
