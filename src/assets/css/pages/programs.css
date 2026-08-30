@@ -29,10 +29,6 @@
 .pgroup__photo { margin: 0; }
 .pgroup__photo figcaption { margin-top: var(--space-2xs); font-size: var(--fs-tiny); color: var(--text-faint); font-family: var(--font-mono); }
 @media (max-width: 760px) { .pgroup__top { grid-template-columns: 1fr; } }
-.pgroup__label {
-  color: var(--accent);
-  margin: 0 0 var(--space-2xs);
-}
 .pgroup__heading { font-size: var(--fs-h2); line-height: var(--lh-tight); margin: 0 0 var(--space-xs); }
 .pgroup__intro { line-height: var(--lh-base); margin: 0; }
 
@@ -64,22 +60,10 @@
 }
 .pcard--featured:hover, .pcard--featured:focus-visible { border-color: var(--accent-bright); background-color: var(--dusk); }
 .pcard--featured .pcard__title,
-.pcard--featured .pcard__dt { color: var(--on-dark); }
 .pcard--featured .pcard__dd { color: var(--paper-2); }
-.pcard--featured .pcard__eyebrow { color: var(--accent-bright); }
-
-.pcard__eyebrow {
-  color: var(--accent);
-  margin: 0 0 var(--space-2xs);
-}
 .pcard__title { font-size: var(--fs-h3); line-height: var(--lh-tight); margin: 0 0 var(--space-sm); }
 
 .pcard__spec { margin: 0 0 var(--space-md); }
-.pcard__dt {
-  color: var(--ink-faint);
-  margin-top: var(--space-sm);
-}
-.pcard__dt:first-child { margin-top: 0; }
 .pcard__dd { margin: var(--space-3xs) 0 0; font-size: var(--fs-small); line-height: var(--lh-base); max-width: none; }
 
 .pcard__go { color: var(--accent); margin: 0 0 var(--space-md); }
@@ -101,10 +85,6 @@
   gap: var(--space-md);
 }
 .edu-pointer__copy { max-width: var(--maxw-prose); }
-.edu-pointer__eyebrow {
-  color: var(--accent);
-  margin: 0 0 var(--space-2xs);
-}
 .edu-pointer h2 { font-size: var(--fs-h3); margin: 0 0 var(--space-2xs); }
 .edu-pointer p { margin: 0; line-height: var(--lh-base); font-size: var(--fs-small); }
 

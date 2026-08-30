@@ -40,5 +40,4 @@
 
 @media (max-width: 720px) {
   .photo-row { grid-template-columns: 1fr 1fr; }
-  .photo-row--1 { grid-template-columns: 1fr; }
 }

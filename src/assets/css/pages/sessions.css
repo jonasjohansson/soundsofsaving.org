@@ -82,23 +82,3 @@
   margin: var(--space-2xs) 0 0;
 }
 .session-card__song .lead { color: var(--accent); }
-
-/* — Card-wall teaser — */
-.sessions-teaser {
-  margin-top: var(--space-xl);
-  padding: var(--space-lg);
-  background: var(--paper-3);
-  border-radius: var(--radius);
-  display: grid;
-  gap: var(--space-sm);
-}
-.sessions-teaser h2 {
-  font-family: var(--font-display);
-  font-size: var(--fs-h2);
-  letter-spacing: var(--tracking-tight);
-  margin: 0;
-}
-.sessions-teaser p { font-family: var(--font-body); color: var(--text); margin: 0; max-width: var(--maxw-prose); }
-.sessions-teaser a.btn-text {
-  justify-self: start;
-}

@@ -12,7 +12,7 @@
 
 /* The opening statement on a page that has no heading of its own: the nav
    already named it, so the first sentence carries the h1. */
-.about-intro, .programs-lead, .edu-lead, .impact-lead, .support-lead {
+.about-intro, .programs-lead, .edu-lead, .support-lead {
   font-family: var(--font-body);
   font-weight: var(--fw-regular);
   font-size: var(--fs-lead);

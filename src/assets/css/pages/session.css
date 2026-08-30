@@ -8,10 +8,6 @@
 .session-back:hover { color: var(--accent); }
 
 .session-detail__head { max-width: var(--maxw-prose); margin-bottom: var(--space-md); }
-.session-eyebrow {
-  color: var(--accent);
-  margin: 0 0 var(--space-2xs);
-}
 .session-detail__head h1 {
   font-family: var(--font-display);
   font-size: var(--fs-title);

@@ -18,15 +18,14 @@
 
 /* Per-template eyebrow/label classes share the mono base.
    Excludes .finder__reset / .finder__more (they use font: inherit). */
-.research__eyebrow, .archive-row__date,
-.edu-eyebrow, .track__eyebrow, .track__spec-h, .field label,
+.archive-row__date,
+.track__spec-h, .field label,
 .resource-card__badge, .resource-card__tags .tag, .learn-card__kind,
 .home-hero__credit,
 .stories__tab, .stories__group-count, .story-card__date,
-.pgroup__label, .pcard__eyebrow, .pcard__dt, .edu-pointer__eyebrow,
-.session-back, .session-eyebrow, .session-meta dt,
+.session-back, .session-meta dt,
 .sessions-cobrand, .sessions-section__label,
-.session-card__song, .sessions-teaser a.btn-text {
+.session-card__song {
   font-family: var(--font-mono);
   font-size: var(--fs-tiny);
   letter-spacing: var(--tracking-wide);

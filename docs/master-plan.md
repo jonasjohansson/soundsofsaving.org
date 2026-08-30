@@ -139,7 +139,7 @@ Measured against the seven Phase 1 lines in the 28 Jun scope email.
 
 | Phase 1 line | State |
 |---|---|
-| IA + navigation around the five pillars | Done, with one gap: **`/impact/` has zero inbound links** — it is not in the nav, the footer, or any page body. Reachable only by typing the URL. |
+| IA + navigation around the five pillars | Done. The `/impact/` orphan noted here was resolved by merging its milestones into `/about/`; the URL now serves a redirect stub. |
 | Homepage + mission clarity, STFM prominent | Done. Three doors, one-sheet line, featured session, "Where your gift goes". |
 | Design system reworked | Done. Tokens, self-hosted serif/sans, grain, shared component bases (card shell, section head, grid, eyebrow, media well), AA contrast across all seven section accents, one vertical rhythm (3 gap values per breakpoint). |
 | Content integration | Done for what has been supplied. Dropbox frames still carry descriptive placeholder captions — no dates, names or schools, because none are verifiable from the files. |

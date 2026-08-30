@@ -11,22 +11,9 @@
 .edu-lead strong { font-weight: var(--fw-semibold); }
 
 .edu-ctas { display: flex; flex-wrap: wrap; gap: var(--space-sm); margin: calc(-1 * var(--space-sm)) 0 var(--space-lg); }
-/* Same treatment as .pullquote on About: indented, not ruled. */
-.edu-pullquote {
-  margin: var(--space-xl) 0;
-  padding-left: var(--space-lg);
-  max-width: var(--maxw-prose);
-}
-.edu-pullquote blockquote { font-family: var(--font-body); font-style: italic; font-size: var(--fs-lead); line-height: var(--lh-base); margin: 0 0 var(--space-xs); max-width: none; }
-.edu-pullquote cite { font-style: normal; font-size: var(--fs-small); color: var(--text-muted); }
 /* The white-paper block sits directly under this paragraph as its evidence,
    so the gap between them is a paragraph break, not a section break. */
 .edu-why { max-width: var(--maxw-prose); line-height: var(--lh-base); margin: 0 0 var(--space-lg); }
-
-.edu-eyebrow {
-  color: var(--accent);
-  margin: 0 0 var(--space-2xs);
-}
 
 /* track grid */
 .tracks { margin-bottom: var(--space-2xl); }
@@ -49,10 +36,6 @@
   transition: border-color var(--transition), background var(--transition);
 }
 .track:hover, .track:focus-visible { border-color: var(--accent); background-color: var(--paper-3); }
-.track__eyebrow {
-  color: var(--accent);
-  margin: 0 0 var(--space-2xs);
-}
 .track__title { font-size: var(--fs-h3); margin: 0 0 var(--space-xs); }
 .track__summary { font-size: var(--fs-small); line-height: var(--lh-base); margin: 0 0 var(--space-sm); }
 .track__audience { font-size: var(--fs-small); color: var(--text-muted); margin: 0 0 var(--space-md); }
@@ -72,7 +55,6 @@
   margin-bottom: var(--space-2xl);
 }
 .proof-band h2 { color: var(--on-dark); font-size: var(--fs-h2); max-width: 24ch; margin: 0 0 var(--space-lg); }
-.proof-band .edu-eyebrow { color: var(--accent-bright); }
 .proof-stats {
   display: grid;
   --grid-min: 220px;
