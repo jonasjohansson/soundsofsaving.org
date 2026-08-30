@@ -53,6 +53,4 @@ The Last Dinner Party will play another sold-out show in New York tonight at Bro
 10. MY LADY OF MERCY
 11. NOTHING MATTERS
 
-**Keep up with The Last Dinner Party:**
-
-[Instagram](https://www.instagram.com/thelastdinnerparty/?hl=en) · [TikTok](https://www.tiktok.com/@thelastdinnerparty?lang=en) · [Tour](https://www.thelastdinnerparty.co.uk/#live)
+**Keep up with The Last Dinner Party:** [Instagram](https://www.instagram.com/thelastdinnerparty/?hl=en) · [TikTok](https://www.tiktok.com/@thelastdinnerparty?lang=en) · [Tour](https://www.thelastdinnerparty.co.uk/#live)

@@ -204,8 +204,6 @@ NICK: Yeah, the last time.
 
 ![](/assets/img/news/surf-curse-magic-hour-the-mental-toll-of-touring-and-collective-creativity-2.jpeg)
 
-**Listen to Magic Hour:**
-
-[Magic Hour](https://open.spotify.com/album/4SjIdmDhVUA1eunwERtgPv)
+[Listen to Magic Hour](https://open.spotify.com/album/4SjIdmDhVUA1eunwERtgPv)
 
 **Alyssa Goldberg** is a writer and photographer living in New York. Read more of her work at [alyssaegoldberg.com](http://alyssaegoldberg.com) and find her on X [@alyssaegoldberg](https://x.com/alyssaegoldberg).

@@ -74,8 +74,6 @@ Since coming out, it's been a huge trial and error in trying to find ways that p
 
 ---
 
-**Keep up with vara:** [Instagram](http://instagram) // [YouTube](https://www.youtube.com/c/VaraGianna) // [TikTok](https://www.tiktok.com/@varagianna)
+**Keep up with vara:** [YouTube](https://www.youtube.com/c/VaraGianna) · [TikTok](https://www.tiktok.com/@varagianna)
 
-**Listen to "paranoia":**
-
-[paranoia](https://open.spotify.com/track/7zSy5HYc901gfPuhffGpTE)
+[Listen to "paranoia"](https://open.spotify.com/track/7zSy5HYc901gfPuhffGpTE)
