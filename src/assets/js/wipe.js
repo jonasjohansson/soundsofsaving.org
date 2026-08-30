@@ -6,10 +6,15 @@
  *
  *  Three pictures and one shader — the outgoing frame, the incoming one, and
  *  a greyscale film matte. White in the matte lets the incoming picture
- *  through, black holds the outgoing one, and smoothstep(0.04, 0.96) on the
- *  matte's red channel keeps the edge from stepping on an 8-bit clip. The
- *  result dissolves the way ink spreads rather than the way an opacity ramp
- *  fades: the picture arrives in patches, from the middle outward.
+ *  through, black holds the outgoing one, and a smoothstep on the matte's red
+ *  channel sets how hard that boundary is: a narrow window (see `edge`) makes
+ *  a defined front travel across the frame, a wide one softens into something
+ *  barely distinguishable from a crossfade. The result dissolves the way ink
+ *  spreads rather than the way an opacity ramp fades: the picture arrives in
+ *  patches, from the middle outward.
+ *
+ *  `rate` slows the clip down without re-encoding it; the stall guard is
+ *  derived from the clip's own length at that rate.
  *
  *  `object-fit: cover` is emulated per texture from each source's own aspect
  *  ratio and its object-position, so the frame the shader draws is exactly
@@ -43,7 +48,7 @@
     var FS = [
       "precision mediump float;varying vec2 v;",
       "uniform sampler2D uA,uB,uM;",
-      "uniform float aA,aB,aM,aC,uFlipA;",
+      "uniform float aA,aB,aM,aC,uFlipA,uE0,uE1;",
       "uniform vec2 oA,oB;",
       // uv -> texture coords for a source of aspect `ta` covering a box of
       // aspect `ca`, anchored at object-position `o` (0..1, left->right and
@@ -55,7 +60,7 @@
       "              uv.y*s.y + (1.0 - o.y*(1.0-s.y) - s.y));}",
       "void main(){",
       "  float m = texture2D(uM,cover(v,aM,aC,vec2(0.5))).r;",
-      "  m = smoothstep(0.04,0.96,m);",
+      "  m = smoothstep(uE0,uE1,m);",
       // A captured frame is already the canvas: no cover, and flipped.
       "  vec2 va = uFlipA > 0.5 ? vec2(v.x, 1.0 - v.y) : cover(v,aA,aC,oA);",
       "  gl_FragColor = mix(texture2D(uA,va), texture2D(uB,cover(v,aB,aC,oB)), m);}"
@@ -92,7 +97,7 @@
       var p = gl.getAttribLocation(prog, "p");
       gl.enableVertexAttribArray(p);
       gl.vertexAttribPointer(p, 2, gl.FLOAT, false, 0, 0);
-      ["uA", "uB", "uM", "aA", "aB", "aM", "aC", "oA", "oB", "uFlipA"].forEach(function (n) {
+      ["uA", "uB", "uM", "aA", "aB", "aM", "aC", "oA", "oB", "uFlipA", "uE0", "uE1"].forEach(function (n) {
         loc[n] = gl.getUniformLocation(prog, n);
       });
       gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
@@ -133,7 +138,8 @@
       // `fromImg` null means texture A already holds a captured frame.
       // Returns { stop, end }; stop halts the loop and leaves the canvas up,
       // which is what an interrupt needs — done() is not called.
-      run: function (video, fromImg, toImg, done) {
+      run: function (video, fromImg, toImg, done, opts) {
+        opts = opts || {};
         var finished = false, stopped = false;
         function finish() {
           if (finished || stopped) return;
@@ -171,6 +177,10 @@
         gl.uniform1f(loc.aM, video.videoWidth / video.videoHeight);
         gl.uniform1f(loc.aC, ac);
         gl.uniform2f(loc.oB, oB[0], oB[1]);
+        // Narrow window = a defined front travelling across the frame.
+        var edge = opts.edge || 0.14;
+        gl.uniform1f(loc.uE0, 0.5 - edge);
+        gl.uniform1f(loc.uE1, 0.5 + edge);
         try {
           if (fromImg) upload(0, tex.A, fromImg);
           upload(1, tex.B, toImg);
@@ -185,13 +195,17 @@
           if (video.ended) { finish(); return; }
           requestAnimationFrame(frame);
         }
+        var rate = opts.rate || 1;
+        try { video.playbackRate = rate; } catch (e) { rate = 1; }
         try { video.currentTime = 0; } catch (e) { /* not seekable yet */ }
         var pr = video.play();
         if (pr && pr.catch) pr.catch(finish);   // autoplay refused -> it cuts
         requestAnimationFrame(frame);
-        // A matte that stalls must not leave the canvas up for ever. The
-        // clips are 2.2s, so this is a backstop and not a budget.
-        var guard = setTimeout(finish, 6000);
+        // A matte that stalls must not leave the canvas up for ever. Derived
+        // from the clip's own length at the rate it is playing, so slowing a
+        // cut down can never let the guard cut it short.
+        var span = (isFinite(video.duration) ? video.duration : 2.2) / rate;
+        var guard = setTimeout(finish, Math.max(6000, span * 1000 + 2500));
         return {
           stop: function () { stopped = true; clearTimeout(guard); try { video.pause(); } catch (e) {} },
           end: finish

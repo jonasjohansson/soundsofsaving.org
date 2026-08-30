@@ -10,9 +10,16 @@
 (function () {
   "use strict";
 
-  var HERO_INTERVAL = 10000;   // time one hero photo holds
+  var HERO_INTERVAL = 13000;   // time one hero photo holds
   var HERO_FADE     = 1700;    // must outlast the CSS opacity transition
   var CREDIT_FADE   = 600;
+  /* The matte clips are 2.2s. At 0.55 a cut takes about four seconds, which
+     reads as a picture arriving rather than a picture being swapped. The hold
+     above grew with it so the hero is still mostly still. */
+  var WIPE_RATE     = 0.55;
+  /* Half-width of the smoothstep window on the matte. Narrow is a travelling
+     edge; wide is a soft crossfade wearing a matte's clothes. */
+  var WIPE_EDGE     = 0.13;
 
   /** Read and parse a <script type="application/json"> island by id. */
   function pool(id) {
@@ -177,7 +184,7 @@
             active = null;
             settle(next);
             armInto(1 - slot);                   // re-arm the one just used
-          });
+          }, { rate: WIPE_RATE, edge: WIPE_EDGE });
           if (active) return;
           // run() bailed before starting (no size, upload failed): fall through.
         }
