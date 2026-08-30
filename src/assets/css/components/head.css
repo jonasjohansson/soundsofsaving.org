@@ -4,7 +4,7 @@
  *  stay with the page.
  * ————————————————————————————————————————————————————————————————— */
 .archive__head, .intake__head, .home-head, .stories__head, .post__head,
-.pgroup__head, .artists-head, .sessions-head, .finder__head,
+.pgroup__head, .sessions-head, .finder__head,
 .session-detail__head {
   max-width: var(--maxw-prose);
   margin-bottom: var(--space-lg);

@@ -25,8 +25,7 @@
 .stories__tab, .stories__group-count, .story-card__date,
 .pgroup__label, .pcard__eyebrow, .pcard__dt, .edu-pointer__eyebrow,
 .session-back, .session-eyebrow, .session-meta dt,
-.artists-back, .artist-row__song,
-.sessions-cobrand, .sessions-toolbar a, .sessions-count, .sessions-section__label,
+.sessions-cobrand, .sessions-count, .sessions-section__label,
 .session-card__song, .sessions-teaser a.btn-text {
   font-family: var(--font-mono);
   font-size: var(--fs-tiny);

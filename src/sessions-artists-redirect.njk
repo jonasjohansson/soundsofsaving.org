@@ -1,0 +1,22 @@
+---
+layout: base.njk
+permalink: /sessions/artists/
+title: Browse by artist has moved
+description: "The artist index is now part of the Sessions page. Redirecting you there."
+canonicalOverride: /sessions/
+robots: "noindex, follow"
+eleventyExcludeFromCollections: true
+---
+{#
+  /sessions/artists/ retired -> /sessions/. An A–Z index of thirty-seven names
+  was a second view of the thirty-seven cards already on /sessions/, which
+  carries the artist on every one of them. Same static-host redirect as the
+  other retired URLs: meta-refresh + canonical + noindex + a visible fallback.
+#}
+<meta http-equiv="refresh" content="0; url=/sessions/">
+<script>location.replace("/sessions/");</script>
+{% pageCss "community-redirect" %}
+<div class="container moved">
+  <h1>Browse by artist has moved</h1>
+  <p>Every artist is listed on <a href="/sessions/">Sessions</a>. If you are not redirected automatically, follow that link.</p>
+</div>

@@ -3,7 +3,7 @@
  *  only in the minimum column width and the gutter. Both are now variables,
  *  so a page module sets --grid-min / --grid-gap and inherits the rest.
  * ————————————————————————————————————————————————————————————————— */
-.resource-list, .learn-grid, .sessions-grid, .artists-list, .principles,
+.resource-list, .learn-grid, .sessions-grid, .principles,
 .story-grid, .people-grid, .tracks__grid, .pcards,
 .proof-stats, .impact-stats {
   display: grid;

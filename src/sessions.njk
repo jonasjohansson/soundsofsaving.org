@@ -17,10 +17,7 @@ ogImageAlt: "An artist singing on stage under teal light"
     <p class="sessions-cobrand">A co-production of <strong>988 Suicide and Crisis Lifeline</strong> &times; <strong>Sounds of Saving</strong></p>
   </header>
 
-  <div class="sessions-toolbar">
-    <a href="/sessions/artists/">{{ "Browse by artist" | arrow | safe }}</a>
-    <span class="sessions-count">{{ sessions.length }} episodes &middot; 2018 to 2023</span>
-  </div>
+  <p class="sessions-count">{{ sessions.length }} episodes &middot; 2018 to 2023</p>
 
   {% set featured = sessions | selectattr("featured") | list %}
   {% set rest = sessions | rejectattr("featured") | list %}
