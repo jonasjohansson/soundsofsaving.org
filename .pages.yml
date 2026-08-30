@@ -564,7 +564,6 @@ content:
       - { name: press_kit_url, label: Press kit URL, type: string, pattern: '^$|^https?://', description: "Google Drive folder with the statement, photography, and logo. Linked from About and the footer; hidden if blank." }
       - { name: donate_url, label: Donate URL, type: string, pattern: '^$|^https?://' }
       - { name: contact_email, label: "Contact email (all enquiry links)", type: string }
-      - { name: donate_label, label: Donate button label, type: string }
       - { name: support_url, label: Support page URL, type: string }
       - { name: get_help_url, label: Get Help URL, type: string }
       - { name: copyright, label: Copyright, type: string }

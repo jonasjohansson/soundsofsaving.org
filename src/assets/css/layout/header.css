@@ -49,8 +49,6 @@
 }
 .site-nav__links a:hover { color: var(--accent-deep); }
 .site-nav__links a[aria-current="page"] { color: var(--accent); }
-.site-nav__donate { color: var(--text); }
-.site-nav__donate:hover { color: var(--accent-deep); }
 .site-nav .btn--primary { color: var(--white); }
 
 /* Overlay header (home only): transparent over the hero, white text; the mark
@@ -65,7 +63,6 @@
 }
 .site-header--overlay .site-header__logo { filter: brightness(0) invert(1); }
 .site-header--overlay .site-nav a,
-.site-header--overlay .site-nav__donate { color: var(--white); }
 .site-header--overlay .btn--stroke { border-color: var(--white); color: var(--white); }
 .site-header--overlay .btn--stroke:hover { background-color: var(--white); color: var(--text); }
 
