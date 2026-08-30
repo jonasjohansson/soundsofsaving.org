@@ -7,83 +7,119 @@
     "logos": [
       {
         "alt": "The Ally Coalition",
-        "src": "/assets/img/site/partners/64b83c06455979440da1451d_tac-transparent-copy.png",
-        "url": "https://www.theallycoalition.org"
+        "src": "/assets/img/partners/the-ally-coalition.png",
+        "url": "https://www.theallycoalition.org",
+        "w": 105,
+        "h": 40
       },
       {
         "alt": "Republic Records",
-        "src": "/assets/img/site/partners/64b83c225e3bcf19586d3836_ps-republicrecords-featured.jpeg",
-        "url": "https://www.republicrecords.com"
+        "src": "/assets/img/partners/republic-records.png",
+        "url": "https://www.republicrecords.com",
+        "w": 86,
+        "h": 49
       },
       {
         "alt": "988 Suicide & Crisis Lifeline",
-        "src": "/assets/img/site/partners/67b3c562f4f84e2e167b83f4_988.png",
-        "url": "https://988lifeline.org"
+        "src": "/assets/img/partners/988-suicide-crisis-lifeline.png",
+        "url": "https://988lifeline.org",
+        "w": 66,
+        "h": 62
       },
       {
-        "alt": "OFFAIR",
-        "src": "/assets/img/site/partners/64ca712e1e2f96bea7d72058_d0249977-31fb-4b55-8337-113ecf367afb.jpeg"
+        "alt": "MTV Entertainment Studios",
+        "src": "/assets/img/partners/mtv-entertainment-studios.png",
+        "w": 87,
+        "h": 48
       },
       {
         "alt": "Propeller",
-        "src": "/assets/img/site/partners/64b83d0ba117ef929c2fe3c6_propeller-logo001_28422_32951-2.png",
-        "url": "https://www.propeller.la"
+        "src": "/assets/img/partners/propeller.png",
+        "url": "https://www.propeller.la",
+        "w": 61,
+        "h": 62
       },
       {
         "alt": "AEG Worldwide",
-        "src": "/assets/img/site/partners/64ca7001c935edb0358055d6_anschutz-entertainment-group-aeg-worldwide-logo-vector.png",
-        "url": "https://www.aegworldwide.com"
+        "src": "/assets/img/partners/aeg-worldwide.png",
+        "url": "https://www.aegworldwide.com",
+        "w": 93,
+        "h": 45
       },
       {
         "alt": "Lalaland",
-        "src": "/assets/img/site/partners/64b83c3697c120b90d86428d_ll_logo_2.0-03.jpg"
+        "src": "/assets/img/partners/lalaland.png",
+        "w": 63,
+        "h": 62
       },
       {
         "alt": "Prose",
-        "src": "/assets/img/site/partners/64b83c3d5e3bcf19586d6098_https___supergreat-images.s3.amazonaws.com_prose-cac1435.png"
+        "src": "/assets/img/partners/prose.png",
+        "w": 104,
+        "h": 41
       },
       {
         "alt": "Vibrant Emotional Health",
-        "src": "/assets/img/site/partners/64ca71878c50385b0a5d21ab_vibrant.png",
-        "url": "https://www.vibrant.org"
+        "src": "/assets/img/partners/vibrant-emotional-health.png",
+        "url": "https://www.vibrant.org",
+        "w": 117,
+        "h": 36
       },
       {
-        "alt": "Partner",
-        "src": "/assets/img/site/partners/64b83c429ade4cceec7cb214_logo_400x200.png"
+        "alt": "Sparrow",
+        "src": "/assets/img/partners/sparrow.png",
+        "w": 110,
+        "h": 38
       },
       {
         "alt": "SMASH",
-        "src": "/assets/img/site/partners/64b83c4674fbb94bb85a8b1d_smash-logo-marquee-no-tag.png"
+        "src": "/assets/img/partners/smash.png",
+        "w": 125,
+        "h": 33
       },
       {
-        "alt": "Partner logos",
-        "src": "/assets/img/site/partners/64b83c68eade17d53fe791e4_partner-logos.png"
+        "alt": "Hi, How Are You Project",
+        "src": "/assets/img/partners/hi-how-are-you-project.png",
+        "w": 57,
+        "h": 62
       },
       {
         "alt": "American Association of Suicidology",
-        "src": "/assets/img/site/partners/64ca70eb786dfcbdb5bb8ba0_aas_logo.png",
-        "url": "https://suicidology.org"
+        "src": "/assets/img/partners/american-association-of-suicidology.png",
+        "url": "https://suicidology.org",
+        "w": 59,
+        "h": 62
       },
       {
-        "alt": "Partner",
-        "src": "/assets/img/site/partners/64ca70f15a0181f9ba0185c5_f1e16f14-5056-a830-8c8dc053298b25a1.png"
+        "alt": "The Loveland Foundation",
+        "src": "/assets/img/partners/the-loveland-foundation.png",
+        "w": 71,
+        "h": 59
       },
       {
-        "alt": "Partner",
-        "src": "/assets/img/site/partners/64b83bf8455979440da13244_fulllogowhite.jpeg"
+        "alt": "William Alanson White Institute",
+        "src": "/assets/img/partners/william-alanson-white-institute.png",
+        "w": 72,
+        "h": 58
       },
       {
         "alt": "National Sawdust",
-        "src": "/assets/img/site/partners/64ca737345ed824d62d509dd_national_sawdust_logo.jpeg",
-        "url": "https://www.nationalsawdust.org"
+        "src": "/assets/img/partners/national-sawdust.png",
+        "url": "https://www.nationalsawdust.org",
+        "w": 109,
+        "h": 38
       },
       {
-        "alt": "NCMF",
-        "src": "/assets/img/site/partners/64b83c0a63d39b6cc9ca9799_ncmf_website.png"
+        "alt": "Neal Casal Music Foundation",
+        "src": "/assets/img/partners/neal-casal-music-foundation.png",
+        "w": 74,
+        "h": 57
       },
       {
         "alt": "Partner",
-        "src": "/assets/img/site/partners/64ca78010213b863b088ebf2_logo.gif"
+        "src": "/assets/img/partners/partner.png",
+        "w": 46,
+        "h": 62
       }
     ]
   }

@@ -1,0 +1,46 @@
+/* — Film grain ———————————————————————————————————————————————————— *
+ *  Texture lives in the paper, not over the photographs. Light grounds and
+ *  cards blend a noise tile into their own background; a much lighter veil
+ *  sits over everything else, images included.
+ * ————————————————————————————————————————————————————————————————— */
+body {
+  background-color: var(--bg);
+  background-image: var(--grain-surface);
+  background-size: var(--grain-tile);
+  background-blend-mode: overlay;
+}
+
+.section--alt {
+  background-image: var(--grain-surface);
+  background-size: var(--grain-tile);
+  background-blend-mode: overlay;
+}
+
+/* Cards are small surfaces: half-strength grain reads as texture, not dirt.
+   NB: card hover states must set background-color, never the `background`
+   shorthand, or they wipe background-image and the grain vanishes. */
+.section--paper,
+.pcard:not(.pcard--featured),
+.track,
+.way {
+  background-image: var(--grain-card);
+  background-size: var(--grain-tile);
+  background-blend-mode: overlay;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.1;
+  mix-blend-mode: multiply;
+  background-image: var(--grain-overlay);
+  background-size: var(--grain-tile);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::after { opacity: 0.06; }
+  .site-header__logo { animation: none; }
+}

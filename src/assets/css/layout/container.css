@@ -1,0 +1,31 @@
+/* — Layout primitives —————————————————————————————————————————————— */
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section { padding-block: var(--space-xl); }
+
+/* Two ground treatments a section can opt into: --alt is the accent-tinted
+   deeper paper; --paper is clean white, for a full stop between tinted bands. */
+.section--alt   { background: var(--bg-alt); }
+.section--paper { background: var(--paper-0); }
+
+main { min-height: 50vh; }
+
+/* — Utilities ————————————————————————————————————————————————————— */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Keeps a trailing arrow (or any glyph) welded to the word before it, so a
+   link never wraps its arrow onto a line of its own. Emitted by the `arrow`
+   Nunjucks filter; also usable by hand. */
+.nowrap { white-space: nowrap; }

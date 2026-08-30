@@ -6,6 +6,8 @@ title: Support
 eleventyComputed:
   description: "{{ pages.support.meta_description }}"
 ogType: website
+ogImage: "/assets/img/site/hug.jpg"
+ogImageAlt: "Two people embracing in an auditorium"
 ---
 {#
   Support — the page the Donate button explains. Opens on the statement (no
@@ -15,49 +17,7 @@ ogType: website
 #}
 {% set s = pages.support %}
 
-<style>
-  .support-page { padding-block: var(--space-xl); }
-  /* No page heading: the nav already said "Support". The opening statement is the h1. */
-  .support-lead {
-    font-family: var(--font-body);
-    font-weight: var(--fw-regular);
-    font-size: var(--fs-lead);
-    line-height: var(--lh-base);
-    max-width: var(--maxw-prose);
-    margin: 0;
-  }
-  .support-lede { max-width: var(--maxw-prose); margin: 0 0 var(--space-lg); display: grid; gap: var(--space-sm); }
-
-  .support-ctas { display: flex; flex-wrap: wrap; gap: var(--space-sm); margin: 0 0 var(--space-2xl); }
-  .uses { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-lg); list-style: none; padding: 0; margin: 0 0 var(--space-2xl); }
-  .use__media { display: block; aspect-ratio: 3 / 2; overflow: hidden; border-radius: var(--radius); background: var(--bg-alt); margin-bottom: var(--space-sm); }
-  .use__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .use__eyebrow { color: var(--accent); margin: 0 0 var(--space-3xs); }
-  .use h2 { font-size: var(--fs-h3); line-height: var(--lh-tight); margin: 0 0 var(--space-2xs); }
-  .use p { font-size: var(--fs-small); line-height: var(--lh-base); margin: 0; }
-  @media (max-width: 760px) { .uses { grid-template-columns: 1fr; } }
-
-
-  .ways { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-lg); list-style: none; padding: 0; margin: 0; }
-  .ways > li { display: flex; }
-  /* The whole card is the link — no button inside a card that is already one. */
-  .way {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    padding: var(--space-lg);
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    color: inherit;
-    text-decoration: none;
-    transition: border-color var(--transition), background var(--transition);
-  }
-  .way:hover, .way:focus-visible { border-color: var(--accent); background-color: var(--paper-3); }
-  .way h2 { font-size: var(--fs-h3); margin: 0 0 var(--space-xs); }
-  .way p { font-size: var(--fs-small); line-height: var(--lh-base); margin: 0; }
-  .way__go { color: var(--accent); margin: 0 0 var(--space-md); }
-  @media (max-width: 760px) { .ways { grid-template-columns: 1fr; } }
-</style>
+{% pageCss "support" %}
 
 <div class="container support-page">
   <div class="support-lede">
@@ -67,10 +27,10 @@ ogType: website
   </div>
   <p class="support-ctas"><a class="btn btn--primary" href="{{ settings.donate_url }}" target="_blank" rel="noopener">{{ s.donate.cta_label }}</a><a class="btn btn--ghost" href="#ways">Other ways to help</a></p>
 
-  <ul class="uses">
+  <ul class="uses grid-3">
     {% for u in s.uses %}
     <li class="use">
-      {% if u.image %}{% if u.source %}<a class="use__media" href="{{ u.source }}" target="_blank" rel="noopener">{% else %}<span class="use__media">{% endif %}<img src="{{ u.image }}" alt="{{ u.alt }}" decoding="async" />{% if u.source %}</a>{% else %}</span>{% endif %}{% endif %}
+      {% if u.image %}{% if u.source %}<a class="use__media" href="{{ u.source }}" target="_blank" rel="noopener">{% else %}<span class="use__media">{% endif %}{% respImg u.image, { alt: u.alt, sizes: "(max-width: 760px) 92vw, 340px" } %}{% if u.source %}</a>{% else %}</span>{% endif %}{% endif %}
       <h2>{{ u.title }}</h2>
       <p>{{ u.body }}</p>
     </li>
@@ -78,12 +38,12 @@ ogType: website
   </ul>
 
 
-  <ul class="ways" id="ways">
+  <ul class="ways grid-3" id="ways">
     {% for w in s.other_ways %}
     <li>
       <a class="way"{% if w.cta %} href="{{ w.cta.href }}"{% endif %}>
         <h2>{{ w.title }}</h2>
-        <span class="way__go">{{ w.cta.label }} &rarr;</span>
+        <span class="way__go">{{ w.cta.label | arrow | safe }}</span>
         <p>{{ w.body }}</p>
       </a>
     </li>

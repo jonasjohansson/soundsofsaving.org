@@ -1,0 +1,26 @@
+/* — Section heads and page leads —————————————————————————————————— *
+ *  Eight templates had their own head block with identical declarations, and
+ *  five had their own lead paragraph. Both are one rule now; per-page margins
+ *  stay with the page.
+ * ————————————————————————————————————————————————————————————————— */
+.archive__head, .intake__head, .home-head, .stories__head, .post__head,
+.pgroup__head, .artists-head, .sessions-head, .finder__head,
+.session-detail__head {
+  max-width: var(--maxw-prose);
+  margin-bottom: var(--space-lg);
+}
+
+/* The opening statement on a page that has no heading of its own: the nav
+   already named it, so the first sentence carries the h1. */
+.about-intro, .programs-lead, .edu-lead, .impact-lead, .support-lead {
+  font-family: var(--font-body);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-lead);
+  line-height: var(--lh-base);
+  margin: 0;
+}
+.about-lede, .programs-lede, .support-lede {
+  display: grid;
+  gap: var(--space-sm);
+  max-width: var(--maxw-prose);
+}

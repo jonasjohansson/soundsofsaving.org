@@ -6,6 +6,8 @@ title: Impact
 eleventyComputed:
   description: "{{ pages.impact.meta_description }}"
 ogType: website
+ogImage: "/assets/img/ig/crowd-stage.jpg"
+ogImageAlt: "A band on stage in front of a full room"
 ---
 {#
   Impact — Phase 1 stub. Four numbers, one testimonial, a dated milestone
@@ -13,35 +15,9 @@ ogType: website
   hand-maintained on purpose so the page never claims more than the team has
   checked.
 #}
-{% from "partials/photos.njk" import row as photoRow, figure as photoFigure %}
 {% set i = pages.impact %}
 
-<style>
-  .impact-page { padding-block: var(--space-xl); }
-  /* No page heading: the opening statement is the h1. */
-  .impact-lead {
-    font-family: var(--font-body);
-    font-weight: var(--fw-regular);
-    font-size: var(--fs-lead);
-    line-height: var(--lh-base);
-    max-width: var(--maxw-prose);
-    margin: 0 0 var(--space-2xl);
-  }
-  .impact-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--space-lg); list-style: none; padding: 0; margin: 0 0 var(--space-2xl); }
-  .impact-stat__num { font-family: var(--font-display); font-size: var(--fs-mega); line-height: 1; color: var(--accent); margin: 0 0 var(--space-2xs); font-variant-numeric: tabular-nums; }
-  .impact-stat__label { font-size: var(--fs-small); line-height: var(--lh-base); margin: 0; }
-
-  .impact-quote { background: var(--dusk); color: var(--on-dark); border-radius: var(--radius); padding: var(--space-xl); margin: 0 0 var(--space-2xl); }
-  .impact-quote blockquote { font-family: var(--font-display); font-size: var(--fs-title); line-height: var(--lh-tight); margin: 0 0 var(--space-sm); color: var(--on-dark); }
-  .impact-quote p { color: var(--paper-2); line-height: var(--lh-base); max-width: var(--maxw-prose); margin: 0 0 var(--space-xs); }
-  .impact-quote cite { font-style: normal; color: var(--ink-faint); font-family: var(--font-mono); font-size: var(--fs-tiny); }
-
-  .milestones { list-style: none; padding: 0; margin: var(--space-md) 0 0; max-width: var(--maxw-prose); }
-  .milestone { display: grid; grid-template-columns: 5rem 1fr; gap: var(--space-md); padding: var(--space-sm) 0; border-top: 1px solid var(--line); }
-  .milestone__year { font-family: var(--font-mono); color: var(--accent); font-variant-numeric: tabular-nums; }
-  .milestone p { margin: 0; line-height: var(--lh-base); }
-  .impact-page h2 { font-size: var(--fs-h2); margin: 0; }
-</style>
+{% pageCss "impact" %}
 
 <div class="container impact-page">
   <h1 class="impact-lead">{{ i.lead }}</h1>
@@ -55,7 +31,7 @@ ogType: website
     {% endfor %}
   </ul>
 
-  {{ photoRow(i.photos) }}
+  {% photoRow i.photos %}
 
   {% if i.testimonial %}
   <figure class="impact-quote">

@@ -22,9 +22,10 @@
         }
       ],
       "photo": {
-        "src": "/assets/img/site/artist-portrait.jpg",
-        "alt": "A musician photographed in a patterned jacket",
-        "caption": "An artist we filmed"
+        "src": "/assets/img/ig/singer-teal.jpg",
+        "alt": "An artist singing on stage under teal light",
+        "caption": "An artist we filmed",
+        "source": "https://www.instagram.com/p/DcMKUz8JBoV/"
       }
     },
     {
@@ -55,9 +56,10 @@
         }
       ],
       "photo": {
-        "src": "/assets/img/site/school-stage.jpg",
-        "alt": "An artist performing on a school stage with a pianist",
-        "caption": "An artist visit"
+        "src": "/assets/img/ig/students-table.jpg",
+        "alt": "A group of students standing together at the end of a session",
+        "caption": "A school group",
+        "source": "https://www.instagram.com/p/DAPhqG6vYIZ/"
       }
     },
     {
@@ -88,9 +90,10 @@
         }
       ],
       "photo": {
-        "src": "/assets/img/site/cards-table.jpg",
-        "alt": "Songs That Found Me cards laid out on a table at a show",
-        "caption": "Cards collected at a show"
+        "src": "/assets/img/ig/cards-wall.jpg",
+        "alt": "Completed Songs That Found Me cards and photographs pinned to a wall",
+        "caption": "Cards collected at a show",
+        "source": "https://www.instagram.com/p/DbR6VOnDfoM/"
       }
     }
   ],

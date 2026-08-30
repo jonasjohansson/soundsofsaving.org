@@ -1,0 +1,53 @@
+/* — Logo grid —————————————————————————————————————————————————————— *
+ *  Partner and supporter marks.
+ *
+ *  Supplied logo artwork varies wildly in aspect ratio and in how much blank
+ *  canvas it carries, so normalising on height alone leaves a ragged wall of
+ *  marks at apparently random sizes. Two things fix it: the source files are
+ *  trimmed of their surrounding whitespace at build time, and every mark then
+ *  gets an identical cell to sit in, contained rather than cropped.
+ *
+ *  The hairlines come from each cell's own right/bottom border rather than a
+ *  1px grid gap over a coloured container — with a gap, a final row that
+ *  doesn't fill leaves the container colour showing as a stray block.
+ *
+ *  Marks are multiply-blended so the white boxes baked into the JPEG sources
+ *  disappear into the ground instead of sitting on it as pale rectangles.
+ * ————————————————————————————————————————————————————————————————— */
+.logo-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--logo-cols, 4), 1fr);
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.logo-grid > li {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 3 / 2;
+  padding: var(--space-md);
+  min-width: 0;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.logo-grid > li > a { display: grid; place-items: center; width: 100%; height: 100%; }
+/* Each mark carries width/height attributes computed at build time so that
+   every logo covers roughly the SAME AREA, not the same height — a wide
+   wordmark set to a square emblem's height reads three times larger. */
+.logo-grid img {
+  max-width: 100%;
+  height: auto;
+  mix-blend-mode: multiply;
+  filter: grayscale(1);
+  opacity: 0.72;
+  transition: opacity var(--transition), filter var(--transition);
+}
+.logo-grid a:hover img,
+.logo-grid a:focus-visible img { filter: grayscale(0); opacity: 1; }
+
+@media (max-width: 860px) { .logo-grid { --logo-cols: 3; } }
+@media (max-width: 520px) { .logo-grid { --logo-cols: 2; } }

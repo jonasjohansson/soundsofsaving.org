@@ -1,0 +1,114 @@
+.about-page { padding-block: var(--space-xl); }
+.about-page h2 { font-size: var(--fs-h2); line-height: var(--lh-tight); margin: 0 0 var(--space-sm); }
+/* No page heading: the nav already said "About". The opening sentence is the
+   h1, and the intro runs as one block down to the social line. */
+.about-lede { max-width: var(--maxw-prose); margin: 0 0 var(--space-2xl); display: grid; gap: var(--space-sm); }
+.about-intro {
+  font-family: var(--font-body);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-lead);
+  line-height: var(--lh-base);
+  margin: 0;
+}
+.about-intro a { text-decoration: underline; }
+.about-section { margin-top: var(--space-2xl); padding-top: var(--space-xl); border-top: 1px solid var(--border); }
+.about-section p { line-height: var(--lh-base); max-width: var(--maxw-prose); }
+.about-section p + p { margin-top: var(--space-sm); }
+.stat-list { max-width: var(--maxw-prose); margin: var(--space-md) 0; padding-left: var(--space-md); }
+.stat-list li { margin-bottom: var(--space-sm); line-height: var(--lh-base); }
+.about-sources { font-size: var(--fs-small); color: var(--text-muted); max-width: var(--maxw-prose); }
+.about-sources p { margin: 0 0 var(--space-2xs); }
+.pullquote {
+  margin: var(--space-lg) 0;
+  max-width: var(--maxw-prose);
+}
+.pullquote blockquote { font-size: var(--fs-lead); line-height: var(--lh-base); margin: 0 0 var(--space-xs); font-style: italic; }
+.pullquote cite { font-size: var(--fs-small); color: var(--text-muted); font-style: normal; }
+.people-grid {
+  --grid-min: 260px;
+  --grid-gap: var(--space-md) var(--space-lg);
+  margin-top: var(--space-lg);
+}
+/* Only the founders have portraits; the rest of the grid reads fine without,
+   so the image is an optional first child rather than a fixed slot. */
+.person__photo {
+  width: 96px;
+  height: 96px;
+  border-radius: var(--radius);
+  object-fit: cover;
+  margin: 0 0 var(--space-sm);
+}
+.person h3 { font-size: var(--fs-h3); margin: 0 0 var(--space-3xs); }
+.person__role { text-transform: uppercase; letter-spacing: var(--tracking-wide); font-size: var(--fs-tiny); font-weight: var(--fw-semibold); color: var(--accent); margin: 0 0 var(--space-2xs); }
+.person__email { font-size: var(--fs-small); margin: 0 0 var(--space-xs); }
+.person p { line-height: var(--lh-base); font-size: var(--fs-small); margin: 0; }
+.person p + p { margin-top: var(--space-xs); }
+
+.approach { margin-top: var(--space-2xl); padding-top: var(--space-xl); border-top: 1px solid var(--border); }
+.approach__intro { line-height: var(--lh-base); max-width: var(--maxw-prose); margin: 0 0 var(--space-lg); }
+.principles { --grid-min: 260px; --grid-gap: var(--space-md) var(--space-lg); }
+.principle h3 { font-size: var(--fs-h3); margin: 0 0 var(--space-3xs); }
+.principle p { font-size: var(--fs-small); line-height: var(--lh-base); margin: 0; }
+
+/* Research / Evidence block — the white paper's canonical home. */
+.research {
+  margin-top: var(--space-2xl);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+.research__copy { max-width: var(--maxw-prose); }
+.research__eyebrow {
+  color: var(--coral);
+  margin: 0 0 var(--space-2xs);
+}
+.research h2 { color: var(--on-dark); font-size: var(--fs-h2); margin: 0 0 var(--space-xs); }
+.research p { color: var(--paper-2); line-height: var(--lh-base); margin: 0; }
+/* Accent links on the dark band use the brighter shade for legibility. */
+.research p a { color: var(--accent-bright); text-decoration: underline; }
+.research p a:hover { color: var(--paper); }
+.research .btn--stroke { border-color: var(--paper); color: var(--paper); }
+.research .btn--stroke:hover { background: var(--paper); color: var(--dusk); }
+
+/* Advisory roster — a consistent name index (no toggles). */
+.roster {
+  --grid-min: 280px;
+  gap: var(--space-md) var(--space-lg);
+  margin-top: var(--space-lg);
+  list-style: none;
+  padding: 0;
+}
+.roster__item {
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid var(--line);
+}
+.roster__item:last-child { border-bottom: 0; }
+@media (max-width: 640px) {
+  .roster { gap: 0; margin-top: var(--space-md); }
+  .roster__item { padding: var(--space-2xs) 0; }
+}
+.roster__name { display: block; font-family: var(--font-display); font-weight: var(--fw-semibold); color: var(--ink); }
+/* Clamped in CSS rather than truncated in the template: the cut then lands
+   on a line boundary at whatever width the column happens to be, instead of
+   at a fixed 96 characters that stopped some bios mid-second-line. */
+.roster__role {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-top: var(--space-3xs);
+  font-size: var(--fs-small);
+  line-height: var(--lh-base);
+  color: var(--text-muted);
+  max-width: none;
+}
+
+/* Partners and supporters — linked where known, desaturated, larger. */
+.about-partners { margin-top: var(--space-2xl); padding-top: var(--space-xl); border-top: 1px solid var(--line); }
+.about-partners h2 { font-size: var(--fs-h2); margin: 0 0 var(--space-lg); }
+/* The marks use the shared .logo-grid component (components/logo-grid.css):
+   supplied artwork varies far too much in aspect ratio and built-in padding
+   for height-normalising alone to look like anything but a ragged wall. */

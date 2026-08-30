@@ -6,6 +6,8 @@ title: ""
 heroOverlayNav: true
 eleventyComputed:
   description: "{{ settings.seo.home or settings.meta_description }}"
+ogImage: "/assets/img/ig/banner-rooftop.jpg"
+ogImageAlt: "A rooftop banner reading: what song found you at the right time?"
 ---
 {#
   Home — message-first. Section order:
@@ -19,226 +21,27 @@ eleventyComputed:
 {% set featured = sessions | selectattr("featured") | first %}
 {% set hero = settings.hero_images | first %}
 
-<style>
-  /* — 1. Hero — full-color artist still, one positioning line, one CTA ——— */
-  .home-hero {
-    position: relative;
-    min-height: min(92vh, 760px);
-    display: flex;
-    align-items: flex-end;
-    overflow: hidden;
-    background: var(--ink);
-    color: var(--paper);
-  }
-  .home-hero__img {
-    position: absolute;
-    inset: 0;
-    transition: opacity 1600ms ease;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 30%;
-    z-index: 0;
-  }
-  /* Restrained legibility gradient — bottom + left only, keeps the image
-     essentially full-color (the whole point: re-personalize, no flat wash). */
-  .home-hero__scrim {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    background:
-      linear-gradient(rgb(var(--scrim-rgb) / 0.24), rgb(var(--scrim-rgb) / 0.24)),
-      linear-gradient(180deg, rgb(var(--scrim-rgb) / 0.24) 0%, rgb(var(--scrim-rgb) / 0) 24%),
-      linear-gradient(0deg, rgb(var(--scrim-rgb) / 0.84) 0%, rgb(var(--scrim-rgb) / 0.6) 34%, rgb(var(--scrim-rgb) / 0.28) 58%, rgb(var(--scrim-rgb) / 0) 82%);
-  }
-  .home-hero__inner {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    padding-block: var(--space-2xl);
-  }
-  /* Mobile: the header (logo + stacked nav) overlays the top of the hero, so
-     make the hero full-height and keep its content at the bottom, clear of it. */
-  @media (max-width: 860px) {
-    .home-hero { min-height: 100svh; }
-    .home-hero__inner { padding-bottom: var(--space-xl); }
-  }
-  .home-hero__eyebrow { color: var(--paper); margin: 0 0 var(--space-sm); }
-  .home-hero__title {
-    font-family: var(--font-display);
-    font-size: var(--fs-title);
-    line-height: var(--lh-tight);
-    font-weight: var(--fw-semibold);
-    margin: 0;
-    max-width: 22ch;
-    color: var(--paper);
-    text-wrap: balance;
-  }
-  .home-hero__sub {
-    margin: var(--space-md) 0 0;
-    max-width: 60ch;
-    font-size: var(--fs-lead);
-    line-height: var(--lh-base);
-    color: var(--paper);
-  }
-  .home-hero__ctas { display: flex; flex-wrap: wrap; gap: var(--space-sm); margin-top: var(--space-lg); }
-  .home-hero__ghost { border-color: var(--paper); color: var(--paper); }
-  .home-hero__ghost:hover { background: var(--paper); color: var(--ink); }
-  /* Photo credit sits in the corner of the image, not in the copy column. */
-  .home-hero__credit {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    z-index: 2;
-    margin: 0;
-    padding: var(--space-xs) var(--space-md);
-    font-size: var(--fs-micro);
-    letter-spacing: var(--tracking-wide);
-    color: var(--paper);
-    opacity: 0.55;
-    transition: opacity 600ms ease;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .home-hero__img, .home-hero__credit { transition: none; }
-  }
-
-  /* — Shared section heads ——————————————————————————————————————— */
-  .home-head { max-width: var(--maxw-prose); margin-bottom: var(--space-lg); }
-  .home-head__title { font-family: var(--font-display); font-size: var(--fs-title); line-height: var(--lh-tight); margin: var(--space-2xs) 0 0; }
-  .home-head__intro { font-size: var(--fs-lead); line-height: var(--lh-base); color: var(--text-muted); margin: var(--space-sm) 0 0; }
-  .home-more {
-    display: inline-block;
-    margin-top: var(--space-lg);
-    color: var(--accent);
-    font-weight: var(--fw-regular);
-  }
-  .home-more:hover { text-decoration: underline; }
-  /* — Three doors (in the hero) ———————————————————————————————— */
-  /* Same three tracks and gutter as .home-what, so the doors sit on the grid. */
-  .home-doors { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-lg); margin-top: var(--space-lg); list-style: none; padding: 0; }
-  .home-doors > li { display: flex; }
-  .home-door {
-    flex: 1;
-    display: block;
-    border: 1px solid var(--hairline-on-dark);
-    border-radius: var(--radius);
-    padding: var(--space-sm) var(--space-md);
-    color: var(--paper);
-    text-decoration: none;
-    background: var(--veil-on-dark);
-    transition: background var(--transition), border-color var(--transition);
-  }
-  .home-door:hover, .home-door:focus-visible { background: var(--paper); color: var(--ink); border-color: var(--paper); }
-  .home-door__q { display: block; font-family: var(--font-display); font-weight: var(--fw-semibold); font-size: var(--fs-h3); line-height: var(--lh-tight); }
-  .home-door__a { display: block; font-size: var(--fs-small); margin-top: var(--space-3xs); opacity: 0.85; }
-  @media (max-width: 760px) { .home-doors { grid-template-columns: 1fr; } }
-
-  /* — What we do: Artists / Schools / Community ———————————————— */
-  .home-what { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-lg); }
-  .home-what > li { display: flex; flex-direction: column; }
-  .home-what__media { display: block; aspect-ratio: 3 / 2; overflow: hidden; border-radius: var(--radius); background: var(--bg-alt); margin-bottom: var(--space-sm); }
-  .home-what__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .home-what--artists { --accent: var(--accent-sessions); }
-  .home-what--schools { --accent: var(--accent-educators); }
-  .home-what--community { --accent: var(--accent-programs); }
-  .home-what__title { font-family: var(--font-display); font-size: var(--fs-h3); line-height: var(--lh-tight); margin: var(--space-2xs) 0 var(--space-xs); }
-  .home-what__copy { color: var(--text-muted); line-height: var(--lh-base); margin: 0; font-size: var(--fs-small); }
-  .home-what .home-more { margin-top: auto; padding-top: var(--space-sm); }
-  @media (max-width: 760px) { .home-what { grid-template-columns: 1fr; } }
-
-
-  /* — Where your gift goes: the one ask on the page, so it gets the dark
-     band the site uses elsewhere for a change of register. ——————————— */
-  .home-gift-band { background: var(--dusk); color: var(--on-dark); }
-  .home-gift-band .home-head__title { color: var(--on-dark); }
-  .home-gift-band .home-head__intro { color: var(--paper-2); }
-  .home-gift-band .home-gift__use { border-top-color: var(--dusk-2); }
-  .home-gift-band .home-gift__use b { color: var(--accent-bright); }
-  .home-gift-band .home-gift__use p { color: var(--paper-2); }
-  .home-gift-band .btn--primary { background: var(--paper); color: var(--dusk); }
-  .home-gift-band .btn--primary:hover { background: var(--accent-bright); color: var(--dusk); }
-  .home-gift-band .btn--ghost { border-color: var(--paper); color: var(--paper); }
-  .home-gift-band .btn--ghost:hover { background: var(--paper); color: var(--dusk); }
-
-  /* Two even halves: the ask on the left, what it funds on the right. */
-  .home-gift { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); align-items: start; }
-  .home-gift__uses { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-sm); }
-  .home-gift__use { padding-top: var(--space-sm); border-top: 1px solid var(--line); }
-  .home-gift__use b { display: block; margin-bottom: var(--space-2xs); font-family: var(--font-display); font-weight: var(--fw-semibold); color: var(--accent); }
-  .home-gift__use p { margin: 0; font-size: var(--fs-small); line-height: var(--lh-base); color: var(--text-muted); }
-  .home-gift__ctas { display: flex; flex-wrap: wrap; gap: var(--space-sm); margin-top: var(--space-md); }
-  @media (max-width: 760px) { .home-gift { grid-template-columns: 1fr; } }
-
-  /* — Featured session / interview ——————————————————————————————— */
-  /* Text column left (title, then the links under it), image right. The media
-     spans both rows so the left column reads top-down against it. */
-  /* Same three tracks and gutter as .home-what: the film spans the first two
-     columns, the title and links sit in the third. */
-  .featured {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto 1fr;
-    grid-template-areas: "media media meta" "media media links";
-    gap: var(--space-md) var(--space-lg);
-    align-items: start;
-  }
-  .featured__meta  { grid-area: meta; }
-  .featured__media { grid-area: media; }
-  .featured__links { grid-area: links; align-self: end; }
-  @media (max-width: 720px) {
-    .featured {
-      grid-template-columns: 1fr;
-      grid-template-rows: auto auto auto;
-      grid-template-areas: "meta" "media" "links";
-    }
-  }
-  .featured__media {
-    position: relative;
-    display: block;
-    aspect-ratio: 16 / 9;
-    border-radius: var(--radius);
-    overflow: hidden;
-    background: var(--bg-alt);
-  }
-  .featured__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  /* Story/interview images vary in aspect ratio, so show them in full (uncropped). */
-  .featured--story .featured__media { aspect-ratio: 16 / 9; }
-  .featured--story .featured__media img { height: 100%; object-fit: cover; }
-  .featured__play {
-    position: absolute;
-    inset: 0;
-    display: grid;
-    place-items: center;
-    color: var(--paper);
-  }
-  .featured__play svg { width: 64px; height: 64px; filter: drop-shadow(var(--shadow-play)); opacity: 0.95; }
-  .featured__titlelink { display: block; color: inherit; text-decoration: none; }
-  .featured__titlelink:hover .featured__artist,
-  .featured__titlelink:focus-visible .featured__artist { color: var(--accent); }
-  .featured__artist { font-family: var(--font-display); font-size: var(--fs-h2); line-height: var(--lh-tight); margin: 0; }
-  .featured__song { font-size: var(--fs-lead); color: var(--text-muted); margin: var(--space-3xs) 0 0; }
-  .featured__links { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-2xs); margin: 0; }
-  .featured__links .home-more { margin-top: 0; }
-
-</style>
+{% pageCss "index" %}
 
 {# 1. HERO ——————————————————————————————————————————————————————— #}
 <section class="home-hero">
   {% if hero.src %}
-  <img class="home-hero__img media media--full"
-       src="{{ hero.src }}" sizes="100vw" alt="{{ hero.alt }}"
-       width="1600" height="900"
-       fetchpriority="high" decoding="async" />
+  {# The LCP image. A plain <img> rather than a <picture>, because the rotator
+     reassigns src/srcset every ten seconds and a <source> would override it.
+     The responsive variants come from the same pipeline via {% heroPool %}
+     below; a phone was downloading the full 1600px JPEG here, which is what
+     put mobile LCP at eight seconds. #}
+  {% heroImg hero %}
   {% endif %}
   <div class="home-hero__scrim" aria-hidden="true"></div>
   <div class="home-hero__inner">
     <div class="container">
       <h1 class="home-hero__title">{{ settings.hero_heading }}</h1>
       <p class="home-hero__sub">{{ settings.hero_subheading }}</p>
-      <ul class="home-doors" aria-label="Where do you want to go?">
-        <li><a class="home-door" href="/sessions/"><span class="home-door__q">I love music</span><span class="home-door__a">Watch artists share the song that got them through &rarr;</span></a></li>
-        <li><a class="home-door" href="/educators/"><span class="home-door__q">I work at a school</span><span class="home-door__a">Bring SoS HS, our five-session program, to your students &rarr;</span></a></li>
-        <li><a class="home-door" href="/resources/"><span class="home-door__q">I need help</span><span class="home-door__a">Resources and the 988 Lifeline &rarr;</span></a></li>
+      <ul class="home-doors grid-3" aria-label="Where do you want to go?">
+        <li><a class="home-door" href="/sessions/"><span class="home-door__q">I love music</span><span class="home-door__a">{{ "Watch artists share the song that got them through" | arrow | safe }}</span></a></li>
+        <li><a class="home-door" href="/educators/"><span class="home-door__q">I work at a school</span><span class="home-door__a">{{ "Bring SoS HS, our five-session program, to your students" | arrow | safe }}</span></a></li>
+        <li><a class="home-door" href="/resources/"><span class="home-door__q">I need help</span><span class="home-door__a">{{ "Resources and the 988 Lifeline" | arrow | safe }}</span></a></li>
       </ul>
     </div>
   </div>
@@ -246,30 +49,30 @@ eleventyComputed:
 </section>
 
 {# 2. WHAT WE DO — Artists / Schools / Community + proof strip ———— #}
-<section class="section">
+<section class="section section--paper">
   <div class="container">
     <header class="home-head">
       <h2 class="home-head__title">What we do</h2>
       <p class="home-head__intro">Young people already use music to cope. We work with the artists they trust, the schools they're in, and the shows they go to, so they can use it on purpose.</p>
     </header>
-    <ul class="home-what">
+    <ul class="home-what grid-3">
       <li class="home-what--artists">
-        <a class="home-what__media" href="/sessions/" aria-label="Sessions"><img src="/assets/img/site/living-room.jpg" alt="An artist playing guitar in a living room during a filmed session" width="1500" height="1000" decoding="async" /></a>
+        <a class="home-what__media" href="/sessions/" aria-label="Sessions">{% respImg "/assets/img/site/living-room.jpg", { alt: "An artist playing guitar in a living room during a filmed session", sizes: "(max-width: 760px) 92vw, 340px", width: 1500, height: 1000 } %}</a>
         <h3 class="home-what__title">Artists</h3>
         <p class="home-what__copy">Song That Found Me at the Right Time: an artist covers the song that got them through a hard time and talks about what else helped. Made with the 988 Lifeline.</p>
-        <a class="home-more" href="/sessions/">Watch a Session &rarr;</a>
+        <a class="home-more" href="/sessions/">{{ "Watch a Session" | arrow | safe }}</a>
       </li>
       <li class="home-what--schools">
-        <a class="home-what__media" href="/educators/" aria-label="For educators"><img src="/assets/img/site/lockers.jpg" alt="Two students laughing by a row of school lockers" width="1500" height="1000" decoding="async" /></a>
+        <a class="home-what__media" href="/educators/" aria-label="For educators">{% respImg "/assets/img/site/lockers.jpg", { alt: "Two students laughing by a row of school lockers", sizes: "(max-width: 760px) 92vw, 340px", width: 1500, height: 1000 } %}</a>
         <h3 class="home-what__title">Schools</h3>
         <p class="home-what__copy">SoS HS: five sessions on coping, identity, and connection, built on the music students already listen to. Run by school staff or by us.</p>
-        <a class="home-more" href="/educators/">Bring it to your school &rarr;</a>
+        <a class="home-more" href="/educators/">{{ "Bring it to your school" | arrow | safe }}</a>
       </li>
       <li class="home-what--community">
-        <a class="home-what__media" href="/programs/#community" aria-label="Community programs"><img src="/assets/img/site/cards-festival.jpg" alt="Young people filling in Songs That Found Me cards at a festival table" width="1500" height="1000" decoding="async" /></a>
+        <a class="home-what__media" href="/programs/#community" aria-label="Community programs">{% respImg "/assets/img/site/cards-festival.jpg", { alt: "Young people filling in Songs That Found Me cards at a festival table", sizes: "(max-width: 760px) 92vw, 340px", width: 1500, height: 1000 } %}</a>
         <h3 class="home-what__title">Community</h3>
         <p class="home-what__copy">At tours and festivals we collect the songs that found people at the right time, with a clinician at the table and a QR code to local help.</p>
-        <a class="home-more" href="/programs/#community">See the programs &rarr;</a>
+        <a class="home-more" href="/programs/#community">{{ "See the programs" | arrow | safe }}</a>
       </li>
     </ul>
   </div>
@@ -306,8 +109,8 @@ eleventyComputed:
         </a>
       </div>
       <p class="featured__links">
-        <a class="home-more" href="/sessions/">See all {{ sessions.length }} sessions &rarr;</a>
-        <a class="home-more" href="/sessions/artists/">Browse every artist &rarr;</a>
+        <a class="home-more" href="/sessions/">{{ ("See all " + sessions.length + " sessions") | arrow | safe }}</a>
+        <a class="home-more" href="/sessions/artists/">{{ "Browse every artist" | arrow | safe }}</a>
       </p>
     </div>
   </div>
@@ -318,7 +121,7 @@ eleventyComputed:
 {% set interviewCluster = (news.storyClusters | selectattr("slug", "equalto", "interviews") | first) %}
 {% if interviewCluster and interviewCluster.posts.length %}
 {% set fStory = interviewCluster.posts[0] %}
-<section class="section">
+<section class="section section--paper">
   <div class="container" data-section="stories">
     <header class="home-head">
       <h2 class="home-head__title">Stories</h2>
@@ -335,10 +138,26 @@ eleventyComputed:
         </a>
       </div>
       <p class="featured__links">
-        <a class="home-more" href="{{ fStory.url }}">Read this interview &rarr;</a>
-        <a class="home-more" href="/stories/">All stories &rarr;</a>
+        <a class="home-more" href="{{ fStory.url }}">{{ "Read this interview" | arrow | safe }}</a>
+        <a class="home-more" href="/stories/">{{ "All stories" | arrow | safe }}</a>
       </p>
     </div>
+  </div>
+</section>
+{% endif %}
+
+{# FROM INSTAGRAM ——————————————————————————————————————————————— #}
+{# Real photographs from the account, each linking back to its own post. The
+   work is ongoing and public; this is the cheapest honest proof of that. #}
+{% if settings.instagram_photos | length %}
+<section class="section home-ig">
+  <div class="container">
+    <header class="home-head">
+      <h2 class="home-head__title">From Instagram</h2>
+      <p class="home-head__intro">Sessions, school visits, and the cards people fill in at shows. Every photo links back to the post it came from.</p>
+    </header>
+    {% photoRow settings.instagram_photos %}
+    <a class="home-more" href="{{ settings.socials.instagram }}" target="_blank" rel="noopener">{{ "Follow on Instagram" | arrow | safe }}</a>
   </div>
 </section>
 {% endif %}
@@ -364,7 +183,7 @@ eleventyComputed:
 
 {# Randomize the hero + featured session on each page load (client-side). #}
 <script id="hero-pool" type="application/json">
-{{ settings.hero_images | dump | safe }}
+{% heroPool settings.hero_images %}
 </script>
 <script id="session-pool" type="application/json">
 {%- set pool = [] -%}
@@ -385,110 +204,4 @@ eleventyComputed:
 {%- endif -%}
 {{ spool | dump | safe }}
 </script>
-<script>
-  (function () {
-    var el = document.getElementById("session-pool");
-    if (!el) return;
-    var all;
-    try { all = JSON.parse(el.textContent); } catch (e) { return; }
-    if (!all.length) return;
-    var pick = function (arr) { return arr[Math.floor(Math.random() * arr.length)]; };
-    var produced = all.filter(function (s) { return s.kind !== "favorite" && s.kind !== "short"; });
-    if (!produced.length) produced = all;
-    // Hero: start on a random artist, then cross-fade to another every 10s.
-    // Two stacked <img> layers so the swap never flashes the background; the
-    // incoming frame is only revealed once it has decoded.
-    // Hero: photographs from the archive, cross-fading every 10s. Two stacked
-    // layers so a swap never flashes the background; the incoming frame is only
-    // revealed once it has decoded.
-    var heroEl = document.getElementById("hero-pool");
-    var heroes = [];
-    if (heroEl) { try { heroes = JSON.parse(heroEl.textContent).filter(function (h) { return h && h.src; }); } catch (e) {} }
-    var hImg = document.querySelector(".home-hero__img");
-    var hCredit = document.querySelector(".home-hero__credit");
-    var setCredit = function (h) {
-      if (!hCredit) return;
-      hCredit.textContent = h.credit || "";
-      hCredit.hidden = !h.credit;
-    };
-    var apply = function (el, h) { el.src = h.src; el.alt = h.alt || ""; };
-
-    if (hImg && heroes.length) {
-      var current = pick(heroes);
-      apply(hImg, current);
-      setCredit(current);
-
-      var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      if (heroes.length > 1 && !reduce) {
-        var back = hImg;                       // visible layer
-        var front = hImg.cloneNode(false);     // incoming layer
-        front.style.opacity = "0";
-        front.removeAttribute("fetchpriority");
-        front.loading = "lazy";
-        back.parentNode.insertBefore(front, back.nextSibling);
-
-        var rotate = function () {
-          if (document.hidden) return;
-          var next = current;
-          for (var i = 0; i < 8 && next === current; i++) next = pick(heroes);
-          if (next === current) return;
-          apply(front, next);
-          var reveal = function () {
-            front.style.opacity = "1";
-            if (hCredit) {
-              hCredit.style.opacity = "0";
-              setTimeout(function () { setCredit(next); hCredit.style.opacity = ""; }, 600);
-            }
-            setTimeout(function () {
-              var tmp = back; back = front; front = tmp;   // front becomes the hidden layer again
-              front.style.opacity = "0";
-              current = next;
-            }, 1700);
-          };
-          if (front.complete) reveal();
-          else front.addEventListener("load", reveal, { once: true });
-        };
-        setInterval(rotate, 10000);
-      }
-    }
-    var withSong = all.filter(function (s) { return s.song; });
-    var f = pick(withSong.length ? withSong : all);
-    var fImg = document.querySelector(".featured__media img");
-    var fLink = document.querySelector(".featured__media");
-    var fArtist = document.querySelector(".featured__artist");
-    var fSong = document.querySelector(".featured__song");
-    if (fImg && f.base) {
-      fImg.srcset = f.base + "-800.webp 800w, " + f.base + "-1280.webp 1280w";
-      fImg.src = f.base + "-800.webp";
-      fImg.alt = f.artist;
-    }
-    var fTitle = document.querySelector(".featured:not(.featured--story) .featured__titlelink");
-    if (fLink && f.url) { fLink.setAttribute("href", f.url); }
-    if (fTitle && f.url) { fTitle.setAttribute("href", f.url); }
-    if (fArtist) { fArtist.textContent = f.artist; }
-    if (fSong) {
-      if (f.song) { fSong.textContent = f.song + " by " + (f.covers || f.artist); fSong.style.display = ""; }
-      else { fSong.style.display = "none"; }
-    }
-
-    // Randomize the featured interview too.
-    var sEl = document.getElementById("story-pool");
-    var stories = [];
-    if (sEl) { try { stories = JSON.parse(sEl.textContent); } catch (e) {} }
-    if (stories.length) {
-      var st = pick(stories);
-      var stImg = document.querySelector(".featured--story .featured__media img");
-      var stMedia = document.querySelector(".featured--story .featured__media");
-      var stTitle = document.querySelector(".featured--story .featured__artist");
-      var stAuthor = document.querySelector(".featured--story .featured__song");
-      var stRead = document.querySelector(".featured--story .featured__links a");
-      if (stImg && st.img) { stImg.src = st.img; stImg.alt = st.title; }
-      if (stMedia && st.url) { stMedia.setAttribute("href", st.url); stMedia.setAttribute("aria-label", "Read " + st.title); }
-      if (stTitle) { stTitle.textContent = st.title; }
-      if (stAuthor) { if (st.author) { stAuthor.textContent = st.author; stAuthor.style.display = ""; } else { stAuthor.style.display = "none"; } }
-      var stTitleLink = document.querySelector(".featured--story .featured__titlelink");
-      if (stTitleLink && st.url) { stTitleLink.setAttribute("href", st.url); }
-      if (stRead && st.url) { stRead.setAttribute("href", st.url); }
-    }
-  })();
-</script>
+<script src="/assets/js/home.js" defer></script>

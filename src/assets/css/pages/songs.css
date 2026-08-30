@@ -1,0 +1,5 @@
+.moved { padding-block: var(--space-xl); max-width: var(--maxw-prose); }
+.moved .eyebrow { display: block; margin-bottom: var(--space-2xs); }
+.moved h1 { font-family: var(--font-display); font-size: var(--fs-h2); letter-spacing: var(--tracking-tight); margin: 0 0 var(--space-sm); }
+.moved p { font-family: var(--font-body); color: var(--text); }
+.moved a { font-weight: var(--fw-semibold); }

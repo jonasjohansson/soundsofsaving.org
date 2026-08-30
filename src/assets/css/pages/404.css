@@ -1,0 +1,3 @@
+.notfound { padding-block: var(--space-xl); max-width: var(--maxw-prose); }
+.notfound h1 { font-size: var(--fs-title); line-height: var(--lh-tight); margin: 0 0 var(--space-sm); }
+.notfound p { font-size: var(--fs-lead); line-height: var(--lh-base); color: var(--text-muted); margin: 0; }

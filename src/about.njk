@@ -6,114 +6,17 @@ title: About Us
 eleventyComputed:
   description: "{{ pages.about.meta_description }}"
 ogType: website
+ogImage: "/assets/img/site/group.jpg"
+ogImageAlt: "Four young people laughing together in a school gym"
 ---
 {#
   About Us — intro/mission, Why Now (with stats + pullquote), Our Approach,
   Founding Story, Team, Board of Directors, Advisory Board. All copy from
   content/pages/about.json (CMS-editable). Section order mirrors the live site.
 #}
-{% from "partials/photos.njk" import row as photoRow, figure as photoFigure %}
 {% set a = pages.about %}
 
-<style>
-  .about-page { padding-block: var(--space-xl); }
-  .about-page h2 { font-size: var(--fs-h2); line-height: var(--lh-tight); margin: 0 0 var(--space-sm); }
-  /* No page heading: the nav already said "About". The opening sentence is the
-     h1, and the intro runs as one block down to the social line. */
-  .about-lede { max-width: var(--maxw-prose); margin: 0 0 var(--space-2xl); display: grid; gap: var(--space-sm); }
-  .about-intro {
-    font-family: var(--font-body);
-    font-weight: var(--fw-regular);
-    font-size: var(--fs-lead);
-    line-height: var(--lh-base);
-    margin: 0;
-  }
-  .about-intro a { text-decoration: underline; }
-  .about-section { margin-top: var(--space-2xl); padding-top: var(--space-xl); border-top: 1px solid var(--border); }
-  .about-section p { line-height: var(--lh-base); max-width: var(--maxw-prose); }
-  .about-section p + p { margin-top: var(--space-sm); }
-  .stat-list { max-width: var(--maxw-prose); margin: var(--space-md) 0; padding-left: var(--space-md); }
-  .stat-list li { margin-bottom: var(--space-sm); line-height: var(--lh-base); }
-  .about-sources { font-size: var(--fs-small); color: var(--text-muted); max-width: var(--maxw-prose); }
-  .about-sources p { margin: 0 0 var(--space-2xs); }
-  .pullquote {
-    margin: var(--space-lg) 0;
-    max-width: var(--maxw-prose);
-  }
-  .pullquote blockquote { font-size: var(--fs-lead); line-height: var(--lh-base); margin: 0 0 var(--space-xs); font-style: italic; }
-  .pullquote cite { font-size: var(--fs-small); color: var(--text-muted); font-style: normal; }
-  .people-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: var(--space-md) var(--space-lg);
-    margin-top: var(--space-lg);
-    list-style: none;
-    padding: 0;
-  }
-  .person h3 { font-size: var(--fs-h3); margin: 0 0 var(--space-3xs); }
-  .person__role { text-transform: uppercase; letter-spacing: var(--tracking-wide); font-size: var(--fs-tiny); font-weight: var(--fw-semibold); color: var(--accent); margin: 0 0 var(--space-2xs); }
-  .person__email { font-size: var(--fs-small); margin: 0 0 var(--space-xs); }
-  .person p { line-height: var(--lh-base); font-size: var(--fs-small); margin: 0; }
-  .person p + p { margin-top: var(--space-xs); }
-
-  .approach { margin-top: var(--space-2xl); padding-top: var(--space-xl); border-top: 1px solid var(--border); }
-  .approach__eyebrow { color: var(--accent); margin: 0 0 var(--space-2xs); }
-  .approach__intro { line-height: var(--lh-base); max-width: var(--maxw-prose); margin: 0 0 var(--space-lg); }
-  .principles { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: var(--space-md) var(--space-lg); }
-  .principle h3 { font-size: var(--fs-h3); margin: 0 0 var(--space-3xs); }
-  .principle p { font-size: var(--fs-small); line-height: var(--lh-base); margin: 0; }
-
-  /* Research / Evidence block — the white paper's canonical home. */
-  .research {
-    margin-top: var(--space-2xl);
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--space-md);
-  }
-  .research__copy { max-width: var(--maxw-prose); }
-  .research__eyebrow {
-    color: var(--coral);
-    margin: 0 0 var(--space-2xs);
-  }
-  .research h2 { color: var(--on-dark); font-size: var(--fs-h2); margin: 0 0 var(--space-xs); }
-  .research p { color: var(--paper-2); line-height: var(--lh-base); margin: 0; }
-  /* Accent links on the dark band use the brighter shade for legibility. */
-  .research p a { color: var(--accent-bright); text-decoration: underline; }
-  .research p a:hover { color: var(--paper); }
-  .research .btn--stroke { border-color: var(--paper); color: var(--paper); }
-  .research .btn--stroke:hover { background: var(--paper); color: var(--dusk); }
-
-  /* Advisory roster — a consistent name index (no toggles). */
-  .roster {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: var(--space-md) var(--space-lg);
-    margin-top: var(--space-lg);
-    list-style: none;
-    padding: 0;
-  }
-  .roster__item {
-    padding: var(--space-sm) 0;
-    border-bottom: 1px solid var(--line);
-  }
-  .roster__item:last-child { border-bottom: 0; }
-  @media (max-width: 640px) {
-    .roster { gap: 0; margin-top: var(--space-md); }
-    .roster__item { padding: var(--space-2xs) 0; }
-  }
-  .roster__name { display: block; font-family: var(--font-display); font-weight: var(--fw-semibold); color: var(--ink); }
-  .roster__role { display: block; margin-top: var(--space-3xs); font-size: var(--fs-small); line-height: var(--lh-base); color: var(--text-muted); max-width: none; }
-
-  /* Partners and supporters — linked where known, desaturated, larger. */
-  .about-partners { margin-top: var(--space-2xl); padding-top: var(--space-xl); border-top: 1px solid var(--line); }
-  .about-partners h2 { font-size: var(--fs-h2); margin: 0 0 var(--space-lg); }
-  .partner-grid { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-lg) var(--space-2xl); list-style: none; margin: 0; padding: 0; }
-  .partner-grid li { display: flex; }
-  .partner-logo { height: 46px; width: auto; filter: grayscale(1); opacity: 0.6; transition: opacity var(--transition); }
-  .partner-grid a:hover .partner-logo, .partner-logo:hover { opacity: 1; }
-</style>
+{% pageCss "about" %}
 
 <div class="container about-page">
   <div class="about-lede">
@@ -122,7 +25,7 @@ ogType: website
     {% endfor %}
     <p class="about-intro">Follow along on <a href="{{ settings.socials.instagram }}" target="_blank" rel="noopener">Instagram</a> and <a href="{{ settings.socials.facebook }}" target="_blank" rel="noopener">Facebook</a>, where we share new work and post regularly.</p>
   </div>
-  {{ photoRow(a.photos, true) }}
+  {% photoRow a.photos, true %}
 
   {% if a.approach %}
   <section class="approach" aria-label="{{ a.approach.heading }}">
@@ -184,6 +87,7 @@ ogType: website
     <ul class="people-grid">
       {% for m in a.team.members %}
       <li class="person">
+        {% if m.photo %}<img class="person__photo" src="{{ m.photo }}" alt="{{ m.photo_alt or m.name }}" width="240" height="240" loading="lazy" decoding="async" />{% endif %}
         <p class="person__role">{{ m.role }}</p>
         <h3>{{ m.name }}</h3>
         {% if m.email %}<p class="person__email"><a href="mailto:{{ m.email }}">{{ m.email }}</a></p>{% endif %}
@@ -216,7 +120,7 @@ ogType: website
       {% for m in a.advisory_board.members %}
       <li class="roster__item">
         <span class="roster__name">{{ m.name }}</span>
-        {% if m.bio %}<span class="roster__role">{{ m.bio | truncate(96) }}</span>{% endif %}
+        {% if m.bio %}<span class="roster__role">{{ m.bio }}</span>{% endif %}
       </li>
       {% endfor %}
     </ul>
@@ -226,10 +130,11 @@ ogType: website
   {% if pages.community.partners.logos %}
   <section class="about-partners" aria-label="Partners and supporters">
     <h2>Partners and supporters</h2>
-    <ul class="partner-grid">
+    <ul class="logo-grid">
       {% for logo in pages.community.partners.logos %}
       <li>
-        {% if logo.url %}<a href="{{ logo.url }}" target="_blank" rel="noopener" title="{{ logo.alt }}"><img class="partner-logo" src="{{ logo.src }}" alt="{{ logo.alt }}" loading="lazy" decoding="async" /></a>{% else %}<img class="partner-logo" src="{{ logo.src }}" alt="{{ logo.alt }}" loading="lazy" decoding="async" />{% endif %}
+        {% set mark %}<img src="{{ logo.src }}" alt="{{ logo.alt }}"{% if logo.w %} width="{{ logo.w }}" height="{{ logo.h }}"{% endif %} loading="lazy" decoding="async" />{% endset %}
+        {% if logo.url %}<a href="{{ logo.url }}" target="_blank" rel="noopener">{{ mark | safe }}</a>{% else %}{{ mark | safe }}{% endif %}
       </li>
       {% endfor %}
     </ul>

@@ -88,5 +88,31 @@
       "alt": "Young musicians playing keyboards under blue light",
       "credit": ""
     }
+  ],
+  "instagram_photos": [
+    {
+      "src": "/assets/img/ig/banner-rooftop.jpg",
+      "alt": "A banner on a rooftop reading: what song found you at the right time?",
+      "caption": "On a rooftop",
+      "source": "https://www.instagram.com/p/DaTV16PJP5T/"
+    },
+    {
+      "src": "/assets/img/ig/festival-cards.jpg",
+      "alt": "A crowd at a festival, several people holding Songs That Found Me cards",
+      "caption": "At a festival",
+      "source": "https://www.instagram.com/p/DMLFFm5OxCV/"
+    },
+    {
+      "src": "/assets/img/ig/stage-amp.jpg",
+      "alt": "A young musician standing beside an amplifier on stage",
+      "caption": "Before a set",
+      "source": "https://www.instagram.com/p/DRXz_hlieek/"
+    },
+    {
+      "src": "/assets/img/ig/artist-card-brick.jpg",
+      "alt": "An artist holding up a completed Songs That Found Me card",
+      "caption": "A card, filled in",
+      "source": "https://www.instagram.com/p/DCNEC0DSVHm/"
+    }
   ]
 }

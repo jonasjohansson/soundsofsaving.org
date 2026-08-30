@@ -1,0 +1,26 @@
+/* — Per-section colour ————————————————————————————————————————————— *
+ *  [data-section] on <body> re-points --accent for the whole page, and every
+ *  ground is derived from it: eyebrows, links, buttons and backgrounds all
+ *  follow without a single per-section override.
+ * ————————————————————————————————————————————————————————————————— */
+[data-section] {
+  /* Hover (deep) and on-dark (bright) shades recompute from whichever --accent
+     is active, instead of baking in the :root blue. */
+  --accent-deep:   color-mix(in srgb, var(--accent), #000 24%);
+  --accent-bright: color-mix(in srgb, var(--accent), #fff 32%);
+
+  /* Every ground is the bone paper carrying a trace of the section's accent, so
+     each part of the site reads as its own colour without leaving the palette.
+     Kept low enough that --ink-faint still clears AA on the deepest of them. */
+  --bg:      color-mix(in srgb, var(--accent) 4%, var(--paper));
+  --bg-alt:  color-mix(in srgb, var(--accent) 8%, var(--paper));
+  --paper-3: color-mix(in srgb, var(--accent) 12%, var(--paper));
+  --line:    color-mix(in srgb, var(--accent) 14%, #cfc8b8);
+}
+[data-section="home"]      { --accent: var(--accent-home); }
+[data-section="sessions"]  { --accent: var(--accent-sessions); }
+[data-section="programs"]  { --accent: var(--accent-programs); }
+[data-section="educators"] { --accent: var(--accent-educators); }
+[data-section="stories"]   { --accent: var(--accent-stories); }
+[data-section="about-us"]  { --accent: var(--accent-about); }
+[data-section="resources"] { --accent: var(--accent-resources); }

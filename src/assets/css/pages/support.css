@@ -1,0 +1,18 @@
+.support-page { padding-block: var(--space-xl); }
+/* No page heading: the nav already said "Support". The opening statement is the h1. */
+
+.support-lede { margin-bottom: var(--space-lg); }
+
+.support-ctas { display: flex; flex-wrap: wrap; gap: var(--space-sm); margin: 0 0 var(--space-2xl); }
+.uses { margin-bottom: var(--space-2xl); }
+.use__media { margin-bottom: var(--space-sm); }
+
+.use h2 { font-size: var(--fs-h3); line-height: var(--lh-tight); margin: 0 0 var(--space-2xs); }
+.use p { font-size: var(--fs-small); line-height: var(--lh-base); margin: 0; }
+
+.ways > li { display: flex; }
+/* Shell, padding and hover come from the shared link card (components/card.css). */
+.way h2 { font-size: var(--fs-h3); margin: 0 0 var(--space-xs); }
+.way p { font-size: var(--fs-small); line-height: var(--lh-base); margin: 0; }
+.way__go { color: var(--accent); margin: 0 0 var(--space-md); }
+

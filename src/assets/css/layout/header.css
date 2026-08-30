@@ -1,0 +1,100 @@
+/* — Header / nav ——————————————————————————————————————————————————— */
+.site-header {
+  position: relative;
+  z-index: 50;
+  background: var(--paper-0);
+  border-bottom: 1px solid var(--border);
+}
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  min-height: var(--header-h);
+  padding-block: var(--space-2xs);
+}
+.site-header__brand {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+}
+@keyframes sos-spin { to { transform: rotate(360deg); } }
+.site-header__logo {
+  animation: sos-spin 40s linear infinite;
+  height: 44px;
+  width: auto;
+  /* Brand mark art is white; render it as ink on the light header. */
+  filter: brightness(0);
+}
+
+.site-nav {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-lg);
+}
+.site-nav__links,
+.site-nav__cta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+.site-nav a {
+  color: var(--text);
+  font-family: var(--font-display);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-base);
+}
+.site-nav__links a:hover { color: var(--accent-deep); }
+.site-nav__links a[aria-current="page"] { color: var(--accent); }
+.site-nav__donate { color: var(--text); }
+.site-nav__donate:hover { color: var(--accent-deep); }
+.site-nav .btn--primary { color: var(--white); }
+
+/* Overlay header (home only): transparent over the hero, white text; the mark
+   is inverted so it reads on the photograph. */
+.site-header--overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  background: transparent;
+  border-bottom-color: transparent;
+}
+.site-header--overlay .site-header__logo { filter: brightness(0) invert(1); }
+.site-header--overlay .site-nav a,
+.site-header--overlay .site-nav__donate { color: var(--white); }
+.site-header--overlay .btn--stroke { border-color: var(--white); color: var(--white); }
+.site-header--overlay .btn--stroke:hover { background-color: var(--white); color: var(--text); }
+
+@media (max-width: 860px) {
+  /* Mobile: single horizontal nav row, no logo unless it fits (set via JS). */
+  .site-header__brand { flex-shrink: 0; }
+  .site-header__logo { height: 30px; }
+  .site-header__inner { gap: var(--space-sm); padding-block: var(--space-sm); min-height: 0; }
+  .site-nav {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: var(--space-2xs);
+    overflow-x: auto;
+    scrollbar-width: none;
+    background: none;
+    border: 0;
+    padding: 0;
+  }
+  .site-nav::-webkit-scrollbar { display: none; }
+  .site-nav__links,
+  .site-nav__cta { flex-wrap: nowrap; gap: var(--space-2xs); }
+  .site-nav a, .site-nav .btn { white-space: nowrap; font-size: var(--fs-tiny); letter-spacing: 0; }
+  .site-nav__cta .btn--stroke { padding: var(--space-3xs) var(--space-2xs); }
+}
+
+/* Narrow phones: the nav scrolls, but Get Help is the one control that must
+   never need a swipe — tighten the gaps just enough to keep it on screen. */
+@media (max-width: 420px) {
+  .site-header__inner { gap: var(--space-2xs); }
+  .site-nav { gap: var(--space-3xs); }
+  .site-nav__links, .site-nav__cta { gap: var(--space-3xs); }
+  .site-header--overlay { position: absolute; background: transparent; }
+}

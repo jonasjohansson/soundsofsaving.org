@@ -5,133 +5,10 @@ permalink: /sessions/
 title: Song That Found Me at the Right Time
 description: "Intimate films where artists share the one song that found them at the right time, and carried them through. A co-production of Sounds of Saving and the 988 Suicide and Crisis Lifeline."
 ogType: website
+ogImage: "/assets/img/ig/singer-teal.jpg"
+ogImageAlt: "An artist singing on stage under teal light"
 ---
-<style>
-  .sessions-page { padding-block: var(--space-xl); }
-
-  /* — Editorial header — */
-  .sessions-head { max-width: var(--maxw-prose); margin-bottom: var(--space-lg); }
-  .sessions-head .eyebrow { display: block; margin: 0 0 var(--space-2xs); }
-  /* No page heading: the opening sentence names the series and is the h1. */
-  .sessions-head h1 {
-    font-family: var(--font-body);
-    font-weight: var(--fw-regular);
-    font-size: var(--fs-lead);
-    line-height: var(--lh-base);
-    letter-spacing: normal;
-    margin: 0 0 var(--space-sm);
-  }
-  .sessions-head h1 strong { font-weight: var(--fw-semibold); }
-  .sessions-intro {
-    font-family: var(--font-body);
-    font-size: var(--fs-lead);
-    line-height: var(--lh-base);
-    color: var(--text);
-    margin: 0 0 var(--space-sm);
-  }
-  .sessions-cobrand {
-    color: var(--ink-muted);
-    margin: 0;
-  }
-  .sessions-cobrand strong { color: var(--accent); font-weight: var(--fw-regular); }
-
-  .sessions-toolbar {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-md);
-    align-items: baseline;
-    margin: var(--space-md) 0 var(--space-lg);
-    padding-top: var(--space-md);
-    border-top: 1px solid var(--line);
-  }
-  .sessions-count {
-    color: var(--ink-faint);
-  }
-
-  /* — Section labels — */
-  .sessions-section + .sessions-section { margin-top: var(--space-xl); }
-  .sessions-section__label {
-    color: var(--accent);
-    margin: 0 0 var(--space-md);
-  }
-
-  /* — Grid — */
-  .sessions-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: var(--space-md);
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-  .sessions-grid--lead { grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); }
-
-  .session-card { display: flex; }
-  .session-card__link {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    text-decoration: none;
-    color: inherit;
-  }
-  .session-card__link:hover .session-card__artist,
-  .session-card__link:focus-visible .session-card__artist { color: var(--accent); }
-
-  .session-card .media { aspect-ratio: 16 / 9; }
-  .session-card .media img { height: 100%; object-fit: cover; }
-
-  .session-card__play {
-    position: absolute;
-    inset: 0;
-    z-index: 3;
-    display: grid;
-    place-items: center;
-    color: var(--paper);
-    pointer-events: none;
-  }
-  .session-card__play svg {
-    width: 46px;
-    height: 46px;
-    filter: drop-shadow(var(--shadow-play));
-    opacity: 0.95;
-  }
-
-  .session-card__body { padding: var(--space-sm) 0 0; }
-  .session-card__artist {
-    font-family: var(--font-display);
-    font-weight: var(--fw-semibold);
-    font-size: var(--fs-h3);
-    line-height: 1.15;
-    letter-spacing: var(--tracking-tight);
-    margin: 0;
-    transition: color var(--transition);
-  }
-  .session-card__song {
-    color: var(--ink-muted);
-    margin: var(--space-2xs) 0 0;
-  }
-  .session-card__song .lead { color: var(--accent); }
-
-  /* — Card-wall teaser — */
-  .sessions-teaser {
-    margin-top: var(--space-xl);
-    padding: var(--space-lg);
-    background: var(--paper-3);
-    border-radius: var(--radius);
-    display: grid;
-    gap: var(--space-sm);
-  }
-  .sessions-teaser h2 {
-    font-family: var(--font-display);
-    font-size: var(--fs-h2);
-    letter-spacing: var(--tracking-tight);
-    margin: 0;
-  }
-  .sessions-teaser p { font-family: var(--font-body); color: var(--text); margin: 0; max-width: var(--maxw-prose); }
-  .sessions-teaser a.btn-text {
-    justify-self: start;
-  }
-</style>
+{% pageCss "sessions" %}
 
 <div class="container sessions-page">
   <header class="sessions-head">
@@ -141,7 +18,7 @@ ogType: website
   </header>
 
   <div class="sessions-toolbar">
-    <a href="/sessions/artists/">Browse by artist &rarr;</a>
+    <a href="/sessions/artists/">{{ "Browse by artist" | arrow | safe }}</a>
     <span class="sessions-count">{{ sessions.length }} episodes &middot; 2018 to 2023</span>
   </div>
 

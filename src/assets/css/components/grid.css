@@ -1,0 +1,32 @@
+/* — Grids —————————————————————————————————————————————————————————— *
+ *  Ten templates were each defining their own responsive card grid, differing
+ *  only in the minimum column width and the gutter. Both are now variables,
+ *  so a page module sets --grid-min / --grid-gap and inherits the rest.
+ * ————————————————————————————————————————————————————————————————— */
+.resource-list, .learn-grid, .sessions-grid, .artists-list, .principles,
+.story-grid, .people-grid, .roster, .tracks__grid, .pcards,
+.proof-stats, .impact-stats {
+  display: grid;
+  /* auto-FIT, not auto-fill: when a group has fewer cards than the row has
+     room for, the empty tracks collapse and the cards share the full width —
+     two cards read as a 50/50 pair instead of two-thirds of a row with a
+     hole in it. Identical to auto-fill once the row is full. */
+  grid-template-columns: repeat(auto-fit, minmax(var(--grid-min, 280px), 1fr));
+  gap: var(--grid-gap, var(--space-lg));
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Three even columns, collapsing to one. The home page's doors and cards, and
+   Support's uses and ways, are all on these same tracks — that is what keeps
+   the sections aligned to each other down the page. */
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+@media (max-width: 760px) { .grid-3 { grid-template-columns: 1fr; } }

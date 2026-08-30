@@ -57,19 +57,22 @@
   },
   "photos": [
     {
-      "src": "/assets/img/site/lockers-2.jpg",
-      "alt": "Two students by school lockers",
-      "caption": "SoS HS in school"
+      "src": "/assets/img/ig/crowd-stage.jpg",
+      "alt": "A band on stage in front of a full room",
+      "caption": "At a show",
+      "source": "https://www.instagram.com/p/DQb1QZ2joO2/"
     },
     {
-      "src": "/assets/img/site/kitchen-guitar.jpg",
-      "alt": "A musician playing guitar in a kitchen",
-      "caption": "An artist playing"
+      "src": "/assets/img/ig/card-filled.jpg",
+      "alt": "A completed Songs That Found Me card listing three songs",
+      "caption": "A card, filled in",
+      "source": "https://www.instagram.com/p/DaOvsQMCWPD/"
     },
     {
-      "src": "/assets/img/site/assembly.jpg",
-      "alt": "A school assembly watching a panel of artists and staff",
-      "caption": "A school assembly"
+      "src": "/assets/img/ig/988-frame.jpg",
+      "alt": "A still from a filmed session, captioned with the 988 call, text and chat line",
+      "caption": "From a session film",
+      "source": "https://www.instagram.com/p/DXt--SeDRL-/"
     }
   ]
 }

@@ -22,13 +22,7 @@ eleventyComputed:
 {% set target = canonicalOverride %}
 <meta http-equiv="refresh" content="0; url={{ target }}" />
 <script>location.replace({{ target | dump | safe }});</script>
-<style>
-  .moved { padding-block: var(--space-xl); max-width: var(--maxw-prose); }
-  .moved .eyebrow { display: block; margin-bottom: var(--space-2xs); }
-  .moved h1 { font-family: var(--font-display); font-size: var(--fs-h2); letter-spacing: var(--tracking-tight); margin: 0 0 var(--space-sm); }
-  .moved p { font-family: var(--font-body); color: var(--text); }
-  .moved a { font-weight: var(--fw-semibold); }
-</style>
+{% pageCss "song" %}
 <div class="container moved">
   <span class="eyebrow">Moved</span>
   <h1>{{ song.artist }} has a new home</h1>

@@ -1,0 +1,62 @@
+.post { padding-block: var(--space-lg) var(--space-2xl); }
+.post__head { max-width: var(--maxw-prose); margin-bottom: var(--space-lg); }
+.post__back {
+  display: inline-block;
+  color: var(--text-muted);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-medium);
+  margin-bottom: var(--space-md);
+}
+.post__back:hover { color: var(--accent); }
+.post__date {
+  color: var(--text-faint);
+  font-size: var(--fs-small);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+.post__title { font-size: var(--fs-title); margin-top: var(--space-2xs); }
+.post__author { color: var(--text-muted); margin-top: var(--space-2xs); }
+
+.post__hero {
+  margin: var(--space-md) 0 var(--space-lg);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--bg-alt);
+}
+.post__hero img { width: 100%; height: auto; display: block; }
+
+.post__body { max-width: var(--maxw-prose); }
+.post__body p { max-width: none; margin-bottom: var(--space-md); }
+.post__body h2, .post__body h3, .post__body h4 {
+  margin: var(--space-lg) 0 var(--space-2xs);
+}
+.post__body h2 { font-size: var(--fs-h2); }
+.post__body h3 { font-size: var(--fs-h3); }
+.post__body a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+.post__body ul, .post__body ol { margin: 0 0 var(--space-md); padding-left: 1.4em; }
+.post__body li { margin-bottom: var(--space-3xs); }
+.post__body li > p { margin-bottom: var(--space-3xs); }
+.post__body img {
+  border-radius: var(--radius);
+  margin: var(--space-md) auto;
+}
+.post__body figure { margin: var(--space-md) 0; }
+.post__body blockquote {
+  margin: var(--space-md) 0;
+  padding-left: var(--space-md);
+  border-left: 3px solid var(--border);
+  color: var(--text-muted);
+  font-style: italic;
+}
+.post__body em { color: var(--text-muted); }
+
+.post__nav {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-md);
+  max-width: var(--maxw-prose);
+  margin-top: var(--space-xl);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--border);
+}
+.post__nav a { font-size: var(--fs-small); font-weight: var(--fw-semibold); }

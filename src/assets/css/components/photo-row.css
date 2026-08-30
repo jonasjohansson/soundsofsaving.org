@@ -1,0 +1,40 @@
+/* — Photo rows ———————————————————————————————————————————————————— *
+ *  Real photography between copy blocks (CMS field: `photos`). When a photo
+ *  came from an Instagram post its `source` is set, and both the image and
+ *  the caption link back to it.
+ * ————————————————————————————————————————————————————————————————— */
+.photo-row {
+  display: grid;
+  grid-template-columns: repeat(var(--cols, 3), 1fr);
+  gap: var(--space-sm);
+  list-style: none;
+  margin: var(--space-lg) 0;
+  padding: 0;
+}
+.photo-row figure { margin: 0; }
+.photo-row .photo {
+  display: block;
+  aspect-ratio: var(--ratio, 3 / 2);
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--bg-alt);
+}
+.photo-row .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.photo-row figcaption {
+  margin-top: var(--space-2xs);
+  font-size: var(--fs-tiny);
+  color: var(--text-faint);
+  font-family: var(--font-mono);
+}
+.photo-row figcaption a,
+.pgroup__photo figcaption a { color: inherit; text-decoration: none; }
+.photo-row figcaption a:hover,
+.pgroup__photo figcaption a:hover { color: var(--accent); text-decoration: underline; }
+
+/* A linked photo lifts very slightly on hover, so it reads as clickable. */
+.photo-row a.photo img { transition: transform var(--transition); }
+
+@media (max-width: 720px) {
+  .photo-row { grid-template-columns: 1fr 1fr; }
+  .photo-row--1 { grid-template-columns: 1fr; }
+}

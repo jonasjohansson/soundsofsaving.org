@@ -1,0 +1,18 @@
+---
+permalink: /assets/data/resources.json
+eleventyExcludeFromCollections: true
+---
+{#
+  The finder's dataset, served as a file instead of embedded in the page.
+
+  Inlined, these 491 records were 525 KB of JSON sitting in the middle of
+  /resources/ — the HTML parser had to chew through all of it before it could
+  render anything below, which is what made that page's first paint the
+  slowest on the site. As a separate file it is fetched in parallel, cached on
+  its own, and compressed by the server.
+
+  Short keys are the compact shape built in src/_data/resources.js:
+    n name · d description · u url · p phone
+    c categories · l locations · g languages · s prebuilt search haystack
+#}
+{"resources":{{ resources.compactJSON | safe }},"catLabels":{{ resources.catLabelsJSON | safe }}}

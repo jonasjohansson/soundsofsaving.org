@@ -17,11 +17,7 @@ eleventyExcludeFromCollections: true
 #}
 <meta http-equiv="refresh" content="0; url=/about-us/">
 <script>location.replace("/about-us/");</script>
-<style>
-  .moved { padding-block: var(--space-2xl); max-width: var(--maxw-prose); }
-  .moved h1 { font-family: var(--font-display); font-size: var(--fs-title); line-height: var(--lh-tight); margin: 0 0 var(--space-md); }
-  .moved p { font-size: var(--fs-lead); line-height: var(--lh-base); color: var(--text-muted); margin: 0; }
-</style>
+{% pageCss "community-redirect" %}
 <div class="container moved">
   <h1>Community has moved</h1>
   <p>This page is now part of <a href="/about-us/">About Us</a>. If you are not redirected automatically, follow that link.</p>

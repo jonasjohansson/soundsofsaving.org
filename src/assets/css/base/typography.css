@@ -1,0 +1,51 @@
+/* — Type roles ———————————————————————————————————————————————————— *
+ *  Body serif, display grotesque, mono eyebrows. Sizes and weights all come
+ *  from tokens.css; nothing here hardcodes a value.
+ * ————————————————————————————————————————————————————————————————— */
+body {
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-base);
+  letter-spacing: var(--tracking);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--ink);
+}
+
+h1 { font-size: var(--fs-title); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+
+p { max-width: var(--maxw-prose); }
+
+strong { font-weight: var(--fw-semibold); }
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+a:hover { color: var(--accent-deep); }
+
+/* Global keyboard focus ring (accessibility). */
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: var(--radius); }
+
+.skip {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--accent);
+  color: var(--white);
+  padding: var(--space-2xs) var(--space-sm);
+  z-index: 100;
+}
+.skip:focus { left: var(--space-sm); }

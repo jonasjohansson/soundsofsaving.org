@@ -1,0 +1,82 @@
+/* — Shared card + band shells —————————————————————————————————————— *
+ *  Only the chrome lives here (border, radius, ground). Per-card padding,
+ *  flex and gap stay in the page module that owns the card.
+ * ————————————————————————————————————————————————————————————————— */
+.resource-card, .learn-card, .pcard, .track, .way {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--paper-2);
+}
+
+/* Dark editorial band — research band (About) + proof band (Educators). */
+.research, .proof-band {
+  background: var(--dusk);
+  color: var(--on-dark);
+  border-radius: var(--radius);
+  padding: var(--space-xl) var(--space-lg);
+}
+
+/* Pull-quote left rule; per-quote margin and type stay local. */
+.pullquote, .edu-pullquote, .session-pull {
+  border-left: 3px solid var(--accent);
+  padding-left: var(--space-md);
+}
+
+/* — Link card ————————————————————————————————————————————————————— *
+ *  Educators' tracks, Programs' cards and Support's ways are the same
+ *  component: the whole card is the link, so there is never a button inside
+ *  something that is already clickable.
+ *
+ *  Hover changes background-COLOR, not the `background` shorthand — the
+ *  shorthand resets background-image and would wipe the card's grain.
+ * ————————————————————————————————————————————————————————————————— */
+.track, .pcard, .way {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-lg);
+  color: inherit;
+  text-decoration: none;
+  transition: border-color var(--transition), background-color var(--transition);
+}
+.track:hover, .track:focus-visible,
+.pcard:hover, .pcard:focus-visible,
+.way:hover, .way:focus-visible {
+  border-color: var(--accent);
+  background-color: var(--paper-3);
+}
+
+/* — Play overlay —————————————————————————————————————————————————— */
+.featured__play, .session-card__play {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: var(--paper);
+  pointer-events: none;
+}
+.featured__play svg, .session-card__play svg {
+  width: var(--play-size, 46px);
+  height: var(--play-size, 46px);
+  filter: drop-shadow(var(--shadow-play));
+  opacity: 0.95;
+}
+
+/* — Back link ————————————————————————————————————————————————————— */
+.session-back, .artists-back {
+  display: inline-block;
+  color: var(--ink-muted);
+  text-decoration: none;
+  margin-bottom: var(--space-md);
+}
+.session-back:hover, .artists-back:hover { color: var(--accent); }
+
+/* — "This page moved" stub ———————————————————————————————————————— *
+ *  Three redirect templates each had their own version of this, with
+ *  divergent padding and type. One component, one behaviour.
+ * ————————————————————————————————————————————————————————————————— */
+.moved { max-width: var(--maxw-prose); padding-block: var(--space-xl); }
+.moved .eyebrow { display: block; margin: 0 0 var(--space-2xs); }
+.moved h1 { font-size: var(--fs-h2); letter-spacing: var(--tracking-tight); margin: 0 0 var(--space-sm); }
+.moved p { color: var(--text-muted); line-height: var(--lh-base); margin: 0; }
+.moved a { text-decoration: underline; }

@@ -2,6 +2,10 @@ const Image = require("@11ty/eleventy-img");
 const path = require("path");
 const fs = require("fs");
 const CleanCSS = require("clean-css");
+const UglifyJS = require("uglify-js");
+const { ogCard } = require("./lib/og-card.js");
+
+const OUTPUT_DIR = "_site";
 
 // Shared eleventy-img settings — moderate widths/formats so the build and the
 // on-disk variant count stay reasonable; the built-in disk cache makes repeat
@@ -134,18 +138,189 @@ module.exports = function (eleventyConfig) {
     return /^https?:\/\//.test(v) ? v : ORIGIN + "/" + String(v).replace(/^\/+/, "");
   });
 
-  // Minify the global stylesheet after build (inlining its local @imports so
-  // the browser fetches one small file instead of three unminified ones).
+  // --- Photo rows -------------------------------------------------------
+  // These were Nunjucks macros, but a Nunjucks macro body is rendered
+  // synchronously, so an async shortcode inside one silently produces nothing.
+  // As real shortcodes they can await the responsive pipeline.
+  //
+  // A photo is { src, alt, caption, source }. `source` is where the image came
+  // from — an Instagram post, for the ones pulled from the SoS account — and
+  // when it is set both the image and the caption link back to it.
+  async function photoMedia(ph, eager, sizes) {
+    const img = await respImage(ph.src, { alt: ph.alt || "", sizes, eager: !!eager });
+    return ph.source
+      ? `<a class="photo" href="${escAttr(ph.source)}" target="_blank" rel="noopener">${img}</a>`
+      : `<span class="photo">${img}</span>`;
+  }
+
+  function photoCaption(ph) {
+    if (!ph.caption) return "";
+    const text = escAttr(ph.caption);
+    const inner = ph.source
+      ? `<a href="${escAttr(ph.source)}" target="_blank" rel="noopener">${text}</a>`
+      : text;
+    return `<figcaption>${inner}</figcaption>`;
+  }
+
+  // A row of photos. `eager` skips lazy-loading for rows above the fold.
+  eleventyConfig.addNunjucksAsyncShortcode("photoRow", async function (photos, eager) {
+    const list = photos || [];
+    if (!list.length) return "";
+    const sizes = "(max-width: 720px) 46vw, 340px";
+    const items = [];
+    for (const ph of list) {
+      if (!ph || !ph.src) continue;
+      items.push(`<li><figure>${await photoMedia(ph, eager, sizes)}${photoCaption(ph)}</figure></li>`);
+    }
+    return `<ul class="photo-row" aria-label="Photos">${items.join("")}</ul>`;
+  });
+
+  // One photo, used beside a section head.
+  eleventyConfig.addNunjucksAsyncShortcode("photoFigure", async function (ph, className) {
+    if (!ph || !ph.src) return "";
+    const sizes = "(max-width: 860px) 92vw, 260px";
+    const media = await photoMedia(ph, false, sizes);
+    return `<figure class="${escAttr(className || "photo-figure")}">${media}${photoCaption(ph)}</figure>`;
+  });
+
+  // --- Hero pool --------------------------------------------------------
+  // The hero photo is swapped by JS every ten seconds, so it cannot be a
+  // <picture>: the <source> srcset would always win over the src the rotator
+  // sets. Instead we run each archive photo through the same responsive
+  // pipeline here and hand the script a resolved src + srcset per photo, which
+  // it can assign to a plain <img>. WebP only — one format keeps the srcset
+  // short, and it is universally supported by anything running this script.
+  async function heroVariants(ph) {
+    const entry = { src: ph.src, alt: ph.alt || "", credit: ph.credit || "" };
+    const input = path.join("src", String(ph.src).replace(/^\/+/, "/"));
+    if (!fs.existsSync(input)) return entry;
+    try {
+      const meta = await Image(input, {
+        widths: [800, 1200, 1600],
+        formats: ["webp"],
+        outputDir: IMG_OUTPUT_DIR,
+        urlPath: IMG_URL_PATH,
+        sharpWebpOptions: { quality: 82 },
+      });
+      const set = meta.webp;
+      entry.src = set[set.length - 1].url;
+      entry.srcset = set.map((s) => `${s.url} ${s.width}w`).join(", ");
+    } catch (e) {
+      /* fall back to the original path — an unoptimized hero beats none */
+    }
+    return entry;
+  }
+
+  eleventyConfig.addNunjucksAsyncShortcode("heroPool", async function (photos) {
+    const out = [];
+    for (const ph of photos || []) {
+      if (!ph || !ph.src) continue;
+      out.push(await heroVariants(ph));
+    }
+    return JSON.stringify(out);
+  });
+
+  // The server-rendered hero: the same variants, emitted as the actual LCP
+  // element so first paint never pulls the unoptimized original.
+  eleventyConfig.addNunjucksAsyncShortcode("heroImg", async function (ph) {
+    if (!ph || !ph.src) return "";
+    const v = await heroVariants(ph);
+    return (
+      `<img class="home-hero__img media media--full" src="${escAttr(v.src)}"` +
+      (v.srcset ? ` srcset="${escAttr(v.srcset)}"` : "") +
+      ` sizes="100vw" alt="${escAttr(v.alt)}" width="1600" height="900"` +
+      ` fetchpriority="high" decoding="async" />`
+    );
+  });
+
+  // --- Open Graph share cards -----------------------------------------
+  // Normalize whatever photo a page nominates into one 1200x630 card (see
+  // lib/og-card.js). Async because it encodes with sharp. Falls through to
+  // the original path if the card can't be made, so og:image is never empty.
+  eleventyConfig.addNunjucksAsyncFilter("ogCard", function (webSrc, cb) {
+    ogCard(webSrc, OUTPUT_DIR)
+      .then((r) => cb(null, r || webSrc))
+      .catch(() => cb(null, webSrc));
+  });
+
+  // --- Trailing-arrow filter -------------------------------------------
+  // "Read the story" -> "Read the <span class=nowrap>story &rarr;</span>", so
+  // the arrow can never be orphaned onto a line of its own. The last word and
+  // the arrow wrap together or not at all.
+  eleventyConfig.addFilter("arrow", (text) => {
+    const t = String(text == null ? "" : text).trim();
+    const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    if (!t) return "&rarr;";
+    const m = t.match(/^([\s\S]*?)(\S+)$/);
+    const head = m ? esc(m[1]) : "";
+    const last = m ? esc(m[2]) : esc(t);
+    return `${head}<span class="nowrap">${last} &rarr;</span>`;
+  });
+
+  // --- Page CSS ---------------------------------------------------------
+  // Each template's styles live in src/assets/css/pages/<name>.css and are
+  // minified and inlined into that page alone. One <style> block, no extra
+  // request, and no page carries another page's rules.
+  const pageCssCache = new Map();
+  eleventyConfig.addShortcode("pageCss", function (name) {
+    if (pageCssCache.has(name)) return pageCssCache.get(name);
+    const src = path.join("src/assets/css/pages", `${name}.css`);
+    let out = "";
+    try {
+      const min = new CleanCSS({ level: 2 }).minify(fs.readFileSync(src, "utf8"));
+      out = min.errors && min.errors.length ? "" : `<style>${min.styles}</style>`;
+    } catch (e) {
+      console.warn(`[css] page module missing: ${src}`);
+    }
+    pageCssCache.set(name, out);
+    return out;
+  });
+
+  // --- Bundle + minify after build --------------------------------------
   eleventyConfig.on("eleventy.after", ({ dir } = {}) => {
-    const outDir = (dir && dir.output) || "_site";
+    const outDir = (dir && dir.output) || OUTPUT_DIR;
+
+    // Global stylesheet: inline every local @import so the browser fetches one
+    // file instead of the module tree, then minify.
     const cssPath = path.join(outDir, "assets/css/site.css");
     try {
-      if (!fs.existsSync(cssPath)) return;
-      const min = new CleanCSS({ inline: ["local"], level: 2 }).minify([cssPath]);
-      if (min.errors && min.errors.length) return;
-      fs.writeFileSync(cssPath, min.styles);
+      if (fs.existsSync(cssPath)) {
+        const min = new CleanCSS({ inline: ["local"], level: 2 }).minify([cssPath]);
+        if (!(min.errors && min.errors.length)) fs.writeFileSync(cssPath, min.styles);
+      }
     } catch (e) {
       console.warn("[css] minify skipped:", e.message);
+    }
+
+    // The CSS modules are build inputs, not deliverables — once they're inlined
+    // above, shipping them would just be dead weight in the deploy.
+    for (const sub of ["base", "layout", "components", "pages"]) {
+      fs.rmSync(path.join(outDir, "assets/css", sub), { recursive: true, force: true });
+    }
+    for (const f of ["fonts.css", "tokens.css"]) {
+      fs.rmSync(path.join(outDir, "assets/css", f), { force: true });
+    }
+
+    // Site scripts: minify in place. They are ES5 by design (no build step,
+    // no transpiler), so uglify-js is the right tool.
+    const jsDir = path.join(outDir, "assets/js");
+    try {
+      if (fs.existsSync(jsDir)) {
+        for (const f of fs.readdirSync(jsDir).filter((f) => f.endsWith(".js"))) {
+          const p = path.join(jsDir, f);
+          const res = UglifyJS.minify(fs.readFileSync(p, "utf8"), {
+            compress: { passes: 2 },
+            mangle: true,
+          });
+          if (res.error) {
+            console.warn(`[js] minify skipped ${f}:`, res.error.message);
+            continue;
+          }
+          fs.writeFileSync(p, res.code);
+        }
+      }
+    } catch (e) {
+      console.warn("[js] minify skipped:", e.message);
     }
   });
 

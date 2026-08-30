@@ -19,6 +19,21 @@ media:
     input: src/assets/img/site
     output: /assets/img/site
     categories: [image]
+  - name: ig
+    label: Instagram photos
+    input: src/assets/img/ig
+    output: /assets/img/ig
+    categories: [image]
+  - name: people
+    label: Portraits
+    input: src/assets/img/people
+    output: /assets/img/people
+    categories: [image]
+  - name: partners
+    label: Partner logos
+    input: src/assets/img/partners
+    output: /assets/img/partners
+    categories: [image]
 
 content:
   - name: sessions
@@ -542,6 +557,19 @@ content:
           - { name: src, label: Image, type: image, options: { media: site } }
           - { name: alt, label: Alt text, type: string }
           - { name: credit, label: "Credit (e.g. Pictured: name)", type: string }
+      - name: instagram_photos
+        label: "Instagram strip (home page)"
+        type: object
+        list:
+          sortable: true
+          collapsible:
+            collapsed: true
+            summary: '{caption}'
+        fields:
+          - { name: src, label: Image, type: image, options: { media: ig } }
+          - { name: alt, label: Alt text, type: string }
+          - { name: caption, label: Caption, type: string }
+          - { name: source, label: Instagram post URL, type: string, pattern: '^$|^https?://' }
       - { name: donate_url, label: Donate URL, type: string, pattern: '^$|^https?://' }
       - { name: donate_label, label: Donate button label, type: string }
       - { name: support_url, label: Support page URL, type: string }

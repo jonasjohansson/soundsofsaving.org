@@ -1,0 +1,249 @@
+/* ---- Get Help uses --calm (sage-teal) as its primary accent ---- */
+.gethelp { padding-block: var(--space-lg) var(--space-2xl); }
+
+/* ---- Crisis band: impossible to miss, separate from the finder ---- */
+.crisis-band {
+  background: var(--accent);
+  color: var(--on-dark);
+  border-radius: var(--radius);
+  padding: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+.crisis-band .eyebrow { color: var(--on-dark); }
+.crisis-band h1 {
+  font-family: var(--font-display);
+  font-size: var(--fs-title);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+  margin: var(--space-2xs) 0 var(--space-xs);
+  color: var(--on-dark);
+}
+.crisis-band__intro {
+  font-size: var(--fs-lead);
+  line-height: var(--lh-base);
+  max-width: 60ch;
+  margin: 0 0 var(--space-md);
+}
+.crisis-lines { display: grid; gap: var(--space-2xs); list-style: none; margin: 0 0 var(--space-md); padding: 0; }
+.crisis-lines li { font-size: var(--fs-base); line-height: var(--lh-base); }
+.crisis-lines strong { font-weight: var(--fw-semibold); }
+.crisis-lines a {
+  color: var(--on-dark);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-weight: var(--fw-medium);
+}
+.crisis-lines a:hover { color: var(--on-dark); opacity: 0.8; }
+.crisis-band__note { font-size: var(--fs-small); margin: 0; opacity: 0.9; }
+.crisis-band__note a { color: var(--on-dark); text-decoration: underline; }
+
+/* ---- Finder ---- */
+/* Tighter than the shared head: the controls sit right underneath. */
+.finder__head { margin-bottom: var(--space-md); }
+.finder__head h2 {
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-tight);
+  margin: 0 0 var(--space-2xs);
+}
+.finder__head p { color: var(--text-muted); line-height: var(--lh-base); margin: 0; }
+
+.finder__controls {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background-color: var(--bg);
+  background-image: var(--grain-surface);
+  background-size: var(--grain-tile);
+  background-blend-mode: overlay;
+  padding-block: var(--space-sm);
+  margin-bottom: var(--space-md);
+  border-bottom: 1px solid var(--border);
+}
+
+.finder__search { position: relative; margin-bottom: var(--space-sm); }
+.finder__search input {
+  width: 100%;
+  font: inherit;
+  font-size: var(--fs-base);
+  padding: var(--space-xs) var(--space-sm);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: var(--paper-0);
+  color: var(--text);
+}
+.finder__search input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+  border-color: var(--accent);
+}
+
+.finder__filters { display: grid; gap: var(--space-sm); grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); align-items: end; }
+.finder__field { display: grid; gap: var(--space-3xs); min-width: 0; }
+.finder__field label { color: var(--accent-deep); }
+.finder__field select {
+  font: inherit;
+  width: 100%;
+  min-width: 0;
+  font-size: var(--fs-small);
+  padding: var(--space-2xs) var(--space-xs);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: var(--paper-0);
+  color: var(--text);
+}
+.finder__field select:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+.finder__status {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-sm);
+  margin-top: var(--space-sm);
+  font-size: var(--fs-small);
+  color: var(--text-muted);
+}
+.finder__count strong { color: var(--text); font-weight: var(--fw-semibold); }
+.finder__reset {
+  font: inherit;
+  font-family: var(--font-mono);
+  font-size: var(--fs-tiny);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--accent-deep);
+  background: none;
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-pill);
+  padding: var(--space-3xs) var(--space-sm);
+  cursor: pointer;
+}
+.finder__reset:hover { background: var(--accent); color: var(--on-dark); }
+.finder__reset[hidden] { display: none; }
+
+/* ---- Topic intro (editorial framing when filtered to one topic) ---- */
+.finder__intro {
+  border-left: 3px solid var(--accent);
+  padding: var(--space-2xs) 0 var(--space-2xs) var(--space-md);
+  margin-bottom: var(--space-md);
+  color: var(--text-muted);
+  font-size: var(--fs-base);
+  line-height: var(--lh-base);
+  max-width: var(--maxw-prose);
+}
+.finder__intro[hidden] { display: none; }
+.finder__intro strong { color: var(--text); font-weight: var(--fw-semibold); font-style: normal; }
+
+/* ---- Cards ---- */
+.resource-list { --grid-min: 280px; --grid-gap: var(--space-md); }
+.resource-card {
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+}
+.resource-card[hidden] { display: none; }
+.resource-card__name {
+  font-family: var(--font-display);
+  font-size: var(--fs-base);
+  line-height: var(--lh-tight);
+  margin: 0;
+}
+.resource-card__name a { color: var(--text); }
+.resource-card__name a:hover { color: var(--accent-deep); }
+.resource-card__badge {
+  color: var(--accent-deep);
+}
+.resource-card p { font-size: var(--fs-small); color: var(--text-muted); line-height: var(--lh-base); margin: 0; }
+.resource-card > p:not(.resource-card__name) {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.resource-card__tags { display: flex; flex-wrap: wrap; gap: var(--space-3xs); margin-top: var(--space-2xs); }
+.resource-card__tags .tag {
+  color: var(--accent-deep);
+  background: var(--paper-3);
+  border-radius: var(--radius-pill);
+  padding: 2px var(--space-2xs);
+  font-size: var(--fs-micro);
+}
+.resource-card__meta {
+  font-size: var(--fs-small);
+  margin-top: auto;
+  padding-top: var(--space-xs);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+.resource-card__meta a { color: var(--accent-deep); font-weight: var(--fw-medium); text-decoration: underline; text-underline-offset: 2px; }
+
+.finder__empty {
+  text-align: center;
+  padding: var(--space-2xl) var(--space-md);
+  color: var(--text-muted);
+}
+.finder__empty[hidden] { display: none; }
+.finder__empty h3 { font-family: var(--font-display); font-size: var(--fs-h3); color: var(--text); margin: 0 0 var(--space-2xs); }
+
+/* ---- Show more (progressive reveal when no filter is active) ---- */
+.finder__more { display: flex; justify-content: center; margin-top: var(--space-lg); }
+.finder__more[hidden] { display: none; }
+.finder__more button {
+  font: inherit;
+  font-family: var(--font-mono);
+  font-size: var(--fs-tiny);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--accent-deep);
+  background: none;
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-pill);
+  padding: var(--space-2xs) var(--space-lg);
+  cursor: pointer;
+}
+.finder__more button:hover { background: var(--accent); color: var(--on-dark); }
+.finder__more button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* Two failure notices, same treatment: no-JS (rendered inside <noscript>, so
+   it simply never exists when JS runs) and dataset-fetch-failed (shipped
+   [hidden], unhidden by the finder only if the fetch rejects). */
+.finder__noscript,
+.finder__offline {
+  border-left: 3px solid var(--coral);
+  padding: var(--space-2xs) 0 var(--space-2xs) var(--space-md);
+  margin-bottom: var(--space-md);
+  color: var(--text-muted);
+  font-size: var(--fs-small);
+  line-height: var(--lh-base);
+  max-width: var(--maxw-prose);
+}
+
+/* ---- Learn layer ---- */
+.gethelp-learn {
+  margin-top: var(--space-2xl);
+  padding-top: var(--space-xl);
+  border-top: 1px solid var(--border);
+}
+.gethelp-learn h2 { font-family: var(--font-display); font-size: var(--fs-h2); margin: 0 0 var(--space-2xs); }
+.gethelp-learn > p { color: var(--text-muted); max-width: var(--maxw-prose); line-height: var(--lh-base); margin-bottom: var(--space-lg); }
+.learn-grid { --grid-min: 240px; --grid-gap: var(--space-md); }
+.learn-card {
+  position: relative;
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+  transition: border-color var(--transition);
+}
+.learn-card:hover { border-color: var(--accent); }
+/* Stretch the title link across the whole card so it's all clickable. */
+.learn-card__title a::after { content: ""; position: absolute; inset: 0; }
+.learn-card__kind {
+  color: var(--accent-deep);
+}
+.learn-card__title { font-family: var(--font-display); font-size: var(--fs-base); line-height: var(--lh-tight); margin: 0; }
+.learn-card__title a { color: var(--ink); }
+.learn-card__title a:hover { color: var(--accent-deep); }
+.learn-card p { font-size: var(--fs-small); color: var(--text-muted); line-height: var(--lh-base); margin: 0; }

@@ -4,19 +4,22 @@
   "intro": "Sounds of Saving is a youth mental health nonprofit rooted in music culture.\n\nWe started with a question: if music is so central to coping and to being young, why isn't it part of how we look after young people's mental health? We help young people use it intentionally, through films with the artists they trust, a five-session program in high schools, and mental-health resources at concerts, festivals, and campuses.",
   "photos": [
     {
-      "src": "/assets/img/site/hug.jpg",
-      "alt": "Two people embracing in an auditorium",
-      "caption": "At a school program"
+      "src": "/assets/img/ig/panel-talk.jpg",
+      "alt": "Two people in conversation on stage, each holding a microphone",
+      "caption": "A panel conversation",
+      "source": "https://www.instagram.com/p/DVt9JHuiVQL/"
     },
     {
-      "src": "/assets/img/site/assembly.jpg",
-      "alt": "A school assembly watching a panel of artists and staff",
-      "caption": "A school assembly"
+      "src": "/assets/img/ig/two-cards.jpg",
+      "alt": "Two people holding up completed Songs That Found Me cards",
+      "caption": "Cards filled in at a show",
+      "source": "https://www.instagram.com/p/C_doWOVuvNi/"
     },
     {
-      "src": "/assets/img/site/group.jpg",
-      "alt": "A group of students together at a school program",
-      "caption": "At a school program"
+      "src": "/assets/img/ig/govball-trio.jpg",
+      "alt": "Three people at a festival backdrop",
+      "caption": "At a festival",
+      "source": "https://www.instagram.com/p/DZfwnG0CXDr/"
     }
   ],
   "approach": {
@@ -91,13 +94,17 @@
         "name": "Nick Greto",
         "role": "Co-Founder",
         "email": "nick@soundsofsaving.com",
-        "bio": "Nick created Sounds of Saving in 2017 as a response to losing his uncle to suicide. He has always found solace in music. Nick grew up in a family of musicians, creates music himself, has written for music publications, and even helped found a small Brooklyn record label.\n\nA graduate of Widener University with a degree in psychology, he has been involved in technology and music in NYC since 2007. Nick currently resides in Bedford-Stuyvesant, Brooklyn with his wife, Dana, and two daughters."
+        "bio": "Nick created Sounds of Saving in 2017 as a response to losing his uncle to suicide. He has always found solace in music. Nick grew up in a family of musicians, creates music himself, has written for music publications, and even helped found a small Brooklyn record label.\n\nA graduate of Widener University with a degree in psychology, he has been involved in technology and music in NYC since 2007. Nick currently resides in Bedford-Stuyvesant, Brooklyn with his wife, Dana, and two daughters.",
+        "photo": "/assets/img/people/nick-greto.jpg",
+        "photo_alt": "Nick Greto, co-founder of Sounds of Saving"
       },
       {
         "name": "Charlie Gross",
         "role": "Co-Founder",
         "email": "charlie@soundsofsaving.com",
-        "bio": "Charlie is a psychotherapist and photographer based in Brooklyn. His photography work explores the overlap between creativity and mental health. In the ‘90s, Charlie was a personal photographer for Beck and based his work largely in the music world. His current work includes a long-term artist residency at Kings County Hospital in which he uses collaborative photography with young adult patients to tell their stories.\n\nCharlie treated young adult patients with substance use and psychiatric disorders at the Weill Cornell Medical Center and in private practice. He holds a BA in Comparative Literature from Columbia University and an MA in Clinical Psychology from the City University of New York."
+        "bio": "Charlie is a psychotherapist and photographer based in Brooklyn. His photography work explores the overlap between creativity and mental health. In the ‘90s, Charlie was a personal photographer for Beck and based his work largely in the music world. His current work includes a long-term artist residency at Kings County Hospital in which he uses collaborative photography with young adult patients to tell their stories.\n\nCharlie treated young adult patients with substance use and psychiatric disorders at the Weill Cornell Medical Center and in private practice. He holds a BA in Comparative Literature from Columbia University and an MA in Clinical Psychology from the City University of New York.",
+        "photo": "/assets/img/people/charlie-gross.jpg",
+        "photo_alt": "Charlie Gross, co-founder of Sounds of Saving"
       }
     ]
   },
@@ -118,7 +125,7 @@
       },
       {
         "name": "Dr. Eric Dammann",
-        "bio": "Eric is a psychologist/psychoanalyst and executive coach with a private practice in Manhattan, along with being a clinical supervisor at Columbia University and editor of several professional journals. He is also proud to work at the William Alanson White Institute where he serves as Co-Director of the Artists program."
+        "bio": "Eric is a psychologist and psychoanalyst and executive coach with a private practice in Manhattan, along with being a clinical supervisor at Columbia University and editor of several professional journals. He is also proud to work at the William Alanson White Institute where he serves as Co-Director of the Artists program."
       },
       {
         "name": "Corey Ferengul",
@@ -148,7 +155,7 @@
       },
       {
         "name": "Alex Rosamilia",
-        "bio": "musician, founding member Gaslight Anthem, Dead Swords"
+        "bio": "Musician, founding member Gaslight Anthem, Dead Swords"
       },
       {
         "name": "Brittney King Brock",
@@ -184,7 +191,7 @@
       },
       {
         "name": "Eric Dammann",
-        "bio": "Dr. Eric Dammann is a clinical psychologist/psychoanalyst and executive coach with a private practice in Manhattan. He specializes in executive coaching, financial counseling, and psychotherapy. Aside from his private practice, he is clinical supervisor at Columbia University and the William Alanson White Institute, where he is also Co-Director of the Artists Program. He is an associate editor of the professional journals Contemporary Psychoanalysis and The Journal of Financial Therapy. He graduated Magna Cum Laude and was Phi Beta Kappa at Bucknell University, and received his doctorate from Michigan State University. He completed psychoanalytic training at the William Alanson White Institute, and executive coach training at The College of Executive Coaching. When not working, he can be found hanging with his family, dog, and drum set."
+        "bio": "Dr. Eric Dammann is a clinical psychologist and psychoanalyst and executive coach with a private practice in Manhattan. He specializes in executive coaching, financial counseling, and psychotherapy. Aside from his private practice, he is clinical supervisor at Columbia University and the William Alanson White Institute, where he is also Co-Director of the Artists Program. He is an associate editor of the professional journals Contemporary Psychoanalysis and The Journal of Financial Therapy. He graduated Magna Cum Laude and was Phi Beta Kappa at Bucknell University, and received his doctorate from Michigan State University. He completed psychoanalytic training at the William Alanson White Institute, and executive coach training at The College of Executive Coaching. When not working, he can be found hanging with his family, dog, and drum set."
       },
       {
         "name": "Francis Rodriguez",
@@ -192,7 +199,7 @@
       },
       {
         "name": "Gary Gunn",
-        "bio": "Gary is a composer, music producer, and audiovisual artist noted for his genre-defying musical aesthetic and forward-thinking application of sound across contemporary art, film, augmented/virtual realities, and botanical environments."
+        "bio": "Gary is a composer, music producer, and audiovisual artist noted for his genre-defying musical aesthetic and forward-thinking application of sound across contemporary art, film, augmented and virtual realities, and botanical environments."
       },
       {
         "name": "Graham Macindoe",
@@ -240,7 +247,7 @@
       },
       {
         "name": "Meshell Ndegeocello",
-        "bio": "musician"
+        "bio": "Musician"
       },
       {
         "name": "Michele Fleischli",
@@ -268,7 +275,7 @@
       },
       {
         "name": "Robert Galligan",
-        "bio": "Robert Galligan is a clinical psychologist in private practice in Brooklyn, NY. Dr. Galligan works with families, couples, and individuals in psychotherapy. He is particularly interested in helping parents develop more harmonious, satisfying relationships with their children and supporting individuals’ efforts to bring meaning and purpose to their lives. Dr. Galligan is on the advisory board of Sounds of Saving and is a Special Adjunct Professor/Clinical Supervisor at Long Island University. Dr. Galligan holds a Ph.D. in Clinical Psychology from Long Island University and a B.A. in English from Yale University. In his spare time, he surfs, makes music, and coaches flag football."
+        "bio": "Robert Galligan is a clinical psychologist in private practice in Brooklyn, NY. Dr. Galligan works with families, couples, and individuals in psychotherapy. He is particularly interested in helping parents develop more harmonious, satisfying relationships with their children and supporting individuals’ efforts to bring meaning and purpose to their lives. Dr. Galligan is on the advisory board of Sounds of Saving and is a Special Adjunct Professor and Clinical Supervisor at Long Island University. Dr. Galligan holds a Ph.D. in Clinical Psychology from Long Island University and a B.A. in English from Yale University. In his spare time, he surfs, makes music, and coaches flag football."
       },
       {
         "name": "Ryan Hall",

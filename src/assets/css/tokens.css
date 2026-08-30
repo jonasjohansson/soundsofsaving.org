@@ -26,7 +26,10 @@
 
   --accent:       #1e3ae6;   /* electric blue — default (home + Get Help) */
   --accent-deep:  color-mix(in srgb, var(--accent), #000 24%);  /* auto hover/pressed shade */
-  --accent-bright: color-mix(in srgb, var(--accent), #fff 26%); /* lightened accent for dark surfaces */
+  /* Lightened accent for dark surfaces. 32% is the floor: below it the
+     deepest section accent (--accent-resources) drops under 4.5:1 on --dusk
+     and fails AA. Every section clears it at this value. */
+  --accent-bright: color-mix(in srgb, var(--accent), #fff 32%);
   --coral:        #e23b1e;   /* vermilion red — highlights / accent CTAs */
 
   /* Per-section accents (all AA on bone). Applied via [data-section] in site.css;

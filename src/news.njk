@@ -5,6 +5,8 @@ permalink: /stories/
 title: Stories
 description: "Interviews, features, and reviews on music, mental health, and the artists who make both."
 ogType: website
+ogImage: "/assets/img/site/hero-backlit.jpg"
+ogImageAlt: "A singer at a microphone, lit from behind"
 ---
 {#
   STORIES INDEX (was the flat /news/ dump). Typed and grouped by cluster:
@@ -14,73 +16,7 @@ ogType: website
   /archive/. Tabs are progressive-enhancement: with JS off, every cluster is
   visible as a stacked section; with JS on they become filter tabs.
 #}
-<style>
-  .stories { padding-block: var(--space-xl) var(--space-2xl); }
-  .stories__head { max-width: var(--maxw-prose); margin-bottom: var(--space-lg); }
-  .stories__title { font-size: var(--fs-title); }
-  .stories__sub { color: var(--text-muted); margin-top: var(--space-2xs); line-height: var(--lh-base); }
-
-  /* ---- Cluster tabs (filter UI) ---- */
-  .stories__tabs {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-2xs);
-    margin-bottom: var(--space-lg);
-    border-bottom: 1px solid var(--border);
-    padding-bottom: var(--space-sm);
-  }
-  .stories__tab {
-    color: var(--text-muted);
-    background: none;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-pill);
-    padding: var(--space-3xs) var(--space-sm);
-    cursor: pointer;
-  }
-  .stories__tab[aria-pressed="true"] { background: var(--accent); color: var(--on-dark); border-color: var(--accent); }
-  .stories__tab:hover { border-color: var(--accent); color: var(--accent); }
-  .stories__tab[aria-pressed="true"]:hover { color: var(--on-dark); }
-
-  .stories__group { margin-bottom: var(--space-2xl); scroll-margin-top: var(--header-h); }
-  .stories__group:last-child { margin-bottom: 0; }
-  .stories__group-head {
-    display: flex;
-    align-items: baseline;
-    gap: var(--space-sm);
-    margin-bottom: var(--space-md);
-  }
-  .stories__group-title { font-size: var(--fs-h2); }
-  .stories__group-count {
-    color: var(--text-faint);
-  }
-
-  .story-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: var(--space-lg);
-  }
-  .story-card { position: relative; display: flex; flex-direction: column; gap: var(--space-2xs); min-width: 0; }
-  /* Stretch the title link across the whole card so it's all clickable. */
-  .story-card__title a::after { content: ""; position: absolute; inset: 0; }
-  .story-card__media {
-    display: block;
-    aspect-ratio: 16 / 10;
-    overflow: hidden;
-    border-radius: var(--radius);
-    background: var(--bg-alt);
-  }
-  .story-card__media img { width: 100%; height: 100%; object-fit: cover; }
-  .story-card__date {
-    color: var(--text-faint);
-  }
-  .story-card__title { font-size: var(--fs-h3); line-height: var(--lh-tight); margin-top: var(--space-3xs); }
-  .story-card__title a { color: var(--ink); }
-  .story-card__title a:hover { color: var(--accent-deep); }
-  .story-card__author { color: var(--text-muted); font-size: var(--fs-small); }
-  .story-card__excerpt { color: var(--text-muted); font-size: var(--fs-small); line-height: var(--lh-base); }
-
-  .stories__group[hidden] { display: none; }
-</style>
+{% pageCss "news" %}
 
 <div class="container stories">
   <header class="stories__head">
@@ -122,25 +58,4 @@ ogType: website
   {% endfor %}
 </div>
 
-<script>
-  /* Cluster tabs: filter the grouped sections. Progressive enhancement —
-     with JS off, all sections render stacked. */
-  (function () {
-    var tabs = document.getElementById("stories-tabs");
-    if (!tabs) return;
-    var buttons = Array.prototype.slice.call(tabs.querySelectorAll(".stories__tab"));
-    var groups = Array.prototype.slice.call(document.querySelectorAll(".stories__group"));
-    function select(cluster) {
-      buttons.forEach(function (b) {
-        b.setAttribute("aria-pressed", String(b.getAttribute("data-cluster") === cluster));
-      });
-      groups.forEach(function (g) {
-        g.hidden = cluster !== "all" && g.getAttribute("data-cluster") !== cluster;
-      });
-    }
-    tabs.addEventListener("click", function (e) {
-      var btn = e.target.closest(".stories__tab");
-      if (btn) select(btn.getAttribute("data-cluster"));
-    });
-  })();
-</script>
+<script src="/assets/js/stories.js" defer></script>

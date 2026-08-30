@@ -1,0 +1,192 @@
+/* — 1. Hero — full-color artist still, one positioning line, one CTA ——— */
+.home-hero {
+  position: relative;
+  min-height: min(92vh, 760px);
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  background: var(--ink);
+  color: var(--paper);
+}
+.home-hero__img {
+  position: absolute;
+  inset: 0;
+  transition: opacity 1600ms ease;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  z-index: 0;
+}
+/* Restrained legibility gradient — bottom + left only, keeps the image
+   essentially full-color (the whole point: re-personalize, no flat wash). */
+.home-hero__scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(rgb(var(--scrim-rgb) / 0.24), rgb(var(--scrim-rgb) / 0.24)),
+    linear-gradient(180deg, rgb(var(--scrim-rgb) / 0.24) 0%, rgb(var(--scrim-rgb) / 0) 24%),
+    linear-gradient(0deg, rgb(var(--scrim-rgb) / 0.84) 0%, rgb(var(--scrim-rgb) / 0.6) 34%, rgb(var(--scrim-rgb) / 0.28) 58%, rgb(var(--scrim-rgb) / 0) 82%);
+}
+.home-hero__inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding-block: var(--space-2xl);
+}
+/* Mobile: the header (logo + stacked nav) overlays the top of the hero, so
+   make the hero full-height and keep its content at the bottom, clear of it. */
+@media (max-width: 860px) {
+  .home-hero { min-height: 100svh; }
+  .home-hero__inner { padding-bottom: var(--space-xl); }
+}
+.home-hero__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-title);
+  line-height: var(--lh-tight);
+  font-weight: var(--fw-semibold);
+  margin: 0;
+  max-width: 22ch;
+  color: var(--paper);
+  text-wrap: balance;
+}
+.home-hero__sub {
+  margin: var(--space-md) 0 0;
+  max-width: 60ch;
+  font-size: var(--fs-lead);
+  line-height: var(--lh-base);
+  color: var(--paper);
+}
+/* Photo credit sits in the corner of the image, not in the copy column. */
+.home-hero__credit {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  margin: 0;
+  padding: var(--space-xs) var(--space-md);
+  font-size: var(--fs-micro);
+  letter-spacing: var(--tracking-wide);
+  color: var(--paper);
+  opacity: 0.55;
+  transition: opacity 600ms ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-hero__img, .home-hero__credit { transition: none; }
+}
+
+/* — Shared section heads ——————————————————————————————————————— */
+
+.home-head__title { font-family: var(--font-display); font-size: var(--fs-title); line-height: var(--lh-tight); margin: var(--space-2xs) 0 0; }
+.home-head__intro { font-size: var(--fs-lead); line-height: var(--lh-base); color: var(--text-muted); margin: var(--space-sm) 0 0; }
+.home-more {
+  display: inline-block;
+  margin-top: var(--space-lg);
+  color: var(--accent);
+  font-weight: var(--fw-regular);
+}
+.home-more:hover { text-decoration: underline; }
+/* — Three doors (in the hero) ———————————————————————————————— */
+/* Same three tracks and gutter as .home-what, so the doors sit on the grid. */
+.home-doors { margin-top: var(--space-lg); }
+.home-doors > li { display: flex; }
+.home-door {
+  flex: 1;
+  display: block;
+  border: 1px solid var(--hairline-on-dark);
+  border-radius: var(--radius);
+  padding: var(--space-sm) var(--space-md);
+  color: var(--paper);
+  text-decoration: none;
+  background: var(--veil-on-dark);
+  transition: background var(--transition), border-color var(--transition);
+}
+.home-door:hover, .home-door:focus-visible { background: var(--paper); color: var(--ink); border-color: var(--paper); }
+.home-door__q { display: block; font-family: var(--font-display); font-weight: var(--fw-semibold); font-size: var(--fs-h3); line-height: var(--lh-tight); }
+.home-door__a { display: block; font-size: var(--fs-small); margin-top: var(--space-3xs); opacity: 0.85; }
+
+/* — What we do: Artists / Schools / Community ———————————————— */
+
+.home-what > li { display: flex; flex-direction: column; }
+.home-what__media { margin-bottom: var(--space-sm); }
+
+.home-what--artists { --accent: var(--accent-sessions); }
+.home-what--schools { --accent: var(--accent-educators); }
+.home-what--community { --accent: var(--accent-programs); }
+.home-what__title { font-family: var(--font-display); font-size: var(--fs-h3); line-height: var(--lh-tight); margin: var(--space-2xs) 0 var(--space-xs); }
+.home-what__copy { color: var(--text-muted); line-height: var(--lh-base); margin: 0; font-size: var(--fs-small); }
+.home-what .home-more { margin-top: auto; padding-top: var(--space-sm); }
+
+/* — Where your gift goes: the one ask on the page, so it gets the dark
+   band the site uses elsewhere for a change of register. ——————————— */
+.home-gift-band { background: var(--dusk); color: var(--on-dark); }
+.home-gift-band .home-head__title { color: var(--on-dark); }
+.home-gift-band .home-head__intro { color: var(--paper-2); }
+.home-gift-band .home-gift__use { border-top-color: var(--dusk-2); }
+/* On the dark band the section accent only reaches 4.33:1 — below AA. The
+   lightened derivative clears it, which is what --accent-bright is for. */
+.home-gift-band .home-gift__use b { color: var(--accent-bright); }
+.home-gift-band .home-gift__use p { color: var(--paper-2); }
+.home-gift-band .btn--primary { background: var(--paper); color: var(--dusk); }
+.home-gift-band .btn--primary:hover { background: var(--accent-bright); color: var(--dusk); }
+.home-gift-band .btn--ghost { border-color: var(--paper); color: var(--paper); }
+.home-gift-band .btn--ghost:hover { background: var(--paper); color: var(--dusk); }
+
+/* Two even halves: the ask on the left, what it funds on the right. */
+.home-gift { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); align-items: start; }
+.home-gift__uses { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-sm); }
+.home-gift__use { padding-top: var(--space-sm); border-top: 1px solid var(--line); }
+.home-gift__use b { display: block; margin-bottom: var(--space-2xs); font-family: var(--font-display); font-weight: var(--fw-semibold); color: var(--accent); }
+.home-gift__use p { margin: 0; font-size: var(--fs-small); line-height: var(--lh-base); color: var(--text-muted); }
+.home-gift__ctas { display: flex; flex-wrap: wrap; gap: var(--space-sm); margin-top: var(--space-md); }
+@media (max-width: 760px) {
+  .home-gift { grid-template-columns: 1fr; gap: var(--space-md); }
+  /* Stacked, the CTAs sit directly above the first use — the grid gap is
+     already the separation, so the header's own bottom margin is doubling up. */
+  .home-gift .home-head { margin-bottom: 0; }
+}
+
+/* — Featured session / interview ——————————————————————————————— */
+/* Text column left (title, then the links under it), image right. The media
+   spans both rows so the left column reads top-down against it. */
+/* Same three tracks and gutter as .home-what: the film spans the first two
+   columns, the title and links sit in the third. */
+.featured {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto 1fr;
+  grid-template-areas: "media media meta" "media media links";
+  gap: var(--space-md) var(--space-lg);
+  align-items: start;
+}
+.featured__meta  { grid-area: meta; }
+.featured__media { grid-area: media; }
+.featured__links { grid-area: links; align-self: end; }
+@media (max-width: 720px) {
+  .featured {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas: "meta" "media" "links";
+  }
+}
+
+/* Bigger than the session-card play mark: this is the page's one film. */
+.featured__play { --play-size: 64px; }
+
+.featured__titlelink { display: block; color: inherit; text-decoration: none; }
+.featured__titlelink:hover .featured__artist,
+.featured__titlelink:focus-visible .featured__artist { color: var(--accent); }
+.featured__artist { font-family: var(--font-display); font-size: var(--fs-h2); line-height: var(--lh-tight); margin: 0; }
+.featured__song { font-size: var(--fs-lead); color: var(--text-muted); margin: var(--space-3xs) 0 0; }
+.featured__links { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-2xs); margin: 0; }
+.featured__links .home-more { margin-top: 0; }
+
+/* — From Instagram ———————————————————————————————————————————————— */
+/* Four across rather than the photo-row default of three: these are wide
+   shots meant to be scanned, not studied. */
+.home-ig .photo-row { --cols: 4; margin-block: 0; }
+/* The row already ends on the captions; .home-more's own top margin is the
+   only separation this needs. */
+.home-ig .home-more { margin-top: var(--space-md); }
+@media (max-width: 860px) { .home-ig .photo-row { --cols: 2; } }

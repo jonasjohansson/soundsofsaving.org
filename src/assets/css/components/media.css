@@ -1,0 +1,44 @@
+/* — Imagery ———————————————————————————————————————————————————————— *
+ *  Full colour is the default. .media is a frame/aspect helper only.
+ * ————————————————————————————————————————————————————————————————— */
+.media {
+  display: block;
+  margin: 0;
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--paper-3);
+}
+.media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.media--full img { filter: none; }
+
+/* A cropped, fixed-ratio well. Set --ratio to override the 3:2 default. */
+.media--crop { aspect-ratio: var(--ratio, 3 / 2); }
+.media--crop img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Every fixed-ratio media well on the site. The frame is shared; only the
+   ratio changes, so it is a variable. */
+.home-what__media, .use__media, .pgroup__photo .photo,
+.featured__media, .session-card .media, .story-card__media {
+  display: block;
+  position: relative;
+  aspect-ratio: var(--ratio, 3 / 2);
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--bg-alt);
+}
+.home-what__media img, .use__media img, .pgroup__photo .photo img,
+.featured__media img, .session-card .media img, .story-card__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Films and session stills are 16:9; story images are a shade squarer. */
+.featured__media, .session-card .media { --ratio: 16 / 9; }
+.story-card__media { --ratio: 16 / 10; }

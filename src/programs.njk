@@ -5,6 +5,8 @@ permalink: /programs/
 title: Programs
 description: "Music is already a mental health tool. Sounds of Saving helps young people use it intentionally, through artist storytelling, a high-school program, and mental-health resources at concerts, festivals, and campuses."
 ogType: website
+ogImage: "/assets/img/ig/cards-wall.jpg"
+ogImageAlt: "Completed Songs That Found Me cards pinned to a wall"
 ---
 {#
   Programs — program cards grouped under the Artists / Schools / Community
@@ -12,134 +14,9 @@ ogType: website
   what happens / proof / one CTA. Content from content/pages/programs.json
   (CMS-editable). The 988-co-branded Sessions series leads, marked featured.
 #}
-{% from "partials/photos.njk" import row as photoRow, figure as photoFigure %}
 {% set p = pages.programs %}
 
-<style>
-  .programs-page { padding-block: var(--space-xl); }
-  .programs-ctas { display: flex; flex-wrap: wrap; gap: var(--space-sm); margin: 0 0 var(--space-2xl); }
-  /* No page heading: the nav already said "Programs". */
-  .programs-lede { max-width: var(--maxw-prose); margin: 0 0 var(--space-lg); display: grid; gap: var(--space-sm); }
-  .programs-lead {
-    font-family: var(--font-body);
-    font-weight: var(--fw-regular);
-    font-size: var(--fs-lead);
-    line-height: var(--lh-base);
-    margin: 0;
-  }
-
-  /* how-it-works loop */
-  .howto { margin: 0 0 var(--space-2xl); }
-  .howto__steps {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-md);
-    margin-top: var(--space-md);
-    padding: 0;
-    list-style: none;
-  }
-  .howto__step {
-    padding: var(--space-md);
-  }
-  .howto__label {
-    color: var(--accent);
-    margin: 0 0 var(--space-2xs);
-  }
-  .howto__step p { font-size: var(--fs-small); line-height: var(--lh-base); margin: 0; }
-
-  /* group sections */
-  .pgroup { margin-top: var(--space-2xl); }
-  .pgroup__head { max-width: var(--maxw-prose); margin-bottom: var(--space-lg); }
-  .pgroup__top { display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: var(--space-xl); align-items: center; margin-bottom: var(--space-lg); }
-  .pgroup__top .pgroup__head { margin-bottom: 0; }
-  .pgroup__photo { margin: 0; }
-  .pgroup__photo .photo { display: block; aspect-ratio: 3 / 2; overflow: hidden; border-radius: var(--radius); background: var(--bg-alt); }
-  .pgroup__photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .pgroup__photo figcaption { margin-top: var(--space-2xs); font-size: var(--fs-tiny); color: var(--text-faint); font-family: var(--font-mono); }
-  @media (max-width: 760px) { .pgroup__top { grid-template-columns: 1fr; } }
-  .pgroup__label {
-    color: var(--accent);
-    margin: 0 0 var(--space-2xs);
-  }
-  .pgroup__heading { font-size: var(--fs-h2); line-height: var(--lh-tight); margin: 0 0 var(--space-xs); }
-  .pgroup__intro { line-height: var(--lh-base); margin: 0; }
-
-  /* card grid */
-  .pcards {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: var(--space-lg);
-    list-style: none;
-    padding: 0;
-  }
-  .pcards > li { display: flex; }
-  .pcards > li.is-featured { grid-column: 1 / -1; }
-  /* The whole card is the link, so there is no button inside it. */
-  .pcard {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    padding: var(--space-lg);
-    color: inherit;
-    text-decoration: none;
-    transition: border-color var(--transition), background var(--transition);
-  }
-  .pcard:hover, .pcard:focus-visible { border-color: var(--accent); background-color: var(--paper-3); }
-  .pcard--featured {
-    background: var(--dusk);
-    border-color: var(--dusk-2);
-    color: var(--on-dark);
-  }
-  .pcard--featured:hover, .pcard--featured:focus-visible { border-color: var(--accent-bright); background-color: var(--dusk); }
-  .pcard--featured .pcard__title,
-  .pcard--featured .pcard__dt { color: var(--on-dark); }
-  .pcard--featured .pcard__dd { color: var(--paper-2); }
-  .pcard--featured .pcard__eyebrow { color: var(--accent-bright); }
-
-  .pcard__eyebrow {
-    color: var(--accent);
-    margin: 0 0 var(--space-2xs);
-  }
-  .pcard__title { font-size: var(--fs-h3); line-height: var(--lh-tight); margin: 0 0 var(--space-sm); }
-
-  .pcard__spec { margin: 0 0 var(--space-md); }
-  .pcard__dt {
-    color: var(--ink-faint);
-    margin-top: var(--space-sm);
-  }
-  .pcard__dt:first-child { margin-top: 0; }
-  .pcard__dd { margin: var(--space-3xs) 0 0; font-size: var(--fs-small); line-height: var(--lh-base); max-width: none; }
-
-  .pcard__go { color: var(--accent); margin: 0 0 var(--space-md); }
-  .pcard--featured .pcard__go { color: var(--accent-bright); }
-  .pcard__dd + .pcard__dd { margin-top: var(--space-xs); }
-  .pcard__proof { color: var(--text-muted); }
-
-  /* educators pointer band */
-  .edu-pointer {
-    margin-top: var(--space-2xl);
-    border: 1px solid var(--accent);
-    border-radius: var(--radius);
-    padding: var(--space-lg);
-    background: var(--paper-3);
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--space-md);
-  }
-  .edu-pointer__copy { max-width: var(--maxw-prose); }
-  .edu-pointer__eyebrow {
-    color: var(--accent);
-    margin: 0 0 var(--space-2xs);
-  }
-  .edu-pointer h2 { font-size: var(--fs-h3); margin: 0 0 var(--space-2xs); }
-  .edu-pointer p { margin: 0; line-height: var(--lh-base); font-size: var(--fs-small); }
-
-  @media (max-width: 720px) {
-    .howto__steps { grid-template-columns: 1fr; }
-  }
-</style>
+{% pageCss "programs" %}
 
 <div class="container programs-page">
   <div class="programs-lede">
@@ -159,7 +36,7 @@ ogType: website
         <h2 class="pgroup__heading">{{ group.heading }}</h2>
         {% if group.intro %}<p class="pgroup__intro">{{ group.intro }}</p>{% endif %}
       </div>
-      {{ photoFigure(group.photo, "pgroup__photo") }}
+      {% photoFigure group.photo, "pgroup__photo" %}
     </div>
 
     <ul class="pcards">
@@ -167,7 +44,7 @@ ogType: website
       <li{% if card.featured %} class="is-featured"{% endif %}>
         <a class="pcard{% if card.featured %} pcard--featured{% endif %}"{% if card.cta %} href="{{ card.cta.href }}"{% endif %}>
         <h3 class="pcard__title">{{ card.title }}</h3>
-        {% if card.cta %}<span class="pcard__go">{{ card.cta.label }} &rarr;</span>{% endif %}
+        {% if card.cta %}<span class="pcard__go">{{ card.cta.label | arrow | safe }}</span>{% endif %}
         <div class="pcard__spec">
           <p class="pcard__dd">{{ card.body }}</p>
           {% if card.for %}<p class="pcard__dd"><strong>For:</strong> {{ card.for }}</p>{% endif %}
