@@ -78,37 +78,43 @@
 .research .btn--stroke { border-color: var(--paper); color: var(--paper); }
 .research .btn--stroke:hover { background: var(--paper); color: var(--dusk); }
 
-/* Advisory roster — a consistent name index (no toggles). */
-/* Columns, not a grid. Advisory bios run from eight characters to fourteen
-   hundred, and in a grid every row would be as tall as its longest bio,
-   leaving holes beside the short ones. Columns let each entry take exactly
-   the height it needs and flow on. */
+/* Advisory roster — one run of names, set inline like a credits block.
+   Thirty-five of them stacked one per row with a rule under each was a very
+   long ladder for what is really a list of names; flowed as text they take a
+   few lines and read as a body. Each name opens its bio, so the affordance is
+   the help cursor and the hover colour rather than an arrow after every one,
+   which at this count was thirty-five arrows of visual noise. */
 .roster {
-  column-count: 3;
-  column-gap: var(--space-lg);
   margin-top: var(--space-lg);
   list-style: none;
   padding: 0;
+  max-width: var(--maxw-prose);
+  font-size: var(--fs-base);
+  line-height: 2;
 }
-@media (max-width: 900px) { .roster { column-count: 2; } }
-@media (max-width: 600px) { .roster { column-count: 1; } }
-.roster__item {
-  /* Never let an entry split across a column break. */
-  break-inside: avoid;
-  -webkit-column-break-inside: avoid;
-  padding: var(--space-sm) 0;
-  border-bottom: 1px solid var(--line);
+/* nowrap binds each name to the middot that follows it, so the separator can
+   never be the first thing on a line — the break happens in the whitespace
+   between two items instead. Names are short enough that keeping one intact
+   costs nothing. */
+.roster__item { display: inline; white-space: nowrap; }
+.roster__item:not(:last-child)::after {
+  content: "·";
+  /* Only a left margin: the gap on the other side is the whitespace between
+     two <li>s in the markup, which has to stay there as the line's only break
+     opportunity. Matching it here is what keeps the dot optically centred. */
+  margin-left: var(--space-3xs);
+  color: var(--text-faint);
 }
-.roster__item:last-child { border-bottom: 0; }
-@media (max-width: 640px) {
-  .roster { gap: 0; margin-top: var(--space-md); }
-  .roster__item { padding: var(--space-2xs) 0; }
+.roster__name {
+  font-family: var(--font-display);
+  font-weight: var(--fw-semibold);
+  color: var(--ink);
 }
-.roster__name { display: block; font-family: var(--font-display); font-weight: var(--fw-semibold); color: var(--ink); }
-/* A name with a bio behind it is a button, but it has to sit on the same
-   baseline as a name without one — so it keeps the roster's type and only
-   picks up the affordance. */
+/* A name with a bio behind it is a button, but it has to sit in the run of
+   text like any other name — so it keeps the roster's type and inherits the
+   line box, and only picks up the affordance. */
 .roster__name--btn {
+  display: inline;
   font: inherit;
   font-family: var(--font-display);
   font-weight: var(--fw-semibold);
@@ -117,10 +123,11 @@
   border: 0;
   padding: 0;
   text-align: left;
-  cursor: pointer;
-  width: 100%;
+  /* The question mark is the whole affordance now that the arrow is gone. */
+  cursor: help;
 }
-.roster__name--btn::after { content: " \2192"; color: var(--accent); }
+.roster__name--btn:hover { color: var(--accent-deep); text-decoration: underline; text-underline-offset: 3px; }
+.roster__name--btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 .roster__name--btn:hover { color: var(--accent-deep); }
 .roster__name--btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
@@ -170,12 +177,23 @@
 /* Without [popover] the bio is not in the top layer and the attribute is
    ignored, so it renders in the flow — the roster reads as it did before,
    name then bio, and the buttons are inert rather than broken. */
+/* Without [popover] the attribute is ignored and the bio is an ordinary block
+   in the flow, which an inline run of names cannot hold. So the roster drops
+   back to what it was before the popovers: one entry per line, name then bio,
+   with the buttons inert rather than broken. */
 @supports not selector(:popover-open) {
-  .roster__name--btn::after { content: ""; }
-  .roster__bio { width: auto; padding: 0; border: 0; background: none; margin-top: var(--space-3xs); }
+  .roster { line-height: var(--lh-base); max-width: none; column-count: 3; column-gap: var(--space-lg); }
+  .roster__item { display: block; white-space: normal; break-inside: avoid; -webkit-column-break-inside: avoid; padding: var(--space-sm) 0; border-bottom: 1px solid var(--line); }
+  .roster__item:last-child { border-bottom: 0; }
+  .roster__item:not(:last-child)::after { content: none; }
+  .roster__name--btn { display: block; cursor: default; }
+  .roster__name--btn:hover { color: var(--ink); text-decoration: none; }
+  .roster__bio { width: auto; max-height: none; overflow: visible; padding: 0; border: 0; background: none; margin-top: var(--space-3xs); }
   .roster__bio-name { display: none; }
   .roster__bio-text { font-size: var(--fs-small); }
   .roster__close { display: none; }
+  @media (max-width: 900px) { .roster { column-count: 2; } }
+  @media (max-width: 600px) { .roster { column-count: 1; } }
 }
 
 /* Partners and supporters — linked where known, desaturated, larger. */
