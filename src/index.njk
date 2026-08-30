@@ -24,7 +24,7 @@ ogImageAlt: "A rooftop banner reading: what song found you at the right time?"
 {% pageCss "index" %}
 
 {# 1. HERO ——————————————————————————————————————————————————————— #}
-<section class="home-hero">
+<section class="home-hero"{% if settings.hero_mattes | length %} data-hero data-mattes="{{ settings.hero_mattes | join(' ') }}"{% endif %}>
   {% if hero.src %}
   {# The LCP image. A plain <img> rather than a <picture>, because the rotator
      reassigns src/srcset every ten seconds and a <source> would override it.
@@ -32,6 +32,14 @@ ogImageAlt: "A rooftop banner reading: what song found you at the right time?"
      below; a phone was downloading the full 1600px JPEG here, which is what
      put mobile LCP at eight seconds. #}
   {% heroImg hero %}
+  {% endif %}
+  {% if settings.hero_mattes | length %}
+  {# The compositor and the matte it reads. Both are inert until a cut runs:
+     the canvas is `hidden` and neither <video> has a src until the script
+     gives it one, so nothing here costs anything on first paint. #}
+  <canvas class="home-hero__wipe" data-wipe hidden></canvas>
+  <video class="home-hero__matte" data-matte preload="none" muted playsinline aria-hidden="true" tabindex="-1"></video>
+  <video class="home-hero__matte" data-matte preload="none" muted playsinline aria-hidden="true" tabindex="-1"></video>
   {% endif %}
   <div class="home-hero__scrim" aria-hidden="true"></div>
   <div class="home-hero__inner">
@@ -204,4 +212,5 @@ ogImageAlt: "A rooftop banner reading: what song found you at the right time?"
 {%- endif -%}
 {{ spool | dump | safe }}
 </script>
+<script src="/assets/js/wipe.js" defer></script>
 <script src="/assets/js/home.js" defer></script>

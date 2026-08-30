@@ -42,9 +42,15 @@
   }
 
   /* — Hero ————————————————————————————————————————————————————————— *
-   *  Photographs from the archive, cross-fading. Two stacked <img> layers so
-   *  a swap never flashes the background: the incoming frame is only revealed
-   *  once it has decoded. */
+   *  Photographs from the archive. Two stacked <img> layers so a swap never
+   *  flashes the background: the incoming frame is only revealed once it has
+   *  decoded.
+   *
+   *  The cut itself is composited in WebGL through a greyscale film matte
+   *  (assets/js/wipe.js), so the picture arrives in patches from the middle
+   *  outward rather than on a flat opacity ramp. Every failure path — reduced
+   *  motion, no WebGL, a matte that never buffered, a refused play() — lands
+   *  back on the CSS crossfade, which is what the two layers already do. */
   function heroRotator() {
     var photos = pool("hero-pool").filter(function (h) { return h && h.src; });
     var img = document.querySelector(".home-hero__img");
@@ -80,6 +86,69 @@
     front.loading = "lazy";
     back.parentNode.insertBefore(front, back.nextSibling);
 
+    /* -- the matte, one clip at a time ------------------------------------
+     * The set comes from the hero's data-mattes (settings.hero_mattes), so it
+     * can be swapped or extended without touching code. Nothing is fetched on
+     * page load: a clip is armed only once the hero is on screen and the page
+     * has settled, because the hero photograph is the LCP and the matte must
+     * not compete with it. Two <video> elements take turns — while one plays
+     * a cut the next clip loads into the other — so a cut always has a
+     * buffered matte to draw with. */
+    var hero    = document.querySelector("[data-hero]");
+    var canvas  = hero && hero.querySelector("[data-wipe]");
+    var videos  = hero ? [].slice.call(hero.querySelectorAll("[data-matte]")) : [];
+    var mattes  = hero ? (hero.getAttribute("data-mattes") || "").split(/\s+/).filter(Boolean) : [];
+    var wipe    = (window.SoSWipe && canvas && videos.length && mattes.length)
+                    ? window.SoSWipe.make(canvas) : null;
+    var armed   = -1;   // which clip in the set is loaded
+    var slot    = 0;    // which of the two <video> elements holds it
+    var active  = null; // the cut that is running, if any
+
+    function armInto(which) {
+      if (!wipe || !window.SoSWipe.motionAllowed()) return;
+      var n = mattes.length;
+      var i = n === 1 ? 0 : (armed + 1 + Math.floor(Math.random() * (n - 1))) % n;
+      armed = i;
+      var v = videos[which];
+      // preload="none" in the markup keeps the clip off the page load. Once
+      // the hero is on screen the clip has to be buffered rather than merely
+      // addressed: without load() it never reaches readyState 2 and every cut
+      // falls back to the crossfade.
+      v.preload = "auto";
+      v.src = mattes[i];
+      v.load();
+    }
+
+    if (wipe && "IntersectionObserver" in window) {
+      var io = new IntersectionObserver(function (entries) {
+        if (!entries.some(function (e) { return e.isIntersecting; })) return;
+        io.disconnect();
+        var go = function () {
+          if (window.requestIdleCallback) window.requestIdleCallback(function () { armInto(slot); }, { timeout: 2000 });
+          else setTimeout(function () { armInto(slot); }, 500);
+        };
+        if (document.readyState === "complete") go();
+        else window.addEventListener("load", go, { once: true });
+      }, { rootMargin: "0px" });
+      io.observe(hero);
+    }
+
+    /** Hand the layers over: front becomes the visible one. */
+    function settle(next) {
+      var tmp = back; back = front; front = tmp;
+      front.style.opacity = "0";
+      current = next;
+    }
+
+    function rollCredit(next) {
+      if (!credit) return;
+      credit.style.opacity = "0";
+      setTimeout(function () {
+        setCredit(next);
+        credit.style.opacity = "";
+      }, CREDIT_FADE);
+    }
+
     function rotate() {
       if (document.hidden) return;      // don't burn bandwidth on a hidden tab
       var next = pickOther(photos, current);
@@ -88,19 +157,34 @@
       apply(front, next);
 
       function reveal() {
-        front.style.opacity = "1";
-        if (credit) {
-          credit.style.opacity = "0";
-          setTimeout(function () {
-            setCredit(next);
-            credit.style.opacity = "";
-          }, CREDIT_FADE);
+        rollCredit(next);
+
+        var v = videos[slot];
+        if (wipe && wipe.available() && v && v.readyState >= 2) {
+          // A cut still running is photographed and dissolved from, so an
+          // interrupt is continuous rather than a jump.
+          var fromImg = back;
+          if (active) {
+            if (wipe.capture()) fromImg = null;
+            active.stop();
+            active = null;
+          }
+          // Both layers opaque underneath: the canvas is what is seen during
+          // the cut, and when it hides the incoming frame is already there.
+          front.style.opacity = "1";
+          slot = 1 - slot;                       // next cut draws from the other <video>
+          active = wipe.run(v, fromImg, front, function () {
+            active = null;
+            settle(next);
+            armInto(1 - slot);                   // re-arm the one just used
+          });
+          if (active) return;
+          // run() bailed before starting (no size, upload failed): fall through.
         }
-        setTimeout(function () {
-          var tmp = back; back = front; front = tmp;   // front becomes hidden again
-          front.style.opacity = "0";
-          current = next;
-        }, HERO_FADE);
+
+        // No matte: the CSS opacity transition on .home-hero__img does it.
+        front.style.opacity = "1";
+        setTimeout(function () { settle(next); }, HERO_FADE);
       }
 
       if (front.complete) reveal();

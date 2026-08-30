@@ -508,6 +508,7 @@ content:
       - { name: meta_description, label: "SEO: default description", type: text, description: "Fallback search / link-preview text (~150 chars)." }
       - { name: hero_heading, label: Hero heading, type: string }
       - { name: hero_subheading, label: Hero subheading, type: text }
+      - { name: hero_mattes, label: "Hero cut mattes (video paths)", type: string, list: true }
       - name: hero_images
         label: Hero images
         type: object
