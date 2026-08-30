@@ -77,6 +77,24 @@ async function respImage(webSrc, opts = {}) {
 }
 
 module.exports = function (eleventyConfig) {
+
+  /* eleventy-img treats any variant already on disk as done and skips it, and
+     the deploy workflow restores _site/assets/img/opt from a cache across
+     builds. So a single interrupted build leaves a zero-byte file that is
+     never regenerated and never expires — which is what put an empty AVIF in
+     the <picture> for one session card: the browser picked the AVIF source,
+     got nothing, and drew a broken image over a JPEG that was perfectly fine.
+     Empty variants are always wrong, so drop them and let them rebuild. */
+  eleventyConfig.on("eleventy.before", () => {
+    let pruned = 0;
+    try {
+      for (const f of fs.readdirSync(IMG_OUTPUT_DIR)) {
+        const file = path.join(IMG_OUTPUT_DIR, f);
+        if (fs.statSync(file).size === 0) { fs.unlinkSync(file); pruned++; }
+      }
+    } catch (e) { /* dir absent on a clean build — nothing to prune */ }
+    if (pruned) console.log(`[img] pruned ${pruned} zero-byte variant(s); they will be re-encoded`);
+  });
   // static assets + custom-domain file copied straight through
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
   eleventyConfig.addPassthroughCopy({ "src/CNAME": "CNAME" });

@@ -19,14 +19,6 @@
 }
 .sessions-cobrand strong { color: var(--accent); font-weight: var(--fw-regular); }
 
-/* Was a flex toolbar holding the count beside a "Browse by artist" link. The
-   artist index is gone — every card names its artist — so the count is on its
-   own and carries the spacing the toolbar used to. */
-.sessions-count {
-  color: var(--ink-faint);
-  margin: var(--space-md) 0 var(--space-lg);
-}
-
 /* — Section labels — */
 .sessions-section + .sessions-section { margin-top: var(--space-2xl); }
 .sessions-section__label {
