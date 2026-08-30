@@ -113,10 +113,10 @@
   --gutter: clamp(1rem, 4vw, 2.5rem);
 
   /* — UI ————————————————————————————————————————————————————————— *
-   *  One 4px radius across the board (buttons, cards, media). Nothing should
+   *  One 6px radius across the board (buttons, cards, media). Nothing should
    *  hardcode a radius — always var(--radius). */
-  --radius: 4px;
-  --radius-pill: 4px;
+  --radius: 6px;
+  --radius-pill: 6px;
   --header-h: 72px;
   --transition: 0s;            /* hover states change instantly, by design */
   /* Hero scrim + the controls that sit on top of a photo. Channels are kept
