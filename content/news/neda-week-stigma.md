@@ -27,7 +27,7 @@ Racism and white supremacy at the core of the [diet industrial complex](https://
 
 Addressing the pervasive stigma surrounding eating disorders requires a multifaceted approach rooted in education, empathy, and advocacy. Central to this endeavor is the need to debunk common myths and misconceptions, replacing ignorance with informed understanding and compassion. By fostering open dialogue and raising awareness about the complex biological, psychological, and social factors underpinning eating disorders, we can dismantle the walls of stigma and cultivate a culture of acceptance and support.
 
-***–––***
+---
 
 *If you are struggling with an eating disorder, you are not alone. Help is available.*
 
@@ -37,7 +37,7 @@ Addressing the pervasive stigma surrounding eating disorders requires a multifac
 - National Association of Anorexia Nervosa and Associated Disorders (ANAD) Helpline: 1-888-375-7767
 - The National Alliance for Eating Disorders: 866-662-1235⁠ or Text ALLIANCE to 741-741⁠
 
-***–––***
+---
 
 **Saskia Jorgensen** is a Clinical Psychology PhD student at George Washington University and an intern with *Sounds of Saving*.
 

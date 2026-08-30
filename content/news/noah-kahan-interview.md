@@ -94,4 +94,4 @@ While Kahan enjoys “being a passenger in different states” and experiencing 
 
 *Photo by Alyssa Goldberg*
 
-**Alyssa Goldberg** is a writer and photographer living in New York. Read more of her work at [alyssaegoldberg.com](http://alyssaegoldberg.com/) and find her on Twitter [@alyssaegoldberg.](http://twitter.com/@alyssaegoldberg)
+**Alyssa Goldberg** is a writer and photographer living in New York. Read more of her work at [alyssaegoldberg.com](http://alyssaegoldberg.com/) and find her on X [@alyssaegoldberg](https://x.com/alyssaegoldberg).

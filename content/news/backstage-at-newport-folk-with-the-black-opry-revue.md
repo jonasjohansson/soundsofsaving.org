@@ -11,7 +11,7 @@ category: archive
 
 The Black Opry, founded by Holly G in April 2021, evolved from a website and Twitter account celebrating Black performers in country, Americana, folk, and related genres, to become a prominent force of change in the music industry. Currently featured in the Country Music Hall of Fame's exhibition *American Currents: State of the Music 2022,* the organization's national touring showcase has been on the road throughout the year. Sounds of Saving sat down with Black Opry artists Ally Free and Jett Holden ahead of their performance at Newport Folk Festival in late July to talk mental health and the importance of a community that uplifts Black artists in country music.
 
-•••
+---
 
 **SOS:** I wanted to start by hearing a little bit about the both of you. What were your journeys of finding the Black Opry and joining the community? What drew you to it?
 

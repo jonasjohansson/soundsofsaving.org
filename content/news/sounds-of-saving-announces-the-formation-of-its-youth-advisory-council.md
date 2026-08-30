@@ -37,4 +37,4 @@ Applications are due by the end of day on Thursday, June 30. Please apply using 
 
 We look forward to receiving your applications and working with innovative voices in youth mental health! Please contact [info@soundsofsaving.com](mailto:info@soundsofsaving.com) with any questions.
 
-**Keep up with Sounds of Saving:**[Instagram](https://www.instagram.com/soundsofsaving/?hl=en) | [Twitter](https://twitter.com/soundsofsaving) | [TikTok](https://www.tiktok.com/@soundsofsaving) | [Spotify](https://open.spotify.com/user/sxhqjhghjeorulft4ut2kmuwf?si=J5KoqmyRRX-c-mmr_ee2Lg&nd=1) | [YouTube](https://www.youtube.com/channel/UC63jSE75VJoOekg-NdUSXmA)
+**Keep up with Sounds of Saving:** [Instagram](https://www.instagram.com/soundsofsaving/?hl=en) · [X](https://x.com/soundsofsaving) · [TikTok](https://www.tiktok.com/@soundsofsaving) · [Spotify](https://open.spotify.com/user/sxhqjhghjeorulft4ut2kmuwf?si=J5KoqmyRRX-c-mmr_ee2Lg&nd=1) · [YouTube](https://www.youtube.com/channel/UC63jSE75VJoOekg-NdUSXmA)

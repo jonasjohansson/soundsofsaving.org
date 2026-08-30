@@ -55,4 +55,4 @@ The Last Dinner Party will play another sold-out show in New York tonight at Bro
 
 **Keep up with The Last Dinner Party:**
 
-[INSTAGRAM](https://www.instagram.com/thelastdinnerparty/?hl=en) | [TIKTOK](https://www.tiktok.com/@thelastdinnerparty?lang=en) | [TOUR](https://www.thelastdinnerparty.co.uk/#live)
+[Instagram](https://www.instagram.com/thelastdinnerparty/?hl=en) · [TikTok](https://www.tiktok.com/@thelastdinnerparty?lang=en) · [Tour](https://www.thelastdinnerparty.co.uk/#live)

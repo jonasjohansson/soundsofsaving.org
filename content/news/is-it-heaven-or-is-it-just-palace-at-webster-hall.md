@@ -45,4 +45,4 @@ Palace headed to Montreal, Quebec right after the show for their next stop on th
 
 ![](/assets/img/news/is-it-heaven-or-is-it-just-palace-at-webster-hall-3.jpeg)
 
-**Alyssa Goldberg** is a writer and student living in New York. She studies Global Public Health and Applied Psychology at NYU, but you can usually find her at a show in Brooklyn or LES. Her work appears in Teen Vogue, The Lifeline, Washington Square News, Brave Voices Magazine, Pleaser Magazine, and elsewhere. Find her on Twitter @[alyssaegoldberg](https://mobile.twitter.com/alyssaegoldberg) or at [alyssaegoldberg.com](http://alyssaegoldberg.com).
+**Alyssa Goldberg** is a writer and student living in New York. She studies Global Public Health and Applied Psychology at NYU, but you can usually find her at a show in Brooklyn or LES. Her work appears in Teen Vogue, The Lifeline, Washington Square News, Brave Voices Magazine, Pleaser Magazine, and elsewhere. Find her on X [@alyssaegoldberg](https://x.com/alyssaegoldberg) or at [alyssaegoldberg.com](http://alyssaegoldberg.com).

@@ -40,8 +40,8 @@ It's been quite the ride! We have been adjusting well to the tour life!
 
 Doing things like going on runs in the morning or skating around after sound check helps us with our mental health while on tour. Journaling, doodling sketches, and writing songs on the road is something we like to do that also helps! We all like to share fun moments together and joke with each other so it keeps things light and cheerful. When we need alone time we are able to have that as well. I have used virtual therapy like BetterHelp and Backline while on the road as well - and it is always super helpful and nice.
 
-**Keep up with Summer Salt:**[**Website**](https://www.summersalt.band/)**|**[**Instagram**](https://instagram.com/_summer_salt_?utm_medium=copy_link)**|**[**Twitter**](https://twitter.com/summersaltatx?s=21)**|**[**TikTok**](https://vm.tiktok.com/ZTdffEbrA/)
+**Keep up with Summer Salt:** [Website](https://www.summersalt.band/) · [Instagram](https://instagram.com/_summer_salt_?utm_medium=copy_link) · [X](https://x.com/summersaltatx?s=21) · [TikTok](https://vm.tiktok.com/ZTdffEbrA/)
 
 **View tour dates**[**here**](https://www.summersalt.band/tour)**.**
 
-**Alyssa Goldberg** lives in New York and studies Global Public Health and Applied Psychology at NYU. Her work appears in Teen Vogue, The Lifeline, Sounds of Saving, Washington Square News, and Pleaser Magazine. Find her at [alyssaegoldberg.com](http://alyssaegoldberg.com/) or on Twitter @[alyssaegoldberg](https://twitter.com/alyssaegoldberg).
+**Alyssa Goldberg** lives in New York and studies Global Public Health and Applied Psychology at NYU. Her work appears in Teen Vogue, The Lifeline, Sounds of Saving, Washington Square News, and Pleaser Magazine. Find her at [alyssaegoldberg.com](http://alyssaegoldberg.com/) or on X [@alyssaegoldberg](https://x.com/alyssaegoldberg).

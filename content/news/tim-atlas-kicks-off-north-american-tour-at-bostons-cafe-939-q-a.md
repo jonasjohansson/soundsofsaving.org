@@ -56,4 +56,4 @@ New York-based R&B artist Tim Atlas kicked off his tour at the Red Room at Cafe 
 
 *Photo by Alyssa Goldberg*
 
-**KEEP UP WITH TIM ATLAS:**[**INSTAGRAM**](https://www.instagram.com/timothyatlas/?hl=en)**|**[**LISTEN**](https://streaklinks.com/Bpyix6eJSaYem1pRhwbOEHVY/https%3A%2F%2Ftimatlas.ffm.to%2Fseethru)
+**Keep up with Tim Atlas:** [Instagram](https://www.instagram.com/timothyatlas/?hl=en) · [Listen](https://streaklinks.com/Bpyix6eJSaYem1pRhwbOEHVY/https%3A%2F%2Ftimatlas.ffm.to%2Fseethru)

@@ -43,9 +43,9 @@ Another track on *Midnights* that unveils new perspectives on Swift’s mental h
 
 Following the album’s release, fans took to Twitter to share how the songs made them feel seen in their own mental health journeys.
 
-> as someone whose struggled with eating disorders…plural…that cut me so deep. i love that my diary entries come to life in taylors songs. it reminds me to find beauty in that vulnerability.— zoe ☾✶ (@fulcrumsaber) [October 21, 2022](https://twitter.com/fulcrumsaber/status/1583337257867837440?ref_src=twsrc%5Etfw)
+> as someone whose struggled with eating disorders…plural…that cut me so deep. i love that my diary entries come to life in taylors songs. it reminds me to find beauty in that vulnerability.— zoe ☾✶ (@fulcrumsaber) [October 21, 2022](https://x.com/fulcrumsaber/status/1583337257867837440?ref_src=twsrc%5Etfw)
 
-> when taylor referenced her ed I actually spontaneously burst into tears and i’m not even kidding it hit me like a ton of bricks— shannon (eras tour 5/20 and 5/27! ✨) (@holygroundsound) [October 21, 2022](https://twitter.com/holygroundsound/status/1583321678444376065?ref_src=twsrc%5Etfw)
+> when taylor referenced her ed I actually spontaneously burst into tears and i’m not even kidding it hit me like a ton of bricks— shannon (eras tour 5/20 and 5/27! ✨) (@holygroundsound) [October 21, 2022](https://x.com/holygroundsound/status/1583321678444376065?ref_src=twsrc%5Etfw)
 
 [Research](https://www.apa.org/monitor/2022/01/special-kicking-stigma) shows that celebrities opening about their mental health publicly can inspire others to do the same. Not only does this spread awareness, but it helps reduce stigma by showing that even people we look up to can struggle as well. So, if you take the nearly 100,000 fans Swift sings to each night and mix it with her millions of listeners, the impact of her honesty and openness has potential for a major impact.
 

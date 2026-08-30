@@ -106,4 +106,4 @@ cluster: interviews
 
 [Thank God for Mental Illness](https://open.spotify.com/track/1EFC5m5g4HMr51BHVADWQ3)
 
-**Keep up with MOY:** [Instagram](https://www.instagram.com/wearemoy/) | [Mailing List](https://mailchi.mp/54026f8988e3/moy-sign-up)
+**Keep up with MOY:** [Instagram](https://www.instagram.com/wearemoy/) · [Mailing List](https://mailchi.mp/54026f8988e3/moy-sign-up)

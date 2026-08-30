@@ -42,4 +42,4 @@ Shakey was joined by S.G. Goodman, a “Kentucky farmer’s daughter,” who wil
 
 —
 
-**Alyssa Goldberg**writes for *Sounds of Saving*, *The Lifeline*, and other mental health platforms. She lives in New York, where she is currently pursuing a joint B.S. in Global Public Health and Applied Psychology at NYU. You can read more of her work at her website [alyssaegoldberg.com](http://alyssaegoldberg.com/) and find her on Twitter @[alyssaegoldberg](https://twitter.com/alyssaegoldberg).
+**Alyssa Goldberg**writes for *Sounds of Saving*, *The Lifeline*, and other mental health platforms. She lives in New York, where she is currently pursuing a joint B.S. in Global Public Health and Applied Psychology at NYU. You can read more of her work at her website [alyssaegoldberg.com](http://alyssaegoldberg.com/) and find her on X [@alyssaegoldberg](https://x.com/alyssaegoldberg).

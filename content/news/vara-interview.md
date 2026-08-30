@@ -16,7 +16,7 @@ In line with embracing their inner struggles on "paranoia," vara has been embrac
 
 SoS spoke with vara last week on growing up online, exploring their gender identity and coming out as non-binary, and how to make music that pulls on darker emotions without sinking into them entirely.
 
-***
+---
 
 *This interview has been edited for length and clarity.*
 
@@ -72,7 +72,7 @@ Since coming out, it's been a huge trial and error in trying to find ways that p
 
 **vara:** I listen to it a lot now. Not nearly as much as I did back then, but it kind of turned a new leaf for me. Sometimes I'll listen to it and it'll catch me off at the wrong moment and I'm almost transported back to that time. Now, because it's also a very popular song that I hear on TikTok a lot, it's kind of desensitized me a little bit to a lot of the emotions that I attached to that song. So I can either just jam along and sing to it in the car, or I could hear it at 3am and just start sobbing. It's a good song for both.
 
-***
+---
 
 **Keep up with vara:** [Instagram](http://instagram) // [YouTube](https://www.youtube.com/c/VaraGianna) // [TikTok](https://www.tiktok.com/@varagianna)
 

@@ -62,4 +62,4 @@ But on days where the ride won’t stop spinning, she’s leaning on her support
 
 [Kate Yeager - "Fat" (Official Music Video)](https://www.youtube.com/embed/HkT7lyzD1BU)
 
-**KEEP UP WITH KATE YEAGER**[Website](http://www.kateyeagermusic.com/) | [Instagram](https://www.instagram.com/kateyeagermusic/) | [TikTok](https://www.tiktok.com/@kateyeagermusic)
+**Keep up with Kate Yeager:** [Website](http://www.kateyeagermusic.com/) · [Instagram](https://www.instagram.com/kateyeagermusic/) · [TikTok](https://www.tiktok.com/@kateyeagermusic)

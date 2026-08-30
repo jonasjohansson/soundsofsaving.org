@@ -589,7 +589,7 @@ content:
           - { name: youtube, label: YouTube URL, type: string, pattern: '^$|^https?://' }
           - { name: facebook, label: Facebook URL, type: string, pattern: '^$|^https?://' }
           - { name: spotify, label: Spotify URL, type: string, pattern: '^$|^https?://' }
-          - { name: twitter, label: Twitter URL, type: string, pattern: '^$|^https?://' }
+          - { name: twitter, label: X (formerly Twitter) URL, type: string, pattern: '^$|^https?://' }
           - { name: instagram, label: Instagram URL, type: string, pattern: '^$|^https?://' }
       - name: seo
         label: "SEO: per-page descriptions"

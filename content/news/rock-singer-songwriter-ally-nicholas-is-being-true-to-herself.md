@@ -156,4 +156,4 @@ But now that I'm older, it's different. There's a lot more thought. And I try no
 
 **TikTok:**[**@slipknotshortyyy**](https://www.tiktok.com/@slipknotshortyyy)
 
-**Twitter:**[**@slipknotshorty**](https://twitter.com/slipknotshorty)
+**X:**[**@slipknotshorty**](https://x.com/slipknotshorty)

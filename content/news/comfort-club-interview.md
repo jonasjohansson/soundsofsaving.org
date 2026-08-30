@@ -52,6 +52,6 @@ Comfort Club is done holding back. The Los Angeles based indie pop artist recent
 
 Comfort Club’s headlining US tour kicked off in San Diego March 7 and wraps up in New York May 19. See all dates [here](https://www.comfortclubmusic.com/tour).
 
-KEEP UP WITH COMFORT CLUB: [Instagram](https://www.instagram.com/comfortclub/) | [TikTok](https://www.tiktok.com/@comfortclub?is_from_webapp=1&sender_device=pc)
+**Keep up with Comfort Club:** [Instagram](https://www.instagram.com/comfortclub/) · [TikTok](https://www.tiktok.com/@comfortclub?is_from_webapp=1&sender_device=pc)
 
 [If You're Not Next To Me / Try](https://open.spotify.com/album/0wVXHvhTHOpWHLkcRHTLUY)

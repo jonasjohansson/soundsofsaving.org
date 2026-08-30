@@ -12,7 +12,7 @@ Sounds of Saving spoke with the 21-year-old hyperpop artist wsteaway on Friday, 
 
 Diving into the interview, we spoke on their upcoming project with producer Wxmell, creative expression through fearless exploration, and mental health within the hyperpop genre.
 
-•••
+---
 
 *This transcript has been edited for length and clarity.*
 
@@ -114,12 +114,10 @@ Indigo really encompasses the overall vibe of a lot of the topics I talk about a
 
 **W:** I talked about how a lot of my music is about expressing darker things and wanting other people to connect to it. That's really important to me. I've had a few friends and people tell me that they listen to “losing sleep” or even my first song “lonely” and say they’ve cried to it, like so many times. And I'm like, ‘I'm sorry, you're crying’ and like, ‘I'm sorry, you're hurt,’ but I'm glad that my music was something that supported you through those times. People also told me how “losing sleep” is so relatable and that makes me so incredibly happy. It makes me sad at the same time because like other people are, you know, going through these experiences but it's nice to know that my art is something other people can find comfort in. I really hope that this upcoming project can continue that drive and everything else that I write continues to create that space for people. I'm really excited about the album. We're still definitely in the developing stages but Wxmell and I are super focused on getting this project out this year.
 
-•••
+---
 
-Keep up with wsteaway:
+**Keep up with wsteaway:** [Spotify](https://open.spotify.com/artist/4Z6mcA1bh31RCXekBrRi9S?si=7a1Db2F6RXCWRrNtOzb_gA) · [Apple Music](https://music.apple.com/us/artist/wsteaway/1609943488) · [SoundCloud](https://on.soundcloud.com/ZDny) · [Instagram](https://www.instagram.com/wste.away/) · [X](https://x.com/wsteyourself) · [Tumblr](https://wsteaway.tumblr.com/)
 
-[**Spotify**](https://open.spotify.com/artist/4Z6mcA1bh31RCXekBrRi9S?si=7a1Db2F6RXCWRrNtOzb_gA)**|**[**Apple Music**](https://music.apple.com/us/artist/wsteaway/1609943488)**|**[**Soundcloud**](https://on.soundcloud.com/ZDny)**|**[**Instagram**](https://www.instagram.com/wste.away/)**|**[**Twitter**](https://twitter.com/wsteyourself)**|**[**Tumblr**](https://wsteaway.tumblr.com/)
+---
 
-•••
-
-**Alyssa Goldberg** is a writer and photographer living in New York. Read more of her work at [alyssaegoldberg.com](http://alyssaegoldberg.com/) and find her on Twitter [@alyssaegoldberg.](http://twitter.com/@alyssaegoldberg)
+**Alyssa Goldberg** is a writer and photographer living in New York. Read more of her work at [alyssaegoldberg.com](http://alyssaegoldberg.com/) and find her on X [@alyssaegoldberg](https://x.com/alyssaegoldberg).
