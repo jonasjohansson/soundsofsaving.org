@@ -97,10 +97,11 @@ ogImageAlt: "A student performing at a school assembly under the Sounds of Savin
       {% if e.intake.body %}<p>{{ e.intake.body }}</p>{% endif %}
     </div>
 
-    {# Submits via the visitor's email client (mailto). Swap for a hosted form
-       endpoint (Formspree / a serverless handler) routed to a shared programs@
-       alias if a backend is added later. #}
-    <form class="intake-form" id="intake-form">
+    {# Submits via the visitor's email client (mailto), with the address in a
+       data attribute so settings.contact_email is the single source. Swap for
+       a hosted form endpoint (Formspree / a serverless handler) if a backend
+       is added later. #}
+    <form class="intake-form" id="intake-form" data-to="{{ settings.contact_email }}">
       <div class="field">
         <label for="f-name">Name</label>
         <input type="text" id="f-name" name="name" autocomplete="name">
@@ -131,6 +132,8 @@ ogImageAlt: "A student performing at a school assembly under the Sounds of Savin
       </div>
       <div class="intake__submit">
         <button type="submit" class="btn btn--primary">Send</button>
+        {# The real fallback: if the mailto never fires, the address is right here. #}
+        <p class="intake__direct">Or email <a href="mailto:{{ settings.contact_email }}">{{ settings.contact_email }}</a> directly.</p>
       </div>
     </form>
 <script src="/assets/js/educators.js" defer></script>

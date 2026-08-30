@@ -2,8 +2,9 @@
  *  Educators intake form.
  *
  *  There is no hosted form endpoint yet, so the form composes a mailto: with
- *  the fields already filled in. Progressive enhancement: without JS the form
- *  still submits by its own action, and the address is on the page regardless.
+ *  the fields already filled in. The address comes from the form's data-to
+ *  (settings.contact_email), and is printed under the button as well, so the
+ *  page still works with JS off or a mail client that never opens.
  * ==================================================================== */
 (function () {
   "use strict";
@@ -31,8 +32,10 @@
       val("f-message")
     ].join("\n");
 
+    var to = form.getAttribute("data-to");
+    if (!to) return;
     window.location.href =
-      "mailto:programs@soundsofsaving.org?subject=" + encodeURIComponent(subject) +
+      "mailto:" + to + "?subject=" + encodeURIComponent(subject) +
       "&body=" + encodeURIComponent(body);
   });
 })();

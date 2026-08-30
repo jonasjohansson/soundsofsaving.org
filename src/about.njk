@@ -25,7 +25,7 @@ ogImageAlt: "Four young people laughing together in a school gym"
     {% endfor %}
     <p class="about-intro">Follow along on <a href="{{ settings.socials.instagram }}" target="_blank" rel="noopener">Instagram</a> and <a href="{{ settings.socials.facebook }}" target="_blank" rel="noopener">Facebook</a>, where we share new work and post regularly.</p>
     {% if settings.press_kit_url %}
-    <p class="about-intro">Writing about us? The <a href="{{ settings.press_kit_url }}" target="_blank" rel="noopener">press kit</a> has our statement, key facts, selected photography, and the logo. For anything else, email <a href="mailto:programs@soundsofsaving.org">programs@soundsofsaving.org</a>.</p>
+    <p class="about-intro">Writing about us? The <a href="{{ settings.press_kit_url }}" target="_blank" rel="noopener">press kit</a> has our statement, key facts, selected photography, and the logo. For anything else, email <a href="mailto:{{ settings.contact_email }}">{{ settings.contact_email }}</a>.</p>
     {% endif %}
   </div>
   {% photoRow a.photos, true %}

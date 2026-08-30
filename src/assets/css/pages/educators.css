@@ -131,7 +131,9 @@
 .field input:focus,
 .field select:focus,
 .field textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
-.intake__submit { grid-column: 1 / -1; }
+.intake__submit { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--space-sm) var(--space-md); }
+.intake__direct { margin: 0; font-size: var(--fs-small); color: var(--text-muted); }
+.intake__direct a { color: var(--accent-deep); text-decoration: underline; text-underline-offset: 2px; }
 
 @media (max-width: 600px) {
   .intake-form { grid-template-columns: 1fr; }
