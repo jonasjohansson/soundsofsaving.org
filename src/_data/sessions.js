@@ -6,21 +6,19 @@
  *  is built FROM those videos by scripts/parse-sessions.js (which unions
  *  the mirrored landing page's oEmbed cards with the YouTube playlist),
  *  writing one Markdown file per episode into content/sessions/. Editors
- *  then enrich the story via Pages CMS (each save commits the
+ *  Pages CMS edits the frontmatter (each save commits the
  *  file and triggers a rebuild). This data file reads those files and
  *  hands a clean, sorted array to the templates. No service at build time.
  *
- *    content/sessions/*.md         — one file per episode (frontmatter + story)
+ *    content/sessions/*.md         — one file per episode (frontmatter only)
  *    src/assets/img/sessions/*.jpg — YouTube thumbnails (downloaded by parser)
  * ------------------------------------------------------------------ */
 
 const fs = require("fs");
 const path = require("path");
 const matter = require("gray-matter");
-const MarkdownIt = require("markdown-it");
 const { dimsOf, excerptOf, slugify, ymd, youtubeId } = require("../../lib/content");
 
-const md = new MarkdownIt({ html: false, linkify: true, typographer: true });
 const CONTENT = path.join(__dirname, "..", "..", "content", "sessions");
 
 module.exports = function () {
@@ -34,7 +32,6 @@ module.exports = function () {
       const d = g.data || {};
       const slug = f.replace(/\.md$/, "") || slugify(`${d.artist} ${d.song_title}`);
       const id = youtubeId(d.youtube_id || d.youtube_url || "");
-      const story = (g.content || "").trim();
       const thumbnail = d.thumbnail || (id ? `/assets/img/sessions/${id}.jpg` : "");
       const artist = (d.artist || "").trim();
       const song_title = (d.song_title || "").trim();
@@ -69,9 +66,7 @@ module.exports = function () {
         thumbnail,
         dims: dimsOf(thumbnail),
         featured: d.featured === true || d.featured === "true",
-        story,
-        storyHtml: story ? md.render(story) : "",
-        excerpt: excerptOf(story || metaArtist),
+        excerpt: excerptOf(metaArtist),
       };
     })
     .filter((s) => s.artist || s.song_title);

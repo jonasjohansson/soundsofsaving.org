@@ -4,21 +4,19 @@
  *  The series lives as a YouTube playlist, not as site pages, so the
  *  collection is built FROM the playlist by scripts/parse-songs.js, which
  *  writes one Markdown file per episode into content/songs/. Editors then
- *  enrich the story via Pages CMS (each save commits the file and
+ *  Pages CMS edits the frontmatter (each save commits the file and
  *  triggers a rebuild). This data file reads those files and hands a clean
  *  array to the templates. No external service at build time.
  *
- *    content/songs/*.md        — one file per episode (frontmatter + story)
+ *    content/songs/*.md        — one file per episode (frontmatter only)
  *    src/assets/img/songs/*.jpg — YouTube thumbnails (downloaded by parser)
  * ------------------------------------------------------------------ */
 
 const fs = require("fs");
 const path = require("path");
 const matter = require("gray-matter");
-const MarkdownIt = require("markdown-it");
 const { dimsOf, excerptOf, slugify, ymd, youtubeId } = require("../../lib/content");
 
-const md = new MarkdownIt({ html: false, linkify: true, typographer: true });
 const CONTENT = path.join(__dirname, "..", "..", "content", "songs");
 
 module.exports = function () {
@@ -32,7 +30,6 @@ module.exports = function () {
       const d = g.data || {};
       const slug = f.replace(/\.md$/, "") || slugify(`${d.artist} ${d.song_title}`);
       const id = youtubeId(d.youtube_id || d.youtube_url || "");
-      const story = (g.content || "").trim();
       const thumbnail = d.thumbnail || (id ? `/assets/img/songs/${id}.jpg` : "");
       const artist = (d.artist || "").trim();
       const song_title = (d.song_title || "").trim();
@@ -50,9 +47,7 @@ module.exports = function () {
         thumbnail,
         dims: dimsOf(thumbnail),
         featured: d.featured === true || d.featured === "true",
-        story,
-        storyHtml: story ? md.render(story) : "",
-        excerpt: excerptOf(story || (song_title ? `${artist} performs ${song_title}.` : artist)),
+        excerpt: excerptOf((song_title ? `${artist} performs ${song_title}.` : artist)),
       };
     })
     .filter((s) => s.artist || s.song_title);

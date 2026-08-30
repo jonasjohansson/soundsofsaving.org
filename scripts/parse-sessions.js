@@ -17,8 +17,8 @@
  *  this script is the deterministic, re-runnable build step over it.
  *
  *  Re-runnable: only writes a .md if it does not already exist, so any
- *  a CMS-authored story is never clobbered. Pass --force to rewrite
- *  frontmatter while preserving the existing body.
+ *  an existing file is never overwritten. Pass --force to rewrite
+ *  frontmatter.
  *  Thumbnails are only downloaded when missing (needs network for new
  *  ids); pass --no-download to skip the network entirely.
  * ------------------------------------------------------------------ */
@@ -128,12 +128,9 @@ async function main() {
       failures.push(`${id} "${artist}" — thumbnail missing on disk`);
     }
 
-    // never clobber a CMS-authored body
     const mdPath = path.join(OUT_DIR, `${slug}.md`);
-    let existingStory = "";
     if (fs.existsSync(mdPath)) {
       const g = matter(fs.readFileSync(mdPath, "utf8"));
-      existingStory = (g.content || "").trim();
       if (!FORCE) {
         written.push({ slug, id, artist, song_title, kept: true });
         continue;
@@ -152,7 +149,7 @@ async function main() {
       featured: FEATURED.has(id),
     };
 
-    const md = matter.stringify("\n" + existingStory + "\n", ordered);
+    const md = matter.stringify("", ordered);
     fs.writeFileSync(mdPath, md);
     written.push({ slug, id, artist, song_title });
   }

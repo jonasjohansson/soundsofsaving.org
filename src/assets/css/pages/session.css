@@ -27,8 +27,6 @@
 }
 .session-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
 
-.session-body { max-width: var(--maxw-prose); }
-
 /* Song metadata, integrated under the title (replaces the aside card). */
 .session-meta {
   display: flex;
@@ -43,8 +41,6 @@
 }
 .session-meta dd { margin: 0; font-family: var(--font-body); color: var(--text); }
 
-.session-story { font-family: var(--font-body); font-size: var(--fs-base); line-height: var(--lh-base); color: var(--text); }
-.session-story p { margin: 0 0 var(--space-sm); }
 /* "Watch" is the fourth meta column now, so it takes the body face of the
    values beside it rather than the mono of a standalone link. */
 .session-meta .session-watch { color: var(--accent); text-decoration: none; }

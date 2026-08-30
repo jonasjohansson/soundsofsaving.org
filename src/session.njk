@@ -41,12 +41,6 @@ eleventyComputed:
       allowfullscreen></iframe>
   </div>
   {% endif %}
-
-  {% if session.storyHtml %}
-  <div class="session-body">
-    {% if session.storyHtml %}<div class="session-story prose">{{ session.storyHtml | safe }}</div>{% endif %}
-  </div>
-  {% endif %}
 </article>
 
 <script type="application/ld+json">
