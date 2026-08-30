@@ -24,7 +24,7 @@
   --ink-muted:    #46413a;   /* secondary text (AA on bone) */
   --ink-faint:    #655f57;   /* tertiary / fine print (AA on every tinted ground) */
 
-  --accent:       #1e3ae6;   /* electric blue — default (home + Get Help) */
+  --accent:       #1e3ae6;   /* electric blue — default (home) */
   --accent-deep:  color-mix(in srgb, var(--accent), #000 24%);  /* auto hover/pressed shade */
   /* Lightened accent for dark surfaces. 32% is the floor: below it the
      deepest section accent (--accent-resources) drops under 4.5:1 on --dusk
@@ -41,6 +41,7 @@
   --accent-stories:   #6d3bbf;   /* violet   — stories */
   --accent-about:     #a8323a;   /* crimson  — about */
   --accent-resources: #2e4374;   /* deep calm blue — Get Help / resources */
+  --accent-support:   #0d5c5c;   /* deep teal — support / donate */
 
   /* near-black dark surface for hero overlay + quote bands */
   --dusk:         #14110d;

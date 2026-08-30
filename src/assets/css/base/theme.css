@@ -25,3 +25,10 @@
 [data-section="stories"]   { --accent: var(--accent-stories); }
 [data-section="about"]     { --accent: var(--accent-about); }
 [data-section="resources"] { --accent: var(--accent-resources); }
+/* Support was the one section with no entry here, so it fell through to the
+   :root default and rendered in the home page's blue — reading as an extension
+   of the landing page rather than as the place that asks people for money.
+   Teal was chosen over a warmer gold because the palette is otherwise clean
+   jewel tones and a brass sat muddy among them; it is ΔE 9.1 from the nearest
+   accent (programs), further apart than educators and about already are. */
+[data-section="support"]   { --accent: var(--accent-support); }
