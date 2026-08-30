@@ -551,15 +551,6 @@ content:
         fields:
           - { name: label, label: Label, type: string }
           - { name: url, label: URL, type: string }
-      - name: crisis_line
-        label: Crisis line
-        type: object
-        fields:
-          - { name: name, label: Name, type: string }
-          - { name: intro, label: Intro, type: text }
-          - { name: phone, label: Phone, type: string }
-          - { name: url, label: URL, type: string }
-          - { name: action, label: Action label, type: string }
       - name: socials
         label: Social links
         type: object
