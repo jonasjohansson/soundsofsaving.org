@@ -22,7 +22,20 @@
   --paper-3: color-mix(in srgb, var(--accent) 12%, var(--paper));
   --line:    color-mix(in srgb, var(--accent) 14%, #cfc8b8);
 }
-[data-section="home"]      { --accent: var(--accent-home); }
+/* The home page claims no colour of its own. Every coloured thing on it
+   already borrows from where it sends you — the three "what we do" cards take
+   their destination's accent, the Stories block carries data-section="stories"
+   — so a seventh accent for the hub itself only made the one page that should
+   feel like clean paper the coldest on the site: blue is the only accent whose
+   wash cancels the paper's warmth, measured at R-B +6 against +10 to +19
+   everywhere else. Surfaces here stay the untinted bone. */
+[data-section="home"] {
+  --accent:  var(--ink);
+  --bg:      var(--paper);
+  --bg-alt:  var(--paper-2);
+  --paper-3: #dad3c1;
+  --line:    #cfc8b8;
+}
 [data-section="sessions"]  { --accent: var(--accent-sessions); }
 [data-section="programs"]  { --accent: var(--accent-programs); }
 [data-section="educators"] { --accent: var(--accent-educators); }

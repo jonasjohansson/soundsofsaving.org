@@ -78,7 +78,8 @@
    Gallery). It carries the arrow, so it must not also carry link colour or an
    underline — it still has to read as the heading it is. */
 .home-head__title a { color: inherit; text-decoration: none; }
-.home-head__title a:hover { color: var(--accent); }
+/* Home has no accent to shift to, so the hover is an underline instead. */
+.home-head__title a:hover { text-decoration: underline; text-underline-offset: 4px; }
 .home-head__intro { font-size: var(--fs-lead); line-height: var(--lh-base); color: var(--text-muted); margin: var(--space-sm) 0 0; }
 .home-more {
   display: inline-block;
@@ -124,8 +125,19 @@
 .home-gift-band .home-head__title { color: var(--on-dark); }
 .home-gift-band .home-head__intro { color: var(--paper-2); }
 .home-gift-band .home-gift__use { border-top-color: var(--dusk-2); }
-/* On the dark band the section accent only reaches 4.33:1 — below AA. The
-   lightened derivative clears it, which is what --accent-bright is for. */
+/* The gift band borrows Support's teal, because that is where its buttons go —
+   the same rule the three "what we do" cards follow. On the dark band a raw
+   accent only reaches 4.33:1, below AA; the lightened derivative clears it,
+   which is what --accent-bright is for. */
+.home-gift-band {
+  --accent: var(--accent-support);
+  /* --accent-deep and --accent-bright are derived up on [data-section], so
+     they were already resolved from the page accent before this override was
+     seen. Re-derive them here or the band lights itself from home's neutral
+     ink and the headings drop to 2.9:1 on the dark ground. */
+  --accent-deep:   color-mix(in srgb, var(--accent), #000 24%);
+  --accent-bright: color-mix(in srgb, var(--accent), #fff 32%);
+}
 .home-gift-band .home-gift__use b { color: var(--accent-bright); }
 .home-gift-band .home-gift__use p { color: var(--paper-2); }
 .home-gift-band .btn--primary { background: var(--paper); color: var(--dusk); }
